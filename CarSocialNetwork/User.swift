@@ -1,22 +1,22 @@
 //
-//  User.swift
+//  user.swift
 //  CarSocialNetwork
 //
-//  Created by Marco Aurelio Dias Americo on 8/11/16.
+//  Created by Marco Aurelio Dias Americo on 8/30/16.
 //  Copyright © 2016 CarSocial. All rights reserved.
 //
 
 import Parse
 
 class User: PFObject, PFSubclassing {
-    @NSManaged var username: String!
-    @NSManaged var password: String!
-    @NSManaged var email: String!
-    @NSManaged var profilephoto: PFFile!
-    @NSManaged var profilephotoNormal: PFFile!
     
+    @NSManaged var username: String
+    @NSManaged var profileImage: PFFile
+    @NSManaged var thumbImage: PFFile
+    @NSManaged var car: Car
+    
+    //TODO VER NOME CORRETO
     static func parseClassName() -> String {
         return "_User"
     }
-    
 }
