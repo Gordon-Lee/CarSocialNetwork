@@ -50,7 +50,6 @@
         <!--View Controller-->
         <scene sceneID="BKE-lT-PG4">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZHo-UN-30z" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="z0J-Oo-p5h" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="I58-Gr-z6W"/>
@@ -62,9 +61,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="home" selectedImage="home" id="q0T-Yx-Taq">
-                        <inset key="imageInsets" minX="0.0" minY="4" maxX="0.0" maxY="-3"/>
+                        <inset key="imageInsets" minX="-1" minY="4" maxX="-2" maxY="-5"/>
                     </tabBarItem>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZHo-UN-30z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="803" y="775"/>
         </scene>
@@ -103,7 +103,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="camera" id="TEY-xt-MEa">
-                        <inset key="imageInsets" minX="0.0" minY="4" maxX="0.0" maxY="-3"/>
+                        <inset key="imageInsets" minX="-2" minY="4" maxX="-4" maxY="-5"/>
                     </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IJK-TT-kEE" userLabel="First Responder" sceneMemberID="firstResponder"/>
