@@ -7,21 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B1BAA72DEA1F7598916DE58 /* Pods_CarSocialNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99FD3D2E6D198E7438282593 /* Pods_CarSocialNetwork.framework */; };
 		A9E4D6BD1D5D32CF00FD6873 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4D6BC1D5D32CF00FD6873 /* AppDelegate.swift */; };
-		A9E4D6BF1D5D32CF00FD6873 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4D6BE1D5D32CF00FD6873 /* ViewController.swift */; };
 		A9E4D6C21D5D32CF00FD6873 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E4D6C01D5D32CF00FD6873 /* Main.storyboard */; };
 		A9E4D6C41D5D32CF00FD6873 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9E4D6C31D5D32CF00FD6873 /* Assets.xcassets */; };
 		A9E4D6C71D5D32CF00FD6873 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E4D6C51D5D32CF00FD6873 /* LaunchScreen.storyboard */; };
+		A9E4D6D41D5D3B8D00FD6873 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E4D6D31D5D3B8D00FD6873 /* Parse.framework */; };
+		A9E4D6D61D5D3C1F00FD6873 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4D6D51D5D3C1F00FD6873 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B02B8E240BA6D7EB0A5738F /* Pods-CarSocialNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarSocialNetwork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarSocialNetwork/Pods-CarSocialNetwork.debug.xcconfig"; sourceTree = "<group>"; };
+		73D55C1859FEA03B5279E99E /* Pods-CarSocialNetwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarSocialNetwork.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarSocialNetwork/Pods-CarSocialNetwork.release.xcconfig"; sourceTree = "<group>"; };
+		99FD3D2E6D198E7438282593 /* Pods_CarSocialNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarSocialNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9E4D6B91D5D32CF00FD6873 /* CarSocialNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarSocialNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9E4D6BC1D5D32CF00FD6873 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A9E4D6BE1D5D32CF00FD6873 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A9E4D6C11D5D32CF00FD6873 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A9E4D6C31D5D32CF00FD6873 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9E4D6C61D5D32CF00FD6873 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A9E4D6C81D5D32CF00FD6873 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9E4D6D31D5D3B8D00FD6873 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "Pods/../build/Debug-iphoneos/Parse.framework"; sourceTree = "<group>"; };
+		A9E4D6D51D5D3C1F00FD6873 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9E4D6D41D5D3B8D00FD6873 /* Parse.framework in Frameworks */,
+				3B1BAA72DEA1F7598916DE58 /* Pods_CarSocialNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		71E61D4A56B614CA355A389B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A9E4D6D31D5D3B8D00FD6873 /* Parse.framework */,
+				99FD3D2E6D198E7438282593 /* Pods_CarSocialNetwork.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A9E4D6B01D5D32CF00FD6873 = {
 			isa = PBXGroup;
 			children = (
 				A9E4D6BB1D5D32CF00FD6873 /* CarSocialNetwork */,
 				A9E4D6BA1D5D32CF00FD6873 /* Products */,
+				ED360F0528030C5DF9D990AD /* Pods */,
+				71E61D4A56B614CA355A389B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +73,63 @@
 		A9E4D6BB1D5D32CF00FD6873 /* CarSocialNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				A9E4D6BC1D5D32CF00FD6873 /* AppDelegate.swift */,
-				A9E4D6BE1D5D32CF00FD6873 /* ViewController.swift */,
-				A9E4D6C01D5D32CF00FD6873 /* Main.storyboard */,
-				A9E4D6C31D5D32CF00FD6873 /* Assets.xcassets */,
-				A9E4D6C51D5D32CF00FD6873 /* LaunchScreen.storyboard */,
-				A9E4D6C81D5D32CF00FD6873 /* Info.plist */,
+				A9E4D6D01D5D3AA500FD6873 /* View */,
+				A9E4D6CE1D5D3A8400FD6873 /* Controllers */,
+				A9E4D6CF1D5D3A8E00FD6873 /* Model */,
+				A9E4D6D21D5D3AD300FD6873 /* System Resources */,
+				A9E4D6D11D5D3AB000FD6873 /* Util */,
 			);
 			path = CarSocialNetwork;
+			sourceTree = "<group>";
+		};
+		A9E4D6CE1D5D3A8400FD6873 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		A9E4D6CF1D5D3A8E00FD6873 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A9E4D6D51D5D3C1F00FD6873 /* User.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A9E4D6D01D5D3AA500FD6873 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A9E4D6C51D5D32CF00FD6873 /* LaunchScreen.storyboard */,
+				A9E4D6C01D5D32CF00FD6873 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		A9E4D6D11D5D3AB000FD6873 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		A9E4D6D21D5D3AD300FD6873 /* System Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A9E4D6C31D5D32CF00FD6873 /* Assets.xcassets */,
+				A9E4D6BC1D5D32CF00FD6873 /* AppDelegate.swift */,
+				A9E4D6C81D5D32CF00FD6873 /* Info.plist */,
+			);
+			name = "System Resources";
+			sourceTree = "<group>";
+		};
+		ED360F0528030C5DF9D990AD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6B02B8E240BA6D7EB0A5738F /* Pods-CarSocialNetwork.debug.xcconfig */,
+				73D55C1859FEA03B5279E99E /* Pods-CarSocialNetwork.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +139,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9E4D6CB1D5D32CF00FD6873 /* Build configuration list for PBXNativeTarget "CarSocialNetwork" */;
 			buildPhases = (
+				0C78C93DB328A6D4490C35F4 /* Check Pods Manifest.lock */,
 				A9E4D6B51D5D32CF00FD6873 /* Sources */,
 				A9E4D6B61D5D32CF00FD6873 /* Frameworks */,
 				A9E4D6B71D5D32CF00FD6873 /* Resources */,
+				45EEBAA0248A32B4F3FE906D /* Embed Pods Frameworks */,
+				4AB36EAE74C66156F5DD7AB5 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,12 +201,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0C78C93DB328A6D4490C35F4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		45EEBAA0248A32B4F3FE906D /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CarSocialNetwork/Pods-CarSocialNetwork-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4AB36EAE74C66156F5DD7AB5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CarSocialNetwork/Pods-CarSocialNetwork-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A9E4D6B51D5D32CF00FD6873 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9E4D6BF1D5D32CF00FD6873 /* ViewController.swift in Sources */,
+				A9E4D6D61D5D3C1F00FD6873 /* User.swift in Sources */,
 				A9E4D6BD1D5D32CF00FD6873 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,8 +366,13 @@
 		};
 		A9E4D6CC1D5D32CF00FD6873 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B02B8E240BA6D7EB0A5738F /* Pods-CarSocialNetwork.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = CarSocialNetwork/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = car.CarSocialNetwork;
@@ -258,8 +382,13 @@
 		};
 		A9E4D6CD1D5D32CF00FD6873 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 73D55C1859FEA03B5279E99E /* Pods-CarSocialNetwork.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = CarSocialNetwork/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = car.CarSocialNetwork;
@@ -286,6 +415,7 @@
 				A9E4D6CD1D5D32CF00FD6873 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,0 +1,6 @@
+framework module Pods_CarSocialNetwork {
+  umbrella header "Pods-CarSocialNetwork-umbrella.h"
+
+  export *
+  module * { export * }
+}
