@@ -17,6 +17,6 @@ class User: PFObject, PFSubclassing {
     
     //TODO VER NOME CORRETO
     static func parseClassName() -> String {
-        return "_User"
+        return "User"
     }
 }

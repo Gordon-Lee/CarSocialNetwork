@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="t3J-qK-X9z">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
@@ -24,7 +23,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0tG-ba-NzX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="789" y="50"/>
+            <point key="canvasLocation" x="849" y="1354"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="3nn-1E-802">
@@ -45,12 +44,12 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nUl-cW-uzb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="48" y="775"/>
+            <point key="canvasLocation" x="48" y="768"/>
         </scene>
-        <!--View Controller-->
+        <!--Home-->
         <scene sceneID="BKE-lT-PG4">
             <objects>
-                <viewController id="z0J-Oo-p5h" sceneMemberID="viewController">
+                <viewController title="Home" id="z0J-Oo-p5h" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="I58-Gr-z6W"/>
                         <viewControllerLayoutGuide type="bottom" id="nVy-M8-UXI"/>
@@ -58,7 +57,7 @@
                     <view key="view" contentMode="scaleToFill" id="fCX-eJ-GFt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.12941176469999999" green="0.1215686275" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="home" selectedImage="home" id="q0T-Yx-Taq">
                         <inset key="imageInsets" minX="-1" minY="4" maxX="-2" maxY="-5"/>
@@ -66,7 +65,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZHo-UN-30z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="803" y="775"/>
+            <point key="canvasLocation" x="849" y="-798"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="5FD-Qu-iIB">
@@ -87,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DAW-2O-ZCp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="768" y="1547"/>
+            <point key="canvasLocation" x="849" y="-101"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="NYz-S7-PEv">
@@ -108,7 +107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IJK-TT-kEE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="48" y="1547"/>
+            <point key="canvasLocation" x="849" y="627"/>
         </scene>
     </scenes>
     <resources>

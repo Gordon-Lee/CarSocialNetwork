@@ -8,7 +8,7 @@
 
 import Parse
 
-class Event: PFObject, PFSubclassing {
+class Events: PFObject, PFSubclassing {
     
     @NSManaged var onwer: User
     @NSManaged var name: String
@@ -17,6 +17,6 @@ class Event: PFObject, PFSubclassing {
     @NSManaged var image: PFFile
     
     static func parseClassName() -> String {
-        return "Event"
+        return "Events"
     }
 }
