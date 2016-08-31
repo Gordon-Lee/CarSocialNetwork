@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Profile-->
         <scene sceneID="eOV-9V-sJP">
             <objects>
-                <viewController id="jcN-ec-O3H" sceneMemberID="viewController">
+                <viewController title="Profile" id="jcN-ec-O3H" customClass="ProfileViewController" customModule="CarSocialNetwork" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eCW-e2-670"/>
                         <viewControllerLayoutGuide type="bottom" id="fFF-mu-svf"/>
@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="849" y="1354"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--HomePage-->
         <scene sceneID="3nn-1E-802">
             <objects>
-                <tabBarController id="t3J-qK-X9z" sceneMemberID="viewController">
+                <tabBarController title="HomePage" id="t3J-qK-X9z" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="lw6-Sn-zjA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -49,15 +49,15 @@
         <!--Home-->
         <scene sceneID="BKE-lT-PG4">
             <objects>
-                <viewController title="Home" id="z0J-Oo-p5h" sceneMemberID="viewController">
+                <viewController title="Home" id="z0J-Oo-p5h" customClass="HomeViewController" customModule="CarSocialNetwork" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="I58-Gr-z6W"/>
                         <viewControllerLayoutGuide type="bottom" id="nVy-M8-UXI"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fCX-eJ-GFt">
+                    <view key="view" contentMode="scaleToFill" id="fCX-eJ-GFt" customClass="Home">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.12941176469999999" green="0.1215686275" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.99786184209999995" green="0.99786184209999995" blue="0.99786184209999995" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="home" selectedImage="home" id="q0T-Yx-Taq">
                         <inset key="imageInsets" minX="-1" minY="4" maxX="-2" maxY="-5"/>
@@ -67,10 +67,10 @@
             </objects>
             <point key="canvasLocation" x="849" y="-798"/>
         </scene>
-        <!--View Controller-->
+        <!--Search-->
         <scene sceneID="5FD-Qu-iIB">
             <objects>
-                <viewController id="dBQ-uD-0Q8" sceneMemberID="viewController">
+                <viewController title="Search" id="dBQ-uD-0Q8" customClass="SearchViewController" customModule="CarSocialNetwork" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yce-G4-Jp2"/>
                         <viewControllerLayoutGuide type="bottom" id="9db-HC-Pgx"/>
@@ -81,17 +81,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="search" id="dUx-7B-Ktb">
-                        <inset key="imageInsets" minX="0.0" minY="4" maxX="0.0" maxY="-3"/>
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-4"/>
                     </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DAW-2O-ZCp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="849" y="-101"/>
         </scene>
-        <!--View Controller-->
+        <!--Photo-->
         <scene sceneID="NYz-S7-PEv">
             <objects>
-                <viewController id="Gt3-DT-lx1" sceneMemberID="viewController">
+                <viewController title="Photo" id="Gt3-DT-lx1" customClass="PostViewController" customModule="CarSocialNetwork" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iTm-fC-pxI"/>
                         <viewControllerLayoutGuide type="bottom" id="G11-DG-bNU"/>
@@ -102,7 +102,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="camera" id="TEY-xt-MEa">
-                        <inset key="imageInsets" minX="-2" minY="4" maxX="-4" maxY="-5"/>
+                        <inset key="imageInsets" minX="-3" minY="4" maxX="-3" maxY="-7"/>
                     </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IJK-TT-kEE" userLabel="First Responder" sceneMemberID="firstResponder"/>

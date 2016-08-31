@@ -11,6 +11,8 @@ import Parse
 class User: PFObject, PFSubclassing {
     
     @NSManaged var username: String
+    @NSManaged var password: String
+    @NSManaged var email: String
     @NSManaged var profileImage: PFFile
     @NSManaged var thumbImage: PFFile
     @NSManaged var car: Car

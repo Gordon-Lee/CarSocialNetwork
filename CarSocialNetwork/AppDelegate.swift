@@ -37,16 +37,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
     }
     
-    // MARK: Backend FUNCS
-    private func configureParse(){
-        
+    private func configureParse() {
         Parse.setApplicationId("kByO4d8lpQ0ZtL6O5Aql0NctUpz8UOCA5W246HQv", clientKey: "3Gk9I2vhUReAcTrGZwDaJWCVaDW0OXwVKXWYHoGv")
-        //Register SubClass
-        //User.registerSubclass()
-//        Activity.registerSubclass()
-//        Car.registerSubclass()
-//        Photo.registerSubclass()
-//        Events.registerSubclass()
+        
+        User.registerSubclass()
+        Activity.registerSubclass()
+        Car.registerSubclass()
+        Photo.registerSubclass()
+        Events.registerSubclass()
+    }
+    
+    private func setIncialStoryBoard() {
         
     }
 }
