@@ -14,6 +14,7 @@ class Photo: PFObject, PFSubclassing {
     @NSManaged var image: PFFile
     @NSManaged var thumbImage: PFFile
     
+    
     static func parseClassName() -> String {
         return "Photo"
     }
