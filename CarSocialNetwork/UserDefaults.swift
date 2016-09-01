@@ -27,6 +27,7 @@ class UserDefaults {
     
     init() {
         nsDefaults = NSUserDefaults.standardUserDefaults()
+        nsDefaults.setBool(true, forKey: DataUserDefaults.autoLogin)
     }
     
     

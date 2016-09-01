@@ -11,13 +11,16 @@ import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
+    private let loginSBIdentifier = "LoginStory"
+    private let homePageIdentifier = "HomePage"
     var window: UIWindow?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         configureParse()
+        setIncialStoryBoard()
         
         return true
     }
@@ -48,7 +51,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func setIncialStoryBoard() {
+     
+        if UserDefaults.sharedInstance.login() || UserDefaults.sharedInstance.autoLogin() {
+            print(UserDefaults.sharedInstance.autoLogin())
+            goToStoryBoard(homePageIdentifier)
+        } else {
+            goToStoryBoard(loginSBIdentifier)
+        }
+    }
+    private func goToStoryBoard(initialSb: String) {
+    
         
+        let sb = UIStoryboard(name: initialSb, bundle: NSBundle.mainBundle())
+        let vc = sb.instantiateInitialViewController()
+        window?.rootViewController = vc
+       
     }
 }
 
