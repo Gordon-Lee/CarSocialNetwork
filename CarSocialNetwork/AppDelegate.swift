@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private let homePageIdentifier = "HomePage"
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         configureParse()
@@ -52,13 +51,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setIncialStoryBoard() {
      
-        if UserDefaults.sharedInstance.login() || UserDefaults.sharedInstance.autoLogin() {
-            print(UserDefaults.sharedInstance.autoLogin())
-            goToStoryBoard(homePageIdentifier)
-        } else {
-            goToStoryBoard(loginSBIdentifier)
-        }
+        goToStoryBoard(homePageIdentifier)
+        
+//        if UserDefaults.sharedInstance.login() && UserDefaults.sharedInstance.autoLogin() {
+//            UserDefaults.sharedInstance.setAutoLogin(true)
+//            
+//            
+//        } else {
+//            goToStoryBoard(loginSBIdentifier)
+//        }
     }
+    
     private func goToStoryBoard(initialSb: String) {
     
         

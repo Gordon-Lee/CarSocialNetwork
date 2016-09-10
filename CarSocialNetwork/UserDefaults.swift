@@ -27,7 +27,7 @@ class UserDefaults {
     
     init() {
         nsDefaults = NSUserDefaults.standardUserDefaults()
-        nsDefaults.setBool(true, forKey: DataUserDefaults.autoLogin)
+        nsDefaults.setBool(false, forKey: DataUserDefaults.autoLogin)
     }
     
     
@@ -47,5 +47,9 @@ class UserDefaults {
     
     internal func autoLogin() -> Bool {
         return nsDefaults.boolForKey(DataUserDefaults.autoLogin)
+    }
+    
+    internal func setAutoLogin(autoLogin: Bool) {
+        nsDefaults.setBool(autoLogin, forKey: DataUserDefaults.autoLogin)
     }
 }

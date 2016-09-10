@@ -17,7 +17,13 @@ class User: PFObject, PFSubclassing {
     @NSManaged var thumbImage: PFFile
     @NSManaged var car: Car
     
-    //TODO VER NOME CORRETO
+    init(username: String, password: String, email: String) {
+        super.init()
+        self.email = email
+        self.username = username
+        self.password = password
+    }
+
     static func parseClassName() -> String {
         return "User"
     }

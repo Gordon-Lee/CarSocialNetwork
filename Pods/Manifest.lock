@@ -1,10 +1,12 @@
 PODS:
   - Bolts/Tasks (1.8.4)
+  - Fusuma (0.5.3)
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
   - SVProgressHUD (2.0.3)
 
 DEPENDENCIES:
+  - Fusuma
   - Parse
   - SVProgressHUD (from `https://github.com/SVProgressHUD/SVProgressHUD.git`)
 
@@ -19,6 +21,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  Fusuma: 02ffb3a9943792519f2c0972263b750acb550a49
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
 

@@ -85,11 +85,13 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-CarSocialNetwork/Bolts.framework"
+  install_framework "Pods-CarSocialNetwork/Fusuma.framework"
   install_framework "Pods-CarSocialNetwork/Parse.framework"
   install_framework "Pods-CarSocialNetwork/SVProgressHUD.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-CarSocialNetwork/Bolts.framework"
+  install_framework "Pods-CarSocialNetwork/Fusuma.framework"
   install_framework "Pods-CarSocialNetwork/Parse.framework"
   install_framework "Pods-CarSocialNetwork/SVProgressHUD.framework"
 fi

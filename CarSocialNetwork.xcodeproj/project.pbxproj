@@ -21,6 +21,8 @@
 		A97784ED1D77B6BB006A756E /* tabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97784EC1D77B6BB006A756E /* tabBar.swift */; };
 		A97784EF1D77B9FA006A756E /* LoginStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97784EE1D77B9FA006A756E /* LoginStory.storyboard */; };
 		A99050201D75D4D000A4F626 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A990501F1D75D4D000A4F626 /* User.swift */; };
+		A99F9E6B1D78DA7000059F1A /* NewMember.xib in Resources */ = {isa = PBXBuildFile; fileRef = A99F9E6A1D78DA7000059F1A /* NewMember.xib */; };
+		A99F9E6D1D78DAAD00059F1A /* NewMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99F9E6C1D78DAAD00059F1A /* NewMemberView.swift */; };
 		A9E35E871D77637A007BC735 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E35E861D77637A007BC735 /* HomeViewController.swift */; };
 		A9E35E891D776392007BC735 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E35E881D776392007BC735 /* SearchViewController.swift */; };
 		A9E35E8B1D7763A9007BC735 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E35E8A1D7763A9007BC735 /* PostViewController.swift */; };
@@ -50,6 +52,8 @@
 		A97784EC1D77B6BB006A756E /* tabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tabBar.swift; sourceTree = "<group>"; };
 		A97784EE1D77B9FA006A756E /* LoginStory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginStory.storyboard; sourceTree = "<group>"; };
 		A990501F1D75D4D000A4F626 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A99F9E6A1D78DA7000059F1A /* NewMember.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewMember.xib; sourceTree = "<group>"; };
+		A99F9E6C1D78DAAD00059F1A /* NewMemberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMemberView.swift; sourceTree = "<group>"; };
 		A9E35E861D77637A007BC735 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A9E35E881D776392007BC735 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A9E35E8A1D7763A9007BC735 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +101,15 @@
 				A97784EC1D77B6BB006A756E /* tabBar.swift */,
 			);
 			name = HomePage;
+			sourceTree = "<group>";
+		};
+		A99F9E691D78DA4E00059F1A /* NewMember */ = {
+			isa = PBXGroup;
+			children = (
+				A99F9E6A1D78DA7000059F1A /* NewMember.xib */,
+				A99F9E6C1D78DAAD00059F1A /* NewMemberView.swift */,
+			);
+			name = NewMember;
 			sourceTree = "<group>";
 		};
 		A9E35E8E1D77640F007BC735 /* EditProfile */ = {
@@ -155,6 +168,7 @@
 		A9E4D6D01D5D3AA500FD6873 /* LoginStory */ = {
 			isa = PBXGroup;
 			children = (
+				A99F9E691D78DA4E00059F1A /* NewMember */,
 				A97784E61D77A456006A756E /* LoginViewController.swift */,
 				A97784EE1D77B9FA006A756E /* LoginStory.storyboard */,
 			);
@@ -258,6 +272,7 @@
 				A91B16D41D77559700B0C6CB /* HomePage.storyboard in Resources */,
 				A97784E31D776C35006A756E /* Assets.xcassets in Resources */,
 				A9E35E901D776425007BC735 /* EditProfile.storyboard in Resources */,
+				A99F9E6B1D78DA7000059F1A /* NewMember.xib in Resources */,
 				A9E4D6C71D5D32CF00FD6873 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,6 +335,7 @@
 				A97784E71D77A456006A756E /* LoginViewController.swift in Sources */,
 				A99050201D75D4D000A4F626 /* User.swift in Sources */,
 				A91717211D6666760011A524 /* Queue.swift in Sources */,
+				A99F9E6D1D78DAAD00059F1A /* NewMemberView.swift in Sources */,
 				A91B16CF1D77284700B0C6CB /* Car.swift in Sources */,
 				A97784ED1D77B6BB006A756E /* tabBar.swift in Sources */,
 				A9E35E891D776392007BC735 /* SearchViewController.swift in Sources */,
@@ -446,7 +462,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = CarSocialNetwork/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Car.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -466,7 +482,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = CarSocialNetwork/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Car.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Fusuma.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>021EE243AFFC43EA3B00E84CDDD2C313</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>2C8AA1BAF35413BDB954A1DF93576ED1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>35CD1B10CBBC713EF69D012DE2AE16CD</key>
+		<key>5F6C05DA400C240727F6AB863213CCCE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>7129FAB61478FA70223DADF4921468CD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7380ABD049E12DCFEC9B9E1D2D52C627</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ADBEA11D758763720BD69FDCDA089467</key>
 		<dict>
 			<key>primary</key>
 			<true/>

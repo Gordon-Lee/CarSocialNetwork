@@ -10,7 +10,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    private var numberOFRows = 5
+    private var numberOFRows = 25
     private let cellIdentifier = "homeCell"
     private var refreshControl : UIRefreshControl!
 
@@ -19,11 +19,12 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(enlargeTable), forControlEvents: UIControlEvents.ValueChanged)
-        tableView.addSubview(refreshControl)
-        refreshControl.addTarget(self, action: #selector(showNavigationBar), forControlEvents: UIControlEvents.TouchDown)
+        navigationController?.hidesBarsOnSwipe = true
+        title = "asas"
+//        refreshControl = UIRefreshControl()
+//        refreshControl.addTarget(self, action: #selector(enlargeTable), forControlEvents: UIControlEvents.ValueChanged)
+//        tableView.addSubview(refreshControl)
+//        refreshControl.addTarget(self, action: #selector(showNavigationBar), forControlEvents: UIControlEvents.TouchDown)
         
     }
     func showNavigationBar() {
@@ -32,7 +33,6 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        navigationController?.hidesBarsOnSwipe = true
         navigationController?.navigationBar.topItem?.title = "Car Social"
         navigationController?.setNavigationBarHidden(false, animated: true)
         
@@ -41,13 +41,12 @@ class HomeViewController: UIViewController {
     
     func enlargeTable() {
         numberOFRows += 5
-        navigationController?.setNavigationBarHidden(false, animated: true)
         refreshControl.endRefreshing()
         tableView.reloadData()
     }
 }
 
-extension HomeViewController: UITableViewDelegate {
+extension HomeViewController: UITableViewDelegate, UIScrollViewDelegate {
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -66,5 +65,4 @@ extension HomeViewController: UITableViewDataSource {
         
         return cell
     }
-    
 }
