@@ -15,7 +15,7 @@ class AppCongifuration {
         
         UINavigationBar.appearance().backgroundColor = AppCongifuration.amostBlack()
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: AppCongifuration.darkGrey()]
-        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 21)!]
+        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 23)!]
     }
     static func amostBlack() -> UIColor {
         return UIColor(red: 11/255, green: 11/255, blue: 11/255, alpha: 1.0)

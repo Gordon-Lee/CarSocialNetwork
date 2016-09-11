@@ -36,21 +36,31 @@ class PostViewController: UIViewController, FusumaDelegate {
     }
 }
 
-//public var fusumaAlbumImage : UIImage? = nil
-//public var fusumaCameraImage : UIImage? = nil
-//public var fusumaVideoImage : UIImage? = nil
-//public var fusumaCheckImage : UIImage? = nil
-//public var fusumaCloseImage : UIImage? = nil
-//public var fusumaFlashOnImage : UIImage? = nil
-//public var fusumaFlashOffImage : UIImage? = nil
-//public var fusumaFlipImage : UIImage? = nil
-//public var fusumaShotImage : UIImage? = nil
+//public var fusumaCameraRollTitle = "CAMERA ROLL"
+//public var fusumaCameraTitle = "PHOTO"
+//public var fusumaVideoTitle = "VIDEO"
+//
+//public var fusumaBaseTintColor   = UIColor.hex("#FFFFFF", alpha: 1.0)
+//public var fusumaTintColor       = UIColor.hex("#009688", alpha: 1.0)
+//public var fusumaBackgroundColor = UIColor.hex("#212121", alpha: 1.0)
 
 extension PostViewController {
     
     private func fusumaSetup() {
         fusumaTintColor = AppCongifuration.blue()
+        fusumaBaseTintColor = AppCongifuration.lightGrey()
+        fusumaBackgroundColor = AppCongifuration.darkGrey()
         
+        fusumaAlbumImage = UIImage(named: "photoLibrary2.png")
+        fusumaCameraImage = UIImage(named: "camera.png")
+        fusumaCheckImage = UIImage(named: "ok.png")
+        fusumaCloseImage = UIImage(named: "cancel1.png")
+        fusumaFlashOnImage = UIImage(named: "flashOn.png")
+        fusumaFlashOffImage = UIImage(named: "flashOff.png")
+        fusumaFlipImage = UIImage(named: "refresh.png")
+        
+        fusumaCameraTitle = "Camera"
+        fusumaCameraRollTitle = "Biblioteca"
     }
     
     func fusumaImageSelected(image: UIImage) {

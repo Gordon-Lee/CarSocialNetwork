@@ -30,7 +30,6 @@ class UserDefaults {
         nsDefaults.setBool(false, forKey: DataUserDefaults.autoLogin)
     }
     
-    
     internal func Save(username: String, password: String) {
         nsDefaults.setObject(username, forKey: DataUserDefaults.userName)
         nsDefaults.setObject(password, forKey: DataUserDefaults.password)

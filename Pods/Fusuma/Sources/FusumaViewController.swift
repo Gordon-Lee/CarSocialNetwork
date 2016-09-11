@@ -382,12 +382,14 @@ private extension FusumaViewController {
         switch mode {
         case .Library:
             titleLabel.text = NSLocalizedString(fusumaCameraRollTitle, comment: fusumaCameraRollTitle)
+            titleLabel.font = UIFont(name: "HelveticaNeue", size: 23)
             doneButton.hidden = false
             
             highlightButton(libraryButton)
             self.view.bringSubviewToFront(photoLibraryViewerContainer)
         case .Camera:
             titleLabel.text = NSLocalizedString(fusumaCameraTitle, comment: fusumaCameraTitle)
+            titleLabel.font = UIFont(name: "HelveticaNeue", size: 23)
             doneButton.hidden = true
             
             highlightButton(cameraButton)
