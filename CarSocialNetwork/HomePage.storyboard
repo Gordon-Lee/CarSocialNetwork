@@ -80,10 +80,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="homeCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeCell" textLabel="hpJ-MW-0Zw" style="IBUITableViewCellStyleDefault" id="5Ly-I3-0AB">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="homeCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeCell" textLabel="hpJ-MW-0Zw" rowHeight="300" style="IBUITableViewCellStyleDefault" id="5Ly-I3-0AB" customClass="PostTabbleCellView" customModule="CarSocialNetwork" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Ly-I3-0AB" id="F2M-di-jee">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="300.5" tableViewCell="5Ly-I3-0AB" id="F2M-di-jee">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="37.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>

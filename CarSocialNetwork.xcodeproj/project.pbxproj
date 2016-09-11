@@ -20,6 +20,8 @@
 		A97784EB1D77B277006A756E /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97784EA1D77B277006A756E /* AppColor.swift */; };
 		A97784ED1D77B6BB006A756E /* tabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97784EC1D77B6BB006A756E /* tabBar.swift */; };
 		A97784EF1D77B9FA006A756E /* LoginStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97784EE1D77B9FA006A756E /* LoginStory.storyboard */; };
+		A98A72C91D85891C0044238A /* PostCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98A72C81D85891C0044238A /* PostCellView.xib */; };
+		A98A72CB1D8589890044238A /* PostTabbleCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98A72CA1D8589890044238A /* PostTabbleCellView.swift */; };
 		A99050201D75D4D000A4F626 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A990501F1D75D4D000A4F626 /* User.swift */; };
 		A99F9E6B1D78DA7000059F1A /* NewMember.xib in Resources */ = {isa = PBXBuildFile; fileRef = A99F9E6A1D78DA7000059F1A /* NewMember.xib */; };
 		A99F9E6D1D78DAAD00059F1A /* NewMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99F9E6C1D78DAAD00059F1A /* NewMemberView.swift */; };
@@ -51,6 +53,8 @@
 		A97784EA1D77B277006A756E /* AppColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		A97784EC1D77B6BB006A756E /* tabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tabBar.swift; sourceTree = "<group>"; };
 		A97784EE1D77B9FA006A756E /* LoginStory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginStory.storyboard; sourceTree = "<group>"; };
+		A98A72C81D85891C0044238A /* PostCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCellView.xib; sourceTree = "<group>"; };
+		A98A72CA1D8589890044238A /* PostTabbleCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTabbleCellView.swift; sourceTree = "<group>"; };
 		A990501F1D75D4D000A4F626 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A99F9E6A1D78DA7000059F1A /* NewMember.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewMember.xib; sourceTree = "<group>"; };
 		A99F9E6C1D78DAAD00059F1A /* NewMemberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMemberView.swift; sourceTree = "<group>"; };
@@ -93,6 +97,7 @@
 		A91B16D21D77544600B0C6CB /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				A98A72C71D8588FD0044238A /* PostCell */,
 				A91B16D31D77559700B0C6CB /* HomePage.storyboard */,
 				A9E35E861D77637A007BC735 /* HomeViewController.swift */,
 				A9E35E881D776392007BC735 /* SearchViewController.swift */,
@@ -101,6 +106,15 @@
 				A97784EC1D77B6BB006A756E /* tabBar.swift */,
 			);
 			name = HomePage;
+			sourceTree = "<group>";
+		};
+		A98A72C71D8588FD0044238A /* PostCell */ = {
+			isa = PBXGroup;
+			children = (
+				A98A72C81D85891C0044238A /* PostCellView.xib */,
+				A98A72CA1D8589890044238A /* PostTabbleCellView.swift */,
+			);
+			name = PostCell;
 			sourceTree = "<group>";
 		};
 		A99F9E691D78DA4E00059F1A /* NewMember */ = {
@@ -274,6 +288,7 @@
 				A9E35E901D776425007BC735 /* EditProfile.storyboard in Resources */,
 				A99F9E6B1D78DA7000059F1A /* NewMember.xib in Resources */,
 				A9E4D6C71D5D32CF00FD6873 /* LaunchScreen.storyboard in Resources */,
+				A98A72C91D85891C0044238A /* PostCellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +364,7 @@
 				A9E35E921D77643B007BC735 /* EditViewController.swift in Sources */,
 				A9E4D6BD1D5D32CF00FD6873 /* AppDelegate.swift in Sources */,
 				A91B16D11D772A0400B0C6CB /* Events.swift in Sources */,
+				A98A72CB1D8589890044238A /* PostTabbleCellView.swift in Sources */,
 				A91B16CD1D7632E400B0C6CB /* Actitivy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -4,11 +4,13 @@ PODS:
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
   - SVProgressHUD (2.0.3)
+  - TLYShyNavBar (1.1.0)
 
 DEPENDENCIES:
   - Fusuma
   - Parse
   - SVProgressHUD (from `https://github.com/SVProgressHUD/SVProgressHUD.git`)
+  - TLYShyNavBar
 
 EXTERNAL SOURCES:
   SVProgressHUD:
@@ -24,5 +26,6 @@ SPEC CHECKSUMS:
   Fusuma: 02ffb3a9943792519f2c0972263b750acb550a49
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  TLYShyNavBar: 3150e9a03ff8ab5fd81de00167e8829b91af8326
 
 COCOAPODS: 0.39.0

@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>TLYShyNavBar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -37,7 +42,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5F6C05DA400C240727F6AB863213CCCE</key>
+		<key>64B8E6A631DF2C8E950E4E6439F68ACA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6D5D88E49CCE37C6E0C18DF9ACC01218</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,7 +62,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ADBEA11D758763720BD69FDCDA089467</key>
+		<key>9ADAAB20AE5CC7FAE582D15C54468D85</key>
 		<dict>
 			<key>primary</key>
 			<true/>

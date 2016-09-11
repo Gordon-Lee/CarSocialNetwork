@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TLYShyNavBar
 
 class HomeViewController: UIViewController {
     
@@ -15,19 +16,30 @@ class HomeViewController: UIViewController {
     private var refreshControl : UIRefreshControl!
 
     @IBOutlet weak var tableView: UITableView!
-
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.hidesBarsOnSwipe = true
-        title = "asas"
+        
+        nibCell()
+        navigationBar()
 //        refreshControl = UIRefreshControl()
 //        refreshControl.addTarget(self, action: #selector(enlargeTable), forControlEvents: UIControlEvents.ValueChanged)
 //        tableView.addSubview(refreshControl)
 //        refreshControl.addTarget(self, action: #selector(showNavigationBar), forControlEvents: UIControlEvents.TouchDown)
         
     }
-    func showNavigationBar() {
+    private func navigationBar() {
+        self.shyNavBarManager.scrollView = self.tableView
+        self.shyNavBarManager.expansionResistance = 30
+        self.shyNavBarManager.fadeBehavior = .Subviews
+    }
+    
+    private func nibCell() {
+        let nibCell = UINib(nibName: PostTabbleCellView.nibName, bundle: NSBundle.mainBundle())
+        tableView.registerNib(nibCell, forCellReuseIdentifier: PostTabbleCellView.identifier)
+    }
+    
+    private func showNavigationBar() {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
@@ -35,8 +47,6 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(true)
         navigationController?.navigationBar.topItem?.title = "Car Social"
         navigationController?.setNavigationBarHidden(false, animated: true)
-        
-        
     }
     
     func enlargeTable() {
@@ -59,10 +69,14 @@ extension HomeViewController: UITableViewDelegate, UIScrollViewDelegate {
 extension HomeViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "homeCell")
         
-        cell.textLabel?.text = "\(indexPath.row)"
+        let cell = tableView.dequeueReusableCellWithIdentifier(PostTabbleCellView.identifier) as! PostTabbleCellView
+        
+        cell.ownerName.text = "hahaha"
         
         return cell
+    }
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return PostTabbleCellView.rowHeight
     }
 }

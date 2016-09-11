@@ -9,12 +9,6 @@
 import UIKit
 import Fusuma
 
-//extension FusumaViewController {
-//    public override func viewWillDisappear(animated: Bool) {
-//        super.viewWillDisappear(true)
-//          }
-//}
-
 class PostViewController: UIViewController, FusumaDelegate {
 
     let fusuma = FusumaViewController()
