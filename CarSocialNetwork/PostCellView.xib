@@ -30,13 +30,13 @@
                     <constraints>
                         <constraint firstAttribute="width" constant="46" id="ezr-gq-3Tg"/>
                     </constraints>
-                    <state key="normal" title="Button"/>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="ezr-gq-3Tg"/>
                         </mask>
                     </variation>
-                    <variation key="widthClass=compact">
+                    <variation key="widthClass=compact" misplaced="YES">
+                        <rect key="frame" x="43" y="520" width="30" height="30"/>
                         <mask key="constraints">
                             <include reference="ezr-gq-3Tg"/>
                         </mask>

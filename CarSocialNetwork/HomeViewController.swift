@@ -12,36 +12,41 @@ import TLYShyNavBar
 class HomeViewController: UIViewController {
     
     private var numberOFRows = 25
-    private let cellIdentifier = "homeCell"
     private var refreshControl : UIRefreshControl!
 
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableViewSetup()
         nibCell()
         navigationBar()
     }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.navigationBar.topItem?.title = "Car Social"
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        shyNavBarManager.disable = true
+    }
+    
+    private func tableViewSetup() {
+        tableView.layoutMargins = UIEdgeInsetsZero
+        tableView.separatorInset = UIEdgeInsetsZero
+    }
+    
     private func navigationBar() {
-        self.shyNavBarManager.scrollView = self.tableView
-        self.shyNavBarManager.expansionResistance = 50
-        self.shyNavBarManager.fadeBehavior = .Subviews
+        shyNavBarManager.contractionResistance = 700
+        shyNavBarManager.scrollView = self.tableView
+        shyNavBarManager.expansionResistance = 100
+        shyNavBarManager.fadeBehavior = .Navbar
     }
     
     private func nibCell() {
         let nibCell = UINib(nibName: PostTabbleCellView.nibName, bundle: NSBundle.mainBundle())
         tableView.registerNib(nibCell, forCellReuseIdentifier: PostTabbleCellView.identifier)
-    }
-    
-    private func showNavigationBar() {
-        navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
-        navigationController?.navigationBar.topItem?.title = "Car Social"
-        navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }
 
@@ -62,6 +67,8 @@ extension HomeViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier(PostTabbleCellView.identifier) as! PostTabbleCellView
         
         cell.ownerName.text = "hahaha"
+        
+        cell.layoutMargins = UIEdgeInsetsZero
         
         return cell
     }

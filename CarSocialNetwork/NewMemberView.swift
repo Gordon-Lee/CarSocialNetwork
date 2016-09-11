@@ -26,10 +26,8 @@ class NewMemberView: UIView {
     }
     
     private func configView() {
-        self.backgroundColor = AppColor.blue()
-        
+        self.backgroundColor = AppCongifuration.darkGrey()
     }
-    
     
     @IBAction func signUpCarSocial(sender: AnyObject) {
         let user = PFUser()
@@ -48,17 +46,5 @@ class NewMemberView: UIView {
             }
             SVProgressHUD.dismiss()
         }
-            
-            
-            
-            
-            
-//            .saveInBackgroundWithBlock { (suuccess, error) in
-//            guard error == nil else {
-//                SVProgressHUD.showErrorWithStatus(error!.localizedDescription)
-//                return
-//            }
-//            SVProgressHUD.dismiss()
-//        }
     }
 }

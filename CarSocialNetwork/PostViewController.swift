@@ -11,31 +11,47 @@ import Fusuma
 
 class PostViewController: UIViewController, FusumaDelegate {
 
-    let fusuma = FusumaViewController()
+    let fus = FusumaViewController()
     private var flag = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fusuma.delegate = self
+        fus.delegate = self
+    
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBarHidden = true
         if flag {
-            presentViewController(fusuma, animated: true, completion: nil)
+            fusumaSetup()
+            presentViewController(fus, animated: true, completion: nil)
             flag = false
-        }else {
+        } else {
             let sb = UIStoryboard(name: "HomePage", bundle: NSBundle.mainBundle())
             let vc = sb.instantiateInitialViewController()
             self.navigationController?.presentViewController(vc!, animated: true, completion: nil)
             flag = true
         }
-        
     }
 }
 
+//public var fusumaAlbumImage : UIImage? = nil
+//public var fusumaCameraImage : UIImage? = nil
+//public var fusumaVideoImage : UIImage? = nil
+//public var fusumaCheckImage : UIImage? = nil
+//public var fusumaCloseImage : UIImage? = nil
+//public var fusumaFlashOnImage : UIImage? = nil
+//public var fusumaFlashOffImage : UIImage? = nil
+//public var fusumaFlipImage : UIImage? = nil
+//public var fusumaShotImage : UIImage? = nil
+
 extension PostViewController {
+    
+    private func fusumaSetup() {
+        fusumaTintColor = AppCongifuration.blue()
+        
+    }
     
     func fusumaImageSelected(image: UIImage) {
         print("Image selected")

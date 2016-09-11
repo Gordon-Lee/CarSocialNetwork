@@ -35,8 +35,7 @@ class LoginViewController: UIViewController {
     }
 
     private func navigationBar() {
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: AppColor.black()]
-        //navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: AppCongifuration.lightGrey()]
         title = "CarSocial"
     }
     

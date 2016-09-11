@@ -17,7 +17,7 @@
 		A97784E51D779C44006A756E /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97784E41D779C44006A756E /* UserDefaults.swift */; };
 		A97784E71D77A456006A756E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97784E61D77A456006A756E /* LoginViewController.swift */; };
 		A97784E91D77AED3006A756E /* GoToStoryBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97784E81D77AED3006A756E /* GoToStoryBoard.swift */; };
-		A97784EB1D77B277006A756E /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97784EA1D77B277006A756E /* AppColor.swift */; };
+		A97784EB1D77B277006A756E /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97784EA1D77B277006A756E /* AppConfiguration.swift */; };
 		A97784ED1D77B6BB006A756E /* tabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97784EC1D77B6BB006A756E /* tabBar.swift */; };
 		A97784EF1D77B9FA006A756E /* LoginStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97784EE1D77B9FA006A756E /* LoginStory.storyboard */; };
 		A98A72C91D85891C0044238A /* PostCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98A72C81D85891C0044238A /* PostCellView.xib */; };
@@ -50,7 +50,7 @@
 		A97784E41D779C44006A756E /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		A97784E61D77A456006A756E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A97784E81D77AED3006A756E /* GoToStoryBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoToStoryBoard.swift; sourceTree = "<group>"; };
-		A97784EA1D77B277006A756E /* AppColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		A97784EA1D77B277006A756E /* AppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		A97784EC1D77B6BB006A756E /* tabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tabBar.swift; sourceTree = "<group>"; };
 		A97784EE1D77B9FA006A756E /* LoginStory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginStory.storyboard; sourceTree = "<group>"; };
 		A98A72C81D85891C0044238A /* PostCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCellView.xib; sourceTree = "<group>"; };
@@ -195,7 +195,7 @@
 				A91717201D6666760011A524 /* Queue.swift */,
 				A97784E41D779C44006A756E /* UserDefaults.swift */,
 				A97784E81D77AED3006A756E /* GoToStoryBoard.swift */,
-				A97784EA1D77B277006A756E /* AppColor.swift */,
+				A97784EA1D77B277006A756E /* AppConfiguration.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -358,7 +358,7 @@
 				A9E35E8B1D7763A9007BC735 /* PostViewController.swift in Sources */,
 				A9E35E871D77637A007BC735 /* HomeViewController.swift in Sources */,
 				A97784E91D77AED3006A756E /* GoToStoryBoard.swift in Sources */,
-				A97784EB1D77B277006A756E /* AppColor.swift in Sources */,
+				A97784EB1D77B277006A756E /* AppConfiguration.swift in Sources */,
 				A9E35E8D1D7763BE007BC735 /* ProfileViewController.swift in Sources */,
 				A9E4D6DC1D5DF13200FD6873 /* Photo.swift in Sources */,
 				A9E35E921D77643B007BC735 /* EditViewController.swift in Sources */,

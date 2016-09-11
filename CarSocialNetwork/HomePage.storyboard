@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Profile-->
@@ -16,7 +17,84 @@
                     <view key="view" contentMode="scaleToFill" id="QhR-Wj-nSI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="Z8o-T1-wqt">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.99786184209999995" green="0.99786184209999995" blue="0.99786184209999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="hId-Hf-POD"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="hId-Hf-POD"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="hId-Hf-POD"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cah-PF-AW3">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Sair"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="177" y="501" width="46" height="30"/>
+                                </variation>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ino-Ka-0lM">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.4431372549" green="0.92549019610000005" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.26274509800000001" green="0.58039215690000001" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Z8o-T1-wqt" firstAttribute="bottom" secondItem="ino-Ka-0lM" secondAttribute="bottom" id="4uo-4I-qnl"/>
+                            <constraint firstItem="Z8o-T1-wqt" firstAttribute="leading" secondItem="QhR-Wj-nSI" secondAttribute="leadingMargin" id="H6N-7l-eVA"/>
+                            <constraint firstItem="ino-Ka-0lM" firstAttribute="top" secondItem="eCW-e2-670" secondAttribute="bottom" constant="90" id="HPf-6W-SGp"/>
+                            <constraint firstItem="ino-Ka-0lM" firstAttribute="leading" secondItem="Z8o-T1-wqt" secondAttribute="trailing" constant="15" id="Phm-3q-Eo3"/>
+                            <constraint firstItem="cah-PF-AW3" firstAttribute="centerX" secondItem="QhR-Wj-nSI" secondAttribute="centerX" id="Xqz-3Q-D6o"/>
+                            <constraint firstAttribute="bottom" secondItem="cah-PF-AW3" secondAttribute="bottom" constant="20" symbolic="YES" id="cCu-5b-3b0"/>
+                            <constraint firstItem="Z8o-T1-wqt" firstAttribute="top" secondItem="eCW-e2-670" secondAttribute="bottom" constant="11" id="kzx-IX-1gl"/>
+                            <constraint firstAttribute="trailing" secondItem="ino-Ka-0lM" secondAttribute="trailing" id="zpv-wu-ZLo"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Z8o-T1-wqt"/>
+                                <exclude reference="cah-PF-AW3"/>
+                                <exclude reference="ino-Ka-0lM"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="4uo-4I-qnl"/>
+                                <exclude reference="H6N-7l-eVA"/>
+                                <exclude reference="kzx-IX-1gl"/>
+                                <exclude reference="HPf-6W-SGp"/>
+                                <exclude reference="Phm-3q-Eo3"/>
+                                <exclude reference="zpv-wu-ZLo"/>
+                                <exclude reference="Xqz-3Q-D6o"/>
+                                <exclude reference="cCu-5b-3b0"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Z8o-T1-wqt"/>
+                                <include reference="cah-PF-AW3"/>
+                                <include reference="ino-Ka-0lM"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="4uo-4I-qnl"/>
+                                <include reference="H6N-7l-eVA"/>
+                                <include reference="kzx-IX-1gl"/>
+                                <include reference="HPf-6W-SGp"/>
+                                <include reference="Phm-3q-Eo3"/>
+                                <include reference="zpv-wu-ZLo"/>
+                                <include reference="Xqz-3Q-D6o"/>
+                                <include reference="cCu-5b-3b0"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="profile" id="u8c-UX-5xg">
                         <inset key="imageInsets" minX="0.0" minY="4" maxX="0.0" maxY="-4"/>
@@ -24,7 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0tG-ba-NzX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="849" y="1354"/>
+            <point key="canvasLocation" x="849" y="1303"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JVF-M8-W4J">
@@ -51,8 +129,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.12941176469999999" green="0.1215686275" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                            <color key="value" red="0.26274509800000001" green="0.58039215690000001" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="z0J-Oo-p5h" kind="relationship" relationship="viewControllers" id="SzP-kM-i5n"/>
                         <segue destination="dBQ-uD-0Q8" kind="relationship" relationship="viewControllers" id="9Lx-Q3-6in"/>
@@ -76,11 +159,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="38" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sQJ-xD-g3L">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="38" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sQJ-xD-g3L">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="homeCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="homeCell" textLabel="hpJ-MW-0Zw" rowHeight="300" style="IBUITableViewCellStyleDefault" id="5Ly-I3-0AB" customClass="PostTabbleCellView" customModule="CarSocialNetwork" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="homeCell" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="homeCell" textLabel="hpJ-MW-0Zw" rowHeight="300" style="IBUITableViewCellStyleDefault" id="5Ly-I3-0AB" customClass="PostTabbleCellView" customModule="CarSocialNetwork" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="300.5" tableViewCell="5Ly-I3-0AB" id="F2M-di-jee">
@@ -147,7 +231,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZHo-UN-30z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="849" y="-798"/>
+            <point key="canvasLocation" x="856.5" y="-710"/>
         </scene>
         <!--Search-->
         <scene sceneID="5FD-Qu-iIB">
@@ -160,7 +244,7 @@
                     <view key="view" contentMode="scaleToFill" id="QOO-qL-eaP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.95522255950000001" green="1" blue="0.68579471849999996" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="XN4-ki-C55" appends="YES" id="Asb-fS-aME"/>
@@ -173,7 +257,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DAW-2O-ZCp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="XN4-ki-C55"/>
             </objects>
-            <point key="canvasLocation" x="849" y="-101"/>
+            <point key="canvasLocation" x="856.5" y="-42"/>
         </scene>
         <!--Photo-->
         <scene sceneID="NYz-S7-PEv">
@@ -186,7 +270,8 @@
                     <view key="view" contentMode="scaleToFill" id="4Ku-u8-ugP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96167401988520451" green="0.99786184209999995" blue="0.9592296696829572" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.26274509800000001" green="0.58039215690000001" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="camera" id="TEY-xt-MEa">
                         <inset key="imageInsets" minX="0.0" minY="4" maxX="0.0" maxY="-4"/>
