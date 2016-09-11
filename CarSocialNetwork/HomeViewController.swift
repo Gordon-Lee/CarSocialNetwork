@@ -22,15 +22,10 @@ class HomeViewController: UIViewController {
         
         nibCell()
         navigationBar()
-//        refreshControl = UIRefreshControl()
-//        refreshControl.addTarget(self, action: #selector(enlargeTable), forControlEvents: UIControlEvents.ValueChanged)
-//        tableView.addSubview(refreshControl)
-//        refreshControl.addTarget(self, action: #selector(showNavigationBar), forControlEvents: UIControlEvents.TouchDown)
-        
     }
     private func navigationBar() {
         self.shyNavBarManager.scrollView = self.tableView
-        self.shyNavBarManager.expansionResistance = 30
+        self.shyNavBarManager.expansionResistance = 50
         self.shyNavBarManager.fadeBehavior = .Subviews
     }
     
@@ -47,12 +42,6 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(true)
         navigationController?.navigationBar.topItem?.title = "Car Social"
         navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-    
-    func enlargeTable() {
-        numberOFRows += 5
-        refreshControl.endRefreshing()
-        tableView.reloadData()
     }
 }
 

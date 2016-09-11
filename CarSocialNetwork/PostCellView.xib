@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -88,21 +89,21 @@
                     <exclude reference="7NQ-k9-KQv"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="Fte-UE-lPR"/>
-                    <exclude reference="Gmg-dn-y3c"/>
-                    <exclude reference="KuI-fq-5Ow"/>
-                    <exclude reference="gat-hb-phG"/>
+                    <exclude reference="Ka4-2U-or1"/>
+                    <exclude reference="vF5-TW-kHm"/>
+                    <exclude reference="Nyw-j1-BTz"/>
+                    <exclude reference="YCi-II-WDX"/>
+                    <exclude reference="e9k-P3-L9S"/>
                     <exclude reference="bN1-qj-Ujk"/>
                     <exclude reference="cR9-62-5RS"/>
                     <exclude reference="kBn-XP-uWS"/>
                     <exclude reference="rkA-PP-vV9"/>
                     <exclude reference="xeV-tk-PXY"/>
                     <exclude reference="xg3-TA-K6x"/>
-                    <exclude reference="Nyw-j1-BTz"/>
-                    <exclude reference="YCi-II-WDX"/>
-                    <exclude reference="e9k-P3-L9S"/>
-                    <exclude reference="Ka4-2U-or1"/>
-                    <exclude reference="vF5-TW-kHm"/>
+                    <exclude reference="Fte-UE-lPR"/>
+                    <exclude reference="Gmg-dn-y3c"/>
+                    <exclude reference="KuI-fq-5Ow"/>
+                    <exclude reference="gat-hb-phG"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -114,21 +115,21 @@
                     <include reference="7NQ-k9-KQv"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="Fte-UE-lPR"/>
-                    <include reference="Gmg-dn-y3c"/>
-                    <include reference="KuI-fq-5Ow"/>
-                    <include reference="gat-hb-phG"/>
+                    <include reference="Ka4-2U-or1"/>
+                    <include reference="vF5-TW-kHm"/>
+                    <include reference="Nyw-j1-BTz"/>
+                    <include reference="YCi-II-WDX"/>
+                    <include reference="e9k-P3-L9S"/>
                     <include reference="bN1-qj-Ujk"/>
                     <include reference="cR9-62-5RS"/>
                     <include reference="kBn-XP-uWS"/>
                     <include reference="rkA-PP-vV9"/>
                     <include reference="xeV-tk-PXY"/>
                     <include reference="xg3-TA-K6x"/>
-                    <include reference="Nyw-j1-BTz"/>
-                    <include reference="YCi-II-WDX"/>
-                    <include reference="e9k-P3-L9S"/>
-                    <include reference="Ka4-2U-or1"/>
-                    <include reference="vF5-TW-kHm"/>
+                    <include reference="Fte-UE-lPR"/>
+                    <include reference="Gmg-dn-y3c"/>
+                    <include reference="KuI-fq-5Ow"/>
+                    <include reference="gat-hb-phG"/>
                 </mask>
             </variation>
             <connections>
