@@ -25,7 +25,7 @@ class AppCongifuration {
     
     }
     static func lightGrey() -> UIColor {
-        return UIColor(red: 231/255, green: 231/255, blue: 231/255, alpha: 1.0)
+        return UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 1.0)
     }
     static func darkGrey() -> UIColor {
         return UIColor(red: 34/255, green: 34/255, blue: 34/255, alpha: 1.0)

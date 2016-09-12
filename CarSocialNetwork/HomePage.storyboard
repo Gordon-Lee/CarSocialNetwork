@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -35,19 +36,16 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cah-PF-AW3">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Sair"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="177" y="501" width="46" height="30"/>
-                                </variation>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ino-Ka-0lM">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cah-PF-AW3">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Sair"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.4431372549" green="0.92549019610000005" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.26274509800000001" green="0.58039215690000001" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -56,43 +54,47 @@
                             <constraint firstItem="Z8o-T1-wqt" firstAttribute="leading" secondItem="QhR-Wj-nSI" secondAttribute="leadingMargin" id="H6N-7l-eVA"/>
                             <constraint firstItem="ino-Ka-0lM" firstAttribute="top" secondItem="eCW-e2-670" secondAttribute="bottom" constant="90" id="HPf-6W-SGp"/>
                             <constraint firstItem="ino-Ka-0lM" firstAttribute="leading" secondItem="Z8o-T1-wqt" secondAttribute="trailing" constant="15" id="Phm-3q-Eo3"/>
-                            <constraint firstItem="cah-PF-AW3" firstAttribute="centerX" secondItem="QhR-Wj-nSI" secondAttribute="centerX" id="Xqz-3Q-D6o"/>
-                            <constraint firstAttribute="bottom" secondItem="cah-PF-AW3" secondAttribute="bottom" constant="20" symbolic="YES" id="cCu-5b-3b0"/>
+                            <constraint firstItem="cah-PF-AW3" firstAttribute="centerX" secondItem="QhR-Wj-nSI" secondAttribute="centerX" id="Xqz-3Q-D6o">
+                                <variation key="widthClass=compact" constant="172"/>
+                            </constraint>
+                            <constraint firstAttribute="bottom" secondItem="cah-PF-AW3" secondAttribute="bottom" constant="20" symbolic="YES" id="cCu-5b-3b0">
+                                <variation key="widthClass=compact" constant="446"/>
+                            </constraint>
                             <constraint firstItem="Z8o-T1-wqt" firstAttribute="top" secondItem="eCW-e2-670" secondAttribute="bottom" constant="11" id="kzx-IX-1gl"/>
                             <constraint firstAttribute="trailing" secondItem="ino-Ka-0lM" secondAttribute="trailing" id="zpv-wu-ZLo"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Z8o-T1-wqt"/>
-                                <exclude reference="cah-PF-AW3"/>
                                 <exclude reference="ino-Ka-0lM"/>
+                                <exclude reference="cah-PF-AW3"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="4uo-4I-qnl"/>
-                                <exclude reference="H6N-7l-eVA"/>
-                                <exclude reference="kzx-IX-1gl"/>
+                                <exclude reference="Xqz-3Q-D6o"/>
+                                <exclude reference="cCu-5b-3b0"/>
                                 <exclude reference="HPf-6W-SGp"/>
                                 <exclude reference="Phm-3q-Eo3"/>
                                 <exclude reference="zpv-wu-ZLo"/>
-                                <exclude reference="Xqz-3Q-D6o"/>
-                                <exclude reference="cCu-5b-3b0"/>
+                                <exclude reference="4uo-4I-qnl"/>
+                                <exclude reference="H6N-7l-eVA"/>
+                                <exclude reference="kzx-IX-1gl"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="Z8o-T1-wqt"/>
-                                <include reference="cah-PF-AW3"/>
                                 <include reference="ino-Ka-0lM"/>
+                                <include reference="cah-PF-AW3"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="4uo-4I-qnl"/>
-                                <include reference="H6N-7l-eVA"/>
-                                <include reference="kzx-IX-1gl"/>
+                                <include reference="Xqz-3Q-D6o"/>
+                                <include reference="cCu-5b-3b0"/>
                                 <include reference="HPf-6W-SGp"/>
                                 <include reference="Phm-3q-Eo3"/>
                                 <include reference="zpv-wu-ZLo"/>
-                                <include reference="Xqz-3Q-D6o"/>
-                                <include reference="cCu-5b-3b0"/>
+                                <include reference="4uo-4I-qnl"/>
+                                <include reference="H6N-7l-eVA"/>
+                                <include reference="kzx-IX-1gl"/>
                             </mask>
                         </variation>
                     </view>

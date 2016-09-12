@@ -54,18 +54,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      
         goToStoryBoard(homePageIdentifier)
         
-//        if UserDefaults.sharedInstance.login() && UserDefaults.sharedInstance.autoLogin() {
-//            UserDefaults.sharedInstance.setAutoLogin(true)
-//            
-//            
-//        } else {
-//            goToStoryBoard(loginSBIdentifier)
-//        }
+        if UserDefaults.sharedInstance.login() && UserDefaults.sharedInstance.autoLogin() {
+            UserDefaults.sharedInstance.setAutoLogin(true)
+        } else {
+            goToStoryBoard(loginSBIdentifier)
+        }
     }
     
     private func goToStoryBoard(initialSb: String) {
     
-        
         let sb = UIStoryboard(name: initialSb, bundle: NSBundle.mainBundle())
         let vc = sb.instantiateInitialViewController()
         window?.rootViewController = vc

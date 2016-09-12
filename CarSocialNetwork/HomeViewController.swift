@@ -14,6 +14,8 @@ class HomeViewController: UIViewController {
     private var numberOFRows = 25
     private var refreshControl : UIRefreshControl!
 
+    let aqui = ":"
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {

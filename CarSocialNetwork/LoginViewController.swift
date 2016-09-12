@@ -22,16 +22,13 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         navigationBar()
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(true)
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        configView()
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     //MARK: generic FUNCS
     private func configView() {
-        
+        view.backgroundColor = AppCongifuration.darkGrey()
     }
 
     private func navigationBar() {
