@@ -65,8 +65,6 @@ class LoginViewController: UIViewController {
     @IBAction func singUp(sender: AnyObject) {
          self.signUpNew()
     }
-    
-    
 }
 
 extension LoginViewController {

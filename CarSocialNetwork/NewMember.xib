@@ -94,21 +94,21 @@
                     <exclude reference="16c-KM-eRi"/>
                 </mask>
                 <mask key="constraints">
+                    <exclude reference="cJl-kJ-uaV"/>
+                    <exclude reference="9Xg-8f-M9R"/>
+                    <exclude reference="qUG-a5-m5A"/>
+                    <exclude reference="vYt-SZ-dp5"/>
+                    <exclude reference="dVX-U8-tdZ"/>
+                    <exclude reference="rls-gu-zYN"/>
+                    <exclude reference="upj-DN-MTw"/>
+                    <exclude reference="Srp-Us-7cQ"/>
+                    <exclude reference="jZC-8h-IM4"/>
+                    <exclude reference="xcX-pu-7uH"/>
                     <exclude reference="2kA-gK-0pd"/>
                     <exclude reference="YUD-6d-fJD"/>
                     <exclude reference="eqf-3Z-fMz"/>
                     <exclude reference="kci-ib-nMv"/>
                     <exclude reference="oaK-v9-QOZ"/>
-                    <exclude reference="Srp-Us-7cQ"/>
-                    <exclude reference="jZC-8h-IM4"/>
-                    <exclude reference="xcX-pu-7uH"/>
-                    <exclude reference="dVX-U8-tdZ"/>
-                    <exclude reference="rls-gu-zYN"/>
-                    <exclude reference="upj-DN-MTw"/>
-                    <exclude reference="9Xg-8f-M9R"/>
-                    <exclude reference="qUG-a5-m5A"/>
-                    <exclude reference="vYt-SZ-dp5"/>
-                    <exclude reference="cJl-kJ-uaV"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -119,21 +119,21 @@
                     <include reference="16c-KM-eRi"/>
                 </mask>
                 <mask key="constraints">
+                    <include reference="cJl-kJ-uaV"/>
+                    <include reference="9Xg-8f-M9R"/>
+                    <include reference="qUG-a5-m5A"/>
+                    <include reference="vYt-SZ-dp5"/>
+                    <include reference="dVX-U8-tdZ"/>
+                    <include reference="rls-gu-zYN"/>
+                    <include reference="upj-DN-MTw"/>
+                    <include reference="Srp-Us-7cQ"/>
+                    <include reference="jZC-8h-IM4"/>
+                    <include reference="xcX-pu-7uH"/>
                     <include reference="2kA-gK-0pd"/>
                     <include reference="YUD-6d-fJD"/>
                     <include reference="eqf-3Z-fMz"/>
                     <include reference="kci-ib-nMv"/>
                     <include reference="oaK-v9-QOZ"/>
-                    <include reference="Srp-Us-7cQ"/>
-                    <include reference="jZC-8h-IM4"/>
-                    <include reference="xcX-pu-7uH"/>
-                    <include reference="dVX-U8-tdZ"/>
-                    <include reference="rls-gu-zYN"/>
-                    <include reference="upj-DN-MTw"/>
-                    <include reference="9Xg-8f-M9R"/>
-                    <include reference="qUG-a5-m5A"/>
-                    <include reference="vYt-SZ-dp5"/>
-                    <include reference="cJl-kJ-uaV"/>
                 </mask>
             </variation>
             <connections>

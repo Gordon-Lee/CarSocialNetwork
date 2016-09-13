@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DAy-zS-hBY">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="awT-Yc-Zxx">
+            <objects>
+                <viewController id="dnX-b5-Zl9" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wyt-lR-cI6"/>
+                        <viewControllerLayoutGuide type="bottom" id="cZv-bZ-87T"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ndD-ro-XrN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CCar" translatesAutoresizingMaskIntoConstraints="NO" id="bFr-JV-pSG">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="64" width="400" height="536"/>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRo-nl-81p">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="177" y="526" width="46" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="xNk-gv-9FL" kind="show" id="S3x-U3-HaS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="bFr-JV-pSG"/>
+                                <exclude reference="mRo-nl-81p"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="bFr-JV-pSG"/>
+                                <include reference="mRo-nl-81p"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="bTz-Al-a9c"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6N3-Y6-oh5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1413" y="421"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="C3t-i5-NBq">
+            <objects>
+                <viewController id="xNk-gv-9FL" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4hI-Sw-oYx"/>
+                        <viewControllerLayoutGuide type="bottom" id="vOQ-ld-0ET"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ewj-Is-4qE">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5fZ-30-Nm7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2080.5" y="421"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vO2-Ag-5JD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DAy-zS-hBY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eH3-yr-Lyh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dnX-b5-Zl9" kind="relationship" relationship="rootViewController" id="Dq2-5l-mp8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Erx-97-RnS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="714" y="421"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CCar" width="398" height="531"/>
+    </resources>
+</document>
