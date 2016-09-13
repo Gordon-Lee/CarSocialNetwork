@@ -41,13 +41,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func configureParse() {
-        Parse.setApplicationId("kByO4d8lpQ0ZtL6O5Aql0NctUpz8UOCA5W246HQv", clientKey: "3Gk9I2vhUReAcTrGZwDaJWCVaDW0OXwVKXWYHoGv")
-        
         User.registerSubclass()
         Activity.registerSubclass()
         Car.registerSubclass()
-        Photo.registerSubclass()
+        //Photo.registerSubclass()
         Events.registerSubclass()
+        
+        Parse.setApplicationId("kByO4d8lpQ0ZtL6O5Aql0NctUpz8UOCA5W246HQv", clientKey: "3Gk9I2vhUReAcTrGZwDaJWCVaDW0OXwVKXWYHoGv")
+        
+        
     }
     
     private func setIncialStoryBoard() {

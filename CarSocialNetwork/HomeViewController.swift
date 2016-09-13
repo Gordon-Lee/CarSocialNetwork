@@ -24,14 +24,20 @@ class HomeViewController: UIViewController {
         nibCell()
         navigationBar()
     }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        configView()
         navigationController?.navigationBar.topItem?.title = "Car Social"
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func viewWillDisappear(animated: Bool) {
         shyNavBarManager.disable = true
+    }
+    
+    private func configView() {
+        view.backgroundColor = AppCongifuration.lightGrey()
     }
     
     private func tableViewSetup() {
@@ -70,10 +76,16 @@ extension HomeViewController: UITableViewDataSource {
         
         cell.ownerName.text = "hahaha"
         
-        cell.layoutMargins = UIEdgeInsetsZero
+        setupCell(cell)
         
         return cell
     }
+    
+    private func setupCell(cell: PostTabbleCellView) {
+        cell.layoutMargins = UIEdgeInsetsZero
+        cell.backgroundColor = AppCongifuration.lightGrey()
+    }
+    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return PostTabbleCellView.rowHeight
     }

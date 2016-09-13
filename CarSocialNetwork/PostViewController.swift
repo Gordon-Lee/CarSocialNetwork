@@ -8,11 +8,12 @@
 
 import UIKit
 import Fusuma
-
+import Parse
 class PostViewController: UIViewController, FusumaDelegate {
 
     let fus = FusumaViewController()
     private var flag = true
+    private var postPhoto = Photo()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,7 @@ class PostViewController: UIViewController, FusumaDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        configView()
         navigationController?.navigationBarHidden = true
         if flag {
             fusumaSetup()
@@ -32,6 +34,10 @@ class PostViewController: UIViewController, FusumaDelegate {
             navigationController?.presentViewController(vc!, animated: true, completion: nil)
             flag = true
         }
+    }
+    
+    private func configView() {
+        view.backgroundColor = AppCongifuration.darkGrey()
     }
 }
 
@@ -56,6 +62,7 @@ extension PostViewController {
     
     func fusumaImageSelected(image: UIImage) {
         print("Image selected")
+        uploadPhoto(image)
     }
     
     func fusumaDismissedWithImage(image: UIImage) {
@@ -68,5 +75,39 @@ extension PostViewController {
     
     func fusumaCameraRollUnauthorized() {
         print("Camera roll unauthorized")
+    }
+}
+
+extension PostViewController {
+    
+    private func uploadPhoto(image: UIImage) {
+        //TODOOOOOO
+//        let size = image.size
+//        
+//        let widthRatio  = postPhoto.targetImage.width  / image.size.width
+//        let heightRatio = postPhoto.targetImage.height / image.size.height
+//        
+//        // Figure out what our orientation is, and use that to form the rectangle
+//        var newSize: CGSize
+//        if(widthRatio > heightRatio) {
+//            newSize = CGSizeMake(size.width * heightRatio, size.height * heightRatio)
+//        } else {
+//            newSize = CGSizeMake(size.width * widthRatio,  size.height * widthRatio)
+//        }
+//        
+//        // This is the rect that we've calculated out and this is what is actually used below
+//        let rect = CGRectMake(0, 0, newSize.width, newSize.height)
+//        
+//        // Actually do the resizing to the rect using the ImageContext stuff
+//        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+//        image.drawInRect(rect)
+//        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//        
+//        let upImage = UIImagePNGRepresentation(newImage)
+//        
+//        postPhoto.image = PFFile(data: upImage!)!
+//        
+//        postPhoto.saveInBackground()
     }
 }

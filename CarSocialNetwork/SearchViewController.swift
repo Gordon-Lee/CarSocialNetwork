@@ -18,6 +18,10 @@ class SearchViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.setNavigationBarHidden(true, animated: true)
-        
+        configView()
+    }
+    
+    private func configView() {
+        view.backgroundColor = AppCongifuration.mediumGrey()
     }
 }

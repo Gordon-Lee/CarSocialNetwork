@@ -16,6 +16,11 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        configView()
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    private func configView() {
+        view.backgroundColor = AppCongifuration.lightGrey()
     }
 }

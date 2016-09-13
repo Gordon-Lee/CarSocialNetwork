@@ -32,7 +32,7 @@ class LoginViewController: UIViewController {
     }
 
     private func navigationBar() {
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: AppCongifuration.lightGrey()]
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: AppCongifuration.darkGrey()]
         title = "CarSocial"
     }
     
