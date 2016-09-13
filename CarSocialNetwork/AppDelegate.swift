@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        AppCongifuration.systemBars()
         configureParse()
+        AppCongifuration.systemBars()
         setIncialStoryBoard()
         
         return true
@@ -41,11 +41,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func configureParse() {
-        User.registerSubclass()
-        Activity.registerSubclass()
-        Car.registerSubclass()
+        //User.registerSubclass()
+        //Activity.registerSubclass()
+        //Car.registerSubclass()
         //Photo.registerSubclass()
-        Events.registerSubclass()
+        //Events.registerSubclass()
         
         Parse.setApplicationId("kByO4d8lpQ0ZtL6O5Aql0NctUpz8UOCA5W246HQv", clientKey: "3Gk9I2vhUReAcTrGZwDaJWCVaDW0OXwVKXWYHoGv")
         
