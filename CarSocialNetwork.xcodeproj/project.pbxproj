@@ -13,6 +13,7 @@
 		A91B16CF1D77284700B0C6CB /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B16CE1D77284700B0C6CB /* Car.swift */; };
 		A91B16D11D772A0400B0C6CB /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B16D01D772A0400B0C6CB /* Events.swift */; };
 		A91B16D41D77559700B0C6CB /* HomePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91B16D31D77559700B0C6CB /* HomePage.storyboard */; };
+		A91C94C31D87B7830049390A /* ApplicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C94C21D87B7830049390A /* ApplicationManager.swift */; };
 		A93EE8051D873C57008C9DF9 /* DefaultBt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93EE8041D873C57008C9DF9 /* DefaultBt.swift */; };
 		A97784E31D776C35006A756E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A97784E21D776C35006A756E /* Assets.xcassets */; };
 		A97784E51D779C44006A756E /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97784E41D779C44006A756E /* UserDefaults.swift */; };
@@ -47,7 +48,7 @@
 		A91B16CE1D77284700B0C6CB /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		A91B16D01D772A0400B0C6CB /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		A91B16D31D77559700B0C6CB /* HomePage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomePage.storyboard; sourceTree = "<group>"; };
-		A91C94C11D87AC6B0049390A /* CarSocialNetwork-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CarSocialNetwork-Bridging-Header.h"; sourceTree = "<group>"; };
+		A91C94C21D87B7830049390A /* ApplicationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationManager.swift; sourceTree = "<group>"; };
 		A93EE8041D873C57008C9DF9 /* DefaultBt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultBt.swift; sourceTree = "<group>"; };
 		A97784E21D776C35006A756E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A97784E41D779C44006A756E /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
@@ -142,7 +143,6 @@
 		A9E4D6B01D5D32CF00FD6873 = {
 			isa = PBXGroup;
 			children = (
-				A91C94C11D87AC6B0049390A /* CarSocialNetwork-Bridging-Header.h */,
 				A9E4D6BB1D5D32CF00FD6873 /* CarSocialNetwork */,
 				A9E4D6BA1D5D32CF00FD6873 /* Products */,
 				ED360F0528030C5DF9D990AD /* Pods */,
@@ -201,6 +201,7 @@
 				A97784E81D77AED3006A756E /* GoToStoryBoard.swift */,
 				A97784EA1D77B277006A756E /* AppConfiguration.swift */,
 				A93EE8041D873C57008C9DF9 /* DefaultBt.swift */,
+				A91C94C21D87B7830049390A /* ApplicationManager.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -370,6 +371,7 @@
 				A9E35E921D77643B007BC735 /* EditViewController.swift in Sources */,
 				A9E4D6BD1D5D32CF00FD6873 /* AppDelegate.swift in Sources */,
 				A91B16D11D772A0400B0C6CB /* Events.swift in Sources */,
+				A91C94C31D87B7830049390A /* ApplicationManager.swift in Sources */,
 				A98A72CB1D8589890044238A /* PostTabbleCellView.swift in Sources */,
 				A91B16CD1D7632E400B0C6CB /* Actitivy.swift in Sources */,
 			);
@@ -479,14 +481,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CarSocialNetwork/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Car.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/marco/Documents/TCCIII/CarSocialNetwork/CarSocialNetwork-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
 		};
@@ -497,14 +499,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CarSocialNetwork/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Car.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/marco/Documents/TCCIII/CarSocialNetwork/CarSocialNetwork-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};

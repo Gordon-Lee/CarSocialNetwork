@@ -8,6 +8,10 @@
 import UIKit
 import Parse
 
+protocol LoginViewControllerDelegate: class {
+    func didTapCancelButton()
+}
+
 class LoginViewController: UIViewController {
     
     private var subviewsFrame: CGRect!
@@ -21,8 +25,10 @@ class LoginViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
         navigationBar()
         configView()
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
@@ -49,6 +55,7 @@ class LoginViewController: UIViewController {
         let nib = NSBundle.mainBundle().loadNibNamed("NewMember", owner: self, options: nil)
         newMemberSignUp = nib.first as! NewMemberView
         newMemberSignUp.frame = subviewsFrame
+        newMemberSignUp.delegate = self
         view.addSubview(newMemberSignUp)
     }
     
@@ -72,5 +79,12 @@ extension LoginViewController {
                 return
             }
         }
+    }
+}
+
+extension LoginViewController: LoginViewControllerDelegate {
+    func didTapCancelButton() {
+        view.sendSubviewToBack(newMemberSignUp)
+        newMemberSignUp.removeFromSuperview()
     }
 }

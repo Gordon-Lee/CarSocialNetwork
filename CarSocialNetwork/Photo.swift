@@ -10,7 +10,7 @@ import Parse
 
 class Photo: PFObject, PFSubclassing {
     
-    @NSManaged var owner: User
+    @NSManaged var owner: PFUser
     @NSManaged var image: PFFile
     @NSManaged var thumbImage: PFFile
     

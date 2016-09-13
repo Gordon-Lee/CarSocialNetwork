@@ -7,37 +7,60 @@
 //
 
 import UIKit
+import Parse
 import TLYShyNavBar
+import SVProgressHUD
 
 class HomeViewController: UIViewController {
     
-    private var numberOFRows = 25
     private var refreshControl : UIRefreshControl!
-
-    let aqui = ":"
     
     @IBOutlet weak var tableView: UITableView!
+    
+    private var photoToShow = [Photo]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
+    var resultName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewSetup()
         nibCell()
         navigationBar()
+        loadData()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        SVProgressHUD.show()
         configView()
-        navigationController?.navigationBar.topItem?.title = "Car Social"
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        loadData()
     }
     
     override func viewWillDisappear(animated: Bool) {
         shyNavBarManager.disable = true
     }
     
+    private func loadData() {
+        SVProgressHUD.setBackgroundColor(AppCongifuration.darkGrey())
+        let query = Photo.query()
+        query?.findObjectsInBackgroundWithBlock({ (photos, error) in
+            if error == nil {
+                self.photoToShow = photos as! [Photo]
+            } else {
+                SVProgressHUD.showErrorWithStatus(error?.localizedDescription)
+            }
+        })
+    }
+    
     private func configView() {
         view.backgroundColor = AppCongifuration.lightGrey()
+        navigationController?.navigationBar.topItem?.title = "Car Social"
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        UIApplication.sharedApplication().statusBarStyle = .Default
     }
     
     private func tableViewSetup() {
@@ -64,17 +87,25 @@ extension HomeViewController: UITableViewDelegate, UIScrollViewDelegate {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numberOFRows
+        return photoToShow.count
     }
 }
 
 extension HomeViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        queryUser(photoToShow[indexPath.row].owner)
         
         let cell = tableView.dequeueReusableCellWithIdentifier(PostTabbleCellView.identifier) as! PostTabbleCellView
+        let imageFile = photoToShow[indexPath.row].image
         
-        cell.ownerName.text = "hahaha"
+        imageFile.getDataInBackgroundWithBlock({ (data, error) in
+            if let image = UIImage(data: data!) {
+                cell.postImage.image = image
+            }
+        })
+        
+        cell.ownerName.text = resultName
         
         setupCell(cell)
         
@@ -88,5 +119,20 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return PostTabbleCellView.rowHeight
+    }
+}
+
+extension HomeViewController {
+
+    private func queryUser(onwer: PFUser){
+        let query = PFUser.query()
+        query?.findObjectsInBackgroundWithBlock({ (users, error) in
+            for us in users! {
+                self.resultName = us["username"] as! String
+                self.tableView.reloadData()
+                SVProgressHUD.dismiss()
+                return
+            }
+        })
     }
 }

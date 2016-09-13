@@ -23,8 +23,7 @@ class User: PFObject, PFSubclassing {
         self.username = username
         self.password = password
     }
-
     static func parseClassName() -> String {
-        return "User"
+        return "uuu"
     }
 }

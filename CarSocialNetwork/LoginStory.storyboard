@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -33,7 +34,6 @@
                                 <state key="normal" title="Cadastro"/>
                                 <connections>
                                     <action selector="singUp:" destination="3za-eb-faK" eventType="touchUpInside" id="YOK-VW-A5n"/>
-                                    <segue destination="Q4x-5h-cDx" kind="show" id="V4y-3Z-Zxi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FiV-MR-7rh" customClass="DefaultBt" customModule="CarSocialNetwork" customModuleProvider="target">
@@ -43,15 +43,33 @@
                                     <action selector="login:" destination="3za-eb-faK" eventType="touchUpInside" id="OzZ-T5-g3Z"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CarSocialLogo" translatesAutoresizingMaskIntoConstraints="NO" id="3be-gP-yWr">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="306" id="jeV-8p-S7z"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="jeV-8p-S7z"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="jeV-8p-S7z"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="3be-gP-yWr" firstAttribute="centerX" secondItem="Aed-S5-iBq" secondAttribute="centerX" id="8wE-xa-SDc"/>
                             <constraint firstItem="zmL-qr-KzA" firstAttribute="leading" secondItem="FiV-MR-7rh" secondAttribute="leading" id="Ix7-Bh-RWD"/>
                             <constraint firstItem="FiV-MR-7rh" firstAttribute="leading" secondItem="UKQ-mD-EfB" secondAttribute="leading" id="KET-OX-gqK"/>
                             <constraint firstItem="Aed-S5-iBq" firstAttribute="leading" secondItem="zmL-qr-KzA" secondAttribute="leading" id="OiG-hJ-Zyw"/>
                             <constraint firstItem="Aed-S5-iBq" firstAttribute="leading" secondItem="Qff-Iy-J2H" secondAttribute="leadingMargin" constant="-13" id="PTF-FE-axO"/>
                             <constraint firstItem="Aed-S5-iBq" firstAttribute="trailing" secondItem="zmL-qr-KzA" secondAttribute="trailing" id="Qee-EA-A7k"/>
                             <constraint firstItem="h4V-g3-eOR" firstAttribute="top" secondItem="UKQ-mD-EfB" secondAttribute="bottom" constant="115" id="R4U-vT-d2C"/>
+                            <constraint firstItem="Aed-S5-iBq" firstAttribute="top" secondItem="3be-gP-yWr" secondAttribute="bottom" constant="8" symbolic="YES" id="V5b-9u-Ibe"/>
                             <constraint firstItem="zmL-qr-KzA" firstAttribute="trailing" secondItem="FiV-MR-7rh" secondAttribute="trailing" id="Xa6-01-EOq"/>
                             <constraint firstItem="Aed-S5-iBq" firstAttribute="centerX" secondItem="Qff-Iy-J2H" secondAttribute="centerX" id="cAj-Ca-9VG"/>
                             <constraint firstItem="zmL-qr-KzA" firstAttribute="top" secondItem="Aed-S5-iBq" secondAttribute="bottom" constant="19" id="e3e-mK-ezc"/>
@@ -61,6 +79,7 @@
                             <constraint firstItem="UKQ-mD-EfB" firstAttribute="top" secondItem="FiV-MR-7rh" secondAttribute="bottom" constant="11" id="xta-wc-OYU">
                                 <variation key="widthClass=compact" constant="13"/>
                             </constraint>
+                            <constraint firstItem="3be-gP-yWr" firstAttribute="leading" secondItem="Qff-Iy-J2H" secondAttribute="leading" id="yGA-pc-htY"/>
                             <constraint firstItem="FiV-MR-7rh" firstAttribute="trailing" secondItem="UKQ-mD-EfB" secondAttribute="trailing" id="yTS-6d-ZjP"/>
                         </constraints>
                         <variation key="default">
@@ -69,11 +88,14 @@
                                 <exclude reference="zmL-qr-KzA"/>
                                 <exclude reference="UKQ-mD-EfB"/>
                                 <exclude reference="FiV-MR-7rh"/>
+                                <exclude reference="3be-gP-yWr"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="R4U-vT-d2C"/>
                                 <exclude reference="OiG-hJ-Zyw"/>
                                 <exclude reference="PTF-FE-axO"/>
                                 <exclude reference="Qee-EA-A7k"/>
+                                <exclude reference="V5b-9u-Ibe"/>
                                 <exclude reference="cAj-Ca-9VG"/>
                                 <exclude reference="Ix7-Bh-RWD"/>
                                 <exclude reference="Xa6-01-EOq"/>
@@ -82,7 +104,8 @@
                                 <exclude reference="mEd-Me-PfS"/>
                                 <exclude reference="yTS-6d-ZjP"/>
                                 <exclude reference="xta-wc-OYU"/>
-                                <exclude reference="R4U-vT-d2C"/>
+                                <exclude reference="8wE-xa-SDc"/>
+                                <exclude reference="yGA-pc-htY"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -91,11 +114,14 @@
                                 <include reference="zmL-qr-KzA"/>
                                 <include reference="UKQ-mD-EfB"/>
                                 <include reference="FiV-MR-7rh"/>
+                                <include reference="3be-gP-yWr"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="R4U-vT-d2C"/>
                                 <include reference="OiG-hJ-Zyw"/>
                                 <include reference="PTF-FE-axO"/>
                                 <include reference="Qee-EA-A7k"/>
+                                <include reference="V5b-9u-Ibe"/>
                                 <include reference="cAj-Ca-9VG"/>
                                 <include reference="Ix7-Bh-RWD"/>
                                 <include reference="Xa6-01-EOq"/>
@@ -104,7 +130,8 @@
                                 <include reference="mEd-Me-PfS"/>
                                 <include reference="yTS-6d-ZjP"/>
                                 <include reference="xta-wc-OYU"/>
-                                <include reference="R4U-vT-d2C"/>
+                                <include reference="8wE-xa-SDc"/>
+                                <include reference="yGA-pc-htY"/>
                             </mask>
                         </variation>
                     </view>
@@ -118,25 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P2Q-jz-0ng" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1345.5" y="292"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="pnT-zo-0nZ">
-            <objects>
-                <viewController id="Q4x-5h-cDx" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hXT-sh-W4h"/>
-                        <viewControllerLayoutGuide type="bottom" id="aBn-kE-RXa"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="XWY-r1-PAd">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1g8-XR-2u4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1345.5" y="1011"/>
+            <point key="canvasLocation" x="1345.5" y="302"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KK4-cC-azO">
@@ -157,4 +166,7 @@
             <point key="canvasLocation" x="631.5" y="292"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="CarSocialLogo" width="300" height="225"/>
+    </resources>
 </document>

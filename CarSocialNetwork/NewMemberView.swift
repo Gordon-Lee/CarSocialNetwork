@@ -17,6 +17,8 @@ class NewMemberView: UIView {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var email: UITextField!
     
+    var delegate : LoginViewControllerDelegate!
+    
     override func awakeFromNib() {
         configView()
     }
@@ -47,4 +49,8 @@ class NewMemberView: UIView {
             SVProgressHUD.dismiss()
         }
     }
+    
+    @IBAction func cancelar(sender: AnyObject) {
+        delegate?.didTapCancelButton()
+    }    
 }

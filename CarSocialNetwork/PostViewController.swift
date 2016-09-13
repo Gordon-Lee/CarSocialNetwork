@@ -9,15 +9,18 @@
 import UIKit
 import Fusuma
 import Parse
+import SVProgressHUD
+
 class PostViewController: UIViewController, FusumaDelegate {
 
     let fus = FusumaViewController()
     private var flag = true
-    private var postPhoto = Photo()
+    private var postPhoto: Photo!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fus.delegate = self
+        postPhoto = Photo()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -29,11 +32,18 @@ class PostViewController: UIViewController, FusumaDelegate {
             presentViewController(fus, animated: true, completion: nil)
             flag = false
         } else {
-            let sb = UIStoryboard(name: "HomePage", bundle: NSBundle.mainBundle())
-            let vc = sb.instantiateInitialViewController()
-            navigationController?.presentViewController(vc!, animated: true, completion: nil)
-            flag = true
+            Queue.Main.queue.delay(3, closure: { 
+                let sb = UIStoryboard(name: "HomePage", bundle: NSBundle.mainBundle())
+                let vc = sb.instantiateInitialViewController()
+                self.navigationController?.presentViewController(vc!, animated: true, completion: nil)
+                self.flag = true
+            })
         }
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        
     }
     
     private func configView() {
@@ -62,7 +72,11 @@ extension PostViewController {
     
     func fusumaImageSelected(image: UIImage) {
         print("Image selected")
-        uploadPhoto(image)
+        SVProgressHUD.setBackgroundColor(AppCongifuration.lightGrey())
+        SVProgressHUD.show()
+        postPhoto.image = PFFile(data: uploadPhoto(image))!
+        postPhoto.thumbImage = PFFile(data: thumbImage(image))!
+        save()
     }
     
     func fusumaDismissedWithImage(image: UIImage) {
@@ -80,34 +94,66 @@ extension PostViewController {
 
 extension PostViewController {
     
-    private func uploadPhoto(image: UIImage) {
-        //TODOOOOOO
-//        let size = image.size
-//        
-//        let widthRatio  = postPhoto.targetImage.width  / image.size.width
-//        let heightRatio = postPhoto.targetImage.height / image.size.height
-//        
-//        // Figure out what our orientation is, and use that to form the rectangle
-//        var newSize: CGSize
-//        if(widthRatio > heightRatio) {
-//            newSize = CGSizeMake(size.width * heightRatio, size.height * heightRatio)
-//        } else {
-//            newSize = CGSizeMake(size.width * widthRatio,  size.height * widthRatio)
+    private func save() {
+        postPhoto.owner = PFUser.currentUser()!
+        postPhoto.saveInBackground()
+//        postPhoto.saveInBackgroundWithBlock { (success, error) in
+//            if success {
+//                SVProgressHUD.dismiss()
+//            } else {
+//                SVProgressHUD.showErrorWithStatus(error?.localizedDescription)
+//            }
 //        }
-//        
-//        // This is the rect that we've calculated out and this is what is actually used below
-//        let rect = CGRectMake(0, 0, newSize.width, newSize.height)
-//        
-//        // Actually do the resizing to the rect using the ImageContext stuff
-//        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-//        image.drawInRect(rect)
-//        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//        
-//        let upImage = UIImagePNGRepresentation(newImage)
-//        
-//        postPhoto.image = PFFile(data: upImage!)!
-//        
-//        postPhoto.saveInBackground()
+    }
+    
+    private func uploadPhoto(image: UIImage) -> NSData {
+        //TODOOOOOO
+        var newSize: CGSize
+        let size = image.size
+        
+        let widthRatio  = postPhoto.targetImage.width  / image.size.width
+        let heightRatio = postPhoto.targetImage.height / image.size.height
+        
+            if(widthRatio > heightRatio) {
+                newSize = CGSizeMake(size.width * heightRatio, size.height * heightRatio)
+            } else {
+                newSize = CGSizeMake(size.width * widthRatio,  size.height * widthRatio)
+            }
+        
+        let rect = CGRectMake(0, 0, newSize.width, newSize.height)
+        
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.drawInRect(rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        let upImage = UIImagePNGRepresentation(newImage)
+        
+        return upImage!
+    }
+    
+    private func thumbImage(image: UIImage) -> NSData {
+        var newSize: CGSize
+        let size = image.size
+        
+        let widthRatio  = postPhoto.thumbTargetImage.width  / image.size.width
+        let heightRatio = postPhoto.thumbTargetImage.height / image.size.height
+        
+            if(widthRatio > heightRatio) {
+                newSize = CGSizeMake(size.width * heightRatio, size.height * heightRatio)
+            } else {
+                newSize = CGSizeMake(size.width * widthRatio,  size.height * widthRatio)
+            }
+        
+        let rect = CGRectMake(0, 0, newSize.width, newSize.height)
+        
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.drawInRect(rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        let upImage = UIImagePNGRepresentation(newImage)
+        
+        return upImage!
     }
 }
