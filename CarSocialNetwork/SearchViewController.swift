@@ -20,8 +20,14 @@ class SearchViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
         configView()
     }
-    
     private func configView() {
         view.backgroundColor = AppCongifuration.mediumGrey()
     }
+    
+    @IBAction func showTableViewEvents(sender: AnyObject) {
+    }
+    
+    @IBAction func showTableViewCars(sender: AnyObject) {
+    }
+    
 }

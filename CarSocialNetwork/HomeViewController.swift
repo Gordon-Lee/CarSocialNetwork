@@ -14,6 +14,7 @@ import SVProgressHUD
 class HomeViewController: UIViewController {
     
     private var refreshControl : UIRefreshControl!
+    private var resultName: String!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -23,8 +24,7 @@ class HomeViewController: UIViewController {
         }
     }
     
-    var resultName = ""
-    
+    //MARK: Protocol FUNCS
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewSetup()
@@ -44,6 +44,7 @@ class HomeViewController: UIViewController {
         shyNavBarManager.disable = true
     }
     
+    //MARK: View FUNCS
     private func loadData() {
         SVProgressHUD.setBackgroundColor(AppCongifuration.darkGrey())
         let query = Photo.query()

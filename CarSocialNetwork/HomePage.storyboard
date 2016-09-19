@@ -263,6 +263,9 @@
                                         <variation key="widthClass=compact" fixedFrame="YES">
                                             <rect key="frame" x="200" y="0.0" width="200" height="50"/>
                                         </variation>
+                                        <connections>
+                                            <action selector="showTableViewCars:" destination="dBQ-uD-0Q8" eventType="touchUpInside" id="Lqy-yy-qSu"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0X9-hf-k3y">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -270,6 +273,9 @@
                                         <variation key="widthClass=compact" fixedFrame="YES">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
                                         </variation>
+                                        <connections>
+                                            <action selector="showTableViewEvents:" destination="dBQ-uD-0Q8" eventType="touchUpInside" id="GZB-kK-sZy"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -287,6 +293,13 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lCv-Z4-pn2">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.2274509804" green="0.8980392157" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="114" width="400" height="437"/>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.95522255950000001" green="1" blue="0.68579471849999996" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -294,24 +307,22 @@
                             <mask key="subviews">
                                 <exclude reference="GGb-MB-ReZ"/>
                                 <exclude reference="1ge-ez-0wC"/>
+                                <exclude reference="lCv-Z4-pn2"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="GGb-MB-ReZ"/>
                                 <include reference="1ge-ez-0wC"/>
+                                <include reference="lCv-Z4-pn2"/>
                             </mask>
                         </variation>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="XN4-ki-C55" appends="YES" id="Asb-fS-aME"/>
-                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="search" id="dUx-7B-Ktb">
                         <inset key="imageInsets" minX="0.0" minY="4" maxX="0.0" maxY="-4"/>
                     </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DAW-2O-ZCp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="XN4-ki-C55"/>
             </objects>
             <point key="canvasLocation" x="856.5" y="-42"/>
         </scene>

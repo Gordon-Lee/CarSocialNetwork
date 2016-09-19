@@ -30,9 +30,8 @@ class PostTabbleCellView: UITableViewCell {
     @IBOutlet weak var like: UIButton!
     
     override func awakeFromNib() {
-        inicialSetupImageLike()
-        circleProfilePhoto()
         setupTap()
+        circleProfilePhoto()
     }
     
     private func setupTap() {
@@ -43,44 +42,20 @@ class PostTabbleCellView: UITableViewCell {
         self.addGestureRecognizer(gesture)
     }
     
-    internal func doubleTap() {
-        self.likeImage?.hidden = false
-        UIView.animateWithDuration(10.0, delay: 0.2, options: .CurveEaseIn, animations: {
-            
-            }) { (success) in
-                self.likeImage.alpha = 0.6
-                //self.likeImage.hidden = true
-        }
-    }
-    
     private func circleProfilePhoto(){
         thumbPhoto.layer.masksToBounds = false
         thumbPhoto.frame = CGRectMake(10, 10, 100, 100)
         thumbPhoto.layer.cornerRadius = 60.0
         thumbPhoto.layer.masksToBounds = true
-        
-//        thumbPhoto.layer.masksToBounds = false
-//        thumbPhoto.layer.cornerRadius = thumbPhoto.frame.size.width / 2
-//        thumbPhoto.clipsToBounds = true
-//        thumbPhoto.layer.borderWidth = 3.0
-//        thumbPhoto.layer.borderColor = AppCongifuration.darkGrey().CGColor
-    }
-    
-    func inicialSetupImageLike() {
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(PostTabbleCellView.doubleTap(_:)))
-        gesture.numberOfTapsRequired = 2
-        postImage.addGestureRecognizer(gesture)
-        
-        likeImage?.hidden = true
     }
     
     func doubleTap(sender: AnyObject) {
         likeImage.hidden = false
-        
-        UIView.animateWithDuration(1.0, delay: 1.0, options: .AllowAnimatedContent, animations: {
-            self.likeImage.alpha = 0 }, completion: { (value:Bool) in
-                self.likeImage.hidden = true
+        likeImage.alpha = 1.0
+        UIImageView.animateWithDuration(3.0, delay: 2.0, options: .CurveEaseIn, animations: {
+            self.likeImage.alpha = 0
+            }, completion: { (value:Bool) in
+            self.likeImage.hidden = true
         })
     }
-    
 }

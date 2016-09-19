@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -104,21 +105,21 @@
                     <exclude reference="7NQ-k9-KQv"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="1rJ-2g-8Nn"/>
-                    <exclude reference="Tq8-c4-beM"/>
-                    <exclude reference="qTS-tO-4uP"/>
+                    <exclude reference="4PR-bg-Dxh"/>
+                    <exclude reference="KYg-bo-D8T"/>
+                    <exclude reference="poA-7a-ji4"/>
+                    <exclude reference="5tf-e6-nue"/>
+                    <exclude reference="lEW-Ow-Itb"/>
+                    <exclude reference="lqP-B6-Q4K"/>
+                    <exclude reference="eSH-op-EU6"/>
                     <exclude reference="B3i-5S-ikF"/>
                     <exclude reference="NLH-sz-q8w"/>
                     <exclude reference="SAp-np-pWl"/>
                     <exclude reference="ZLZ-v7-Nrx"/>
                     <exclude reference="tsL-Lo-Rdy"/>
-                    <exclude reference="5tf-e6-nue"/>
-                    <exclude reference="lEW-Ow-Itb"/>
-                    <exclude reference="lqP-B6-Q4K"/>
-                    <exclude reference="eSH-op-EU6"/>
-                    <exclude reference="4PR-bg-Dxh"/>
-                    <exclude reference="KYg-bo-D8T"/>
-                    <exclude reference="poA-7a-ji4"/>
+                    <exclude reference="1rJ-2g-8Nn"/>
+                    <exclude reference="Tq8-c4-beM"/>
+                    <exclude reference="qTS-tO-4uP"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -130,21 +131,21 @@
                     <include reference="7NQ-k9-KQv"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="1rJ-2g-8Nn"/>
-                    <include reference="Tq8-c4-beM"/>
-                    <include reference="qTS-tO-4uP"/>
+                    <include reference="4PR-bg-Dxh"/>
+                    <include reference="KYg-bo-D8T"/>
+                    <include reference="poA-7a-ji4"/>
+                    <include reference="5tf-e6-nue"/>
+                    <include reference="lEW-Ow-Itb"/>
+                    <include reference="lqP-B6-Q4K"/>
+                    <include reference="eSH-op-EU6"/>
                     <include reference="B3i-5S-ikF"/>
                     <include reference="NLH-sz-q8w"/>
                     <include reference="SAp-np-pWl"/>
                     <include reference="ZLZ-v7-Nrx"/>
                     <include reference="tsL-Lo-Rdy"/>
-                    <include reference="5tf-e6-nue"/>
-                    <include reference="lEW-Ow-Itb"/>
-                    <include reference="lqP-B6-Q4K"/>
-                    <include reference="eSH-op-EU6"/>
-                    <include reference="4PR-bg-Dxh"/>
-                    <include reference="KYg-bo-D8T"/>
-                    <include reference="poA-7a-ji4"/>
+                    <include reference="1rJ-2g-8Nn"/>
+                    <include reference="Tq8-c4-beM"/>
+                    <include reference="qTS-tO-4uP"/>
                 </mask>
             </variation>
             <connections>
