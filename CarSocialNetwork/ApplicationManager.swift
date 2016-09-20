@@ -7,3 +7,24 @@
 //
 
 import Foundation
+import Parse
+
+class ApplicationManager {
+    
+    private var appManager = ApplicationManager()
+    
+    class var sharedInstance: ApplicationManager {
+        struct Singleton {
+            static let instance = ApplicationManager()
+        }
+        return Singleton.instance
+    }
+    
+    func getCurrentUserId() -> String {
+        return (PFUser.currentUser()?.objectId!)!
+    }
+    
+    func getCurrentuserName() -> String {
+        return (PFUser.currentUser()?.username)!
+    }
+}
