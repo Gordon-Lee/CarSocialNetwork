@@ -46,6 +46,29 @@
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" image="settings"/>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lns-kp-dpv">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.12941176469999999" green="0.1215686275" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="183" width="400" height="10"/>
+                                </variation>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IFo-n1-nev">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="activityCell" id="3XL-ar-TLA">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3XL-ar-TLA" id="IYp-tN-uqc">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="193" width="400" height="358"/>
+                                </variation>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.4431372549" green="0.92549019610000005" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.26274509800000001" green="0.58039215690000001" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -68,6 +91,8 @@
                                 <exclude reference="Z8o-T1-wqt"/>
                                 <exclude reference="ino-Ka-0lM"/>
                                 <exclude reference="yqZ-sx-JnG"/>
+                                <exclude reference="Lns-kp-dpv"/>
+                                <exclude reference="IFo-n1-nev"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="eV5-fA-v8g"/>
@@ -85,6 +110,8 @@
                                 <include reference="Z8o-T1-wqt"/>
                                 <include reference="ino-Ka-0lM"/>
                                 <include reference="yqZ-sx-JnG"/>
+                                <include reference="Lns-kp-dpv"/>
+                                <include reference="IFo-n1-nev"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="eV5-fA-v8g"/>
@@ -101,6 +128,9 @@
                     <tabBarItem key="tabBarItem" title="" image="profile" id="u8c-UX-5xg">
                         <inset key="imageInsets" minX="0.0" minY="4" maxX="0.0" maxY="-4"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="tabbleView" destination="IFo-n1-nev" id="avf-Za-xNv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0tG-ba-NzX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

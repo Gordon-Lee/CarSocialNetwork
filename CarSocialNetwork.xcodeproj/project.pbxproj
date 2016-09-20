@@ -15,6 +15,9 @@
 		A91B16D41D77559700B0C6CB /* HomePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91B16D31D77559700B0C6CB /* HomePage.storyboard */; };
 		A91C94C31D87B7830049390A /* ApplicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C94C21D87B7830049390A /* ApplicationManager.swift */; };
 		A93EE8051D873C57008C9DF9 /* DefaultBt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93EE8041D873C57008C9DF9 /* DefaultBt.swift */; };
+		A93F230B1D917BED00EA197E /* Activity.xib in Resources */ = {isa = PBXBuildFile; fileRef = A93F230A1D917BED00EA197E /* Activity.xib */; };
+		A93F230D1D917C4200EA197E /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93F230C1D917C4200EA197E /* ActivityView.swift */; };
+		A93F230F1D917D1800EA197E /* ActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93F230E1D917D1800EA197E /* ActivityType.swift */; };
 		A97784E31D776C35006A756E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A97784E21D776C35006A756E /* Assets.xcassets */; };
 		A97784E51D779C44006A756E /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97784E41D779C44006A756E /* UserDefaults.swift */; };
 		A97784E71D77A456006A756E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97784E61D77A456006A756E /* LoginViewController.swift */; };
@@ -57,6 +60,9 @@
 		A91B16D31D77559700B0C6CB /* HomePage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomePage.storyboard; sourceTree = "<group>"; };
 		A91C94C21D87B7830049390A /* ApplicationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationManager.swift; sourceTree = "<group>"; };
 		A93EE8041D873C57008C9DF9 /* DefaultBt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultBt.swift; sourceTree = "<group>"; };
+		A93F230A1D917BED00EA197E /* Activity.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Activity.xib; sourceTree = "<group>"; };
+		A93F230C1D917C4200EA197E /* ActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		A93F230E1D917D1800EA197E /* ActivityType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityType.swift; sourceTree = "<group>"; };
 		A97784E21D776C35006A756E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A97784E41D779C44006A756E /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		A97784E61D77A456006A756E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +121,7 @@
 		A91B16D21D77544600B0C6CB /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				A93F23091D917BC900EA197E /* Profile Activity */,
 				A97EA6891D87FA940037E25A /* Searc Bar View */,
 				A98A72C71D8588FD0044238A /* PostCell */,
 				A91B16D31D77559700B0C6CB /* HomePage.storyboard */,
@@ -125,6 +132,15 @@
 				A97784EC1D77B6BB006A756E /* tabBar.swift */,
 			);
 			name = HomePage;
+			sourceTree = "<group>";
+		};
+		A93F23091D917BC900EA197E /* Profile Activity */ = {
+			isa = PBXGroup;
+			children = (
+				A93F230A1D917BED00EA197E /* Activity.xib */,
+				A93F230C1D917C4200EA197E /* ActivityView.swift */,
+			);
+			name = "Profile Activity";
 			sourceTree = "<group>";
 		};
 		A97EA6891D87FA940037E25A /* Searc Bar View */ = {
@@ -233,12 +249,13 @@
 		A9E4D6D11D5D3AB000FD6873 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				A91717201D6666760011A524 /* Queue.swift */,
-				A97784E41D779C44006A756E /* UserDefaults.swift */,
-				A97784E81D77AED3006A756E /* GoToStoryBoard.swift */,
+				A93F230E1D917D1800EA197E /* ActivityType.swift */,
+				A91C94C21D87B7830049390A /* ApplicationManager.swift */,
 				A97784EA1D77B277006A756E /* AppConfiguration.swift */,
 				A93EE8041D873C57008C9DF9 /* DefaultBt.swift */,
-				A91C94C21D87B7830049390A /* ApplicationManager.swift */,
+				A91717201D6666760011A524 /* Queue.swift */,
+				A97784E81D77AED3006A756E /* GoToStoryBoard.swift */,
+				A97784E41D779C44006A756E /* UserDefaults.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -335,6 +352,7 @@
 				A97EA6961D884AB90037E25A /* InicialTutorial.storyboard in Resources */,
 				A99F9E6B1D78DA7000059F1A /* NewMember.xib in Resources */,
 				A9E4D6C71D5D32CF00FD6873 /* LaunchScreen.storyboard in Resources */,
+				A93F230B1D917BED00EA197E /* Activity.xib in Resources */,
 				A98A72C91D85891C0044238A /* PostCellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,6 +422,7 @@
 				A97EA6981D884B800037E25A /* profilePhotoView.swift in Sources */,
 				A9E35E891D776392007BC735 /* SearchViewController.swift in Sources */,
 				A97784E51D779C44006A756E /* UserDefaults.swift in Sources */,
+				A93F230F1D917D1800EA197E /* ActivityType.swift in Sources */,
 				A9E35E8B1D7763A9007BC735 /* PostViewController.swift in Sources */,
 				A9E35E871D77637A007BC735 /* HomeViewController.swift in Sources */,
 				A97784E91D77AED3006A756E /* GoToStoryBoard.swift in Sources */,
@@ -412,6 +431,7 @@
 				A97EA68F1D87FC630037E25A /* FindCarView.swift in Sources */,
 				A97EA6911D87FC7F0037E25A /* FindPersonUIView.swift in Sources */,
 				A9E4D6DC1D5DF13200FD6873 /* Photo.swift in Sources */,
+				A93F230D1D917C4200EA197E /* ActivityView.swift in Sources */,
 				A9E35E921D77643B007BC735 /* EditViewController.swift in Sources */,
 				A9E4D6BD1D5D32CF00FD6873 /* AppDelegate.swift in Sources */,
 				A91B16D11D772A0400B0C6CB /* Events.swift in Sources */,

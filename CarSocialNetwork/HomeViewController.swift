@@ -80,6 +80,11 @@ class HomeViewController: UIViewController {
         let nibCell = UINib(nibName: PostTabbleCellView.nibName, bundle: NSBundle.mainBundle())
         tableView.registerNib(nibCell, forCellReuseIdentifier: PostTabbleCellView.identifier)
     }
+    
+    private func setupCell(cell: PostTabbleCellView) {
+        cell.layoutMargins = UIEdgeInsetsZero
+        cell.backgroundColor = AppCongifuration.lightGrey()
+    }
 }
 
 extension HomeViewController: UITableViewDelegate, UIScrollViewDelegate {
@@ -111,11 +116,6 @@ extension HomeViewController: UITableViewDataSource {
         setupCell(cell)
         
         return cell
-    }
-    
-    private func setupCell(cell: PostTabbleCellView) {
-        cell.layoutMargins = UIEdgeInsetsZero
-        cell.backgroundColor = AppCongifuration.lightGrey()
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
