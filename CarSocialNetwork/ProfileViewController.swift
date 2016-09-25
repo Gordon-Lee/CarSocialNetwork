@@ -46,7 +46,7 @@ class ProfileViewController: UIViewController {
         tabbleView.registerNib(nibCell, forCellReuseIdentifier: PostTabbleCellView.identifier)
     }
     
-    private func setupCell(cell: PostTabbleCellView) {
+    private func setupCell(cell: ActivityView) {
         cell.layoutMargins = UIEdgeInsetsZero
         cell.backgroundColor = AppCongifuration.lightGrey()
     }
@@ -70,14 +70,14 @@ extension ProfileViewController: UITableViewDelegate {
 extension ProfileViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(ActivityView.identifier) as! ActivityView
-        let imageFile = userActivityPost[indexPath.row].image
-        
-        imageFile.getDataInBackgroundWithBlock({ (data, error) in
-            if let image = UIImage(data: data!) {
-                cell.postImage.image = image
-            }
-        })
-        
+//        let imageFile = userActivityPost[indexPath.row].image
+//        
+//        imageFile.getDataInBackgroundWithBlock({ (data, error) in
+//            if let image = UIImage(data: data!) {
+//                cell.postImage.image = image
+//            }
+//        })
+//        
         setupCell(cell)
         
         return cell

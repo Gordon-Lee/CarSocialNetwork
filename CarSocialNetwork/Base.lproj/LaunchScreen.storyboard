@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
@@ -15,12 +16,76 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZZ-gQ-Rz9">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CarSocialLogo" translatesAutoresizingMaskIntoConstraints="NO" id="jJ7-D9-hC6">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="jJ7-D9-hC6" firstAttribute="centerY" secondItem="cZZ-gQ-Rz9" secondAttribute="centerY" id="jKd-oG-D7x"/>
+                                    <constraint firstItem="jJ7-D9-hC6" firstAttribute="centerX" secondItem="cZZ-gQ-Rz9" secondAttribute="centerX" id="k2W-9x-IGd"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="jJ7-D9-hC6"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="jKd-oG-D7x"/>
+                                        <exclude reference="k2W-9x-IGd"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="jJ7-D9-hC6"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="jKd-oG-D7x"/>
+                                        <include reference="k2W-9x-IGd"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cZZ-gQ-Rz9" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="L6w-jI-8fl"/>
+                            <constraint firstAttribute="trailing" secondItem="cZZ-gQ-Rz9" secondAttribute="trailing" id="g61-1j-oeV"/>
+                            <constraint firstItem="cZZ-gQ-Rz9" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="gRE-RH-l7r"/>
+                            <constraint firstItem="cZZ-gQ-Rz9" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="tta-fL-hnK"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="cZZ-gQ-Rz9"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="L6w-jI-8fl"/>
+                                <exclude reference="g61-1j-oeV"/>
+                                <exclude reference="gRE-RH-l7r"/>
+                                <exclude reference="tta-fL-hnK"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="cZZ-gQ-Rz9"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="L6w-jI-8fl"/>
+                                <include reference="g61-1j-oeV"/>
+                                <include reference="gRE-RH-l7r"/>
+                                <include reference="tta-fL-hnK"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.5" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="CarSocialLogo" width="300" height="300"/>
+    </resources>
 </document>

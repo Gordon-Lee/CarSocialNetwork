@@ -32,7 +32,7 @@ class PostViewController: UIViewController, FusumaDelegate {
             presentViewController(fus, animated: true, completion: nil)
             flag = false
         } else {
-            Queue.Main.queue.delay(3, closure: { 
+            Queue.Main.queue.delay(1.0, closure: {
                 let sb = UIStoryboard(name: "HomePage", bundle: NSBundle.mainBundle())
                 let vc = sb.instantiateInitialViewController()
                 self.navigationController?.presentViewController(vc!, animated: true, completion: nil)
@@ -74,10 +74,10 @@ extension PostViewController {
         print("Image selected")
         SVProgressHUD.setBackgroundColor(AppCongifuration.lightGrey())
         SVProgressHUD.show()
-        postPhoto.image = PFFile(data: uploadPhoto(image))!
-        postPhoto.thumbImage = PFFile(data: thumbImage(image))!
-        save()
     }
+    
+//    postPhoto.image = PFFile(data: AdjustPhoto.uploadToPhoto(image, type: .NORMAL))!
+//    postPhoto.thumbImage = PFFile(data: AdjustPhoto.uploadToPhoto(image, type: .THUMB))!
     
     func fusumaDismissedWithImage(image: UIImage) {
         print("Called just after FusumaViewController is dismissed.")
@@ -89,71 +89,5 @@ extension PostViewController {
     
     func fusumaCameraRollUnauthorized() {
         print("Camera roll unauthorized")
-    }
-}
-
-extension PostViewController {
-    
-    private func save() {
-        postPhoto.owner = PFUser.currentUser()!
-        postPhoto.saveInBackground()
-//        postPhoto.saveInBackgroundWithBlock { (success, error) in
-//            if success {
-//                SVProgressHUD.dismiss()
-//            } else {
-//                SVProgressHUD.showErrorWithStatus(error?.localizedDescription)
-//            }
-//        }
-    }
-    
-    private func uploadPhoto(image: UIImage) -> NSData {
-        //TODOOOOOO
-        var newSize: CGSize
-        let size = image.size
-        
-        let widthRatio  = postPhoto.targetImage.width  / image.size.width
-        let heightRatio = postPhoto.targetImage.height / image.size.height
-        
-            if(widthRatio > heightRatio) {
-                newSize = CGSizeMake(size.width * heightRatio, size.height * heightRatio)
-            } else {
-                newSize = CGSizeMake(size.width * widthRatio,  size.height * widthRatio)
-            }
-        
-        let rect = CGRectMake(0, 0, newSize.width, newSize.height)
-        
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-        image.drawInRect(rect)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        let upImage = UIImagePNGRepresentation(newImage)
-        
-        return upImage!
-    }
-    
-    private func thumbImage(image: UIImage) -> NSData {
-        var newSize: CGSize
-        let size = image.size
-        
-        let widthRatio  = postPhoto.thumbTargetImage.width  / image.size.width
-        let heightRatio = postPhoto.thumbTargetImage.height / image.size.height
-        
-            if(widthRatio > heightRatio) {
-                newSize = CGSizeMake(size.width * heightRatio, size.height * heightRatio)
-            } else {
-                newSize = CGSizeMake(size.width * widthRatio,  size.height * widthRatio)
-            }
-        
-        let rect = CGRectMake(0, 0, newSize.width, newSize.height)
-        
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-        image.drawInRect(rect)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        let upImage = UIImagePNGRepresentation(newImage)
-        
-        return upImage!
     }
 }
