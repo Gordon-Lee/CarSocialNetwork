@@ -6,12 +6,12 @@
 //  Copyright © 2016 CarSocial. All rights reserved.
 //
 //
-//import Foundation
-//import UIKit
-//
-//class GoToStorBoard: UI {
-//    
-//    static func identifier(sb: Stir) {
+import Foundation
+import UIKit
+
+class GoToStorBoard {
+    
+//    static func SBIdentifier(identifier: String) -> UIViewController {
 //        
 //    }
-//}
+}

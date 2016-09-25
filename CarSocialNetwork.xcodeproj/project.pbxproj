@@ -26,7 +26,7 @@
 		A97784ED1D77B6BB006A756E /* tabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97784EC1D77B6BB006A756E /* tabBar.swift */; };
 		A97784EF1D77B9FA006A756E /* LoginStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97784EE1D77B9FA006A756E /* LoginStory.storyboard */; };
 		A97EA68B1D87FAB80037E25A /* FindCarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97EA68A1D87FAB80037E25A /* FindCarView.xib */; };
-		A97EA68D1D87FBA90037E25A /* FindPesonViewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97EA68C1D87FBA90037E25A /* FindPesonViewView.xib */; };
+		A97EA68D1D87FBA90037E25A /* FindPesonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97EA68C1D87FBA90037E25A /* FindPesonView.xib */; };
 		A97EA68F1D87FC630037E25A /* FindCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97EA68E1D87FC630037E25A /* FindCarView.swift */; };
 		A97EA6911D87FC7F0037E25A /* FindPersonUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97EA6901D87FC7F0037E25A /* FindPersonUIView.swift */; };
 		A97EA6941D884A9E0037E25A /* InicialTutorialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97EA6931D884A9E0037E25A /* InicialTutorialView.xib */; };
@@ -38,6 +38,8 @@
 		A99F9E6B1D78DA7000059F1A /* NewMember.xib in Resources */ = {isa = PBXBuildFile; fileRef = A99F9E6A1D78DA7000059F1A /* NewMember.xib */; };
 		A99F9E6D1D78DAAD00059F1A /* NewMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99F9E6C1D78DAAD00059F1A /* NewMemberView.swift */; };
 		A9D03BDF1D9801FC00D94791 /* AdjustPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D03BDE1D9801FC00D94791 /* AdjustPhoto.swift */; };
+		A9D03BE11D981BE900D94791 /* DescriptionPost.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9D03BE01D981BE900D94791 /* DescriptionPost.xib */; };
+		A9D567441D983ADA00CA478F /* AppHelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D567431D983ADA00CA478F /* AppHelperExtensions.swift */; };
 		A9E35E871D77637A007BC735 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E35E861D77637A007BC735 /* HomeViewController.swift */; };
 		A9E35E891D776392007BC735 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E35E881D776392007BC735 /* SearchViewController.swift */; };
 		A9E35E8B1D7763A9007BC735 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E35E8A1D7763A9007BC735 /* PostViewController.swift */; };
@@ -48,6 +50,7 @@
 		A9E4D6C71D5D32CF00FD6873 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E4D6C51D5D32CF00FD6873 /* LaunchScreen.storyboard */; };
 		A9E4D6D41D5D3B8D00FD6873 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E4D6D31D5D3B8D00FD6873 /* Parse.framework */; };
 		A9E4D6DC1D5DF13200FD6873 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4D6DB1D5DF13200FD6873 /* Photo.swift */; };
+		A9E7AF0F1D9825E80049E4C4 /* DescritptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E7AF0E1D9825E80049E4C4 /* DescritptionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,7 +75,7 @@
 		A97784EC1D77B6BB006A756E /* tabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tabBar.swift; sourceTree = "<group>"; };
 		A97784EE1D77B9FA006A756E /* LoginStory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginStory.storyboard; sourceTree = "<group>"; };
 		A97EA68A1D87FAB80037E25A /* FindCarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindCarView.xib; sourceTree = "<group>"; };
-		A97EA68C1D87FBA90037E25A /* FindPesonViewView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindPesonViewView.xib; sourceTree = "<group>"; };
+		A97EA68C1D87FBA90037E25A /* FindPesonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindPesonView.xib; sourceTree = "<group>"; };
 		A97EA68E1D87FC630037E25A /* FindCarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindCarView.swift; sourceTree = "<group>"; };
 		A97EA6901D87FC7F0037E25A /* FindPersonUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPersonUIView.swift; sourceTree = "<group>"; };
 		A97EA6931D884A9E0037E25A /* InicialTutorialView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InicialTutorialView.xib; sourceTree = "<group>"; };
@@ -84,6 +87,8 @@
 		A99F9E6A1D78DA7000059F1A /* NewMember.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewMember.xib; sourceTree = "<group>"; };
 		A99F9E6C1D78DAAD00059F1A /* NewMemberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMemberView.swift; sourceTree = "<group>"; };
 		A9D03BDE1D9801FC00D94791 /* AdjustPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjustPhoto.swift; sourceTree = "<group>"; };
+		A9D03BE01D981BE900D94791 /* DescriptionPost.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DescriptionPost.xib; sourceTree = "<group>"; };
+		A9D567431D983ADA00CA478F /* AppHelperExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppHelperExtensions.swift; sourceTree = "<group>"; };
 		A9E35E861D77637A007BC735 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A9E35E881D776392007BC735 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A9E35E8A1D7763A9007BC735 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +101,7 @@
 		A9E4D6C81D5D32CF00FD6873 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9E4D6D31D5D3B8D00FD6873 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "Pods/../build/Debug-iphoneos/Parse.framework"; sourceTree = "<group>"; };
 		A9E4D6DB1D5DF13200FD6873 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		A9E7AF0E1D9825E80049E4C4 /* DescritptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescritptionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				A97EA68A1D87FAB80037E25A /* FindCarView.xib */,
-				A97EA68C1D87FBA90037E25A /* FindPesonViewView.xib */,
+				A97EA68C1D87FBA90037E25A /* FindPesonView.xib */,
 				A97EA68E1D87FC630037E25A /* FindCarView.swift */,
 				A97EA6901D87FC7F0037E25A /* FindPersonUIView.swift */,
 			);
@@ -168,8 +174,10 @@
 		A98A72C71D8588FD0044238A /* Posts */ = {
 			isa = PBXGroup;
 			children = (
-				A98A72C81D85891C0044238A /* PostCellView.xib */,
+				A9D03BE01D981BE900D94791 /* DescriptionPost.xib */,
+				A9E7AF0E1D9825E80049E4C4 /* DescritptionView.swift */,
 				A98A72CA1D8589890044238A /* PostTabbleCellView.swift */,
+				A98A72C81D85891C0044238A /* PostCellView.xib */,
 				A97EA6971D884B800037E25A /* profilePhotoView.swift */,
 			);
 			name = Posts;
@@ -252,13 +260,14 @@
 			isa = PBXGroup;
 			children = (
 				A93F230E1D917D1800EA197E /* ActivityType.swift */,
+				A9D03BDE1D9801FC00D94791 /* AdjustPhoto.swift */,
 				A91C94C21D87B7830049390A /* ApplicationManager.swift */,
+				A9D567431D983ADA00CA478F /* AppHelperExtensions.swift */,
 				A97784EA1D77B277006A756E /* AppConfiguration.swift */,
 				A93EE8041D873C57008C9DF9 /* DefaultBt.swift */,
 				A91717201D6666760011A524 /* Queue.swift */,
 				A97784E81D77AED3006A756E /* GoToStoryBoard.swift */,
 				A97784E41D779C44006A756E /* UserDefaults.swift */,
-				A9D03BDE1D9801FC00D94791 /* AdjustPhoto.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -349,8 +358,9 @@
 				A91B16D41D77559700B0C6CB /* HomePage.storyboard in Resources */,
 				A97EA6941D884A9E0037E25A /* InicialTutorialView.xib in Resources */,
 				A97EA68B1D87FAB80037E25A /* FindCarView.xib in Resources */,
+				A9D03BE11D981BE900D94791 /* DescriptionPost.xib in Resources */,
 				A97784E31D776C35006A756E /* Assets.xcassets in Resources */,
-				A97EA68D1D87FBA90037E25A /* FindPesonViewView.xib in Resources */,
+				A97EA68D1D87FBA90037E25A /* FindPesonView.xib in Resources */,
 				A9E35E901D776425007BC735 /* EditProfile.storyboard in Resources */,
 				A97EA6961D884AB90037E25A /* InicialTutorial.storyboard in Resources */,
 				A99F9E6B1D78DA7000059F1A /* NewMember.xib in Resources */,
@@ -415,6 +425,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9E7AF0F1D9825E80049E4C4 /* DescritptionView.swift in Sources */,
+				A9D567441D983ADA00CA478F /* AppHelperExtensions.swift in Sources */,
 				A97784E71D77A456006A756E /* LoginViewController.swift in Sources */,
 				A99050201D75D4D000A4F626 /* User.swift in Sources */,
 				A91717211D6666760011A524 /* Queue.swift in Sources */,
@@ -549,8 +561,8 @@
 			baseConfigurationReference = 6B02B8E240BA6D7EB0A5738F /* Pods-CarSocialNetwork.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Marco Aurelio (ERP5GW2JQV)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Marco Aurelio (ERP5GW2JQV)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CarSocialNetwork/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -567,8 +579,8 @@
 			baseConfigurationReference = 73D55C1859FEA03B5279E99E /* Pods-CarSocialNetwork.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Marco Aurelio (ERP5GW2JQV)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Marco Aurelio (ERP5GW2JQV)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CarSocialNetwork/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;

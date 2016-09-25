@@ -156,7 +156,7 @@
         <!--HomePage-->
         <scene sceneID="3nn-1E-802">
             <objects>
-                <tabBarController title="HomePage" id="t3J-qK-X9z" customClass="tabBar" customModule="CarSocialNetwork" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBar" title="HomePage" id="t3J-qK-X9z" customClass="tabBar" customModule="CarSocialNetwork" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="zSN-cv-Z0x"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="lw6-Sn-zjA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>

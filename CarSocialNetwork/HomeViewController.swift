@@ -13,16 +13,16 @@ import SVProgressHUD
 
 class HomeViewController: UIViewController {
     
-    private var refreshControl : UIRefreshControl!
-    private var resultName: String!
-    
     @IBOutlet weak var tableView: UITableView!
     
+    private var refreshControl : UIRefreshControl!
+    private var resultName: String!
     private var photoToShow = [Photo]() {
         didSet {
             tableView.reloadData()
         }
     }
+    static let storyIndentifier = "HomePage"
     
     //MARK: Protocol FUNCS
     override func viewDidLoad() {
@@ -35,7 +35,8 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        SVProgressHUD.show()
+        //SVProgressHUD.show()
+        tabBarController?.tabBarVisibility(true, animated: true)
         configView()
         loadData()
     }
@@ -46,13 +47,13 @@ class HomeViewController: UIViewController {
     
     //MARK: View FUNCS
     private func loadData() {
-        SVProgressHUD.setBackgroundColor(AppCongifuration.darkGrey())
+//        SVProgressHUD.setBackgroundColor(AppCongifuration.darkGrey())
         let query = Photo.query()
         query?.findObjectsInBackgroundWithBlock({ (photos, error) in
             if error == nil {
                 self.photoToShow = photos as! [Photo]
             } else {
-                SVProgressHUD.showErrorWithStatus(error?.localizedDescription)
+//                SVProgressHUD.showErrorWithStatus(error?.localizedDescription)
             }
         })
     }
