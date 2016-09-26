@@ -27,4 +27,13 @@ class ApplicationManager {
     func getCurrentuserName() -> String {
         return (PFUser.currentUser()?.username)!
     }
+    
+    func getUser() {
+        PFUser.currentUser()?.fetchInBackgroundWithBlock({ (current, error) in
+            if let user = current as? PFUser where error != nil {
+                print(user.username)
+                print(user["profileImage"])
+            }
+        })
+    }
 }

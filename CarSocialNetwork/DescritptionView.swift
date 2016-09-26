@@ -29,10 +29,12 @@ class DescritptionView: UIView {
     }
     
     @IBAction func trashPost(sender: AnyObject) {
+        print("POST PHOTO")
         delegate?.didTapCancel()
     }
     
     @IBAction func postPhoto(sender: AnyObject) {
+        print("POST PHOTO")
         delegate?.didClickToFinish()
     }
 }

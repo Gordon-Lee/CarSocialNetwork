@@ -10,12 +10,13 @@ import Parse
 
 class Activity: PFObject, PFSubclassing {
     
-    @NSManaged var fromUser: User
-    @NSManaged var toUser: User
+    @NSManaged var fromUser: PFUser
+    @NSManaged var toUser: PFUser
     @NSManaged var image: PFFile
     @NSManaged var type: String
     @NSManaged var content: String
- 
+    @NSManaged var activityType: Int
+    
     static func parseClassName() -> String {
         return "Activity"
     }

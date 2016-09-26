@@ -42,33 +42,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func configureParse() {
         //User.registerSubclass()
-        //Activity.registerSubclass()
         //Car.registerSubclass()
-        Photo.registerSubclass()
         //Events.registerSubclass()
+        Activity.registerSubclass()
+        Photo.registerSubclass()
         
         Parse.setApplicationId("kByO4d8lpQ0ZtL6O5Aql0NctUpz8UOCA5W246HQv", clientKey: "3Gk9I2vhUReAcTrGZwDaJWCVaDW0OXwVKXWYHoGv")
-        
-        
     }
     
     private func setIncialStoryBoard() {
-     
-        goToStoryBoard(homePageIdentifier)
-        
-//        if UserDefaults.sharedInstance.login() && UserDefaults.sharedInstance.autoLogin() {
-//            UserDefaults.sharedInstance.setAutoLogin(true)
-//        } else {
-//            goToStoryBoard(loginSBIdentifier)
-//        }
+        if UserDefaults.sharedInstance.login() && UserDefaults.sharedInstance.autoLogin() {
+            UserDefaults.sharedInstance.setAutoLogin(true)
+        } else {
+            goToStoryBoard(loginSBIdentifier)
+        }
     }
     
     private func goToStoryBoard(initialSb: String) {
-    
         let sb = UIStoryboard(name: initialSb, bundle: NSBundle.mainBundle())
         let vc = sb.instantiateInitialViewController()
         window?.rootViewController = vc
-       
     }
 }
-
