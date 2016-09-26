@@ -10,7 +10,7 @@ import UIKit
 import SVProgressHUD
 
 protocol DescriptionViewDelegate: class {
-    func didClickToFinish()
+    func didClickToFinish(comment: String)
     func didTapCancel()
 }
 
@@ -18,6 +18,7 @@ class DescritptionView: UIView {
 
     @IBOutlet weak var userDescription: UITextField!
     @IBOutlet weak var thumbImage: UIImageView!
+    @IBOutlet weak var commenBox: UITextField!
     
     weak var delegate: DescriptionViewDelegate!
     
@@ -34,7 +35,7 @@ class DescritptionView: UIView {
     }
     
     @IBAction func postPhoto(sender: AnyObject) {
-        print("POST PHOTO")
-        delegate?.didClickToFinish()
+        print("POST PHOTO "+commenBox.text!)
+        delegate?.didClickToFinish(commenBox.text!)
     }
 }

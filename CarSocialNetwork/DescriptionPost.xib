@@ -70,7 +70,7 @@
                         <constraint firstAttribute="width" constant="77" id="o0t-52-Iv3"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
                         <mask key="constraints">
@@ -141,6 +141,32 @@
                         </mask>
                     </variation>
                 </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sdI-HV-cnP">
+                    <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                    <color key="backgroundColor" red="0.81176470590000005" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="111" id="DhN-OI-7yf"/>
+                        <constraint firstAttribute="width" constant="400" id="OZ9-p6-MOo"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="111" id="oez-Bg-vo7"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="DhN-OI-7yf"/>
+                            <exclude reference="oez-Bg-vo7"/>
+                            <exclude reference="OZ9-p6-MOo"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                        <rect key="frame" x="10" y="134" width="400" height="111"/>
+                        <mask key="constraints">
+                            <include reference="DhN-OI-7yf"/>
+                            <include reference="oez-Bg-vo7"/>
+                            <include reference="OZ9-p6-MOo"/>
+                        </mask>
+                    </variation>
+                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -177,6 +203,7 @@
                     <exclude reference="do1-nT-0dm"/>
                     <exclude reference="aOa-gh-zEx"/>
                     <exclude reference="6c1-2k-V3U"/>
+                    <exclude reference="sdI-HV-cnP"/>
                 </mask>
                 <mask key="constraints">
                     <exclude reference="PKf-Wy-BEp"/>
@@ -203,6 +230,7 @@
                     <include reference="do1-nT-0dm"/>
                     <include reference="aOa-gh-zEx"/>
                     <include reference="6c1-2k-V3U"/>
+                    <include reference="sdI-HV-cnP"/>
                 </mask>
                 <mask key="constraints">
                     <include reference="PKf-Wy-BEp"/>
@@ -223,6 +251,7 @@
                 </mask>
             </variation>
             <connections>
+                <outlet property="commenBox" destination="6c1-2k-V3U" id="uww-gN-YQK"/>
                 <outlet property="thumbImage" destination="zSE-V6-9NR" id="ir7-tq-yGS"/>
                 <outlet property="userDescription" destination="6c1-2k-V3U" id="UgN-Tp-xQ6"/>
             </connections>

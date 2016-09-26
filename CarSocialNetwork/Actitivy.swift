@@ -12,7 +12,7 @@ class Activity: PFObject, PFSubclassing {
     
     @NSManaged var fromUser: PFUser
     @NSManaged var toUser: PFUser
-    @NSManaged var image: PFFile
+    @NSManaged var image: Photo
     @NSManaged var type: String
     @NSManaged var content: String
     @NSManaged var activityType: Int

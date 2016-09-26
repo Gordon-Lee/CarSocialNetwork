@@ -32,8 +32,6 @@ class PostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activity = Activity()
-        postPhoto = Photo()
         navigationController?.navigationBarHidden = false
         calculateSubviewsFrame()
         configView()
@@ -52,10 +50,8 @@ class PostViewController: UIViewController {
             presentViewController(fus, animated: true, completion: nil)
             return
         case .DESCRIPTION:
-            
             addDescriptionView()
         default:
-            
             showHomeViewController()
             print("PAU NO HOME")
         }
@@ -68,11 +64,36 @@ class PostViewController: UIViewController {
     }
     
     private func configView() {
-        
+        activity = Activity()
+        postPhoto = Photo()
         view.backgroundColor = AppCongifuration.darkGrey()
     }
 }
-
+//MARK: Parse
+extension PostViewController {
+    private func saveEverything() {
+        postPhoto.saveInBackgroundWithBlock(){(succeeded, error) in
+            if succeeded {
+                print("WITH BLOCK "+self.postPhoto.objectId!)
+                self.saveActivity(self.postPhoto)
+                return
+            }
+        }
+    }
+    
+    private func saveActivity(photoId: Photo) {
+        print("ACTIVITY "+photoId.objectId!+" IDDD \((PFUser.currentUser()?.objectId)!)")
+        let usr = (PFUser.currentUser()?.objectId)!
+        print("USEERR "+usr)
+        
+        activity.fromUser = PFUser.currentUser()!
+        activity.toUser = PFUser.currentUser()!
+        activity.image = photoId
+        activity.activityType = ActivityType.POST.rawValue
+        activity.saveInBackground()
+    }
+}
+//MARK: FUSUMA
 extension PostViewController: FusumaDelegate {
     
     private func fusumaSetup() {
@@ -96,9 +117,8 @@ extension PostViewController: FusumaDelegate {
         print("IMAGE SELECTED")
         howView = .DESCRIPTION
         savePost(image)
-        saveActivity("e9sencq0CR")
     }
-
+    
     func fusumaDismissedWithImage(image: UIImage) {
         print("Called just after FusumaViewController is dismissed.")
         addDescriptionView()
@@ -112,61 +132,8 @@ extension PostViewController: FusumaDelegate {
         print("Camera roll unauthorized")
     }
 }
-//MARK: Generic
-extension PostViewController {
-    
-    private func showHomeViewController() {
-        let sb = UIStoryboard(name: "HomePage", bundle: NSBundle.mainBundle())
-        let vc = sb.instantiateInitialViewController()
-        navigationController?.presentViewController(vc!, animated: true, completion: nil)
-    }
-    
-    private func savePost(image: UIImage) {
-        saveActivity("e9sencq0CR")
-        postPhoto.owner = PFUser.currentUser()!
-        postPhoto.thumbImage = PFFile(data: AdjustPhoto.uploadToPhoto(image, type: .THUMB))!
-        postPhoto.image = PFFile(data: AdjustPhoto.uploadToPhoto(image, type: .NORMAL))!
-        saveEverything()
-    }
-}
-//MARK: Parse
-extension PostViewController {
-    private func saveEverything() {
-        postPhoto.saveInBackground()
-        
-//        ph.saveInBackgroundWithBlock(){(succeeded, error) in
-//            if succeeded {
-//                print("WITH BLOCK "+ph.objectId!)
-//                self.saveActivity(ph.objectId!)
-//                return
-//            }
-//        }
-    }
-    
-    private func saveActivity(photoId: String) {
-        print("ACTIVITY "+photoId+" IDDD \((PFUser.currentUser()?.objectId)!)")
-        //let currentId = ApplicationManager.sharedInstance.getCurrentUserId()
-        let usr = (PFUser.currentUser()?.objectId)!
-        print("USEERR "+usr)
-        
-        activity.fromUser = PFUser.currentUser()!
-        activity.toUser = PFUser.currentUser()!
-        activity.image = postPhoto.image
-        activity.activityType = ActivityType.POST.rawValue
-        activity.saveInBackground()
-    }
-
-}
-//@NSManaged var fromUser: User
-//@NSManaged var toUser: User
-//@NSManaged var image: PFFile
-//@NSManaged var type: String
-//@NSManaged var content: String
-//USER
-
 //MARK: DELEGATES
 extension PostViewController: DescriptionViewDelegate {
-    
     private func calculateSubviewsFrame() {
         let viewFrame = view.frame
         let viewOrigin = viewFrame.origin
@@ -184,11 +151,28 @@ extension PostViewController: DescriptionViewDelegate {
         view.addSubview(descriptionView)
     }
     
-    func didClickToFinish() {
+    func didClickToFinish(comment: String) {
+        activity.content = comment as String
+        saveEverything()
         showHomeViewController()
     }
     
     func didTapCancel() {
         showHomeViewController()
+    }
+}
+//MARK: Generic
+extension PostViewController {
+    
+    private func showHomeViewController() {
+        let sb = UIStoryboard(name: "HomePage", bundle: NSBundle.mainBundle())
+        let vc = sb.instantiateInitialViewController()
+        navigationController?.presentViewController(vc!, animated: true, completion: nil)
+    }
+    
+    private func savePost(image: UIImage) {
+        postPhoto.owner = PFUser.currentUser()!
+        postPhoto.thumbImage = PFFile(data: AdjustPhoto.uploadToPhoto(image, type: .THUMB))!
+        postPhoto.image = PFFile(data: AdjustPhoto.uploadToPhoto(image, type: .NORMAL))!
     }
 }
