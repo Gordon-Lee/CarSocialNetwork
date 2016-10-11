@@ -18,7 +18,6 @@ enum howViewToDisplay: String {
 class PostViewController: UIViewController {
 
     let fus = FusumaViewController()
-    private var flag = true
     private var postPhoto: Photo!
     
     private var howView: howViewToDisplay = .FUSUMA
@@ -74,7 +73,6 @@ extension PostViewController {
     private func saveEverything() {
         postPhoto.saveInBackgroundWithBlock(){(succeeded, error) in
             if succeeded {
-                print("WITH BLOCK "+self.postPhoto.objectId!)
                 self.saveActivity(self.postPhoto)
                 return
             }
@@ -82,10 +80,6 @@ extension PostViewController {
     }
     
     private func saveActivity(photoId: Photo) {
-        print("ACTIVITY "+photoId.objectId!+" IDDD \((PFUser.currentUser()?.objectId)!)")
-        let usr = (PFUser.currentUser()?.objectId)!
-        print("USEERR "+usr)
-        
         activity.fromUser = PFUser.currentUser()!
         activity.toUser = PFUser.currentUser()!
         activity.image = photoId
@@ -163,7 +157,6 @@ extension PostViewController: DescriptionViewDelegate {
 }
 //MARK: Generic
 extension PostViewController {
-    
     private func showHomeViewController() {
         let sb = UIStoryboard(name: "HomePage", bundle: NSBundle.mainBundle())
         let vc = sb.instantiateInitialViewController()

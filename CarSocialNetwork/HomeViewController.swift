@@ -7,22 +7,25 @@
 //
 
 import UIKit
-import Parse
 import TLYShyNavBar
 import SVProgressHUD
+import Parse
 
 class HomeViewController: UIViewController {
+    
+    static let storyIndentifier = "HomePage"
     
     @IBOutlet weak var tableView: UITableView!
     
     private var refreshControl : UIRefreshControl!
     private var resultName: String!
-    private var photoToShow = [Photo]() {
+    private var photoToShow = [Photo]()
+    private var activity = [Activity]() {
         didSet {
             tableView.reloadData()
+            print(activity.count)
         }
     }
-    static let storyIndentifier = "HomePage"
     
     //MARK: Protocol FUNCS
     override func viewDidLoad() {
@@ -30,15 +33,14 @@ class HomeViewController: UIViewController {
         tableViewSetup()
         nibCell()
         navigationBar()
+        configView()
         loadData()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        //SVProgressHUD.show()
+        SVProgressHUD.show()
         tabBarController?.tabBarVisibility(true, animated: true)
-        configView()
-        loadData()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -47,13 +49,22 @@ class HomeViewController: UIViewController {
     
     //MARK: View FUNCS
     private func loadData() {
-//        SVProgressHUD.setBackgroundColor(AppCongifuration.darkGrey())
-        let query = Photo.query()
-        query?.findObjectsInBackgroundWithBlock({ (photos, error) in
-            if error == nil {
+        let queryPh = Photo.query()
+        let queryActivy = Activity.query()
+        
+        queryActivy?.whereKey(Activity.typeaString, equalTo: activityType.POST.rawValue)
+        
+        queryPh?.findObjectsInBackgroundWithBlock({ (photos, error) in
+            guard error != nil else {
                 self.photoToShow = photos as! [Photo]
-            } else {
-//                SVProgressHUD.showErrorWithStatus(error?.localizedDescription)
+                queryActivy?.findObjectsInBackgroundWithBlock({ (activits, error) in
+                    guard error != nil else {
+                        self.activity = activits as! [Activity]
+                        SVProgressHUD.dismiss()
+                        return
+                    }
+                })
+                return
             }
         })
     }
@@ -111,30 +122,33 @@ extension HomeViewController: UITableViewDataSource {
                 cell.postImage.image = image
             }
         })
-        
+        cell.photoDescription.text = showDescription(photoToShow[indexPath.row].objectId!)
         cell.ownerName.text = resultName
-        
         setupCell(cell)
         
         return cell
     }
-    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return PostTabbleCellView.rowHeight
     }
 }
 
 extension HomeViewController {
-
     private func queryUser(onwer: PFUser){
         let query = PFUser.query()
         query?.findObjectsInBackgroundWithBlock({ (users, error) in
             for us in users! {
                 self.resultName = us["username"] as! String
-                self.tableView.reloadData()
-                SVProgressHUD.dismiss()
                 return
             }
         })
+    }
+    private func showDescription(photoId: String) -> String{
+        for act in activity {
+            if act.image.objectId == photoId {
+                return act.content
+            }
+        }
+        return ""
     }
 }

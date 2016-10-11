@@ -8,6 +8,10 @@
 
 import Parse
 
+enum activityType: Int {
+    case POST, COMMENT, LIKE
+}
+
 class Activity: PFObject, PFSubclassing {
     
     @NSManaged var fromUser: PFUser
@@ -16,6 +20,8 @@ class Activity: PFObject, PFSubclassing {
     @NSManaged var type: String
     @NSManaged var content: String
     @NSManaged var activityType: Int
+    
+    static let typeaString = "activityType"
     
     static func parseClassName() -> String {
         return "Activity"
