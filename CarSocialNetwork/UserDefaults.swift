@@ -16,7 +16,7 @@ struct DataUserDefaults {
 
 class UserDefaults {
     
-    private var nsDefaults = NSUserDefaults()
+    fileprivate var nsDefaults = Foundation.UserDefaults()
     
     class var sharedInstance: UserDefaults {
         struct Singleton {
@@ -26,29 +26,29 @@ class UserDefaults {
     }
     
     init() {
-        nsDefaults = NSUserDefaults.standardUserDefaults()
-        nsDefaults.setBool(false, forKey: DataUserDefaults.autoLogin)
+        nsDefaults = Foundation.UserDefaults.standard
+        nsDefaults.set(false, forKey: DataUserDefaults.autoLogin)
     }
     
-    internal func Save(username: String, password: String) {
-        nsDefaults.setObject(username, forKey: DataUserDefaults.userName)
-        nsDefaults.setObject(password, forKey: DataUserDefaults.password)
-        nsDefaults.setBool(true, forKey: DataUserDefaults.autoLogin)
+    internal func Save(_ username: String, password: String) {
+        nsDefaults.set(username, forKey: DataUserDefaults.userName)
+        nsDefaults.set(password, forKey: DataUserDefaults.password)
+        nsDefaults.set(true, forKey: DataUserDefaults.autoLogin)
         nsDefaults.synchronize()
     }
     
     internal func login() -> Bool {
-        let user = nsDefaults.stringForKey(DataUserDefaults.userName)
-        let password = nsDefaults.stringForKey(DataUserDefaults.password)
+        let user = nsDefaults.string(forKey: DataUserDefaults.userName)
+        let password = nsDefaults.string(forKey: DataUserDefaults.password)
         
         return user != nil && password != nil
     }
     
     internal func autoLogin() -> Bool {
-        return nsDefaults.boolForKey(DataUserDefaults.autoLogin)
+        return nsDefaults.bool(forKey: DataUserDefaults.autoLogin)
     }
     
-    internal func setAutoLogin(autoLogin: Bool) {
-        nsDefaults.setBool(autoLogin, forKey: DataUserDefaults.autoLogin)
+    internal func setAutoLogin(_ autoLogin: Bool) {
+        nsDefaults.set(autoLogin, forKey: DataUserDefaults.autoLogin)
     }
 }

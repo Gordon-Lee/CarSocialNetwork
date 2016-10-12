@@ -11,7 +11,7 @@ import UIKit
 extension UIImageView {
     
     func setRounded() {
-        let radius = CGRectGetWidth(self.frame) / 2
+        let radius = self.frame.width / 2
         self.layer.cornerRadius = radius
         self.layer.masksToBounds = true
     }
@@ -35,28 +35,28 @@ class PostTabbleCellView: UITableViewCell {
         circleProfilePhoto()
     }
     
-    private func setupTap() {
-        likeImage.hidden = true
+    fileprivate func setupTap() {
+        likeImage.isHidden = true
         likeImage.alpha = 0.6
         let gesture = UITapGestureRecognizer(target: self, action: #selector(PostTabbleCellView.doubleTap(_:)))
         gesture.numberOfTapsRequired = 2
         self.addGestureRecognizer(gesture)
     }
     
-    private func circleProfilePhoto(){
+    fileprivate func circleProfilePhoto(){
         thumbPhoto.layer.masksToBounds = false
-        thumbPhoto.frame = CGRectMake(10, 10, 100, 100)
+        thumbPhoto.frame = CGRect(x: 10, y: 10, width: 100, height: 100)
         thumbPhoto.layer.cornerRadius = 60.0
         thumbPhoto.layer.masksToBounds = true
     }
     
-    func doubleTap(sender: AnyObject) {
-        likeImage.hidden = false
+    func doubleTap(_ sender: AnyObject) {
+        likeImage.isHidden = false
         likeImage.alpha = 1.0
-        UIImageView.animateWithDuration(3.0, delay: 2.0, options: .CurveEaseIn, animations: {
+        UIImageView.animate(withDuration: 3.0, delay: 2.0, options: .curveEaseIn, animations: {
             self.likeImage.alpha = 0
             }, completion: { (value:Bool) in
-            self.likeImage.hidden = true
+            self.likeImage.isHidden = true
         })
     }
 }

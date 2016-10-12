@@ -11,7 +11,7 @@ import Parse
 
 class ApplicationManager {
     
-    private var appManager = ApplicationManager()
+    fileprivate var appManager = ApplicationManager()
     
     class var sharedInstance: ApplicationManager {
         struct Singleton {
@@ -21,16 +21,16 @@ class ApplicationManager {
     }
     
     func getCurrentUserId() -> String {
-        return (PFUser.currentUser()?.objectId!)!
+        return (PFUser.current()?.objectId!)!
     }
     
     func getCurrentuserName() -> String {
-        return (PFUser.currentUser()?.username)!
+        return (PFUser.current()?.username)!
     }
     
     func getUser() {
-        PFUser.currentUser()?.fetchInBackgroundWithBlock({ (current, error) in
-            if let user = current as? PFUser where error != nil {
+        PFUser.current()?.fetchInBackground(block: { (current, error) in
+            if let user = current as? PFUser , error != nil {
                 print(user.username)
                 print(user["profileImage"])
             }

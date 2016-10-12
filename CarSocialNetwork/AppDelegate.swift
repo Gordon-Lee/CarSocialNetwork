@@ -12,11 +12,11 @@ import Parse
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    private let loginSBIdentifier = "LoginStory"
-    private let homePageIdentifier = "HomePage"
+    fileprivate let loginSBIdentifier = "LoginStory"
+    fileprivate let homePageIdentifier = "HomePage"
     var window: UIWindow?
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         configureParse()
         AppCongifuration.systemBars()
@@ -25,22 +25,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func applicationWillResignActive(application: UIApplication) {
+    func applicationWillResignActive(_ application: UIApplication) {
     }
 
-    func applicationDidEnterBackground(application: UIApplication) {
+    func applicationDidEnterBackground(_ application: UIApplication) {
     }
 
-    func applicationWillEnterForeground(application: UIApplication) {
+    func applicationWillEnterForeground(_ application: UIApplication) {
     }
 
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
     }
 
-    func applicationWillTerminate(application: UIApplication) {
+    func applicationWillTerminate(_ application: UIApplication) {
     }
     
-    private func configureParse() {
+    fileprivate func configureParse() {
         User.registerSubclass()
         Car.registerSubclass()
         Events.registerSubclass()
@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("kByO4d8lpQ0ZtL6O5Aql0NctUpz8UOCA5W246HQv", clientKey: "3Gk9I2vhUReAcTrGZwDaJWCVaDW0OXwVKXWYHoGv")
     }
     
-    private func setIncialStoryBoard() {
+    fileprivate func setIncialStoryBoard() {
         if UserDefaults.sharedInstance.login() && UserDefaults.sharedInstance.autoLogin() {
             UserDefaults.sharedInstance.setAutoLogin(true)
         } else {
@@ -64,8 +64,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    private func goToStoryBoard(initialSb: String) {
-        let sb = UIStoryboard(name: initialSb, bundle: NSBundle.mainBundle())
+    fileprivate func goToStoryBoard(_ initialSb: String) {
+        let sb = UIStoryboard(name: initialSb, bundle: Bundle.main)
         let vc = sb.instantiateInitialViewController()
         window?.rootViewController = vc
     }

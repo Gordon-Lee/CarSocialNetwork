@@ -17,10 +17,10 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private var refreshControl : UIRefreshControl!
-    private var resultName: String!
-    private var photoToShow = [Photo]()
-    private var activity = [Activity]() {
+    fileprivate var refreshControl : UIRefreshControl!
+    fileprivate var resultName: String!
+    fileprivate var photoToShow = [Photo]()
+    fileprivate var activity = [Activity]() {
         didSet {
             tableView.reloadData()
             print(activity.count)
@@ -37,27 +37,27 @@ class HomeViewController: UIViewController {
         loadData()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         SVProgressHUD.show()
         tabBarController?.tabBarVisibility(true, animated: true)
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         shyNavBarManager.disable = true
     }
     
     //MARK: View FUNCS
-    private func loadData() {
+    fileprivate func loadData() {
         let queryPh = Photo.query()
         let queryActivy = Activity.query()
         
-        queryActivy?.whereKey(Activity.typeaString, equalTo: activityType.POST.rawValue)
+        queryActivy?.whereKey(Activity.typeaString, equalTo: activityType.post.rawValue)
         
-        queryPh?.findObjectsInBackgroundWithBlock({ (photos, error) in
+        queryPh?.findObjectsInBackground(block: { (photos, error) in
             guard error != nil else {
                 self.photoToShow = photos as! [Photo]
-                queryActivy?.findObjectsInBackgroundWithBlock({ (activits, error) in
+                queryActivy?.findObjectsInBackground(block: { (activits, error) in
                     guard error != nil else {
                         self.activity = activits as! [Activity]
                         SVProgressHUD.dismiss()
@@ -69,81 +69,81 @@ class HomeViewController: UIViewController {
         })
     }
     
-    private func configView() {
+    fileprivate func configView() {
         view.backgroundColor = AppCongifuration.lightGrey()
         navigationController?.navigationBar.topItem?.title = "Car Social"
         navigationController?.setNavigationBarHidden(false, animated: true)
-        UIApplication.sharedApplication().statusBarStyle = .Default
+        UIApplication.shared.statusBarStyle = .default
     }
     
-    private func tableViewSetup() {
-        tableView.layoutMargins = UIEdgeInsetsZero
-        tableView.separatorInset = UIEdgeInsetsZero
+    fileprivate func tableViewSetup() {
+        tableView.layoutMargins = UIEdgeInsets.zero
+        tableView.separatorInset = UIEdgeInsets.zero
     }
     
-    private func navigationBar() {
+    fileprivate func navigationBar() {
         shyNavBarManager.contractionResistance = 700
         shyNavBarManager.scrollView = self.tableView
         shyNavBarManager.expansionResistance = 100
-        shyNavBarManager.fadeBehavior = .Navbar
+        shyNavBarManager.fadeBehavior = .navbar
     }
     
-    private func nibCell() {
-        let nibCell = UINib(nibName: PostTabbleCellView.nibName, bundle: NSBundle.mainBundle())
-        tableView.registerNib(nibCell, forCellReuseIdentifier: PostTabbleCellView.identifier)
+    fileprivate func nibCell() {
+        let nibCell = UINib(nibName: PostTabbleCellView.nibName, bundle: Bundle.main)
+        tableView.register(nibCell, forCellReuseIdentifier: PostTabbleCellView.identifier)
     }
     
-    private func setupCell(cell: PostTabbleCellView) {
-        cell.layoutMargins = UIEdgeInsetsZero
+    fileprivate func setupCell(_ cell: PostTabbleCellView) {
+        cell.layoutMargins = UIEdgeInsets.zero
         cell.backgroundColor = AppCongifuration.lightGrey()
     }
 }
 
 extension HomeViewController: UITableViewDelegate, UIScrollViewDelegate {
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    @objc(numberOfSectionsInTableView:) func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return photoToShow.count
     }
 }
 
 extension HomeViewController: UITableViewDataSource {
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        queryUser(photoToShow[indexPath.row].owner)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //queryUser(photoToShow[(indexPath as NSIndexPath).row].owner)
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(PostTabbleCellView.identifier) as! PostTabbleCellView
-        let imageFile = photoToShow[indexPath.row].image
+        let cell = tableView.dequeueReusableCell(withIdentifier: PostTabbleCellView.identifier) as! PostTabbleCellView
+        let imageFile = photoToShow[(indexPath as NSIndexPath).row].image
         
-        imageFile.getDataInBackgroundWithBlock({ (data, error) in
+        imageFile.getDataInBackground(block: { (data, error) in
             if let image = UIImage(data: data!) {
                 cell.postImage.image = image
             }
         })
-        cell.photoDescription.text = showDescription(photoToShow[indexPath.row].objectId!)
+        cell.photoDescription.text = showDescription(photoToShow[(indexPath as NSIndexPath).row].objectId!)
         cell.ownerName.text = resultName
         setupCell(cell)
         
         return cell
     }
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return PostTabbleCellView.rowHeight
     }
 }
 
 extension HomeViewController {
-    private func queryUser(onwer: PFUser){
+    fileprivate func queryUser(_ onwer: PFUser){
         let query = PFUser.query()
-        query?.findObjectsInBackgroundWithBlock({ (users, error) in
+        query?.findObjectsInBackground(block: { (users, error) in
             for us in users! {
                 self.resultName = us["username"] as! String
                 return
             }
         })
     }
-    private func showDescription(photoId: String) -> String{
+    fileprivate func showDescription(_ photoId: String) -> String{
         for act in activity {
             if act.image.objectId == photoId {
                 return act.content

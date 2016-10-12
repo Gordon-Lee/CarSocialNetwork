@@ -14,8 +14,8 @@ protocol LoginViewControllerDelegate: class {
 
 class LoginViewController: UIViewController {
     
-    private var subviewsFrame: CGRect!
-    private var newMemberSignUp: NewMemberView!
+    fileprivate var subviewsFrame: CGRect!
+    fileprivate var newMemberSignUp: NewMemberView!
     
     @IBOutlet weak var userNameTxt: UITextField!
     @IBOutlet weak var passWordTxt: UITextField!
@@ -24,25 +24,25 @@ class LoginViewController: UIViewController {
         calculateSubviewsFrame()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationBar()
         configView()
-        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        UIApplication.shared.statusBarStyle = .lightContent
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     //MARK: generic FUNCS
-    private func configView() {
+    fileprivate func configView() {
         view.backgroundColor = AppCongifuration.darkGrey()
     }
 
-    private func navigationBar() {
+    fileprivate func navigationBar() {
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: AppCongifuration.darkGrey()]
         title = "CarSocial"
     }
     
-    private func calculateSubviewsFrame() {
+    fileprivate func calculateSubviewsFrame() {
         let viewFrame = view.frame
         let viewOrigin = viewFrame.origin
         let navBarHeight = navigationController?.navigationBar.frame.height
@@ -51,29 +51,29 @@ class LoginViewController: UIViewController {
         subviewsFrame = CGRect(x: viewOrigin.x, y: newY, width: viewFrame.width, height: newHeight)
     }
     
-    private func signUpNew(){
-        let nib = NSBundle.mainBundle().loadNibNamed("NewMember", owner: self, options: nil)
-        newMemberSignUp = nib.first as! NewMemberView
+    fileprivate func signUpNew(){
+        let nib = Bundle.main.loadNibNamed("NewMember", owner: self, options: nil)
+        newMemberSignUp = nib!.first as! NewMemberView
         newMemberSignUp.frame = subviewsFrame
         newMemberSignUp.delegate = self
         view.addSubview(newMemberSignUp)
     }
     
-    @IBAction func login(sender: AnyObject) {
+    @IBAction func login(_ sender: AnyObject) {
         loginWithParse(userNameTxt.text!, password: passWordTxt.text!)
     }
-    @IBAction func singUp(sender: AnyObject) {
+    @IBAction func singUp(_ sender: AnyObject) {
          self.signUpNew()
     }
 }
 
 extension LoginViewController {
-    private func loginWithParse(username: String!, password: String!) {
-        PFUser.logInWithUsernameInBackground(username, password: password) { (user, error) -> Void in
+    fileprivate func loginWithParse(_ username: String!, password: String!) {
+        PFUser.logInWithUsername(inBackground: username, password: password) { (user, error) -> Void in
             guard user == nil else{
                 let sb = UIStoryboard(name: "HomePage", bundle: nil)
-                let vc = sb.instantiateViewControllerWithIdentifier("homePage")
-                self.presentViewController(vc, animated: true, completion: nil)
+                let vc = sb.instantiateViewController(withIdentifier: "homePage")
+                self.present(vc, animated: true, completion: nil)
                 return
             }
         }
@@ -82,7 +82,7 @@ extension LoginViewController {
 
 extension LoginViewController: LoginViewControllerDelegate {
     func didTapCancelButton() {
-        view.sendSubviewToBack(newMemberSignUp)
+        view.sendSubview(toBack: newMemberSignUp)
         newMemberSignUp.removeFromSuperview()
     }
 }

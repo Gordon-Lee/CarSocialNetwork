@@ -7,14 +7,34 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 enum NormalORThumb {
-    case NORMAL , THUMB
+    case normal , thumb
 }
 
 struct Size {
-    private let normalSize = CGSize(width: 400, height: 400)
-    private let thumbSize = CGSize(width: 100, height: 100)
+    fileprivate let normalSize = CGSize(width: 400, height: 400)
+    fileprivate let thumbSize = CGSize(width: 100, height: 100)
     var Size: CGSize!
     var widthRatio: CGFloat!
     var heigthRatio: CGFloat!
@@ -24,38 +44,38 @@ struct Size {
         calculateRatio(imgageSize.width, heigth: imgageSize.height, type: type)
     }
     
-    private mutating func calculateRatio(width: CGFloat, heigth: CGFloat, type: NormalORThumb) {
+    fileprivate mutating func calculateRatio(_ width: CGFloat, heigth: CGFloat, type: NormalORThumb) {
         switch type {
-        case .NORMAL:
+        case .normal:
             widthRatio = normalSize.width / width
             heigthRatio = normalSize.height / heigth
-        case .THUMB:
+        case .thumb:
             widthRatio = thumbSize.width / width
             heigthRatio = thumbSize.height / heigth
         }
         
         if widthRatio > heigthRatio {
-            Size = CGSizeMake(width * heigthRatio, heigth * heigthRatio)
+            Size = CGSize(width: width * heigthRatio, height: heigth * heigthRatio)
         } else {
-            Size = CGSizeMake(width * widthRatio, heigth * widthRatio)
+            Size = CGSize(width: width * widthRatio, height: heigth * widthRatio)
         }
     }
 }
 
 struct AdjustPhoto {
     
-    static func uploadToPhoto(fromImage: UIImage, type: NormalORThumb) -> NSData {
+    static func uploadToPhoto(_ fromImage: UIImage, type: NormalORThumb) -> Data {
         
         let new = Size(imgageSize: fromImage.size, type: type)
         
-        let rect = CGRectMake(0, 0, new.Size.width, new.Size.height)
+        let rect = CGRect(x: 0, y: 0, width: new.Size.width, height: new.Size.height)
         
         UIGraphicsBeginImageContextWithOptions(new.Size, false, 1.0)
-        fromImage.drawInRect(rect)
+        fromImage.draw(in: rect)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        let uploadImage = UIImagePNGRepresentation(newImage)
+        let uploadImage = UIImagePNGRepresentation(newImage!)
         
         return uploadImage!
     }

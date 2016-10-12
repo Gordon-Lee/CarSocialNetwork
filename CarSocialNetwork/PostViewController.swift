@@ -18,26 +18,26 @@ enum howViewToDisplay: String {
 class PostViewController: UIViewController {
 
     let fus = FusumaViewController()
-    private var postPhoto: Photo!
+    fileprivate var postPhoto: Photo!
     
-    private var howView: howViewToDisplay = .FUSUMA
-    private var subviewsFrame: CGRect!
+    fileprivate var howView: howViewToDisplay = .FUSUMA
+    fileprivate var subviewsFrame: CGRect!
     
-    private var activity: Activity!
-    private weak var descriptionView: DescritptionView!
-    private weak var homeVC: HomeViewController!
+    fileprivate var activity: Activity!
+    fileprivate weak var descriptionView: DescritptionView!
+    fileprivate weak var homeVC: HomeViewController!
     
-    private var currentId: String!
+    fileprivate var currentId: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBarHidden = false
+        navigationController?.isNavigationBarHidden = false
         calculateSubviewsFrame()
         configView()
         fus.delegate = self
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         tabBarController?.tabBarVisibility(false, animated: true)
@@ -46,7 +46,7 @@ class PostViewController: UIViewController {
         case .FUSUMA:
             fusumaSetup()
             howView = .HOME
-            presentViewController(fus, animated: true, completion: nil)
+            present(fus, animated: true, completion: nil)
             return
         case .DESCRIPTION:
             addDescriptionView()
@@ -58,11 +58,11 @@ class PostViewController: UIViewController {
         
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
     }
     
-    private func configView() {
+    fileprivate func configView() {
         activity = Activity()
         postPhoto = Photo()
         view.backgroundColor = AppCongifuration.darkGrey()
@@ -70,8 +70,8 @@ class PostViewController: UIViewController {
 }
 //MARK: Parse
 extension PostViewController {
-    private func saveEverything() {
-        postPhoto.saveInBackgroundWithBlock(){(succeeded, error) in
+    fileprivate func saveEverything() {
+        postPhoto.saveInBackground(){(succeeded, error) in
             if succeeded {
                 self.saveActivity(self.postPhoto)
                 return
@@ -79,18 +79,18 @@ extension PostViewController {
         }
     }
     
-    private func saveActivity(photoId: Photo) {
-        activity.fromUser = PFUser.currentUser()!
-        activity.toUser = PFUser.currentUser()!
+    fileprivate func saveActivity(_ photoId: Photo) {
+        activity.fromUser = PFUser.current()!
+        activity.toUser = PFUser.current()!
         activity.image = photoId
-        activity.activityType = ActivityType.POST.rawValue
+        activity.activityType = ActivityType.post.rawValue
         activity.saveInBackground()
     }
 }
 //MARK: FUSUMA
 extension PostViewController: FusumaDelegate {
     
-    private func fusumaSetup() {
+    fileprivate func fusumaSetup() {
         fusumaCameraTitle = "Camera"
         fusumaCameraRollTitle = "Biblioteca"
         
@@ -107,18 +107,18 @@ extension PostViewController: FusumaDelegate {
         fusumaFlipImage = UIImage(named: "refresh.png")
     }
     
-    func fusumaImageSelected(image: UIImage) {
+    func fusumaImageSelected(_ image: UIImage) {
         print("IMAGE SELECTED")
         howView = .DESCRIPTION
         savePost(image)
     }
     
-    func fusumaDismissedWithImage(image: UIImage) {
+    func fusumaDismissedWithImage(_ image: UIImage) {
         print("Called just after FusumaViewController is dismissed.")
         addDescriptionView()
     }
     
-    func fusumaVideoCompleted(withFileURL fileURL: NSURL) {
+    func fusumaVideoCompleted(withFileURL fileURL: URL) {
         print("Called just after a video has been selected.")
     }
     
@@ -128,7 +128,7 @@ extension PostViewController: FusumaDelegate {
 }
 //MARK: DELEGATES
 extension PostViewController: DescriptionViewDelegate {
-    private func calculateSubviewsFrame() {
+    fileprivate func calculateSubviewsFrame() {
         let viewFrame = view.frame
         let viewOrigin = viewFrame.origin
         let navBarHeight = navigationController?.navigationBar.frame.height
@@ -137,15 +137,15 @@ extension PostViewController: DescriptionViewDelegate {
         subviewsFrame = CGRect(x: viewOrigin.x, y: newY, width: viewFrame.width, height: newHeight)
     }
     
-    private func addDescriptionView() {
-        let nib = NSBundle.mainBundle().loadNibNamed("DescriptionPost", owner: self, options: nil)
-        descriptionView = nib.first as! DescritptionView
+    fileprivate func addDescriptionView() {
+        let nib = Bundle.main.loadNibNamed("DescriptionPost", owner: self, options: nil)
+        descriptionView = nib!.first as! DescritptionView
         descriptionView.delegate = self
         descriptionView.frame = subviewsFrame
         view.addSubview(descriptionView)
     }
     
-    func didClickToFinish(comment: String) {
+    func didClickToFinish(_ comment: String) {
         activity.content = comment as String
         saveEverything()
         showHomeViewController()
@@ -157,15 +157,15 @@ extension PostViewController: DescriptionViewDelegate {
 }
 //MARK: Generic
 extension PostViewController {
-    private func showHomeViewController() {
-        let sb = UIStoryboard(name: "HomePage", bundle: NSBundle.mainBundle())
+    fileprivate func showHomeViewController() {
+        let sb = UIStoryboard(name: "HomePage", bundle: Bundle.main)
         let vc = sb.instantiateInitialViewController()
-        navigationController?.presentViewController(vc!, animated: true, completion: nil)
+        navigationController?.present(vc!, animated: true, completion: nil)
     }
     
-    private func savePost(image: UIImage) {
-        postPhoto.owner = PFUser.currentUser()!
-        postPhoto.thumbImage = PFFile(data: AdjustPhoto.uploadToPhoto(image, type: .THUMB))!
-        postPhoto.image = PFFile(data: AdjustPhoto.uploadToPhoto(image, type: .NORMAL))!
+    fileprivate func savePost(_ image: UIImage) {
+        postPhoto.owner = PFUser.current()!
+        postPhoto.thumbImage = PFFile(data: AdjustPhoto.uploadToPhoto(image, type: .thumb))!
+        postPhoto.image = PFFile(data: AdjustPhoto.uploadToPhoto(image, type: .normal))!
     }
 }

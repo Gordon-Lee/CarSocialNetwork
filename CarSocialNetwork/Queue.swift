@@ -9,50 +9,49 @@
 import Foundation
 
 protocol ExecutableQueue {
-    var queue: dispatch_queue_t { get }
+    var queue: DispatchQueue { get }
 }
 
 extension ExecutableQueue {
-    func execute(block: dispatch_block_t) {
-        dispatch_async(queue, block)
+    func execute(_ block: @escaping ()->()) {
+        queue.async(execute: block)
     }
 }
 
 enum Queue: ExecutableQueue {
     
-    case Main
-    case UserInteractive
-    case UserInitiated
-    case Utility
-    case Background
+    case main
+    case userInteractive
+    case userInitiated
+    case utility
+    case background
     
-    var queue: dispatch_queue_t {
+    var queue: DispatchQueue {
         switch self {
-        case .Main:
-            return dispatch_get_main_queue()
+        case .main:
+            return DispatchQueue.main
             
-        case .UserInteractive:
-            return dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0)
+        case .userInteractive:
+            return DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive)
             
-        case .UserInitiated:
-            return dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)
+        case .userInitiated:
+            return DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated)
             
-        case .Utility:
-            return dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)
+        case .utility:
+            return DispatchQueue.global(qos: DispatchQoS.QoSClass.utility)
             
-        case .Background:
-            return dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)
+        case .background:
+            return DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
         }
     }
     
 }
 
-extension dispatch_queue_t {
-    func delay(delay: Double, closure: ()->()) {
-        dispatch_after(
-            dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC))),
-            self,
-            closure
+extension DispatchQueue {
+    func delay(_ delay: Double, closure: @escaping ()->()) {
+        self.asyncAfter(
+            deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC),
+            execute: closure
         )
     }
 }

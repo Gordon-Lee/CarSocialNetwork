@@ -14,7 +14,7 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet weak var tabbleView: UITableView!
     
-    private var userActivityPost: [Activity]! {
+    fileprivate var userActivityPost: [Activity]! {
         didSet{
           tabbleView.reloadData()
           
@@ -25,51 +25,51 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configView()
 
     }
     
-    private func configView() {
+    fileprivate func configView() {
         navigationController?.setNavigationBarHidden(true, animated: true)
         view.backgroundColor = AppCongifuration.lightGrey()
     }
     
-    private func configTabbleView() {
+    fileprivate func configTabbleView() {
         tabbleView.delegate = self
         tabbleView.dataSource = self
     }
     
-    private func nibCell() {
-        let nibCell = UINib(nibName: ActivityView.nibName, bundle: NSBundle.mainBundle())
-        tabbleView.registerNib(nibCell, forCellReuseIdentifier: PostTabbleCellView.identifier)
+    fileprivate func nibCell() {
+        let nibCell = UINib(nibName: ActivityView.nibName, bundle: Bundle.main)
+        tabbleView.register(nibCell, forCellReuseIdentifier: PostTabbleCellView.identifier)
     }
     
-    private func setupCell(cell: ActivityView) {
-        cell.layoutMargins = UIEdgeInsetsZero
+    fileprivate func setupCell(_ cell: ActivityView) {
+        cell.layoutMargins = UIEdgeInsets.zero
         cell.backgroundColor = AppCongifuration.lightGrey()
     }
 }
 //MARK: TableView DELEGATE
 extension ProfileViewController: UITableViewDelegate {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    @objc(numberOfSectionsInTableView:) func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userActivityPost.count
     }
 
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return ActivityView.rowHeight
     }
 }
 //MARK: TableView DATA SOURCE
 extension ProfileViewController: UITableViewDataSource {
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(ActivityView.identifier) as! ActivityView
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ActivityView.identifier) as! ActivityView
 //        let imageFile = userActivityPost[indexPath.row].image
 //        
 //        imageFile.getDataInBackgroundWithBlock({ (data, error) in

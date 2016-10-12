@@ -15,19 +15,19 @@ class SearchViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.setNavigationBarHidden(true, animated: true)
         configView()
     }
-    private func configView() {
+    fileprivate func configView() {
         view.backgroundColor = AppCongifuration.mediumGrey()
     }
     
-    @IBAction func showTableViewEvents(sender: AnyObject) {
+    @IBAction func showTableViewEvents(_ sender: AnyObject) {
     }
     
-    @IBAction func showTableViewCars(sender: AnyObject) {
+    @IBAction func showTableViewCars(_ sender: AnyObject) {
     }
     
 }

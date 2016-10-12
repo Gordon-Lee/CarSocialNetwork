@@ -9,7 +9,7 @@
 import Parse
 
 enum activityType: Int {
-    case POST, COMMENT, LIKE
+    case post, comment, like
 }
 
 class Activity: PFObject, PFSubclassing {

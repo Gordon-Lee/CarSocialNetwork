@@ -7,15 +7,15 @@
 //
 
 enum ActivityType: Int {
-    case POST, LIKE, LIKED
+    case post, like, liked
     
     var name: String {
         switch self {
-        case .POST:
+        case .post:
             return "Postou"
-        case .LIKE:
+        case .like:
             return "Gostou"
-        case .LIKED:
+        case .liked:
             return "Gostei"
         }
     }

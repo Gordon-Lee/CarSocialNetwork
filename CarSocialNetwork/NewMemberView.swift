@@ -23,15 +23,15 @@ class NewMemberView: UIView {
         configView()
     }
     
-    private func navigationBarConfig() {
+    fileprivate func navigationBarConfig() {
         
     }
     
-    private func configView() {
+    fileprivate func configView() {
         self.backgroundColor = AppCongifuration.darkGrey()
     }
     
-    @IBAction func signUpCarSocial(sender: AnyObject) {
+    @IBAction func signUpCarSocial(_ sender: AnyObject) {
         let user = PFUser()
 
         user.username = username.text!
@@ -40,9 +40,9 @@ class NewMemberView: UIView {
         
         SVProgressHUD.show()
         
-        user.signUpInBackgroundWithBlock { (sucess, error) in
+        user.signUpInBackground { (sucess, error) in
             guard error == nil else {
-                SVProgressHUD.showWithStatus(error?.description)
+                //SVProgressHUD.show(withStatus: error?.description)
                 SVProgressHUD.dismiss()
                 return
             }
@@ -50,7 +50,7 @@ class NewMemberView: UIView {
         }
     }
     
-    @IBAction func cancelar(sender: AnyObject) {
+    @IBAction func cancelar(_ sender: AnyObject) {
         delegate?.didTapCancelButton()
     }    
 }

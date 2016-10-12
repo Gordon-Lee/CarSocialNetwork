@@ -12,9 +12,9 @@ class DefaultBt: UIButton {
 
     override func awakeFromNib() {
         layer.cornerRadius = 5
-        layer.backgroundColor = AppCongifuration.mediumGrey().CGColor
+        layer.backgroundColor = AppCongifuration.mediumGrey().cgColor
         layer.borderWidth = 1
-        layer.borderColor = AppCongifuration.blue().CGColor
-        setTitleColor(AppCongifuration.blue(), forState: .Normal)
+        layer.borderColor = AppCongifuration.blue().cgColor
+        setTitleColor(AppCongifuration.blue(), for: UIControlState())
     }
 }
