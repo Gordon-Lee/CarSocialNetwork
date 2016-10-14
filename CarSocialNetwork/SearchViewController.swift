@@ -58,7 +58,13 @@ extension SearchViewController {
     }
     
     fileprivate func loadEvents() {
-        let queryEvents = Even
+        let queryEvents = Events.query()
+        
+    }
+    
+    fileprivate func loadPeople() {
+        let queryPeople = User.query()
+        
     }
 
     
