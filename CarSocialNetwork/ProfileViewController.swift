@@ -14,10 +14,9 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet weak var tabbleView: UITableView!
     
-    fileprivate var userActivityPost: [Activity]! {
+    fileprivate var userActivityPost = [Activity]() {
         didSet{
           tabbleView.reloadData()
-          
         }
     }
     
@@ -50,7 +49,19 @@ class ProfileViewController: UIViewController {
         cell.layoutMargins = UIEdgeInsets.zero
         cell.backgroundColor = AppCongifuration.lightGrey()
     }
+    
+    fileprivate func loadData() {
+        let query = Activity.query()
+        
+        query?.findObjectsInBackground(block: { (activits, error) in
+            guard error != nil else {
+                self.userActivityPost = activits as! [Activity]
+                return
+            }
+        })
+    }
 }
+
 //MARK: TableView DELEGATE
 extension ProfileViewController: UITableViewDelegate {
     
@@ -70,14 +81,15 @@ extension ProfileViewController: UITableViewDelegate {
 extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ActivityView.identifier) as! ActivityView
+        
 //        let imageFile = userActivityPost[indexPath.row].image
 //        
-//        imageFile.getDataInBackgroundWithBlock({ (data, error) in
-//            if let image = UIImage(data: data!) {
-//                cell.postImage.image = image
-//            }
-//        })
-//        
+////        imageFile.getDataInBackgroundWithBlock({ (data, error) in
+////            if let image = UIImage(data: data!) {
+////                cell.postImage.image = image
+////            }
+////        })
+////        
         setupCell(cell)
         
         return cell

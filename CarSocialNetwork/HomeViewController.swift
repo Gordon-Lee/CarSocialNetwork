@@ -99,16 +99,6 @@ class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController: UITableViewDelegate, UIScrollViewDelegate {
-    @objc(numberOfSectionsInTableView:) func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return photoToShow.count
-    }
-}
-
 extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -127,6 +117,16 @@ extension HomeViewController: UITableViewDataSource {
         setupCell(cell)
         
         return cell
+    }
+}
+
+extension HomeViewController: UITableViewDelegate, UIScrollViewDelegate {
+    @objc(numberOfSectionsInTableView:) func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return photoToShow.count
     }
     @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return PostTabbleCellView.rowHeight
