@@ -14,11 +14,24 @@ class Photo: PFObject, PFSubclassing {
     @NSManaged var image: PFFile
     @NSManaged var thumbImage: PFFile
     
+    var imageConverted: UIImage!
+    
     let targetImage = CGSize(width: 400, height: 400)
     let thumbTargetImage = CGSize(width: 100, height: 100)
     
     static func parseClassName() -> String {
         return "Photo"
+    }
+    
+    func fileToImage() {
+        print(self.image)
+        
+        self.image.getDataInBackground { (file, error) in
+            if let image = UIImage(data: file!) {
+                self.imageConverted = image
+                return
+            }
+        }
     }
 }
 

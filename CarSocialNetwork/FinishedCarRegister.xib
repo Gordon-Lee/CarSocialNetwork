@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="FinishedCarRegisterView" customModule="CarSocialNetwork" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vlh-De-yBJ"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vzd-j3-c4D">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Cq3-ub-Gd4"/>
+                    </constraints>
+                    <state key="normal" title="Salvar"/>
+                    <connections>
+                        <action selector="save:" destination="iN0-l3-epB" eventType="touchUpInside" id="Z6I-pv-8Hx"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Modelo:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyF-19-Hwy">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marca:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6iI-QY-aGW">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ano:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHo-Aa-BFE">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="B0n-Wz-aFI"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yvx-LM-lyg" userLabel="model">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeA-ae-eA2" userLabel="marca">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w99-Wk-zBb" userLabel="year">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="oyF-19-Hwy" firstAttribute="top" secondItem="vlh-De-yBJ" secondAttribute="bottom" constant="9" id="2ct-KV-iHF"/>
+                <constraint firstItem="oyF-19-Hwy" firstAttribute="baseline" secondItem="Yvx-LM-lyg" secondAttribute="baseline" id="2vP-GW-919"/>
+                <constraint firstItem="6iI-QY-aGW" firstAttribute="baseline" secondItem="jeA-ae-eA2" secondAttribute="baseline" id="5Ul-Ql-aro"/>
+                <constraint firstItem="vlh-De-yBJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="61" id="6KN-SU-3nd"/>
+                <constraint firstItem="jeA-ae-eA2" firstAttribute="leading" secondItem="w99-Wk-zBb" secondAttribute="leading" id="7jU-PE-c5r"/>
+                <constraint firstItem="w99-Wk-zBb" firstAttribute="leading" secondItem="ZHo-Aa-BFE" secondAttribute="trailing" constant="8" symbolic="YES" id="BcW-yo-rsK"/>
+                <constraint firstItem="6iI-QY-aGW" firstAttribute="top" secondItem="oyF-19-Hwy" secondAttribute="bottom" constant="8" symbolic="YES" id="CZv-CP-ryn"/>
+                <constraint firstItem="Yvx-LM-lyg" firstAttribute="leading" secondItem="oyF-19-Hwy" secondAttribute="trailing" constant="8" symbolic="YES" id="DrU-Zj-3Wh"/>
+                <constraint firstItem="ZHo-Aa-BFE" firstAttribute="baseline" secondItem="w99-Wk-zBb" secondAttribute="baseline" id="GQj-Nx-UIt"/>
+                <constraint firstItem="vzd-j3-c4D" firstAttribute="top" secondItem="ZHo-Aa-BFE" secondAttribute="bottom" constant="90" id="JiJ-pw-Vz8"/>
+                <constraint firstAttribute="trailing" secondItem="vlh-De-yBJ" secondAttribute="trailing" id="KvL-ek-9PF"/>
+                <constraint firstItem="w99-Wk-zBb" firstAttribute="trailing" secondItem="vzd-j3-c4D" secondAttribute="trailing" id="Ofr-ag-RUK"/>
+                <constraint firstItem="Yvx-LM-lyg" firstAttribute="leading" secondItem="jeA-ae-eA2" secondAttribute="leading" id="Rn4-VL-Sgq"/>
+                <constraint firstItem="vlh-De-yBJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="aUC-C7-aW8"/>
+                <constraint firstAttribute="bottom" secondItem="vzd-j3-c4D" secondAttribute="bottom" constant="3" id="ahn-x9-5uQ"/>
+                <constraint firstItem="Yvx-LM-lyg" firstAttribute="trailing" secondItem="jeA-ae-eA2" secondAttribute="trailing" id="eEu-GL-AQE"/>
+                <constraint firstItem="jeA-ae-eA2" firstAttribute="trailing" secondItem="w99-Wk-zBb" secondAttribute="trailing" id="k8u-yo-ULI"/>
+                <constraint firstItem="vlh-De-yBJ" firstAttribute="centerX" secondItem="vzd-j3-c4D" secondAttribute="centerX" id="se7-be-1CK"/>
+                <constraint firstItem="jeA-ae-eA2" firstAttribute="leading" secondItem="6iI-QY-aGW" secondAttribute="trailing" constant="8" symbolic="YES" id="uGy-oR-uHj"/>
+                <constraint firstItem="ZHo-Aa-BFE" firstAttribute="top" secondItem="6iI-QY-aGW" secondAttribute="bottom" constant="8" symbolic="YES" id="vGg-cW-p3O"/>
+                <constraint firstItem="vzd-j3-c4D" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="xA3-Xe-8NZ"/>
+                <constraint firstItem="ZHo-Aa-BFE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="43" id="zgV-Da-2Se"/>
+            </constraints>
+            <connections>
+                <outlet property="image" destination="vlh-De-yBJ" id="Ufk-Rm-MXo"/>
+                <outlet property="marca" destination="jeA-ae-eA2" id="gmr-fK-Age"/>
+                <outlet property="model" destination="Yvx-LM-lyg" id="9gQ-mc-iQM"/>
+                <outlet property="year" destination="w99-Wk-zBb" id="AUP-X3-DKp"/>
+            </connections>
+            <point key="canvasLocation" x="-234.5" y="-10.5"/>
+        </view>
+    </objects>
+</document>

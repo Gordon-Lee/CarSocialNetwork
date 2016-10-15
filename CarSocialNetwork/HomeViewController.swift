@@ -93,7 +93,7 @@ class HomeViewController: UIViewController {
         tableView.register(nibCell, forCellReuseIdentifier: PostTabbleCellView.identifier)
     }
     
-    fileprivate func setupCell(_ cell: PostTabbleCellView) {
+    fileprivate func setupCell(cell: PostTabbleCellView) {
         cell.layoutMargins = UIEdgeInsets.zero
         cell.backgroundColor = AppCongifuration.lightGrey()
     }
@@ -102,19 +102,15 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //queryUser(photoToShow[(indexPath as NSIndexPath).row].owner)
-        
+
         let cell = tableView.dequeueReusableCell(withIdentifier: PostTabbleCellView.identifier) as! PostTabbleCellView
-        let imageFile = photoToShow[(indexPath as NSIndexPath).row].image
-        
-        imageFile.getDataInBackground(block: { (data, error) in
-            if let image = UIImage(data: data!) {
-                cell.postImage.image = image
-            }
-        })
+
+        queryUser(photoToShow[(indexPath as NSIndexPath).row].owner)
+        photoToShow[indexPath.row].fileToImage()
+        cell.postImage.image = photoToShow[indexPath.row].imageConverted
         cell.photoDescription.text = showDescription(photoToShow[(indexPath as NSIndexPath).row].objectId!)
         cell.ownerName.text = resultName
-        setupCell(cell)
+        setupCell(cell: cell)
         
         return cell
     }

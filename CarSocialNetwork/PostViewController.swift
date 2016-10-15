@@ -44,7 +44,7 @@ class PostViewController: UIViewController {
         print(howView.rawValue)
         switch howView {
         case .FUSUMA:
-            fusumaSetup()
+            FusumaConfig.defaultCfg()
             howView = .HOME
             present(fus, animated: true, completion: nil)
             return
@@ -89,26 +89,9 @@ extension PostViewController {
 }
 //MARK: FUSUMA
 extension PostViewController: FusumaDelegate {
-    
-    fileprivate func fusumaSetup() {
-        fusumaCameraTitle = "Camera"
-        fusumaCameraRollTitle = "Biblioteca"
-        
-        fusumaTintColor = AppCongifuration.blue()
-        fusumaBaseTintColor = AppCongifuration.lightGrey()
-        fusumaBackgroundColor = AppCongifuration.darkGrey()
-        
-        fusumaAlbumImage = UIImage(named: "photoLibrary2.png")
-        fusumaCameraImage = UIImage(named: "camera.png")
-        fusumaCheckImage = UIImage(named: "ok.png")
-        fusumaCloseImage = UIImage(named: "cancel1.png")
-        fusumaFlashOnImage = UIImage(named: "flashOn.png")
-        fusumaFlashOffImage = UIImage(named: "flashOff.png")
-        fusumaFlipImage = UIImage(named: "refresh.png")
-    }
-    
+
     func fusumaImageSelected(_ image: UIImage) {
-        print("IMAGE SELECTED")
+        print("IMAGE SELECTED POST")
         howView = .DESCRIPTION
         savePost(image)
     }
@@ -128,6 +111,7 @@ extension PostViewController: FusumaDelegate {
 }
 //MARK: DELEGATES
 extension PostViewController: DescriptionViewDelegate {
+    
     fileprivate func calculateSubviewsFrame() {
         let viewFrame = view.frame
         let viewOrigin = viewFrame.origin

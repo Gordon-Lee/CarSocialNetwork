@@ -60,14 +60,24 @@ extension SearchViewController {
     fileprivate func loadEvents() {
         let queryEvents = Events.query()
         
+        queryEvents?.findObjectsInBackground(block: { (events, error) in
+            guard error != nil else {
+                self.events = events as! [Events]
+                return
+            }
+        })
     }
     
     fileprivate func loadPeople() {
         let queryPeople = User.query()
         
+        queryPeople?.findObjectsInBackground(block: { (people, error) in
+            guard error != nil else {
+                self.peoples = people as! [User]
+                return
+            }
+        })
     }
-
-    
 }
 //MARK: ACTIONS
 extension SearchViewController {
@@ -88,7 +98,6 @@ extension SearchViewController {
         tableView.reloadData()
     }
 }
-
 //MARK: TABLEVIEW PROTOCOLS
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -105,7 +114,6 @@ extension SearchViewController: UITableViewDataSource {
         return cell!
     }
 }
-
 extension SearchViewController: UITableViewDelegate {
     @objc(numberOfSectionsInTableView:) func numberOfSections(in tableView: UITableView) -> Int {
         return 1

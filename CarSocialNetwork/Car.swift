@@ -10,11 +10,23 @@ import Parse
 
 class Car: PFObject, PFSubclassing {
     
+    @NSManaged var owner: PFUser
     @NSManaged var brand: String
     @NSManaged var model: String
     @NSManaged var year: Int
     @NSManaged var image: PFFile
     @NSManaged var thumbImage: PFFile
+    
+    var imageUI: UIImage!
+    
+    override init() { super.init() }
+    
+    init(brand: String, model: String, year: Int){
+        super.init()
+        self.brand = brand
+        self.model = model
+        self.year = year
+    }
     
     static func parseClassName() -> String {
         return "Car"

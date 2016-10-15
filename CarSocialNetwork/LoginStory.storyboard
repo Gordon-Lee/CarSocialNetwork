@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dzX-d0-AG4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dzX-d0-AG4">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--LoginStory-->
@@ -16,71 +16,61 @@
                         <viewControllerLayoutGuide type="bottom" id="h4V-g3-eOR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Qff-Iy-J2H">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Usuário" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aed-S5-iBq">
-                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="DFz-F4-ou8"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zmL-qr-KzA">
-                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="hpi-wu-GP6"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UKQ-mD-EfB" customClass="DefaultBt" customModule="CarSocialNetwork" customModuleProvider="target">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="2pI-OZ-mCd"/>
+                                </constraints>
                                 <state key="normal" title="Cadastro"/>
                                 <connections>
                                     <action selector="singUp:" destination="3za-eb-faK" eventType="touchUpInside" id="YOK-VW-A5n"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FiV-MR-7rh" customClass="DefaultBt" customModule="CarSocialNetwork" customModuleProvider="target">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="9me-0O-Wgj"/>
+                                </constraints>
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="login:" destination="3za-eb-faK" eventType="touchUpInside" id="OzZ-T5-g3Z"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CarSocialLogo" translatesAutoresizingMaskIntoConstraints="NO" id="3be-gP-yWr">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="306" id="jeV-8p-S7z"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="jeV-8p-S7z"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="jeV-8p-S7z"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CarSocialLogo" translatesAutoresizingMaskIntoConstraints="NO" id="3be-gP-yWr"/>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="3be-gP-yWr" firstAttribute="centerX" secondItem="Aed-S5-iBq" secondAttribute="centerX" id="8wE-xa-SDc"/>
-                            <constraint firstItem="zmL-qr-KzA" firstAttribute="leading" secondItem="FiV-MR-7rh" secondAttribute="leading" id="Ix7-Bh-RWD"/>
-                            <constraint firstItem="FiV-MR-7rh" firstAttribute="leading" secondItem="UKQ-mD-EfB" secondAttribute="leading" id="KET-OX-gqK"/>
-                            <constraint firstItem="Aed-S5-iBq" firstAttribute="leading" secondItem="zmL-qr-KzA" secondAttribute="leading" id="OiG-hJ-Zyw"/>
-                            <constraint firstItem="Aed-S5-iBq" firstAttribute="leading" secondItem="Qff-Iy-J2H" secondAttribute="leadingMargin" constant="-13" id="PTF-FE-axO"/>
-                            <constraint firstItem="Aed-S5-iBq" firstAttribute="trailing" secondItem="zmL-qr-KzA" secondAttribute="trailing" id="Qee-EA-A7k"/>
-                            <constraint firstItem="h4V-g3-eOR" firstAttribute="top" secondItem="UKQ-mD-EfB" secondAttribute="bottom" constant="115" id="R4U-vT-d2C"/>
-                            <constraint firstItem="Aed-S5-iBq" firstAttribute="top" secondItem="3be-gP-yWr" secondAttribute="bottom" constant="8" symbolic="YES" id="V5b-9u-Ibe"/>
-                            <constraint firstItem="zmL-qr-KzA" firstAttribute="trailing" secondItem="FiV-MR-7rh" secondAttribute="trailing" id="Xa6-01-EOq"/>
-                            <constraint firstItem="Aed-S5-iBq" firstAttribute="centerX" secondItem="Qff-Iy-J2H" secondAttribute="centerX" id="cAj-Ca-9VG"/>
-                            <constraint firstItem="zmL-qr-KzA" firstAttribute="top" secondItem="Aed-S5-iBq" secondAttribute="bottom" constant="19" id="e3e-mK-ezc"/>
-                            <constraint firstItem="FiV-MR-7rh" firstAttribute="top" secondItem="zmL-qr-KzA" secondAttribute="bottom" constant="21" id="mEd-Me-PfS">
-                                <variation key="widthClass=compact" constant="19"/>
-                            </constraint>
-                            <constraint firstItem="UKQ-mD-EfB" firstAttribute="top" secondItem="FiV-MR-7rh" secondAttribute="bottom" constant="11" id="xta-wc-OYU">
-                                <variation key="widthClass=compact" constant="13"/>
-                            </constraint>
-                            <constraint firstItem="3be-gP-yWr" firstAttribute="leading" secondItem="Qff-Iy-J2H" secondAttribute="leading" id="yGA-pc-htY"/>
-                            <constraint firstItem="FiV-MR-7rh" firstAttribute="trailing" secondItem="UKQ-mD-EfB" secondAttribute="trailing" id="yTS-6d-ZjP"/>
+                            <constraint firstItem="FiV-MR-7rh" firstAttribute="trailing" secondItem="UKQ-mD-EfB" secondAttribute="trailing" id="0Jl-Wc-4Rt"/>
+                            <constraint firstItem="zmL-qr-KzA" firstAttribute="trailing" secondItem="FiV-MR-7rh" secondAttribute="trailing" id="1Ay-jP-d6l"/>
+                            <constraint firstItem="zmL-qr-KzA" firstAttribute="leading" secondItem="FiV-MR-7rh" secondAttribute="leading" id="48e-Fj-kAj"/>
+                            <constraint firstItem="FiV-MR-7rh" firstAttribute="leading" secondItem="UKQ-mD-EfB" secondAttribute="leading" id="AUI-aU-zrN"/>
+                            <constraint firstItem="UKQ-mD-EfB" firstAttribute="top" secondItem="FiV-MR-7rh" secondAttribute="bottom" constant="8" symbolic="YES" id="BNW-In-lvw"/>
+                            <constraint firstItem="Aed-S5-iBq" firstAttribute="leading" secondItem="zmL-qr-KzA" secondAttribute="leading" id="DZH-89-LQb"/>
+                            <constraint firstItem="Aed-S5-iBq" firstAttribute="top" secondItem="3be-gP-yWr" secondAttribute="bottom" constant="20" id="HZG-v1-0Ga"/>
+                            <constraint firstAttribute="trailing" secondItem="3be-gP-yWr" secondAttribute="trailing" id="IU5-bH-6Zn"/>
+                            <constraint firstItem="h4V-g3-eOR" firstAttribute="top" secondItem="UKQ-mD-EfB" secondAttribute="bottom" constant="141" id="NQw-Ue-Ssm"/>
+                            <constraint firstItem="3be-gP-yWr" firstAttribute="centerX" secondItem="Aed-S5-iBq" secondAttribute="centerX" id="TTV-rU-ksY"/>
+                            <constraint firstItem="3be-gP-yWr" firstAttribute="top" secondItem="Qff-Iy-J2H" secondAttribute="topMargin" constant="-30" id="Y5k-dy-gu6"/>
+                            <constraint firstItem="3be-gP-yWr" firstAttribute="leading" secondItem="Qff-Iy-J2H" secondAttribute="leading" id="egF-Oi-fFL"/>
+                            <constraint firstItem="FiV-MR-7rh" firstAttribute="top" secondItem="zmL-qr-KzA" secondAttribute="bottom" constant="8" symbolic="YES" id="n2W-eL-tUG"/>
+                            <constraint firstItem="Aed-S5-iBq" firstAttribute="leading" secondItem="Qff-Iy-J2H" secondAttribute="leadingMargin" constant="-11" id="oTD-ag-JU3"/>
+                            <constraint firstItem="zmL-qr-KzA" firstAttribute="top" secondItem="Aed-S5-iBq" secondAttribute="bottom" constant="8" symbolic="YES" id="vFP-lp-tua"/>
+                            <constraint firstItem="Aed-S5-iBq" firstAttribute="trailing" secondItem="zmL-qr-KzA" secondAttribute="trailing" id="xKD-Se-08a"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -90,23 +80,6 @@
                                 <exclude reference="FiV-MR-7rh"/>
                                 <exclude reference="3be-gP-yWr"/>
                             </mask>
-                            <mask key="constraints">
-                                <exclude reference="R4U-vT-d2C"/>
-                                <exclude reference="OiG-hJ-Zyw"/>
-                                <exclude reference="PTF-FE-axO"/>
-                                <exclude reference="Qee-EA-A7k"/>
-                                <exclude reference="V5b-9u-Ibe"/>
-                                <exclude reference="cAj-Ca-9VG"/>
-                                <exclude reference="Ix7-Bh-RWD"/>
-                                <exclude reference="Xa6-01-EOq"/>
-                                <exclude reference="e3e-mK-ezc"/>
-                                <exclude reference="KET-OX-gqK"/>
-                                <exclude reference="mEd-Me-PfS"/>
-                                <exclude reference="yTS-6d-ZjP"/>
-                                <exclude reference="xta-wc-OYU"/>
-                                <exclude reference="8wE-xa-SDc"/>
-                                <exclude reference="yGA-pc-htY"/>
-                            </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
@@ -115,23 +88,6 @@
                                 <include reference="UKQ-mD-EfB"/>
                                 <include reference="FiV-MR-7rh"/>
                                 <include reference="3be-gP-yWr"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="R4U-vT-d2C"/>
-                                <include reference="OiG-hJ-Zyw"/>
-                                <include reference="PTF-FE-axO"/>
-                                <include reference="Qee-EA-A7k"/>
-                                <include reference="V5b-9u-Ibe"/>
-                                <include reference="cAj-Ca-9VG"/>
-                                <include reference="Ix7-Bh-RWD"/>
-                                <include reference="Xa6-01-EOq"/>
-                                <include reference="e3e-mK-ezc"/>
-                                <include reference="KET-OX-gqK"/>
-                                <include reference="mEd-Me-PfS"/>
-                                <include reference="yTS-6d-ZjP"/>
-                                <include reference="xta-wc-OYU"/>
-                                <include reference="8wE-xa-SDc"/>
-                                <include reference="yGA-pc-htY"/>
                             </mask>
                         </variation>
                     </view>
@@ -145,7 +101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P2Q-jz-0ng" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1345.5" y="302"/>
+            <point key="canvasLocation" x="1344.8" y="301.79910044977515"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KK4-cC-azO">

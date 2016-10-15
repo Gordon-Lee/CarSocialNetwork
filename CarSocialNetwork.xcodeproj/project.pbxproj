@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		3B1BAA72DEA1F7598916DE58 /* Pods_CarSocialNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99FD3D2E6D198E7438282593 /* Pods_CarSocialNetwork.framework */; };
+		666B93551DB29BA0008D6F44 /* FinishedCarRegister.xib in Resources */ = {isa = PBXBuildFile; fileRef = 666B93541DB29BA0008D6F44 /* FinishedCarRegister.xib */; };
+		666B93571DB29DC7008D6F44 /* FinishedCarRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666B93561DB29DC7008D6F44 /* FinishedCarRegisterView.swift */; };
+		66A689341DB2788E00C7AE90 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A689331DB2788E00C7AE90 /* UIViewControllerExtensions.swift */; };
+		66A689371DB27D8000C7AE90 /* Car.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66A689361DB27D8000C7AE90 /* Car.storyboard */; };
+		66A689391DB27F3900C7AE90 /* CarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A689381DB27F3900C7AE90 /* CarViewController.swift */; };
+		66A6893B1DB27F7600C7AE90 /* BrandSelection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66A6893A1DB27F7600C7AE90 /* BrandSelection.xib */; };
+		66A689401DB2825B00C7AE90 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A6893F1DB2825B00C7AE90 /* UIImageExtensions.swift */; };
+		66A689421DB286F700C7AE90 /* BrandSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A689411DB286F700C7AE90 /* BrandSelectionView.swift */; };
+		66A689441DB293FC00C7AE90 /* FusumaConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A689431DB293FC00C7AE90 /* FusumaConfig.swift */; };
 		A91717211D6666760011A524 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91717201D6666760011A524 /* Queue.swift */; };
 		A91B16CD1D7632E400B0C6CB /* Actitivy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B16CC1D7632E400B0C6CB /* Actitivy.swift */; };
 		A91B16CF1D77284700B0C6CB /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B16CE1D77284700B0C6CB /* Car.swift */; };
@@ -54,7 +63,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		666B93541DB29BA0008D6F44 /* FinishedCarRegister.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinishedCarRegister.xib; sourceTree = "<group>"; };
+		666B93561DB29DC7008D6F44 /* FinishedCarRegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedCarRegisterView.swift; sourceTree = "<group>"; };
 		66947D461DAEB07100046DA3 /* CarSocialNetwork.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarSocialNetwork.entitlements; sourceTree = "<group>"; };
+		66A689331DB2788E00C7AE90 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		66A689361DB27D8000C7AE90 /* Car.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Car.storyboard; sourceTree = "<group>"; };
+		66A689381DB27F3900C7AE90 /* CarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarViewController.swift; sourceTree = "<group>"; };
+		66A6893A1DB27F7600C7AE90 /* BrandSelection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandSelection.xib; sourceTree = "<group>"; };
+		66A6893F1DB2825B00C7AE90 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
+		66A689411DB286F700C7AE90 /* BrandSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandSelectionView.swift; sourceTree = "<group>"; };
+		66A689431DB293FC00C7AE90 /* FusumaConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FusumaConfig.swift; sourceTree = "<group>"; };
 		6B02B8E240BA6D7EB0A5738F /* Pods-CarSocialNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarSocialNetwork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarSocialNetwork/Pods-CarSocialNetwork.debug.xcconfig"; sourceTree = "<group>"; };
 		73D55C1859FEA03B5279E99E /* Pods-CarSocialNetwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarSocialNetwork.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarSocialNetwork/Pods-CarSocialNetwork.release.xcconfig"; sourceTree = "<group>"; };
 		99FD3D2E6D198E7438282593 /* Pods_CarSocialNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarSocialNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +136,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		666B93531DB29B7A008D6F44 /* FinishedCarRegister */ = {
+			isa = PBXGroup;
+			children = (
+				666B93541DB29BA0008D6F44 /* FinishedCarRegister.xib */,
+				666B93561DB29DC7008D6F44 /* FinishedCarRegisterView.swift */,
+			);
+			name = FinishedCarRegister;
+			sourceTree = "<group>";
+		};
+		66A689351DB27D0200C7AE90 /* Car */ = {
+			isa = PBXGroup;
+			children = (
+				666B93531DB29B7A008D6F44 /* FinishedCarRegister */,
+				66A6893E1DB2809700C7AE90 /* Brand Selection */,
+				66A689361DB27D8000C7AE90 /* Car.storyboard */,
+				66A689381DB27F3900C7AE90 /* CarViewController.swift */,
+			);
+			name = Car;
+			sourceTree = "<group>";
+		};
+		66A6893E1DB2809700C7AE90 /* Brand Selection */ = {
+			isa = PBXGroup;
+			children = (
+				66A6893A1DB27F7600C7AE90 /* BrandSelection.xib */,
+				66A689411DB286F700C7AE90 /* BrandSelectionView.swift */,
+			);
+			name = "Brand Selection";
+			sourceTree = "<group>";
+		};
 		71E61D4A56B614CA355A389B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +274,7 @@
 				66947D461DAEB07100046DA3 /* CarSocialNetwork.entitlements */,
 				A97EA6921D884A7B0037E25A /* InicialTutorial */,
 				A9E35E8E1D77640F007BC735 /* EditProfile */,
+				66A689351DB27D0200C7AE90 /* Car */,
 				A91B16D21D77544600B0C6CB /* HomePage */,
 				A9E4D6D01D5D3AA500FD6873 /* LoginStory */,
 				A9E4D6CF1D5D3A8E00FD6873 /* Model */,
@@ -270,6 +318,9 @@
 				A91717201D6666760011A524 /* Queue.swift */,
 				A97784E81D77AED3006A756E /* GoToStoryBoard.swift */,
 				A97784E41D779C44006A756E /* UserDefaults.swift */,
+				66A689331DB2788E00C7AE90 /* UIViewControllerExtensions.swift */,
+				66A6893F1DB2825B00C7AE90 /* UIImageExtensions.swift */,
+				66A689431DB293FC00C7AE90 /* FusumaConfig.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -362,17 +413,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66A6893B1DB27F7600C7AE90 /* BrandSelection.xib in Resources */,
 				A97784EF1D77B9FA006A756E /* LoginStory.storyboard in Resources */,
 				A91B16D41D77559700B0C6CB /* HomePage.storyboard in Resources */,
 				A97EA6941D884A9E0037E25A /* InicialTutorialView.xib in Resources */,
 				A97EA68B1D87FAB80037E25A /* FindCarView.xib in Resources */,
 				A9D03BE11D981BE900D94791 /* DescriptionPost.xib in Resources */,
+				66A689371DB27D8000C7AE90 /* Car.storyboard in Resources */,
 				A97784E31D776C35006A756E /* Assets.xcassets in Resources */,
 				A97EA68D1D87FBA90037E25A /* FindPesonView.xib in Resources */,
 				A9E35E901D776425007BC735 /* EditProfile.storyboard in Resources */,
 				A97EA6961D884AB90037E25A /* InicialTutorial.storyboard in Resources */,
 				A99F9E6B1D78DA7000059F1A /* NewMember.xib in Resources */,
 				A9E4D6C71D5D32CF00FD6873 /* LaunchScreen.storyboard in Resources */,
+				666B93551DB29BA0008D6F44 /* FinishedCarRegister.xib in Resources */,
 				A93F230B1D917BED00EA197E /* Activity.xib in Resources */,
 				A98A72C91D85891C0044238A /* PostCellView.xib in Resources */,
 			);
@@ -436,12 +490,15 @@
 				A9E7AF0F1D9825E80049E4C4 /* DescritptionView.swift in Sources */,
 				A9D567441D983ADA00CA478F /* AppHelperExtensions.swift in Sources */,
 				A97784E71D77A456006A756E /* LoginViewController.swift in Sources */,
+				666B93571DB29DC7008D6F44 /* FinishedCarRegisterView.swift in Sources */,
 				A99050201D75D4D000A4F626 /* User.swift in Sources */,
 				A91717211D6666760011A524 /* Queue.swift in Sources */,
 				A99F9E6D1D78DAAD00059F1A /* NewMemberView.swift in Sources */,
 				A9D03BDF1D9801FC00D94791 /* AdjustPhoto.swift in Sources */,
 				A91B16CF1D77284700B0C6CB /* Car.swift in Sources */,
 				A93EE8051D873C57008C9DF9 /* DefaultBt.swift in Sources */,
+				66A689391DB27F3900C7AE90 /* CarViewController.swift in Sources */,
+				66A689441DB293FC00C7AE90 /* FusumaConfig.swift in Sources */,
 				A97784ED1D77B6BB006A756E /* tabBar.swift in Sources */,
 				A97EA6981D884B800037E25A /* profilePhotoView.swift in Sources */,
 				A9E35E891D776392007BC735 /* SearchViewController.swift in Sources */,
@@ -454,13 +511,16 @@
 				A9E35E8D1D7763BE007BC735 /* ProfileViewController.swift in Sources */,
 				A97EA68F1D87FC630037E25A /* FindCarView.swift in Sources */,
 				A97EA6911D87FC7F0037E25A /* FindPersonUIView.swift in Sources */,
+				66A689401DB2825B00C7AE90 /* UIImageExtensions.swift in Sources */,
 				A9E4D6DC1D5DF13200FD6873 /* Photo.swift in Sources */,
+				66A689341DB2788E00C7AE90 /* UIViewControllerExtensions.swift in Sources */,
 				A93F230D1D917C4200EA197E /* ActivityView.swift in Sources */,
 				A9E35E921D77643B007BC735 /* EditViewController.swift in Sources */,
 				A9E4D6BD1D5D32CF00FD6873 /* AppDelegate.swift in Sources */,
 				A91B16D11D772A0400B0C6CB /* Events.swift in Sources */,
 				A91C94C31D87B7830049390A /* ApplicationManager.swift in Sources */,
 				A98A72CB1D8589890044238A /* PostTabbleCellView.swift in Sources */,
+				66A689421DB286F700C7AE90 /* BrandSelectionView.swift in Sources */,
 				A91B16CD1D7632E400B0C6CB /* Actitivy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

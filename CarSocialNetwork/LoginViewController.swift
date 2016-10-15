@@ -28,6 +28,7 @@ class LoginViewController: UIViewController {
         super.viewWillAppear(true)
         navigationBar()
         configView()
+        hideKeyboard()
         UIApplication.shared.statusBarStyle = .lightContent
         navigationController?.setNavigationBarHidden(true, animated: true)
     }

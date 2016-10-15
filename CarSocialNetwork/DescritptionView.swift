@@ -38,4 +38,5 @@ class DescritptionView: UIView {
         print("POST PHOTO "+commenBox.text!)
         delegate?.didClickToFinish(commenBox.text!)
     }
+    
 }
