@@ -10,8 +10,8 @@ import UIKit
 
 class PostTabbleCellView: UITableViewCell {
     
-    static let identifier = "postCell"
     static let nibName = "PostCellView"
+    static let identifier = "postCell"
     static let rowHeight = 600 as CGFloat
     
     @IBOutlet weak var photoDescription: UITextField!

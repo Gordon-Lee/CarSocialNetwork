@@ -23,6 +23,8 @@
 		66A689401DB2825B00C7AE90 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A6893F1DB2825B00C7AE90 /* UIImageExtensions.swift */; };
 		66A689421DB286F700C7AE90 /* BrandSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A689411DB286F700C7AE90 /* BrandSelectionView.swift */; };
 		66A689441DB293FC00C7AE90 /* FusumaConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A689431DB293FC00C7AE90 /* FusumaConfig.swift */; };
+		66E0D0201DB7F762001F5A0F /* UserActivity.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66E0D01F1DB7F762001F5A0F /* UserActivity.xib */; };
+		66E0D0241DB7F851001F5A0F /* UserActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E0D0231DB7F851001F5A0F /* UserActivityTableViewCell.swift */; };
 		A91717211D6666760011A524 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91717201D6666760011A524 /* Queue.swift */; };
 		A91B16CD1D7632E400B0C6CB /* Actitivy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B16CC1D7632E400B0C6CB /* Actitivy.swift */; };
 		A91B16CF1D77284700B0C6CB /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B16CE1D77284700B0C6CB /* Car.swift */; };
@@ -30,8 +32,6 @@
 		A91B16D41D77559700B0C6CB /* HomePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91B16D31D77559700B0C6CB /* HomePage.storyboard */; };
 		A91C94C31D87B7830049390A /* ApplicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C94C21D87B7830049390A /* ApplicationManager.swift */; };
 		A93EE8051D873C57008C9DF9 /* DefaultBt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93EE8041D873C57008C9DF9 /* DefaultBt.swift */; };
-		A93F230B1D917BED00EA197E /* Activity.xib in Resources */ = {isa = PBXBuildFile; fileRef = A93F230A1D917BED00EA197E /* Activity.xib */; };
-		A93F230D1D917C4200EA197E /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93F230C1D917C4200EA197E /* ActivityView.swift */; };
 		A93F230F1D917D1800EA197E /* ActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93F230E1D917D1800EA197E /* ActivityType.swift */; };
 		A97784E31D776C35006A756E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A97784E21D776C35006A756E /* Assets.xcassets */; };
 		A97784E51D779C44006A756E /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97784E41D779C44006A756E /* UserDefaults.swift */; };
@@ -42,7 +42,6 @@
 		A97784EF1D77B9FA006A756E /* LoginStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97784EE1D77B9FA006A756E /* LoginStory.storyboard */; };
 		A97EA6941D884A9E0037E25A /* InicialTutorialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97EA6931D884A9E0037E25A /* InicialTutorialView.xib */; };
 		A97EA6961D884AB90037E25A /* InicialTutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97EA6951D884AB90037E25A /* InicialTutorial.storyboard */; };
-		A97EA6981D884B800037E25A /* profilePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97EA6971D884B800037E25A /* profilePhotoView.swift */; };
 		A98A72C91D85891C0044238A /* PostCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98A72C81D85891C0044238A /* PostCellView.xib */; };
 		A98A72CB1D8589890044238A /* PostTabbleCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98A72CA1D8589890044238A /* PostTabbleCellView.swift */; };
 		A99050201D75D4D000A4F626 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A990501F1D75D4D000A4F626 /* User.swift */; };
@@ -81,6 +80,8 @@
 		66A6893F1DB2825B00C7AE90 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		66A689411DB286F700C7AE90 /* BrandSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandSelectionView.swift; sourceTree = "<group>"; };
 		66A689431DB293FC00C7AE90 /* FusumaConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FusumaConfig.swift; sourceTree = "<group>"; };
+		66E0D01F1DB7F762001F5A0F /* UserActivity.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserActivity.xib; sourceTree = "<group>"; };
+		66E0D0231DB7F851001F5A0F /* UserActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserActivityTableViewCell.swift; sourceTree = "<group>"; };
 		6B02B8E240BA6D7EB0A5738F /* Pods-CarSocialNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarSocialNetwork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarSocialNetwork/Pods-CarSocialNetwork.debug.xcconfig"; sourceTree = "<group>"; };
 		73D55C1859FEA03B5279E99E /* Pods-CarSocialNetwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarSocialNetwork.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarSocialNetwork/Pods-CarSocialNetwork.release.xcconfig"; sourceTree = "<group>"; };
 		99FD3D2E6D198E7438282593 /* Pods_CarSocialNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarSocialNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,8 +92,6 @@
 		A91B16D31D77559700B0C6CB /* HomePage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomePage.storyboard; sourceTree = "<group>"; };
 		A91C94C21D87B7830049390A /* ApplicationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationManager.swift; sourceTree = "<group>"; };
 		A93EE8041D873C57008C9DF9 /* DefaultBt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultBt.swift; sourceTree = "<group>"; };
-		A93F230A1D917BED00EA197E /* Activity.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Activity.xib; sourceTree = "<group>"; };
-		A93F230C1D917C4200EA197E /* ActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		A93F230E1D917D1800EA197E /* ActivityType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityType.swift; sourceTree = "<group>"; };
 		A97784E21D776C35006A756E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A97784E41D779C44006A756E /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
@@ -103,7 +102,6 @@
 		A97784EE1D77B9FA006A756E /* LoginStory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginStory.storyboard; sourceTree = "<group>"; };
 		A97EA6931D884A9E0037E25A /* InicialTutorialView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InicialTutorialView.xib; sourceTree = "<group>"; };
 		A97EA6951D884AB90037E25A /* InicialTutorial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InicialTutorial.storyboard; sourceTree = "<group>"; };
-		A97EA6971D884B800037E25A /* profilePhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profilePhotoView.swift; sourceTree = "<group>"; };
 		A98A72C81D85891C0044238A /* PostCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCellView.xib; sourceTree = "<group>"; };
 		A98A72CA1D8589890044238A /* PostTabbleCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTabbleCellView.swift; sourceTree = "<group>"; };
 		A990501F1D75D4D000A4F626 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -196,6 +194,15 @@
 			name = InicialRegister;
 			sourceTree = "<group>";
 		};
+		66E0D0251DB7F936001F5A0F /* Descrition Post */ = {
+			isa = PBXGroup;
+			children = (
+				A9D03BE01D981BE900D94791 /* DescriptionPost.xib */,
+				A9E7AF0E1D9825E80049E4C4 /* DescritptionView.swift */,
+			);
+			name = "Descrition Post";
+			sourceTree = "<group>";
+		};
 		71E61D4A56B614CA355A389B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,7 +215,8 @@
 		A91B16D21D77544600B0C6CB /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
-				A98A72C71D8588FD0044238A /* Posts */,
+				66E0D0251DB7F936001F5A0F /* Descrition Post */,
+				A98A72C71D8588FD0044238A /* Post */,
 				A93F23091D917BC900EA197E /* Profile Activity */,
 				A97EA6891D87FA940037E25A /* Search */,
 				A91B16D31D77559700B0C6CB /* HomePage.storyboard */,
@@ -224,8 +232,8 @@
 		A93F23091D917BC900EA197E /* Profile Activity */ = {
 			isa = PBXGroup;
 			children = (
-				A93F230A1D917BED00EA197E /* Activity.xib */,
-				A93F230C1D917C4200EA197E /* ActivityView.swift */,
+				66E0D01F1DB7F762001F5A0F /* UserActivity.xib */,
+				66E0D0231DB7F851001F5A0F /* UserActivityTableViewCell.swift */,
 			);
 			name = "Profile Activity";
 			sourceTree = "<group>";
@@ -248,16 +256,13 @@
 			name = InicialTutorial;
 			sourceTree = "<group>";
 		};
-		A98A72C71D8588FD0044238A /* Posts */ = {
+		A98A72C71D8588FD0044238A /* Post */ = {
 			isa = PBXGroup;
 			children = (
-				A9D03BE01D981BE900D94791 /* DescriptionPost.xib */,
-				A9E7AF0E1D9825E80049E4C4 /* DescritptionView.swift */,
 				A98A72CA1D8589890044238A /* PostTabbleCellView.swift */,
 				A98A72C81D85891C0044238A /* PostCellView.xib */,
-				A97EA6971D884B800037E25A /* profilePhotoView.swift */,
 			);
-			name = Posts;
+			name = Post;
 			sourceTree = "<group>";
 		};
 		A99F9E691D78DA4E00059F1A /* NewMember */ = {
@@ -445,6 +450,7 @@
 			files = (
 				66A6893B1DB27F7600C7AE90 /* BrandSelection.xib in Resources */,
 				A97784EF1D77B9FA006A756E /* LoginStory.storyboard in Resources */,
+				66E0D0201DB7F762001F5A0F /* UserActivity.xib in Resources */,
 				A91B16D41D77559700B0C6CB /* HomePage.storyboard in Resources */,
 				A97EA6941D884A9E0037E25A /* InicialTutorialView.xib in Resources */,
 				668D195A1DB505350077021E /* SearchResult.xib in Resources */,
@@ -458,7 +464,6 @@
 				A99F9E6B1D78DA7000059F1A /* NewMember.xib in Resources */,
 				A9E4D6C71D5D32CF00FD6873 /* LaunchScreen.storyboard in Resources */,
 				666B93551DB29BA0008D6F44 /* FinishedCarRegister.xib in Resources */,
-				A93F230B1D917BED00EA197E /* Activity.xib in Resources */,
 				A98A72C91D85891C0044238A /* PostCellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -532,9 +537,9 @@
 				66A689391DB27F3900C7AE90 /* CarViewController.swift in Sources */,
 				66A689441DB293FC00C7AE90 /* FusumaConfig.swift in Sources */,
 				A97784ED1D77B6BB006A756E /* tabBar.swift in Sources */,
-				A97EA6981D884B800037E25A /* profilePhotoView.swift in Sources */,
 				A9E35E891D776392007BC735 /* SearchViewController.swift in Sources */,
 				A97784E51D779C44006A756E /* UserDefaults.swift in Sources */,
+				66E0D0241DB7F851001F5A0F /* UserActivityTableViewCell.swift in Sources */,
 				A93F230F1D917D1800EA197E /* ActivityType.swift in Sources */,
 				666B935C1DB2B8A8008D6F44 /* EventsViewController.swift in Sources */,
 				A9E35E8B1D7763A9007BC735 /* PostViewController.swift in Sources */,
@@ -545,7 +550,6 @@
 				66A689401DB2825B00C7AE90 /* UIImageExtensions.swift in Sources */,
 				A9E4D6DC1D5DF13200FD6873 /* Photo.swift in Sources */,
 				66A689341DB2788E00C7AE90 /* UIViewControllerExtensions.swift in Sources */,
-				A93F230D1D917C4200EA197E /* ActivityView.swift in Sources */,
 				A9E35E921D77643B007BC735 /* EditViewController.swift in Sources */,
 				A9E4D6BD1D5D32CF00FD6873 /* AppDelegate.swift in Sources */,
 				A91B16D11D772A0400B0C6CB /* Events.swift in Sources */,

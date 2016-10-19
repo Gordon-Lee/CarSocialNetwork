@@ -43,7 +43,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="8376640D-A8C3-4210-B80A-6E5E47AB26C2" translatesAutoresizingMaskIntoConstraints="NO" id="7NQ-k9-KQv">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="C35A775C-9A67-470D-A9AD-73FD7887DE34" translatesAutoresizingMaskIntoConstraints="NO" id="7NQ-k9-KQv">
                     <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="gtb-Jy-wSg"/>
@@ -101,7 +101,7 @@
         </view>
     </objects>
     <resources>
-        <image name="8376640D-A8C3-4210-B80A-6E5E47AB26C2" width="128" height="128">
+        <image name="C35A775C-9A67-470D-A9AD-73FD7887DE34" width="128" height="128">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA

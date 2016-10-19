@@ -12,17 +12,20 @@ import SVProgressHUD
 
 class ProfileViewController: UIViewController {
 
-    @IBOutlet weak var tabbleView: UITableView!
+    
+    @IBOutlet weak var tableView: UITableView!
     
     fileprivate var userActivityPost = [Activity]() {
         didSet{
-          tabbleView.reloadData()
+          tableView.reloadData()
+            for us in userActivityPost {
+                print(us.image.objectId)
+            }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configTabbleView()
         nibCell()
         loadData()
     }
@@ -38,27 +41,18 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func settings(_ sender: AnyObject) {
-        let sb = UIStoryboard(name:CarViewController.identifier, bundle: Bundle.main)
+        let sb = UIStoryboard(name: CarViewController.identifier, bundle: Bundle.main)
         let vc = sb.instantiateInitialViewController() as! CarViewController
         navigationController?.pushViewController(vc, animated: true)
     }
+    
     fileprivate func loadData() {
         let query = Activity.query()
-        let q = Photo.query()
-        q?.whereKey("owner", equalTo: PFUser.current()!)
-        
-        q?.findObjectsInBackground(block: { (ph, error) in
-               print("****** \(ph?.count)")
-        })
-        
-        //query?.whereKey("toUser", notEqualTo: PFUser.current())
-        query?.whereKey("activitytype", equalTo: 1)
         query?.whereKey("fromUser", equalTo: PFUser.current()!)
-        //query?.whereKey("fromUser", equalTo: PFUser.current())
+        query?.whereKey("fromUser", equalTo: PFUser.current()!)
         query?.findObjectsInBackground(block: { (activits, error) in
             guard error != nil else {
                 self.userActivityPost = activits as! [Activity]
-                print("###*** \(self.userActivityPost.count)")
                 return
             }
         })
@@ -66,17 +60,12 @@ class ProfileViewController: UIViewController {
 }
 //MARK: Generic Methods / Actions
 extension ProfileViewController {
-    fileprivate func configTabbleView() {
-        tabbleView.delegate = self
-        tabbleView.dataSource = self
-    }
-    
     fileprivate func nibCell() {
-        let nibCell = UINib(nibName: ActivityView.nibName, bundle: Bundle.main)
-        tabbleView.register(nibCell, forCellReuseIdentifier: PostTabbleCellView.identifier)
+        let nibCell = UINib(nibName: UserActivityTableViewCell.nibName, bundle: Bundle.main)
+        tableView.register(nibCell, forCellReuseIdentifier: UserActivityTableViewCell.identifier)
     }
     
-    fileprivate func setupCell(cell: ActivityView) {
+    fileprivate func setupCell(cell: UserActivityTableViewCell) {
         cell.layoutMargins = UIEdgeInsets.zero
         cell.backgroundColor = AppCongifuration.lightGrey()
     }
@@ -92,23 +81,17 @@ extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userActivityPost.count
     }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return ActivityView.rowHeight
-    }
+//
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//     
+//    }
 }
 //MARK: TableView DATA SOURCE
 extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ActivityView.identifier) as! ActivityView
-
-//        imageFile.getDataInBackgroundWithBlock({ (data, error) in
-//            if let image = UIImage(data: data!) {
-//                cell.postImage.image = image
-//            }
-//        })
+        let cell = tableView.dequeueReusableCell(withIdentifier: UserActivityTableViewCell.identifier) as! UserActivityTableViewCell
         
-        setupCell(cell: cell)
+        cell.actvDescription.text = "\(indexPath.row)"
         
         return cell
     }
