@@ -12,6 +12,7 @@ class SearchTableViewCell: UITableViewCell {
     
     static let xibName = "SearchResult"
     static let identifier = "searchCell"
+    static let rowHeight = 110 as CGFloat
 
     @IBOutlet weak var searchIMG: UIImageView!
     @IBOutlet weak var content: UILabel!

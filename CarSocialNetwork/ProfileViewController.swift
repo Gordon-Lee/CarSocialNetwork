@@ -43,16 +43,22 @@ class ProfileViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     fileprivate func loadData() {
-        //let query = Activity.query()
-        let query = PFQuery(className: "Activity")
-        let us = PFUser.current()
-        query.whereKey("toUser", notEqualTo: us?.objectId)
-        //query?.whereKey("toUser", : PFUser.current())
-        //query?.whereKey("toUser", equalTo: PFUser.current())
-        query.findObjectsInBackground(block: { (activits, error) in
+        let query = Activity.query()
+        let q = Photo.query()
+        q?.whereKey("owner", equalTo: PFUser.current()!)
+        
+        q?.findObjectsInBackground(block: { (ph, error) in
+               print("****** \(ph?.count)")
+        })
+        
+        //query?.whereKey("toUser", notEqualTo: PFUser.current())
+        query?.whereKey("activitytype", equalTo: 1)
+        query?.whereKey("fromUser", equalTo: PFUser.current()!)
+        //query?.whereKey("fromUser", equalTo: PFUser.current())
+        query?.findObjectsInBackground(block: { (activits, error) in
             guard error != nil else {
                 self.userActivityPost = activits as! [Activity]
-                print("****** \(self.userActivityPost.count)")
+                print("###*** \(self.userActivityPost.count)")
                 return
             }
         })

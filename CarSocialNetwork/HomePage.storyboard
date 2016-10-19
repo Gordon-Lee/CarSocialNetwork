@@ -34,7 +34,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3XL-ar-TLA" id="IYp-tN-uqc">
-                                            <frame key="frameInset" width="375" height="43.5"/>
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -169,15 +169,15 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="homeCell" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="homeCell" textLabel="hpJ-MW-0Zw" rowHeight="40" style="IBUITableViewCellStyleDefault" id="5Ly-I3-0AB" customClass="PostTabbleCellView" customModule="CarSocialNetwork" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="homeCell" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="homeCell" textLabel="hpJ-MW-0Zw" rowHeight="40" style="IBUITableViewCellStyleDefault" id="5Ly-I3-0AB" customClass="PostTabbleCellView" customModule="CarSocialNetwork" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="375" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="300.5" tableViewCell="5Ly-I3-0AB" id="F2M-di-jee">
-                                            <frame key="frameInset" width="375" height="39.5"/>
+                                            <frame key="frameInset" width="375" height="39"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hpJ-MW-0Zw">
-                                                    <frame key="frameInset" minX="15" width="345" height="39.5"/>
+                                                    <frame key="frameInset" minX="15" width="345" height="39"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -238,59 +238,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="procura" translatesAutoresizingMaskIntoConstraints="NO" id="GGb-MB-ReZ">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="09F-JE-g18"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ge-ez-0wC" userLabel="Button Stand">
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0X9-hf-k3y">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0X9-hf-k3y" customClass="DefaultBt" customModule="CarSocialNetwork" customModuleProvider="target">
+                                        <color key="backgroundColor" red="0.53467365079999996" green="1" blue="0.41281870009999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="dCl-Il-0tC"/>
+                                            <constraint firstAttribute="height" constant="40" id="H4i-VM-7j5"/>
                                         </constraints>
                                         <state key="normal" title="Eventos"/>
                                         <connections>
                                             <action selector="showTableViewEvents:" destination="dBQ-uD-0Q8" eventType="touchUpInside" id="GZB-kK-sZy"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GtE-tc-y18">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnE-Xf-oyu" customClass="DefaultBt" customModule="CarSocialNetwork" customModuleProvider="target">
+                                        <color key="backgroundColor" red="0.53467365079999996" green="1" blue="0.41281870009999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="119" id="V3s-9f-xHB"/>
-                                            <constraint firstAttribute="height" constant="50" id="YfD-RQ-bRm"/>
-                                        </constraints>
-                                        <state key="normal" title="Carros"/>
-                                        <connections>
-                                            <action selector="showTableViewCars:" destination="dBQ-uD-0Q8" eventType="touchUpInside" id="Lqy-yy-qSu"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnE-Xf-oyu">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="kKI-C1-cib"/>
+                                            <constraint firstAttribute="height" constant="40" id="yDa-4q-f7a"/>
                                         </constraints>
                                         <state key="normal" title="Pessoas"/>
                                         <connections>
                                             <action selector="showTableViewPeople:" destination="dBQ-uD-0Q8" eventType="touchUpInside" id="icN-p2-pYb"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GtE-tc-y18" customClass="DefaultBt" customModule="CarSocialNetwork" customModuleProvider="target">
+                                        <color key="backgroundColor" red="0.53467365079999996" green="1" blue="0.41281870009999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="125" id="3gH-ZX-W6i"/>
+                                            <constraint firstAttribute="height" constant="40" id="lHX-e1-OKx"/>
+                                        </constraints>
+                                        <state key="normal" title="Carros"/>
+                                        <connections>
+                                            <action selector="showTableViewCars:" destination="dBQ-uD-0Q8" eventType="touchUpInside" id="Lqy-yy-qSu"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="gnE-Xf-oyu" secondAttribute="trailing" id="2XM-LD-dHa"/>
-                                    <constraint firstItem="GtE-tc-y18" firstAttribute="baseline" secondItem="gnE-Xf-oyu" secondAttribute="baseline" id="8bp-LK-CCq"/>
-                                    <constraint firstItem="GtE-tc-y18" firstAttribute="centerX" secondItem="1ge-ez-0wC" secondAttribute="centerX" id="9Yv-ob-KUv"/>
-                                    <constraint firstItem="GtE-tc-y18" firstAttribute="baseline" secondItem="0X9-hf-k3y" secondAttribute="firstBaseline" id="AU4-SJ-nqY"/>
-                                    <constraint firstItem="GtE-tc-y18" firstAttribute="leading" secondItem="0X9-hf-k3y" secondAttribute="trailing" constant="8" symbolic="YES" id="SDT-Ig-kEf"/>
-                                    <constraint firstItem="GtE-tc-y18" firstAttribute="top" secondItem="gnE-Xf-oyu" secondAttribute="top" id="Z2C-PY-LUK"/>
-                                    <constraint firstItem="0X9-hf-k3y" firstAttribute="leading" secondItem="1ge-ez-0wC" secondAttribute="leading" id="ZlP-mN-rcE"/>
-                                    <constraint firstItem="0X9-hf-k3y" firstAttribute="top" secondItem="GtE-tc-y18" secondAttribute="top" id="eZD-XD-5pf"/>
-                                    <constraint firstItem="0X9-hf-k3y" firstAttribute="baseline" secondItem="GtE-tc-y18" secondAttribute="firstBaseline" id="eaB-nm-oCs"/>
-                                    <constraint firstAttribute="bottom" secondItem="0X9-hf-k3y" secondAttribute="bottom" id="ezH-KO-9AC"/>
-                                    <constraint firstItem="GtE-tc-y18" firstAttribute="baseline" secondItem="gnE-Xf-oyu" secondAttribute="firstBaseline" id="fO3-P2-ocr"/>
-                                    <constraint firstAttribute="height" constant="50" id="j4t-Ii-7NR"/>
-                                    <constraint firstItem="0X9-hf-k3y" firstAttribute="top" secondItem="1ge-ez-0wC" secondAttribute="top" id="le8-F3-RUK"/>
-                                    <constraint firstItem="gnE-Xf-oyu" firstAttribute="leading" secondItem="GtE-tc-y18" secondAttribute="trailing" constant="7" id="yHT-Za-iqy"/>
+                                    <constraint firstAttribute="trailing" secondItem="gnE-Xf-oyu" secondAttribute="trailing" id="74N-Cf-48I"/>
+                                    <constraint firstItem="0X9-hf-k3y" firstAttribute="leading" secondItem="1ge-ez-0wC" secondAttribute="leading" id="8rx-m4-3AF"/>
+                                    <constraint firstItem="GtE-tc-y18" firstAttribute="centerX" secondItem="1ge-ez-0wC" secondAttribute="centerX" id="AHM-Qw-1pc"/>
+                                    <constraint firstItem="0X9-hf-k3y" firstAttribute="top" secondItem="1ge-ez-0wC" secondAttribute="top" constant="45" id="B7E-iC-tAu"/>
+                                    <constraint firstAttribute="bottom" secondItem="0X9-hf-k3y" secondAttribute="bottom" id="EYw-3P-sgI"/>
+                                    <constraint firstItem="GtE-tc-y18" firstAttribute="leading" secondItem="0X9-hf-k3y" secondAttribute="trailing" id="Fo7-e3-mZP"/>
+                                    <constraint firstItem="GtE-tc-y18" firstAttribute="top" secondItem="gnE-Xf-oyu" secondAttribute="top" id="Miy-KW-OnV"/>
+                                    <constraint firstItem="gnE-Xf-oyu" firstAttribute="leading" secondItem="GtE-tc-y18" secondAttribute="trailing" id="W6V-ei-Ljr"/>
+                                    <constraint firstItem="GtE-tc-y18" firstAttribute="baseline" secondItem="gnE-Xf-oyu" secondAttribute="firstBaseline" id="XWS-Mm-e1P"/>
+                                    <constraint firstItem="GtE-tc-y18" firstAttribute="baseline" secondItem="gnE-Xf-oyu" secondAttribute="baseline" id="bra-zG-iGL"/>
+                                    <constraint firstAttribute="height" constant="85" id="hIw-aH-0Hx"/>
+                                    <constraint firstItem="GtE-tc-y18" firstAttribute="baseline" secondItem="0X9-hf-k3y" secondAttribute="firstBaseline" id="nrH-dO-1cX"/>
+                                    <constraint firstItem="0X9-hf-k3y" firstAttribute="top" secondItem="GtE-tc-y18" secondAttribute="top" id="qkS-8z-lAg"/>
+                                    <constraint firstItem="0X9-hf-k3y" firstAttribute="baseline" secondItem="GtE-tc-y18" secondAttribute="firstBaseline" id="sLS-u1-U6N"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
@@ -308,18 +305,18 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ph0-j4-jDJ">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="451" id="Xq4-lV-mMY"/>
+                                    <constraint firstAttribute="height" constant="445" id="Po3-Oe-B82"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchCell" textLabel="03N-n1-EUL" style="IBUITableViewCellStyleDefault" id="gfX-tX-Qzn">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gfX-tX-Qzn" id="BQU-fe-mEV">
-                                            <frame key="frameInset" width="375" height="43.5"/>
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="03N-n1-EUL">
-                                                    <frame key="frameInset" minX="15" width="345" height="43.5"/>
+                                                    <frame key="frameInset" minX="15" width="345" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -338,26 +335,21 @@
                         <color key="backgroundColor" red="0.95522255950000001" green="1" blue="0.68579471849999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="1ge-ez-0wC" firstAttribute="leading" secondItem="Ph0-j4-jDJ" secondAttribute="leading" id="4I3-b9-E89"/>
-                            <constraint firstItem="GGb-MB-ReZ" firstAttribute="leading" secondItem="1ge-ez-0wC" secondAttribute="leading" id="Bnj-AH-AHM"/>
-                            <constraint firstItem="1ge-ez-0wC" firstAttribute="top" secondItem="GGb-MB-ReZ" secondAttribute="bottom" constant="1" id="DVH-pm-PWf"/>
-                            <constraint firstItem="GGb-MB-ReZ" firstAttribute="leading" secondItem="QOO-qL-eaP" secondAttribute="leading" id="GXr-CA-lsl"/>
-                            <constraint firstItem="1ge-ez-0wC" firstAttribute="trailing" secondItem="Ph0-j4-jDJ" secondAttribute="trailing" id="OJt-ly-cYb"/>
-                            <constraint firstItem="GGb-MB-ReZ" firstAttribute="trailing" secondItem="1ge-ez-0wC" secondAttribute="trailing" id="VLz-OM-D0R"/>
-                            <constraint firstItem="Ph0-j4-jDJ" firstAttribute="bottom" secondItem="9db-HC-Pgx" secondAttribute="top" id="fp5-9G-AtC"/>
-                            <constraint firstAttribute="trailing" secondItem="GGb-MB-ReZ" secondAttribute="trailing" id="oOn-v8-Rlf"/>
-                            <constraint firstItem="Ph0-j4-jDJ" firstAttribute="top" secondItem="1ge-ez-0wC" secondAttribute="bottom" constant="8" symbolic="YES" id="w1g-Jh-FPt"/>
-                            <constraint firstItem="GGb-MB-ReZ" firstAttribute="top" secondItem="yce-G4-Jp2" secondAttribute="bottom" id="zQD-oa-0wM"/>
+                            <constraint firstItem="1ge-ez-0wC" firstAttribute="top" secondItem="yce-G4-Jp2" secondAttribute="bottom" id="0hE-uA-D22"/>
+                            <constraint firstItem="1ge-ez-0wC" firstAttribute="leading" secondItem="Ph0-j4-jDJ" secondAttribute="leading" id="1lH-wd-sjG"/>
+                            <constraint firstItem="1ge-ez-0wC" firstAttribute="trailing" secondItem="Ph0-j4-jDJ" secondAttribute="trailing" id="3Qq-l1-e0x"/>
+                            <constraint firstItem="Ph0-j4-jDJ" firstAttribute="top" secondItem="1ge-ez-0wC" secondAttribute="bottom" constant="23" id="6sO-zK-v66"/>
+                            <constraint firstItem="9db-HC-Pgx" firstAttribute="top" secondItem="Ph0-j4-jDJ" secondAttribute="bottom" constant="1" id="X4I-fA-ev2"/>
+                            <constraint firstAttribute="trailing" secondItem="1ge-ez-0wC" secondAttribute="trailing" id="gzo-xp-0so"/>
+                            <constraint firstItem="1ge-ez-0wC" firstAttribute="leading" secondItem="QOO-qL-eaP" secondAttribute="leading" id="vx0-Gj-ePZ"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="GGb-MB-ReZ"/>
                                 <exclude reference="1ge-ez-0wC"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="GGb-MB-ReZ"/>
                                 <include reference="1ge-ez-0wC"/>
                             </mask>
                         </variation>
@@ -366,6 +358,7 @@
                         <inset key="imageInsets" minX="0.0" minY="4" maxX="0.0" maxY="-4"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="buttonStand" destination="1ge-ez-0wC" id="JGl-YH-5tl"/>
                         <outlet property="carBt" destination="GtE-tc-y18" id="etY-ZW-wVs"/>
                         <outlet property="eventsBt" destination="0X9-hf-k3y" id="cVo-Pc-BsB"/>
                         <outlet property="peopleBt" destination="gnE-Xf-oyu" id="iSL-bP-EkX"/>

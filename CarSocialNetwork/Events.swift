@@ -17,8 +17,6 @@ class Events: PFObject, PFSubclassing {
     @NSManaged var endDate: Date
     @NSManaged var image: PFFile
     
-    fileprivate var imageConverted: UIImage!
-    
     override init() { super.init() }
     
     init(onwer: PFUser, name: String, eventDescription: String, image: PFFile) {
@@ -31,14 +29,5 @@ class Events: PFObject, PFSubclassing {
     
     static func parseClassName() -> String {
         return "Events"
-    }
-    
-    func fileToImage() -> UIImage {
-        self.image.getDataInBackground { (file, error) in
-            if let image = UIImage(data: file!) {
-                self.imageConverted = image
-            }
-        }
-        return imageConverted
     }
 }

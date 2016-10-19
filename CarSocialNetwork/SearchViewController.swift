@@ -22,7 +22,7 @@ class SearchViewController: UIViewController {
     //Data from Parse
     fileprivate var cars = [Car]() {
         didSet {
-           tableView.reloadData()
+            tableView.reloadData()
         }
     }
     fileprivate var events = [Events]()  {
@@ -45,12 +45,13 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var eventsBt: UIButton!
     @IBOutlet weak var peopleBt: UIButton!
     @IBOutlet weak var carBt: UIButton!
+    @IBOutlet weak var buttonStand: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         nibCell()
-        loadCars()
         loadEvents()
+        loadCars()
         loadPeople()
         
         //searchController.searchResultsUpdater = self
@@ -59,9 +60,22 @@ class SearchViewController: UIViewController {
         searchController.dimsBackgroundDuringPresentation = false
         
         // Setup the Scope Bar
-        searchController.searchBar.scopeButtonTitles = ["All", "Chocolate", "Hard", "Other"]
-        tableView.tableHeaderView = searchController.searchBar
+        setScopeBar(display: dataDisplay)
+        searchController.searchBar.backgroundColor = AppCongifuration.lightGrey()
+        searchController.searchBar.tintColor = AppCongifuration.blue()
+        buttonStand.addSubview(searchController.searchBar)
 
+    }
+    
+    func setScopeBar(display: dataToDisplay) {
+        switch display {
+        case .events:
+            searchController.searchBar.scopeButtonTitles = ["local", "cidade"]
+        case .car:
+            searchController.searchBar.scopeButtonTitles = ["modelo", "marca", "ano"]
+        case .people:
+            searchController.searchBar.scopeButtonTitles = ["nome","sexo"]
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,7 +83,7 @@ class SearchViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
         configView()
     }
-    
+    //TODOOO
     fileprivate func configSearchController() {
         //searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
@@ -122,23 +136,35 @@ extension SearchViewController {
             }
         })
     }
+    
+    fileprivate func loadImage(image: PFFile, cell: SearchTableViewCell) {
+        image.getDataInBackground { (img, error) in
+            if let image = UIImage(data: img!) {
+                cell.searchIMG.image = image
+            }
+        }
+    }
+    
 }
 //MARK: ACTIONS
 extension SearchViewController {
     @IBAction func showTableViewPeople(_ sender: AnyObject) {
         dataDisplay = .people
+        setScopeBar(display: dataDisplay)
         print(dataDisplay)
         tableView.reloadData()
     }
     
     @IBAction func showTableViewEvents(_ sender: AnyObject) {
         dataDisplay = .events
+        setScopeBar(display: dataDisplay)
         print(dataDisplay)
         tableView.reloadData()
     }
     
     @IBAction func showTableViewCars(_ sender: AnyObject) {
         dataDisplay = .car
+        setScopeBar(display: dataDisplay)
         print(dataDisplay)
         tableView.reloadData()
     }
@@ -161,6 +187,7 @@ extension SearchViewController: UISearchBarDelegate {
     //    filterContentForSearchText(searchController.searchBar.text!, scope: scope)
     }
 }
+
 //MARK: TABLEVIEW PROTOCOLS
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -169,18 +196,27 @@ extension SearchViewController: UITableViewDataSource {
         switch dataDisplay {
         case .car:
             cell.content.text = cars[indexPath.row].brand
-            cell.searchIMG.image = cars[indexPath.row].fileToImage()
+            loadImage(image: cars[indexPath.row].thumbImage, cell: cell)
         case .events:
             cell.content.text = events[indexPath.row].eventDescription
-            cell.searchIMG.image = events[indexPath.row].fileToImage()
+            //loadImage(image: events[indexPath.row].image, cell:  cell)
+            events[indexPath.row].image.getDataInBackground { (img, error) in
+                if let image = UIImage(data: img!) {
+                    cell.searchIMG.image = image
+                }
+            }
         case .people:
             cell.content.text = peoples[indexPath.row].username
-            cell.searchIMG.image = peoples[indexPath.row].fileToImage()
         }
         return cell
     }
 }
+
 extension SearchViewController: UITableViewDelegate {
+    @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return SearchTableViewCell.rowHeight
+    }
+    
     @objc(numberOfSectionsInTableView:) func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

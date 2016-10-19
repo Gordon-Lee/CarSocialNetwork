@@ -38,13 +38,12 @@ class HomeViewController: UIViewController {
         tableViewSetup()
         nibCell()
         navigationBar()
-        configView()
         loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        tabBarController?.tabBarVisibility(true, animated: true)
+        configView()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -78,6 +77,7 @@ class HomeViewController: UIViewController {
     fileprivate func configView() {
         view.backgroundColor = AppCongifuration.lightGrey()
         navigationController?.navigationBar.topItem?.title = "Car Social"
+        tabBarController?.tabBarVisibility(true, animated: true)
         navigationController?.setNavigationBarHidden(false, animated: true)
         UIApplication.shared.statusBarStyle = .default
     }
@@ -116,8 +116,8 @@ extension HomeViewController: UITableViewDataSource {
                 cell.postImage.image = image
             }
         }
-
-        //cell.ownerName.text = queryUser(photoToShow[(indexPath as NSIndexPath).row].owner)
+        queryUser(photoToShow[(indexPath as NSIndexPath).row].owner)
+        cell.ownerName.text = self.resultName //queryUser(photoToShow[(indexPath as NSIndexPath).row].owner)
         cell.photoDescription.text = showDescription(photoToShow[indexPath.row].objectId!)
         setupCell(cell: cell)
         
@@ -139,24 +139,24 @@ extension HomeViewController: UITableViewDelegate, UIScrollViewDelegate {
 }
 
 extension HomeViewController {
-    fileprivate func queryUser(_ onwer: PFUser) -> String{
+    fileprivate func queryUser(_ onwer: PFUser) {
         let query = PFUser.query()
-        //query?.whereKey("objectId", equalTo: onwer.objectId)  //AQUI
-        var username: String!
-        
-        query?.getFirstObjectInBackground(block: { (user, eroor) in
-            username = user?["username"] as! String
-        })
-        
-        return username
-        
-        //ANTIGO
-//        query?.findObjectsInBackground(block: { (users, error) in
-//            for us in users! {
-//                self.resultName = us["username"] as! String
-//                return
-//            }
+//        //query?.whereKey("objectId", equalTo: onwer.objectId)  //AQUI
+//        var username: String!
+//        
+//        query?.getFirstObjectInBackground(block: { (user, eroor) in
+//            username = user?["username"] as! String
 //        })
+//        
+//        return username
+//        
+        //ANTIGO
+        query?.findObjectsInBackground(block: { (users, error) in
+            for us in users! {
+                self.resultName = us["username"] as! String
+                return
+            }
+        })
     }
     fileprivate func showDescription(_ photoId: String) -> String{
         for act in activity {
