@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="EventDescriptionView" customModule="CarSocialNetwork" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="descrição" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jyM-k0-TSm">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="65" id="hXV-Gr-Pfy"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="data inicio" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KaP-Mv-enG">
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oMv-Nx-n4b" userLabel="nome">
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="data termino" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ziD-Qh-s3b">
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0iD-gO-qfi">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="2ke-6e-vAg"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDd-R9-EaN">
+                    <state key="normal" title="add"/>
+                    <connections>
+                        <action selector="addPhoto:" destination="iN0-l3-epB" eventType="touchUpInside" id="9Of-h8-cwT"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqC-MJ-59M">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="xMw-2C-ghO"/>
+                    </constraints>
+                    <state key="normal" title="Cadastrar"/>
+                    <connections>
+                        <action selector="eventRegister:" destination="iN0-l3-epB" eventType="touchUpInside" id="fx1-1Q-INP"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffA-w2-Dfx">
+                    <state key="normal" title="Cancelar"/>
+                    <connections>
+                        <action selector="cancelEventRegister:" destination="iN0-l3-epB" eventType="touchUpInside" id="Sug-Es-AK6"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="KaP-Mv-enG" firstAttribute="top" secondItem="oMv-Nx-n4b" secondAttribute="bottom" constant="10" id="0Ma-5L-p7p"/>
+                <constraint firstItem="KaP-Mv-enG" firstAttribute="leading" secondItem="ziD-Qh-s3b" secondAttribute="leading" id="2LA-QT-Spb"/>
+                <constraint firstItem="0iD-gO-qfi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="9Mt-pW-WCg"/>
+                <constraint firstItem="0iD-gO-qfi" firstAttribute="top" secondItem="ffA-w2-Dfx" secondAttribute="top" id="9hK-IP-o9G"/>
+                <constraint firstItem="0iD-gO-qfi" firstAttribute="bottom" secondItem="cDd-R9-EaN" secondAttribute="bottom" id="Ccs-N0-2Sl"/>
+                <constraint firstItem="ziD-Qh-s3b" firstAttribute="trailing" secondItem="qqC-MJ-59M" secondAttribute="trailing" id="IRl-xH-Kq9"/>
+                <constraint firstItem="ziD-Qh-s3b" firstAttribute="top" secondItem="KaP-Mv-enG" secondAttribute="bottom" constant="8" symbolic="YES" id="JCp-7k-hVn"/>
+                <constraint firstItem="KaP-Mv-enG" firstAttribute="trailing" secondItem="ziD-Qh-s3b" secondAttribute="trailing" id="Jzu-no-snI"/>
+                <constraint firstItem="jyM-k0-TSm" firstAttribute="trailing" secondItem="KaP-Mv-enG" secondAttribute="trailing" id="Kgq-g5-kYl"/>
+                <constraint firstItem="0iD-gO-qfi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="Ny0-Ef-VfW"/>
+                <constraint firstAttribute="bottom" secondItem="qqC-MJ-59M" secondAttribute="bottom" constant="4" id="PSQ-Ee-uBX"/>
+                <constraint firstItem="oMv-Nx-n4b" firstAttribute="top" secondItem="jyM-k0-TSm" secondAttribute="bottom" constant="9" id="VqL-1c-SJv"/>
+                <constraint firstItem="oMv-Nx-n4b" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="7" id="YqV-du-zs4"/>
+                <constraint firstItem="cDd-R9-EaN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="128" id="cFS-FG-rMf"/>
+                <constraint firstItem="jyM-k0-TSm" firstAttribute="top" secondItem="0iD-gO-qfi" secondAttribute="bottom" constant="34" id="eTn-7S-ZSE"/>
+                <constraint firstItem="KaP-Mv-enG" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="fdz-ff-AIa"/>
+                <constraint firstItem="ziD-Qh-s3b" firstAttribute="leading" secondItem="qqC-MJ-59M" secondAttribute="leading" id="fsW-Do-bK9"/>
+                <constraint firstItem="ffA-w2-Dfx" firstAttribute="trailing" secondItem="jyM-k0-TSm" secondAttribute="trailing" id="fwd-XQ-JdD"/>
+                <constraint firstItem="jyM-k0-TSm" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="lZn-7d-ffc"/>
+                <constraint firstItem="jyM-k0-TSm" firstAttribute="leading" secondItem="KaP-Mv-enG" secondAttribute="leading" id="nes-LF-0Cd"/>
+                <constraint firstItem="jyM-k0-TSm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="p6O-CO-hfX"/>
+                <constraint firstAttribute="trailing" secondItem="oMv-Nx-n4b" secondAttribute="trailing" constant="3" id="tPA-r8-PDH"/>
+            </constraints>
+            <connections>
+                <outlet property="endDate" destination="ziD-Qh-s3b" id="ogr-PC-Sa7"/>
+                <outlet property="eventDescription" destination="jyM-k0-TSm" id="O4T-JY-Lc2"/>
+                <outlet property="eventImage" destination="0iD-gO-qfi" id="5M3-nP-udD"/>
+                <outlet property="name" destination="oMv-Nx-n4b" id="Wrf-3x-dh8"/>
+                <outlet property="startDate" destination="KaP-Mv-enG" id="WRT-Ps-Zl4"/>
+            </connections>
+            <point key="canvasLocation" x="124.5" y="53.5"/>
+        </view>
+    </objects>
+</document>

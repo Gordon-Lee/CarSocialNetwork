@@ -46,13 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Events.registerSubclass()
         Activity.registerSubclass()
         Photo.registerSubclass()
-        //Nova configuração server
-//        let configuration = ParseClientConfiguration {
-//                    $0.applicationId = "kByO4d8lpQ0ZtL6O5Aql0NctUpz8UOCA5W246HQv"
-//                    $0.server = "https://carsocial-e5272.firebaseio.com/"
-//            }
-//        Parse.initializeWithConfiguration(configuration)
-        //Parse.com retirada em janeiro de 2017
+
         Parse.setApplicationId("kByO4d8lpQ0ZtL6O5Aql0NctUpz8UOCA5W246HQv", clientKey: "3Gk9I2vhUReAcTrGZwDaJWCVaDW0OXwVKXWYHoGv")
     }
     

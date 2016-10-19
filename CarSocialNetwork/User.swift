@@ -26,6 +26,16 @@ class User: PFObject, PFSubclassing {
         self.username = username
         self.password = password
     }
+    
+    func fileToImage() -> UIImage {
+        self.thumbImage.getDataInBackground { (file, error) in
+            if let image = UIImage(data: file!) {
+                self.imageThumb = image
+            }
+        }
+        return imageThumb
+    }
+    
     static func parseClassName() -> String {
         return "User"
     }

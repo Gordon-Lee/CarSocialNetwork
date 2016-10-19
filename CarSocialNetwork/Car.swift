@@ -17,7 +17,7 @@ class Car: PFObject, PFSubclassing {
     @NSManaged var image: PFFile
     @NSManaged var thumbImage: PFFile
     
-    var imageUI: UIImage!
+    fileprivate var imageUI: UIImage!
     
     override init() { super.init() }
     
@@ -32,4 +32,12 @@ class Car: PFObject, PFSubclassing {
         return "Car"
     }
     
+    func fileToImage() -> UIImage {
+        self.image.getDataInBackground { (file, error) in
+            if let image = UIImage(data: file!) {
+                self.imageUI = image
+            }
+        }
+        return imageUI
+    }
 }

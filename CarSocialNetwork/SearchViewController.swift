@@ -20,11 +20,26 @@ class SearchViewController: UIViewController {
     var eventArray = ["aa","bb","cc","dd"]
     var people = ["ss", "ww", "rr"]
     //Data from Parse
-    fileprivate var cars = [Car]()
-    fileprivate var events = [Events]()
-    fileprivate var peoples = [User]()
+    fileprivate var cars = [Car]() {
+        didSet {
+           tableView.reloadData()
+        }
+    }
+    fileprivate var events = [Events]()  {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    fileprivate var peoples = [User]()  {
+        didSet {
+            print("\(peoples.count)    ******* PEOPLE ######")
+            tableView.reloadData()
+        }
+    }
     
     var dataDisplay : dataToDisplay = .events
+    @IBOutlet weak var searchBar: UIView!
+    fileprivate let searchController = UISearchController(searchResultsController: nil)
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var eventsBt: UIButton!
@@ -33,6 +48,20 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        nibCell()
+        loadCars()
+        loadEvents()
+        loadPeople()
+        
+        //searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        definesPresentationContext = true
+        searchController.dimsBackgroundDuringPresentation = false
+        
+        // Setup the Scope Bar
+        searchController.searchBar.scopeButtonTitles = ["All", "Chocolate", "Hard", "Other"]
+        tableView.tableHeaderView = searchController.searchBar
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,8 +69,21 @@ class SearchViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
         configView()
     }
+    
+    fileprivate func configSearchController() {
+        //searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        definesPresentationContext = true
+        searchController.dimsBackgroundDuringPresentation = false
+    }
+    
     fileprivate func configView() {
         view.backgroundColor = AppCongifuration.mediumGrey()
+    }
+    
+    fileprivate func nibCell() {
+        let nibCell = UINib(nibName: SearchTableViewCell.xibName, bundle: Bundle.main)
+        tableView.register(nibCell, forCellReuseIdentifier: SearchTableViewCell.identifier)
     }
 }
 //MARK: Load data From Parse
@@ -52,6 +94,7 @@ extension SearchViewController {
         queryCar?.findObjectsInBackground(block: { (carLoad, error) in
             guard error != nil else {
                 self.cars = carLoad as! [Car]
+                 print("\(self.cars.count)    ******* CCARRSSSSS #######")
                 return
             }
         })
@@ -63,6 +106,7 @@ extension SearchViewController {
         queryEvents?.findObjectsInBackground(block: { (events, error) in
             guard error != nil else {
                 self.events = events as! [Events]
+                print("\(self.events.count)    ******* EVVEEENTSSSS ######")
                 return
             }
         })
@@ -83,6 +127,7 @@ extension SearchViewController {
 extension SearchViewController {
     @IBAction func showTableViewPeople(_ sender: AnyObject) {
         dataDisplay = .people
+        print(dataDisplay)
         tableView.reloadData()
     }
     
@@ -98,20 +143,41 @@ extension SearchViewController {
         tableView.reloadData()
     }
 }
+//MARK: Search Bar
+extension SearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        filterContentForSearchText(searchText: searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
+    }
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        let filteredCars = cars.filter { carr in
+            let categoryMatch = (scope == "All") || (carr.brand == scope)
+            return  categoryMatch && carr.brand.localizedLowercase.contains(searchText.localizedLowercase)
+        }
+        tableView.reloadData()
+    }
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+    //    let searchBar = searchBar.searchBar
+    //    let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+    //    filterContentForSearchText(searchController.searchBar.text!, scope: scope)
+    }
+}
 //MARK: TABLEVIEW PROTOCOLS
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.identifier) as! SearchTableViewCell
         
         switch dataDisplay {
         case .car:
-            cell?.textLabel?.text = car[indexPath.row]
+            cell.content.text = cars[indexPath.row].brand
+            cell.searchIMG.image = cars[indexPath.row].fileToImage()
         case .events:
-            cell?.textLabel?.text = eventArray[indexPath.row]
+            cell.content.text = events[indexPath.row].eventDescription
+            cell.searchIMG.image = events[indexPath.row].fileToImage()
         case .people:
-            cell?.textLabel?.text = people[indexPath.row]
+            cell.content.text = peoples[indexPath.row].username
+            cell.searchIMG.image = peoples[indexPath.row].fileToImage()
         }
-        return cell!
+        return cell
     }
 }
 extension SearchViewController: UITableViewDelegate {
@@ -122,11 +188,14 @@ extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch dataDisplay {
         case .car:
-            return car.count
+            print(cars.count)
+            return cars.count
         case .events:
-            return eventArray.count
+            print(events.count)
+            return events.count
         case .people:
-            return people.count
+            print(peoples.count)
+            return peoples.count
         }
     }
 }

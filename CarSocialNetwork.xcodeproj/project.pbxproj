@@ -8,8 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		3B1BAA72DEA1F7598916DE58 /* Pods_CarSocialNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99FD3D2E6D198E7438282593 /* Pods_CarSocialNetwork.framework */; };
+		6611C31E1DB3C57400D99832 /* EventDescription.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6611C31D1DB3C57400D99832 /* EventDescription.xib */; };
+		6611C3201DB3C59C00D99832 /* EventDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6611C31F1DB3C59C00D99832 /* EventDescriptionView.swift */; };
 		666B93551DB29BA0008D6F44 /* FinishedCarRegister.xib in Resources */ = {isa = PBXBuildFile; fileRef = 666B93541DB29BA0008D6F44 /* FinishedCarRegister.xib */; };
 		666B93571DB29DC7008D6F44 /* FinishedCarRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666B93561DB29DC7008D6F44 /* FinishedCarRegisterView.swift */; };
+		666B935A1DB2B49A008D6F44 /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666B93591DB2B49A008D6F44 /* Events.storyboard */; };
+		666B935C1DB2B8A8008D6F44 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666B935B1DB2B8A8008D6F44 /* EventsViewController.swift */; };
+		668D195A1DB505350077021E /* SearchResult.xib in Resources */ = {isa = PBXBuildFile; fileRef = 668D19591DB505350077021E /* SearchResult.xib */; };
+		668D195E1DB516030077021E /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668D195D1DB516030077021E /* SearchTableViewCell.swift */; };
 		66A689341DB2788E00C7AE90 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A689331DB2788E00C7AE90 /* UIViewControllerExtensions.swift */; };
 		66A689371DB27D8000C7AE90 /* Car.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66A689361DB27D8000C7AE90 /* Car.storyboard */; };
 		66A689391DB27F3900C7AE90 /* CarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A689381DB27F3900C7AE90 /* CarViewController.swift */; };
@@ -34,10 +40,6 @@
 		A97784EB1D77B277006A756E /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97784EA1D77B277006A756E /* AppConfiguration.swift */; };
 		A97784ED1D77B6BB006A756E /* tabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97784EC1D77B6BB006A756E /* tabBar.swift */; };
 		A97784EF1D77B9FA006A756E /* LoginStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97784EE1D77B9FA006A756E /* LoginStory.storyboard */; };
-		A97EA68B1D87FAB80037E25A /* FindCarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97EA68A1D87FAB80037E25A /* FindCarView.xib */; };
-		A97EA68D1D87FBA90037E25A /* FindPesonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97EA68C1D87FBA90037E25A /* FindPesonView.xib */; };
-		A97EA68F1D87FC630037E25A /* FindCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97EA68E1D87FC630037E25A /* FindCarView.swift */; };
-		A97EA6911D87FC7F0037E25A /* FindPersonUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97EA6901D87FC7F0037E25A /* FindPersonUIView.swift */; };
 		A97EA6941D884A9E0037E25A /* InicialTutorialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97EA6931D884A9E0037E25A /* InicialTutorialView.xib */; };
 		A97EA6961D884AB90037E25A /* InicialTutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97EA6951D884AB90037E25A /* InicialTutorial.storyboard */; };
 		A97EA6981D884B800037E25A /* profilePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97EA6971D884B800037E25A /* profilePhotoView.swift */; };
@@ -63,8 +65,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6611C31D1DB3C57400D99832 /* EventDescription.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDescription.xib; sourceTree = "<group>"; };
+		6611C31F1DB3C59C00D99832 /* EventDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDescriptionView.swift; sourceTree = "<group>"; };
 		666B93541DB29BA0008D6F44 /* FinishedCarRegister.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinishedCarRegister.xib; sourceTree = "<group>"; };
 		666B93561DB29DC7008D6F44 /* FinishedCarRegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedCarRegisterView.swift; sourceTree = "<group>"; };
+		666B93591DB2B49A008D6F44 /* Events.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
+		666B935B1DB2B8A8008D6F44 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		668D19591DB505350077021E /* SearchResult.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResult.xib; sourceTree = "<group>"; };
+		668D195D1DB516030077021E /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		66947D461DAEB07100046DA3 /* CarSocialNetwork.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarSocialNetwork.entitlements; sourceTree = "<group>"; };
 		66A689331DB2788E00C7AE90 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		66A689361DB27D8000C7AE90 /* Car.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Car.storyboard; sourceTree = "<group>"; };
@@ -93,10 +101,6 @@
 		A97784EA1D77B277006A756E /* AppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		A97784EC1D77B6BB006A756E /* tabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tabBar.swift; sourceTree = "<group>"; };
 		A97784EE1D77B9FA006A756E /* LoginStory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginStory.storyboard; sourceTree = "<group>"; };
-		A97EA68A1D87FAB80037E25A /* FindCarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindCarView.xib; sourceTree = "<group>"; };
-		A97EA68C1D87FBA90037E25A /* FindPesonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindPesonView.xib; sourceTree = "<group>"; };
-		A97EA68E1D87FC630037E25A /* FindCarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindCarView.swift; sourceTree = "<group>"; };
-		A97EA6901D87FC7F0037E25A /* FindPersonUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPersonUIView.swift; sourceTree = "<group>"; };
 		A97EA6931D884A9E0037E25A /* InicialTutorialView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InicialTutorialView.xib; sourceTree = "<group>"; };
 		A97EA6951D884AB90037E25A /* InicialTutorial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InicialTutorial.storyboard; sourceTree = "<group>"; };
 		A97EA6971D884B800037E25A /* profilePhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profilePhotoView.swift; sourceTree = "<group>"; };
@@ -136,33 +140,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		666B93531DB29B7A008D6F44 /* FinishedCarRegister */ = {
+		6611C31B1DB3C53C00D99832 /* Event Description */ = {
+			isa = PBXGroup;
+			children = (
+				6611C31D1DB3C57400D99832 /* EventDescription.xib */,
+				6611C31F1DB3C59C00D99832 /* EventDescriptionView.swift */,
+			);
+			name = "Event Description";
+			sourceTree = "<group>";
+		};
+		6611C31C1DB3C54700D99832 /* Save Event */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Save Event";
+			sourceTree = "<group>";
+		};
+		666B93531DB29B7A008D6F44 /* FinishedRegister */ = {
 			isa = PBXGroup;
 			children = (
 				666B93541DB29BA0008D6F44 /* FinishedCarRegister.xib */,
 				666B93561DB29DC7008D6F44 /* FinishedCarRegisterView.swift */,
 			);
-			name = FinishedCarRegister;
+			name = FinishedRegister;
+			sourceTree = "<group>";
+		};
+		666B93581DB2B481008D6F44 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				6611C31C1DB3C54700D99832 /* Save Event */,
+				6611C31B1DB3C53C00D99832 /* Event Description */,
+				666B93591DB2B49A008D6F44 /* Events.storyboard */,
+				666B935B1DB2B8A8008D6F44 /* EventsViewController.swift */,
+			);
+			name = Events;
 			sourceTree = "<group>";
 		};
 		66A689351DB27D0200C7AE90 /* Car */ = {
 			isa = PBXGroup;
 			children = (
-				666B93531DB29B7A008D6F44 /* FinishedCarRegister */,
-				66A6893E1DB2809700C7AE90 /* Brand Selection */,
+				666B93531DB29B7A008D6F44 /* FinishedRegister */,
+				66A6893E1DB2809700C7AE90 /* InicialRegister */,
 				66A689361DB27D8000C7AE90 /* Car.storyboard */,
 				66A689381DB27F3900C7AE90 /* CarViewController.swift */,
 			);
 			name = Car;
 			sourceTree = "<group>";
 		};
-		66A6893E1DB2809700C7AE90 /* Brand Selection */ = {
+		66A6893E1DB2809700C7AE90 /* InicialRegister */ = {
 			isa = PBXGroup;
 			children = (
 				66A6893A1DB27F7600C7AE90 /* BrandSelection.xib */,
 				66A689411DB286F700C7AE90 /* BrandSelectionView.swift */,
 			);
-			name = "Brand Selection";
+			name = InicialRegister;
 			sourceTree = "<group>";
 		};
 		71E61D4A56B614CA355A389B /* Frameworks */ = {
@@ -179,7 +210,7 @@
 			children = (
 				A98A72C71D8588FD0044238A /* Posts */,
 				A93F23091D917BC900EA197E /* Profile Activity */,
-				A97EA6891D87FA940037E25A /* Searc Bar View */,
+				A97EA6891D87FA940037E25A /* Search */,
 				A91B16D31D77559700B0C6CB /* HomePage.storyboard */,
 				A9E35E861D77637A007BC735 /* HomeViewController.swift */,
 				A9E35E881D776392007BC735 /* SearchViewController.swift */,
@@ -199,15 +230,13 @@
 			name = "Profile Activity";
 			sourceTree = "<group>";
 		};
-		A97EA6891D87FA940037E25A /* Searc Bar View */ = {
+		A97EA6891D87FA940037E25A /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				A97EA68A1D87FAB80037E25A /* FindCarView.xib */,
-				A97EA68C1D87FBA90037E25A /* FindPesonView.xib */,
-				A97EA68E1D87FC630037E25A /* FindCarView.swift */,
-				A97EA6901D87FC7F0037E25A /* FindPersonUIView.swift */,
+				668D19591DB505350077021E /* SearchResult.xib */,
+				668D195D1DB516030077021E /* SearchTableViewCell.swift */,
 			);
-			name = "Searc Bar View";
+			name = Search;
 			sourceTree = "<group>";
 		};
 		A97EA6921D884A7B0037E25A /* InicialTutorial */ = {
@@ -274,6 +303,7 @@
 				66947D461DAEB07100046DA3 /* CarSocialNetwork.entitlements */,
 				A97EA6921D884A7B0037E25A /* InicialTutorial */,
 				A9E35E8E1D77640F007BC735 /* EditProfile */,
+				666B93581DB2B481008D6F44 /* Events */,
 				66A689351DB27D0200C7AE90 /* Car */,
 				A91B16D21D77544600B0C6CB /* HomePage */,
 				A9E4D6D01D5D3AA500FD6873 /* LoginStory */,
@@ -417,11 +447,12 @@
 				A97784EF1D77B9FA006A756E /* LoginStory.storyboard in Resources */,
 				A91B16D41D77559700B0C6CB /* HomePage.storyboard in Resources */,
 				A97EA6941D884A9E0037E25A /* InicialTutorialView.xib in Resources */,
-				A97EA68B1D87FAB80037E25A /* FindCarView.xib in Resources */,
+				668D195A1DB505350077021E /* SearchResult.xib in Resources */,
 				A9D03BE11D981BE900D94791 /* DescriptionPost.xib in Resources */,
+				6611C31E1DB3C57400D99832 /* EventDescription.xib in Resources */,
 				66A689371DB27D8000C7AE90 /* Car.storyboard in Resources */,
 				A97784E31D776C35006A756E /* Assets.xcassets in Resources */,
-				A97EA68D1D87FBA90037E25A /* FindPesonView.xib in Resources */,
+				666B935A1DB2B49A008D6F44 /* Events.storyboard in Resources */,
 				A9E35E901D776425007BC735 /* EditProfile.storyboard in Resources */,
 				A97EA6961D884AB90037E25A /* InicialTutorial.storyboard in Resources */,
 				A99F9E6B1D78DA7000059F1A /* NewMember.xib in Resources */,
@@ -496,6 +527,7 @@
 				A99F9E6D1D78DAAD00059F1A /* NewMemberView.swift in Sources */,
 				A9D03BDF1D9801FC00D94791 /* AdjustPhoto.swift in Sources */,
 				A91B16CF1D77284700B0C6CB /* Car.swift in Sources */,
+				668D195E1DB516030077021E /* SearchTableViewCell.swift in Sources */,
 				A93EE8051D873C57008C9DF9 /* DefaultBt.swift in Sources */,
 				66A689391DB27F3900C7AE90 /* CarViewController.swift in Sources */,
 				66A689441DB293FC00C7AE90 /* FusumaConfig.swift in Sources */,
@@ -504,13 +536,12 @@
 				A9E35E891D776392007BC735 /* SearchViewController.swift in Sources */,
 				A97784E51D779C44006A756E /* UserDefaults.swift in Sources */,
 				A93F230F1D917D1800EA197E /* ActivityType.swift in Sources */,
+				666B935C1DB2B8A8008D6F44 /* EventsViewController.swift in Sources */,
 				A9E35E8B1D7763A9007BC735 /* PostViewController.swift in Sources */,
 				A9E35E871D77637A007BC735 /* HomeViewController.swift in Sources */,
 				A97784E91D77AED3006A756E /* GoToStoryBoard.swift in Sources */,
 				A97784EB1D77B277006A756E /* AppConfiguration.swift in Sources */,
 				A9E35E8D1D7763BE007BC735 /* ProfileViewController.swift in Sources */,
-				A97EA68F1D87FC630037E25A /* FindCarView.swift in Sources */,
-				A97EA6911D87FC7F0037E25A /* FindPersonUIView.swift in Sources */,
 				66A689401DB2825B00C7AE90 /* UIImageExtensions.swift in Sources */,
 				A9E4D6DC1D5DF13200FD6873 /* Photo.swift in Sources */,
 				66A689341DB2788E00C7AE90 /* UIViewControllerExtensions.swift in Sources */,
@@ -521,6 +552,7 @@
 				A91C94C31D87B7830049390A /* ApplicationManager.swift in Sources */,
 				A98A72CB1D8589890044238A /* PostTabbleCellView.swift in Sources */,
 				66A689421DB286F700C7AE90 /* BrandSelectionView.swift in Sources */,
+				6611C3201DB3C59C00D99832 /* EventDescriptionView.swift in Sources */,
 				A91B16CD1D7632E400B0C6CB /* Actitivy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

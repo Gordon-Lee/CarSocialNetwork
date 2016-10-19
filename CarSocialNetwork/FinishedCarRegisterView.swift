@@ -33,7 +33,7 @@ class FinishedCarRegisterView: UIView {
         model.text = car.model
         marca.text = car.brand
         year.text = String(car.year)
-        image.image = car.imageUI
+        //image.image = car.imageUI
     }
     
     @IBAction func save(_ sender: AnyObject) {

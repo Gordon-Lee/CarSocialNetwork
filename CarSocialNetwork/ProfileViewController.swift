@@ -24,13 +24,12 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         configTabbleView()
         nibCell()
-        
+        loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configView()
-
     }
     
     fileprivate func configView() {
@@ -44,11 +43,16 @@ class ProfileViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     fileprivate func loadData() {
-        let query = Activity.query()
-        
-        query?.findObjectsInBackground(block: { (activits, error) in
+        //let query = Activity.query()
+        let query = PFQuery(className: "Activity")
+        let us = PFUser.current()
+        query.whereKey("toUser", notEqualTo: us?.objectId)
+        //query?.whereKey("toUser", : PFUser.current())
+        //query?.whereKey("toUser", equalTo: PFUser.current())
+        query.findObjectsInBackground(block: { (activits, error) in
             guard error != nil else {
                 self.userActivityPost = activits as! [Activity]
+                print("****** \(self.userActivityPost.count)")
                 return
             }
         })
@@ -70,8 +74,6 @@ extension ProfileViewController {
         cell.layoutMargins = UIEdgeInsets.zero
         cell.backgroundColor = AppCongifuration.lightGrey()
     }
-    
-    
 }
 
 //MARK: TableView DELEGATE

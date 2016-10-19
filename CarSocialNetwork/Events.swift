@@ -10,14 +10,35 @@ import Parse
 
 class Events: PFObject, PFSubclassing {
     
-    @NSManaged var onwer: User
+    @NSManaged var onwer: PFUser
     @NSManaged var name: String
     @NSManaged var eventDescription: String
     @NSManaged var startDate: Date
     @NSManaged var endDate: Date
     @NSManaged var image: PFFile
     
+    fileprivate var imageConverted: UIImage!
+    
+    override init() { super.init() }
+    
+    init(onwer: PFUser, name: String, eventDescription: String, image: PFFile) {
+        super.init()
+        self.onwer = onwer
+        self.name = name
+        self.eventDescription = eventDescription
+        self.image = image
+    }
+    
     static func parseClassName() -> String {
         return "Events"
+    }
+    
+    func fileToImage() -> UIImage {
+        self.image.getDataInBackground { (file, error) in
+            if let image = UIImage(data: file!) {
+                self.imageConverted = image
+            }
+        }
+        return imageConverted
     }
 }

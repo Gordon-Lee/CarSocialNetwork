@@ -14,7 +14,7 @@ class Photo: PFObject, PFSubclassing {
     @NSManaged var image: PFFile
     @NSManaged var thumbImage: PFFile
     
-    var imageConverted: UIImage!
+    fileprivate var imageConverted = UIImage()
     
     let targetImage = CGSize(width: 400, height: 400)
     let thumbTargetImage = CGSize(width: 100, height: 100)
@@ -23,15 +23,15 @@ class Photo: PFObject, PFSubclassing {
         return "Photo"
     }
     
-    func fileToImage() {
-        print(self.image)
-        
+    func fileToImage(tabble: UITableView) -> UIImage {
         self.image.getDataInBackground { (file, error) in
             if let image = UIImage(data: file!) {
                 self.imageConverted = image
-                return
+                print("**** CONVERTED ")
             }
         }
+        print("**** RETURNED CONVERTED")
+        return imageConverted
     }
 }
 

@@ -29,6 +29,7 @@ class CarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fus.delegate = self
+        FusumaConfig.defaultCfg()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,6 +62,10 @@ class CarViewController: UIViewController {
         view.addSubview(brandSelection)
     }
     
+    fileprivate func fusumaCamera() {
+        present(fus, animated: true, completion: nil)
+    }
+    
     fileprivate func loadFinishedRegister() {
         let nib = Bundle.main.loadNibNamed(FinishedCarRegisterView.nibName, owner: self, options: nil)
         finishedRegister = nib!.first as! FinishedCarRegisterView
@@ -81,7 +86,7 @@ extension CarViewController : FusumaDelegate {
         print("Called just after FusumaViewController is dismissed.")
         
         carToSave.owner = PFUser.current()!
-        carToSave.imageUI = image
+        //carToSave.imageUI = image
         carToSave.thumbImage = PFFile(data: AdjustPhoto.uploadToPhoto(image, type: .thumb))!
         carToSave.image = PFFile(data: AdjustPhoto.uploadToPhoto(image, type: .normal))!
         loadFinishedRegister()
@@ -99,11 +104,8 @@ extension CarViewController : FusumaDelegate {
 extension CarViewController: BrandSelectionDelegate {
     func didTapSelectionPhoto(car: Car) {
         viewTo = .save
-        self.carToSave = car
-        brandSelection.removeFromSuperview()
-        print(car)
-        FusumaConfig.defaultCfg()
-        present(fus, animated: true, completion: nil)
+        carToSave = car
+        fusumaCamera()
     }
 }
 

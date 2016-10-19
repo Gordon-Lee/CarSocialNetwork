@@ -19,11 +19,16 @@ class HomeViewController: UIViewController {
     
     fileprivate var refreshControl : UIRefreshControl!
     fileprivate var resultName: String!
-    fileprivate var photoToShow = [Photo]()
+    fileprivate var photoToShow = [Photo]() {
+        didSet {
+            tableView.reloadData()
+            print("#### \(photoToShow.count)")
+        }
+    }
     fileprivate var activity = [Activity]() {
         didSet {
             tableView.reloadData()
-            print(activity.count)
+            print("&&&& \(activity.count)")
         }
     }
     
@@ -39,7 +44,6 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        SVProgressHUD.show()
         tabBarController?.tabBarVisibility(true, animated: true)
     }
     
@@ -49,6 +53,8 @@ class HomeViewController: UIViewController {
     
     //MARK: View FUNCS
     fileprivate func loadData() {
+        SVProgressHUD.show()
+        
         let queryPh = Photo.query()
         let queryActivy = Activity.query()
         
@@ -102,14 +108,17 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: PostTabbleCellView.identifier) as! PostTabbleCellView
+        
+        photoToShow[indexPath.row].image.getDataInBackground { (img, error) in
+            if let image = UIImage(data: img!) {
+                cell.postImage.image = image
+            }
+        }
 
-        queryUser(photoToShow[(indexPath as NSIndexPath).row].owner)
-        photoToShow[indexPath.row].fileToImage()
-        cell.postImage.image = photoToShow[indexPath.row].imageConverted
-        cell.photoDescription.text = showDescription(photoToShow[(indexPath as NSIndexPath).row].objectId!)
-        cell.ownerName.text = resultName
+        //cell.ownerName.text = queryUser(photoToShow[(indexPath as NSIndexPath).row].owner)
+        cell.photoDescription.text = showDescription(photoToShow[indexPath.row].objectId!)
         setupCell(cell: cell)
         
         return cell
@@ -130,14 +139,24 @@ extension HomeViewController: UITableViewDelegate, UIScrollViewDelegate {
 }
 
 extension HomeViewController {
-    fileprivate func queryUser(_ onwer: PFUser){
+    fileprivate func queryUser(_ onwer: PFUser) -> String{
         let query = PFUser.query()
-        query?.findObjectsInBackground(block: { (users, error) in
-            for us in users! {
-                self.resultName = us["username"] as! String
-                return
-            }
+        //query?.whereKey("objectId", equalTo: onwer.objectId)  //AQUI
+        var username: String!
+        
+        query?.getFirstObjectInBackground(block: { (user, eroor) in
+            username = user?["username"] as! String
         })
+        
+        return username
+        
+        //ANTIGO
+//        query?.findObjectsInBackground(block: { (users, error) in
+//            for us in users! {
+//                self.resultName = us["username"] as! String
+//                return
+//            }
+//        })
     }
     fileprivate func showDescription(_ photoId: String) -> String{
         for act in activity {

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BrandSelectionView" customModule="CarSocialNetwork" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Marca" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dFr-ec-taQ">
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Modelo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="reX-4E-V01">
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ano" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cc4-tZ-ZGs">
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phG-Ad-SGA">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="ny0-vE-WGq"/>
+                    </constraints>
+                    <state key="normal" title="Next"/>
+                    <connections>
+                        <action selector="selectionPhoto:" destination="iN0-l3-epB" eventType="touchUpInside" id="CVT-9T-RPy"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="cc4-tZ-ZGs" firstAttribute="top" secondItem="reX-4E-V01" secondAttribute="bottom" constant="16" id="IOs-Aw-nIK"/>
+                <constraint firstItem="dFr-ec-taQ" firstAttribute="leading" secondItem="reX-4E-V01" secondAttribute="leading" id="J3O-BP-yvx"/>
+                <constraint firstItem="reX-4E-V01" firstAttribute="trailing" secondItem="cc4-tZ-ZGs" secondAttribute="trailing" id="Xy3-Jz-gFK"/>
+                <constraint firstItem="dFr-ec-taQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="b0k-u1-62j"/>
+                <constraint firstItem="dFr-ec-taQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="160" id="cz2-vG-c8u"/>
+                <constraint firstItem="cc4-tZ-ZGs" firstAttribute="leading" secondItem="phG-Ad-SGA" secondAttribute="leading" id="dqA-B8-xLZ"/>
+                <constraint firstItem="dFr-ec-taQ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="duX-0s-DTe"/>
+                <constraint firstItem="dFr-ec-taQ" firstAttribute="trailing" secondItem="reX-4E-V01" secondAttribute="trailing" id="pyv-Gz-rZa"/>
+                <constraint firstItem="reX-4E-V01" firstAttribute="top" secondItem="dFr-ec-taQ" secondAttribute="bottom" constant="16" id="qwR-Gw-JDK"/>
+                <constraint firstItem="cc4-tZ-ZGs" firstAttribute="trailing" secondItem="phG-Ad-SGA" secondAttribute="trailing" id="uKh-nn-IBC"/>
+                <constraint firstItem="reX-4E-V01" firstAttribute="leading" secondItem="cc4-tZ-ZGs" secondAttribute="leading" id="v8X-3x-2aB"/>
+                <constraint firstAttribute="bottom" secondItem="phG-Ad-SGA" secondAttribute="bottom" constant="6" id="zST-K8-MOP"/>
+            </constraints>
+            <connections>
+                <outlet property="brand" destination="dFr-ec-taQ" id="9hA-3V-dcs"/>
+                <outlet property="model" destination="reX-4E-V01" id="liC-wc-SFj"/>
+                <outlet property="nextButton" destination="phG-Ad-SGA" id="UGP-dV-kDU"/>
+                <outlet property="year" destination="cc4-tZ-ZGs" id="vXd-PM-vYg"/>
+            </connections>
+            <point key="canvasLocation" x="35.5" y="54.5"/>
+        </view>
+    </objects>
+</document>

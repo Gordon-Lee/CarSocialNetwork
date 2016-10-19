@@ -17,7 +17,7 @@ enum howViewToDisplay: String {
 
 class PostViewController: UIViewController {
 
-    let fus = FusumaViewController()
+    fileprivate let fus = FusumaViewController()
     fileprivate var postPhoto: Photo!
     
     fileprivate var howView: howViewToDisplay = .FUSUMA
@@ -31,16 +31,15 @@ class PostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = false
-        calculateSubviewsFrame()
+        navigationController?.isNavigationBarHidden = true
         configView()
         fus.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        tabBarController?.tabBarVisibility(false, animated: true)
+        super.viewWillAppear(true)
+        calculateSubviewsFrame()
+        //tabBarController?.tabBarVisibility(false, animated: true)
         print(howView.rawValue)
         switch howView {
         case .FUSUMA:
@@ -55,7 +54,6 @@ class PostViewController: UIViewController {
             print("PAU NO HOME")
         }
         print(activity.activityType)
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
