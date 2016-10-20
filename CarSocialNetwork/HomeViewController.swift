@@ -32,12 +32,11 @@ class HomeViewController: UIViewController {
         }
     }
     
-    //MARK: Protocol FUNCS
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewSetup()
         nibCell()
-        navigationBar()
+        navigationBarSHY()
         loadData()
     }
     
@@ -50,7 +49,6 @@ class HomeViewController: UIViewController {
         shyNavBarManager.disable = true
     }
     
-    //MARK: View FUNCS
     fileprivate func loadData() {
         SVProgressHUD.show()
         
@@ -75,11 +73,13 @@ class HomeViewController: UIViewController {
     }
     
     fileprivate func configView() {
-        view.backgroundColor = AppCongifuration.lightGrey()
-        navigationController?.navigationBar.topItem?.title = "Car Social"
-        tabBarController?.tabBarVisibility(true, animated: true)
-        navigationController?.setNavigationBarHidden(false, animated: true)
         UIApplication.shared.statusBarStyle = .default
+        view.backgroundColor = AppCongifuration.lightGrey()
+        tabBarController?.tabBarVisibility(true, animated: true)
+        
+        navigationController?.navigationBar.barTintColor = AppCongifuration.lightGrey()
+        navigationController?.navigationBar.topItem?.title = "Car Social"
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     fileprivate func tableViewSetup() {
@@ -87,7 +87,7 @@ class HomeViewController: UIViewController {
         tableView.separatorInset = UIEdgeInsets.zero
     }
     
-    fileprivate func navigationBar() {
+    fileprivate func navigationBarSHY() {
         shyNavBarManager.contractionResistance = 700
         shyNavBarManager.scrollView = self.tableView
         shyNavBarManager.expansionResistance = 100

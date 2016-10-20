@@ -64,7 +64,7 @@ class SearchViewController: UIViewController {
         searchController.searchBar.backgroundColor = AppCongifuration.lightGrey()
         searchController.searchBar.tintColor = AppCongifuration.blue()
         buttonStand.addSubview(searchController.searchBar)
-
+        
     }
     
     func setScopeBar(display: dataToDisplay) {

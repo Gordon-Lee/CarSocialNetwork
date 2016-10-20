@@ -28,6 +28,7 @@ class CarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configView()
         fus.delegate = self
         FusumaConfig.defaultCfg()
     }
@@ -35,8 +36,7 @@ class CarViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        title = "aaaaaa"
+        title = "Registro Carro"
         
         switch viewTo {
         case .inicial:
@@ -47,6 +47,12 @@ class CarViewController: UIViewController {
         }
     }
     
+    fileprivate func configView() {
+        UIApplication.shared.statusBarStyle = .default
+        view.backgroundColor = AppCongifuration.lightGrey()
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.topItem?.leftBarButtonItem?.tintColor = AppCongifuration.blue()
+    }
     fileprivate func calculateSubFrame() {
         let viewFrame = view.frame
         let viewOrigin = viewFrame.origin

@@ -26,6 +26,7 @@ class FinishedCarRegisterView: UIView {
     var car = Car() {
         didSet {
             load()
+            backgroundColor = AppCongifuration.lightGrey()
         }
     }
 

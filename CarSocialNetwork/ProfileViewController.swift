@@ -28,6 +28,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         nibCell()
         loadData()
+        navigationController?.navigationBar.topItem?.title = "Perfil"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,7 +37,7 @@ class ProfileViewController: UIViewController {
     }
     
     fileprivate func configView() {
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.setNavigationBarHidden(false, animated: true)
         view.backgroundColor = AppCongifuration.lightGrey()
     }
     
@@ -49,7 +50,7 @@ class ProfileViewController: UIViewController {
     fileprivate func loadData() {
         let query = Activity.query()
         query?.whereKey("fromUser", equalTo: PFUser.current()!)
-        query?.whereKey("fromUser", equalTo: PFUser.current()!)
+        query?.whereKey("toUser", equalTo: PFUser.current()!)
         query?.findObjectsInBackground(block: { (activits, error) in
             guard error != nil else {
                 self.userActivityPost = activits as! [Activity]
