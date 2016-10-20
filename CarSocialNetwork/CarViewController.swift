@@ -35,6 +35,9 @@ class CarViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        title = "aaaaaa"
+        
         switch viewTo {
         case .inicial:
             calculateSubFrame()

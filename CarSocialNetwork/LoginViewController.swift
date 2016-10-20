@@ -61,7 +61,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func login(_ sender: AnyObject) {
-        loginWithParse(userNameTxt.text!, password: passWordTxt.text!)
+        loginWithParse("Marco", password: "mm") //(userNameTxt.text!, password: passWordTxt.text!)
     }
     @IBAction func singUp(_ sender: AnyObject) {
          self.signUpNew()

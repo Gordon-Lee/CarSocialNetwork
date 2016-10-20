@@ -81,10 +81,10 @@ extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userActivityPost.count
     }
-//
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//     
-//    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100 as CGFloat
+    }
 }
 //MARK: TableView DATA SOURCE
 extension ProfileViewController: UITableViewDataSource {
