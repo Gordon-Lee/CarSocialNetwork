@@ -16,6 +16,7 @@
 		666B935C1DB2B8A8008D6F44 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666B935B1DB2B8A8008D6F44 /* EventsViewController.swift */; };
 		668D195A1DB505350077021E /* SearchResult.xib in Resources */ = {isa = PBXBuildFile; fileRef = 668D19591DB505350077021E /* SearchResult.xib */; };
 		668D195E1DB516030077021E /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668D195D1DB516030077021E /* SearchTableViewCell.swift */; };
+		6692301D1DBD844F00DECAC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6692301C1DBD844F00DECAC0 /* Assets.xcassets */; };
 		66A689341DB2788E00C7AE90 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A689331DB2788E00C7AE90 /* UIViewControllerExtensions.swift */; };
 		66A689371DB27D8000C7AE90 /* Car.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66A689361DB27D8000C7AE90 /* Car.storyboard */; };
 		66A689391DB27F3900C7AE90 /* CarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A689381DB27F3900C7AE90 /* CarViewController.swift */; };
@@ -33,7 +34,6 @@
 		A91C94C31D87B7830049390A /* ApplicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C94C21D87B7830049390A /* ApplicationManager.swift */; };
 		A93EE8051D873C57008C9DF9 /* DefaultBt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93EE8041D873C57008C9DF9 /* DefaultBt.swift */; };
 		A93F230F1D917D1800EA197E /* ActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93F230E1D917D1800EA197E /* ActivityType.swift */; };
-		A97784E31D776C35006A756E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A97784E21D776C35006A756E /* Assets.xcassets */; };
 		A97784E51D779C44006A756E /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97784E41D779C44006A756E /* UserDefaults.swift */; };
 		A97784E71D77A456006A756E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97784E61D77A456006A756E /* LoginViewController.swift */; };
 		A97784E91D77AED3006A756E /* GoToStoryBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97784E81D77AED3006A756E /* GoToStoryBoard.swift */; };
@@ -72,6 +72,7 @@
 		666B935B1DB2B8A8008D6F44 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		668D19591DB505350077021E /* SearchResult.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResult.xib; sourceTree = "<group>"; };
 		668D195D1DB516030077021E /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		6692301C1DBD844F00DECAC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66947D461DAEB07100046DA3 /* CarSocialNetwork.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarSocialNetwork.entitlements; sourceTree = "<group>"; };
 		66A689331DB2788E00C7AE90 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		66A689361DB27D8000C7AE90 /* Car.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Car.storyboard; sourceTree = "<group>"; };
@@ -93,7 +94,6 @@
 		A91C94C21D87B7830049390A /* ApplicationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationManager.swift; sourceTree = "<group>"; };
 		A93EE8041D873C57008C9DF9 /* DefaultBt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultBt.swift; sourceTree = "<group>"; };
 		A93F230E1D917D1800EA197E /* ActivityType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityType.swift; sourceTree = "<group>"; };
-		A97784E21D776C35006A756E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A97784E41D779C44006A756E /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		A97784E61D77A456006A756E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A97784E81D77AED3006A756E /* GoToStoryBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoToStoryBoard.swift; sourceTree = "<group>"; };
@@ -363,7 +363,7 @@
 		A9E4D6D21D5D3AD300FD6873 /* System Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A97784E21D776C35006A756E /* Assets.xcassets */,
+				6692301C1DBD844F00DECAC0 /* Assets.xcassets */,
 				A9E4D6BC1D5D32CF00FD6873 /* AppDelegate.swift */,
 				A9E4D6C51D5D32CF00FD6873 /* LaunchScreen.storyboard */,
 				A9E4D6C81D5D32CF00FD6873 /* Info.plist */,
@@ -452,12 +452,12 @@
 				A97784EF1D77B9FA006A756E /* LoginStory.storyboard in Resources */,
 				66E0D0201DB7F762001F5A0F /* UserActivity.xib in Resources */,
 				A91B16D41D77559700B0C6CB /* HomePage.storyboard in Resources */,
+				6692301D1DBD844F00DECAC0 /* Assets.xcassets in Resources */,
 				A97EA6941D884A9E0037E25A /* InicialTutorialView.xib in Resources */,
 				668D195A1DB505350077021E /* SearchResult.xib in Resources */,
 				A9D03BE11D981BE900D94791 /* DescriptionPost.xib in Resources */,
 				6611C31E1DB3C57400D99832 /* EventDescription.xib in Resources */,
 				66A689371DB27D8000C7AE90 /* Car.storyboard in Resources */,
-				A97784E31D776C35006A756E /* Assets.xcassets in Resources */,
 				666B935A1DB2B49A008D6F44 /* Events.storyboard in Resources */,
 				A9E35E901D776425007BC735 /* EditProfile.storyboard in Resources */,
 				A97EA6961D884AB90037E25A /* InicialTutorial.storyboard in Resources */,

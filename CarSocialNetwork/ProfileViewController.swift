@@ -12,14 +12,18 @@ import SVProgressHUD
 
 class ProfileViewController: UIViewController {
 
-    
     @IBOutlet weak var tableView: UITableView!
     
     fileprivate var userActivityPost = [Activity]() {
         didSet{
           tableView.reloadData()
             for us in userActivityPost {
-                print(us.image.objectId)
+                us.image.thumbImage.getDataInBackground(block: { (data, error) in
+                    if let image = UIImage(data: data!) {
+                        print("entrou \(image)")
+                        return
+                    }
+                })
             }
         }
     }
@@ -51,6 +55,7 @@ class ProfileViewController: UIViewController {
         let query = Activity.query()
         query?.whereKey("fromUser", equalTo: PFUser.current()!)
         query?.whereKey("toUser", equalTo: PFUser.current()!)
+        query?.includeKey("image")
         query?.findObjectsInBackground(block: { (activits, error) in
             guard error != nil else {
                 self.userActivityPost = activits as! [Activity]
@@ -91,6 +96,13 @@ extension ProfileViewController: UITableViewDelegate {
 extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: UserActivityTableViewCell.identifier) as! UserActivityTableViewCell
+        
+        userActivityPost[indexPath.row].image.thumbImage.getDataInBackground(block: { (data, error) in
+            if let image = UIImage(data: data!) {
+                cell.imageUser.image = image
+                return
+            }
+        })
         
         cell.actvDescription.text = "\(indexPath.row)"
         

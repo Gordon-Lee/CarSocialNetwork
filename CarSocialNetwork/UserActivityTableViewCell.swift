@@ -14,6 +14,7 @@ class UserActivityTableViewCell: UITableViewCell {
     static let identifier = "activityCell"
     
     @IBOutlet weak var actvDescription: UILabel!
+    @IBOutlet weak var imageUser: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

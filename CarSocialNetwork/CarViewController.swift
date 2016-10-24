@@ -22,9 +22,9 @@ class CarViewController: UIViewController {
     fileprivate weak var finishedRegister: FinishedCarRegisterView!
     fileprivate var subviewsFrame: CGRect!
     fileprivate var carToSave = Car()
-    fileprivate var viewTo = howView.inicial
+    fileprivate var viewTo: howView = .inicial
     
-    var fus = FusumaViewController()
+    fileprivate var fus = FusumaViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +71,7 @@ class CarViewController: UIViewController {
         view.addSubview(brandSelection)
     }
     
-    fileprivate func fusumaCamera() {
+    fileprivate func showFusuma() {
         present(fus, animated: true, completion: nil)
     }
     
@@ -114,7 +114,7 @@ extension CarViewController: BrandSelectionDelegate {
     func didTapSelectionPhoto(car: Car) {
         viewTo = .save
         carToSave = car
-        fusumaCamera()
+        showFusuma()
     }
 }
 

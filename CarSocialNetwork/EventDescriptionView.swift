@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import Fusuma
 
 protocol EventsDelegate: class {
     func saveEvent(event: Events)
@@ -24,6 +25,12 @@ class EventDescriptionView: UIView {
     @IBOutlet weak var name: UITextField!
     
     var delegate: EventsDelegate!
+    
+    
+    
+    override func awakeFromNib() {
+        endEditing(true)
+    }
 
     @IBAction func addPhoto(_ sender: AnyObject) {
     }
@@ -32,8 +39,7 @@ class EventDescriptionView: UIView {
         delegate?.saveEvent(event: Events(onwer: PFUser.current()!,
                                           name: name.text!,
                                           eventDescription: eventDescription.text!,
-                                          image: PFFile(data: AdjustPhoto.uploadToPhoto(eventImage.image!, type: .normal))!)
-)
+                                          image: PFFile(data: AdjustPhoto.uploadToPhoto(eventImage.image!, type: .normal))!))
     }
     
     @IBAction func cancelEventRegister(_ sender: AnyObject) {

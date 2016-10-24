@@ -31,6 +31,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="actvDescription" destination="5wC-gK-DIY" id="1do-rB-uSh"/>
+                <outlet property="imageUser" destination="0bQ-Cg-E4R" id="zYU-9d-3UM"/>
             </connections>
             <point key="canvasLocation" x="33.5" y="54"/>
         </view>

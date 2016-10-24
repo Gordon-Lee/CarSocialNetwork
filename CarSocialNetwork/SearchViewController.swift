@@ -15,10 +15,6 @@ enum dataToDisplay {
 }
 
 class SearchViewController: UIViewController {
-    //TODO only for testing
-    var car = ["VW", "FORD", "GM", "FIAT"]
-    var eventArray = ["aa","bb","cc","dd"]
-    var people = ["ss", "ww", "rr"]
     //Data from Parse
     fileprivate var cars = [Car]() {
         didSet {
@@ -60,6 +56,7 @@ class SearchViewController: UIViewController {
         searchController.dimsBackgroundDuringPresentation = false
         
         // Setup the Scope Bar
+        setButtonsImage()
         setScopeBar(display: dataDisplay)
         searchController.searchBar.backgroundColor = AppCongifuration.lightGrey()
         searchController.searchBar.tintColor = AppCongifuration.blue()
@@ -67,22 +64,41 @@ class SearchViewController: UIViewController {
         
     }
     
-    func setScopeBar(display: dataToDisplay) {
-        switch display {
-        case .events:
-            searchController.searchBar.scopeButtonTitles = ["local", "cidade"]
-        case .car:
-            searchController.searchBar.scopeButtonTitles = ["modelo", "marca", "ano"]
-        case .people:
-            searchController.searchBar.scopeButtonTitles = ["nome","sexo"]
-        }
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.setNavigationBarHidden(true, animated: true)
         configView()
     }
+    
+    fileprivate func setButtonsImage() {
+        eventsBt.setImage(UIImage(named: "eventsNormal"), for: .normal)
+        eventsBt.setImage(UIImage(named: "eventsSelected"), for: .selected)
+        carBt.setImage(UIImage(named: "carsNormal"), for: .normal)
+        carBt.setImage(UIImage(named: "carsHigh"), for: .selected)
+        peopleBt.setImage(UIImage(named: "peopleNormal"), for: .normal)
+        peopleBt.setImage(UIImage(named: "peopleHigh"), for: .selected)
+    }
+    
+    fileprivate func setScopeBar(display: dataToDisplay) {
+        switch display {
+        case .events:
+            eventsBt.isSelected = true
+            carBt.isSelected = false
+            peopleBt.isSelected = false
+            searchController.searchBar.scopeButtonTitles = ["local", "cidade"]
+        case .car:
+            eventsBt.isSelected = false
+            carBt.isSelected = true
+            peopleBt.isSelected = false
+            searchController.searchBar.scopeButtonTitles = ["modelo", "marca", "ano"]
+        case .people:
+            eventsBt.isSelected = false
+            carBt.isSelected = false
+            peopleBt.isSelected = true
+            searchController.searchBar.scopeButtonTitles = ["nome","sexo"]
+        }
+    }
+
     //TODOOO
     fileprivate func configSearchController() {
         //searchController.searchResultsUpdater = self
@@ -168,6 +184,11 @@ extension SearchViewController {
         print(dataDisplay)
         tableView.reloadData()
     }
+    
+    fileprivate func stateButtons( ) {
+        
+    }
+    
 }
 //MARK: Search Bar
 extension SearchViewController: UISearchBarDelegate {
