@@ -36,6 +36,8 @@ class CarViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        
         title = "Registro Carro"
         
         switch viewTo {
@@ -57,8 +59,8 @@ class CarViewController: UIViewController {
         let viewFrame = view.frame
         let viewOrigin = viewFrame.origin
         let navBarHeight = navigationController?.navigationBar.frame.height
-        let newY = viewOrigin.y + navBarHeight!
-        let newHeight = viewFrame.height - navBarHeight!
+        let newY = viewOrigin.y //+ navBarHeight!
+        let newHeight = viewFrame.height //- navBarHeight!
         subviewsFrame = CGRect(x: viewOrigin.x, y: newY, width: viewFrame.width, height: newHeight)
     }
     
@@ -82,6 +84,10 @@ class CarViewController: UIViewController {
         finishedRegister.car = carToSave
         finishedRegister.frame = subviewsFrame
         view.addSubview(finishedRegister)
+    }
+    
+    @IBAction func dismissView(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

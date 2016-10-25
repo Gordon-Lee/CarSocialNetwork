@@ -10,6 +10,8 @@
 		3B1BAA72DEA1F7598916DE58 /* Pods_CarSocialNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99FD3D2E6D198E7438282593 /* Pods_CarSocialNetwork.framework */; };
 		6611C31E1DB3C57400D99832 /* EventDescription.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6611C31D1DB3C57400D99832 /* EventDescription.xib */; };
 		6611C3201DB3C59C00D99832 /* EventDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6611C31F1DB3C59C00D99832 /* EventDescriptionView.swift */; };
+		661A5B8C1DBF8E5400B20988 /* EditTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661A5B8B1DBF8E5400B20988 /* EditTableViewController.swift */; };
+		661A5B8E1DC0066300B20988 /* Usr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661A5B8D1DC0066300B20988 /* Usr.swift */; };
 		666B93551DB29BA0008D6F44 /* FinishedCarRegister.xib in Resources */ = {isa = PBXBuildFile; fileRef = 666B93541DB29BA0008D6F44 /* FinishedCarRegister.xib */; };
 		666B93571DB29DC7008D6F44 /* FinishedCarRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666B93561DB29DC7008D6F44 /* FinishedCarRegisterView.swift */; };
 		666B935A1DB2B49A008D6F44 /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666B93591DB2B49A008D6F44 /* Events.storyboard */; };
@@ -66,6 +68,8 @@
 /* Begin PBXFileReference section */
 		6611C31D1DB3C57400D99832 /* EventDescription.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDescription.xib; sourceTree = "<group>"; };
 		6611C31F1DB3C59C00D99832 /* EventDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDescriptionView.swift; sourceTree = "<group>"; };
+		661A5B8B1DBF8E5400B20988 /* EditTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTableViewController.swift; sourceTree = "<group>"; };
+		661A5B8D1DC0066300B20988 /* Usr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Usr.swift; sourceTree = "<group>"; };
 		666B93541DB29BA0008D6F44 /* FinishedCarRegister.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinishedCarRegister.xib; sourceTree = "<group>"; };
 		666B93561DB29DC7008D6F44 /* FinishedCarRegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedCarRegisterView.swift; sourceTree = "<group>"; };
 		666B93591DB2B49A008D6F44 /* Events.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
@@ -279,6 +283,7 @@
 			children = (
 				A9E35E8F1D776425007BC735 /* EditProfile.storyboard */,
 				A9E35E911D77643B007BC735 /* EditViewController.swift */,
+				661A5B8B1DBF8E5400B20988 /* EditTableViewController.swift */,
 			);
 			name = EditProfile;
 			path = ..;
@@ -327,6 +332,7 @@
 				A91B16D01D772A0400B0C6CB /* Events.swift */,
 				A9E4D6DB1D5DF13200FD6873 /* Photo.swift */,
 				A990501F1D75D4D000A4F626 /* User.swift */,
+				661A5B8D1DC0066300B20988 /* Usr.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -524,6 +530,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9E7AF0F1D9825E80049E4C4 /* DescritptionView.swift in Sources */,
+				661A5B8C1DBF8E5400B20988 /* EditTableViewController.swift in Sources */,
 				A9D567441D983ADA00CA478F /* AppHelperExtensions.swift in Sources */,
 				A97784E71D77A456006A756E /* LoginViewController.swift in Sources */,
 				666B93571DB29DC7008D6F44 /* FinishedCarRegisterView.swift in Sources */,
@@ -544,6 +551,7 @@
 				666B935C1DB2B8A8008D6F44 /* EventsViewController.swift in Sources */,
 				A9E35E8B1D7763A9007BC735 /* PostViewController.swift in Sources */,
 				A9E35E871D77637A007BC735 /* HomeViewController.swift in Sources */,
+				661A5B8E1DC0066300B20988 /* Usr.swift in Sources */,
 				A97784E91D77AED3006A756E /* GoToStoryBoard.swift in Sources */,
 				A97784EB1D77B277006A756E /* AppConfiguration.swift in Sources */,
 				A9E35E8D1D7763BE007BC735 /* ProfileViewController.swift in Sources */,

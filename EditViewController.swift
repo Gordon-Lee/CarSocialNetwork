@@ -15,4 +15,8 @@ class EditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    @IBAction func dismissView(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
