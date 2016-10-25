@@ -17,12 +17,21 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    fileprivate var users: [User]! {
+        didSet {
+            print("USERSSS \(users.count)")
+        }
+    }
+    
     fileprivate var refreshControl : UIRefreshControl!
     fileprivate var resultName: String!
     fileprivate var photoToShow = [Photo]() {
         didSet {
             tableView.reloadData()
             print("#### \(photoToShow.count)")
+            for ph in photoToShow {
+                print(ph.owner.objectId)
+            }
         }
     }
     fileprivate var activity = [Activity]() {
@@ -38,6 +47,7 @@ class HomeViewController: UIViewController {
         nibCell()
         navigationBarSHY()
         loadData()
+        loadUsers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,12 +59,26 @@ class HomeViewController: UIViewController {
         shyNavBarManager.disable = true
     }
     
+    fileprivate func loadUsers() {
+        
+        let q = User.query()
+        
+        q?.findObjectsInBackground(block: { (usr, error) in
+            guard error != nil else{
+                self.users = usr as! [User]
+                return
+            }
+        })
+    }
+    
     fileprivate func loadData() {
         SVProgressHUD.show()
         
         let queryPh = Photo.query()
         let queryActivy = Activity.query()
+        let queryProfile = Activity.query()
         
+        queryPh?.includeKey("owner")
         queryActivy?.whereKey(Activity.typeaString, equalTo: activityType.post.rawValue)
         
         queryPh?.findObjectsInBackground(block: { (photos, error) in
@@ -141,19 +165,12 @@ extension HomeViewController: UITableViewDelegate, UIScrollViewDelegate {
 extension HomeViewController {
     fileprivate func queryUser(_ onwer: PFUser) {
         let query = PFUser.query()
-//        //query?.whereKey("objectId", equalTo: onwer.objectId)  //AQUI
-//        var username: String!
-//        
-//        query?.getFirstObjectInBackground(block: { (user, eroor) in
-//            username = user?["username"] as! String
-//        })
-//        
-//        return username
-//        
         //ANTIGO
         query?.findObjectsInBackground(block: { (users, error) in
             for us in users! {
                 self.resultName = us["username"] as! String
+                let img = us["thumbImage"]
+                print(img)
                 return
             }
         })

@@ -9,6 +9,8 @@
 import UIKit
 
 class EditViewController: UIViewController {
+    
+    static let identifier = "EditProfile"
 
     override func viewDidLoad() {
         super.viewDidLoad()

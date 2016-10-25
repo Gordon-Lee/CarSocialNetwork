@@ -46,8 +46,8 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func settings(_ sender: AnyObject) {
-        let sb = UIStoryboard(name: CarViewController.identifier, bundle: Bundle.main)
-        let vc = sb.instantiateInitialViewController() as! CarViewController
+        let sb = UIStoryboard(name: EditViewController.identifier, bundle: Bundle.main)
+        let vc = sb.instantiateInitialViewController() as! EditViewController
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -64,6 +64,7 @@ class ProfileViewController: UIViewController {
         })
     }
 }
+
 //MARK: Generic Methods / Actions
 extension ProfileViewController {
     fileprivate func nibCell() {

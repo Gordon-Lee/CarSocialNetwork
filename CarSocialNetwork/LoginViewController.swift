@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
     
     //MARK: generic FUNCS
     fileprivate func configView() {
-        view.backgroundColor = AppCongifuration.lightGrey()
+        view.backgroundColor = AppCongifuration.darkGrey()
     }
 
     fileprivate func navigationBar() {
