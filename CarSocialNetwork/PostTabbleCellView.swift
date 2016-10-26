@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class PostTabbleCellView: UITableViewCell {
     
@@ -20,6 +21,8 @@ class PostTabbleCellView: UITableViewCell {
     @IBOutlet weak var ownerName: UILabel!
     @IBOutlet weak var likeImage: UIImageView!
     @IBOutlet weak var like: UIButton!
+    
+    var user: PFUser!
     
     override func awakeFromNib() {
         setupTap()
@@ -37,14 +40,15 @@ class PostTabbleCellView: UITableViewCell {
     fileprivate func circleProfilePhoto(){
         thumbPhoto.layer.masksToBounds = false
         thumbPhoto.frame = CGRect(x: 10, y: 10, width: 100, height: 100)
-        thumbPhoto.layer.cornerRadius = 60.0
+        thumbPhoto.layer.cornerRadius = 10.0
         thumbPhoto.layer.masksToBounds = true
     }
     
     func doubleTap(_ sender: AnyObject) {
         likeImage.isHidden = false
         likeImage.alpha = 1.0
-        UIImageView.animate(withDuration: 3.0, delay: 2.0, options: .curveEaseIn, animations: {
+        print(user.objectId!)
+        UIImageView.animate(withDuration: 1.0, delay: 0.5, options: .curveEaseIn, animations: {
             self.likeImage.alpha = 0
             }, completion: { (value:Bool) in
             self.likeImage.isHidden = true

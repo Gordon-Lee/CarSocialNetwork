@@ -178,6 +178,7 @@ extension HomeViewController: UITableViewDataSource {
             }
         }
         
+        cell.user = photoToShow[indexPath.row].owner
         cell.ownerName.text = userName(id: photoToShow[indexPath.row].owner)
         cell.photoDescription.text = showDescription(photoToShow[indexPath.row].objectId!)
         setupCell(cell: cell)

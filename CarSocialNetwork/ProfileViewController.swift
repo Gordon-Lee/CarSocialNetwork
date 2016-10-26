@@ -38,16 +38,16 @@ class ProfileViewController: UIViewController {
         nibCell()
         loadData()
         loadUsrData()
-        navigationController?.navigationBar.topItem?.title = "Perfil"
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tabBarController?.tabBarVisibility(true, animated: true)
         configView()
     }
     
     fileprivate func configView() {
+        navigationController?.navigationBar.topItem?.title = "Perfil"
         navigationController?.setNavigationBarHidden(false, animated: true)
         view.backgroundColor = AppCongifuration.lightGrey()
     }
