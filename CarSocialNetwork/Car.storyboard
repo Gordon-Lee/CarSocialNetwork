@@ -20,7 +20,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="KIX-zU-qIX">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="aSp-cm-og8">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="aSp-cm-og8">
+                            <color key="tintColor" red="0.21604970100000001" green="0.58619904519999999" blue="0.87100869420000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="dismissView:" destination="Taz-9j-TQj" id="0TQ-GT-La9"/>
                             </connections>

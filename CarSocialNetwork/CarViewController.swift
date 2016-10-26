@@ -51,7 +51,7 @@ class CarViewController: UIViewController {
     
     fileprivate func configView() {
         UIApplication.shared.statusBarStyle = .default
-        view.backgroundColor = AppCongifuration.lightGrey()
+        view.backgroundColor = AppCongifuration.darkGrey()
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.topItem?.leftBarButtonItem?.tintColor = AppCongifuration.blue()
     }
@@ -59,8 +59,8 @@ class CarViewController: UIViewController {
         let viewFrame = view.frame
         let viewOrigin = viewFrame.origin
         let navBarHeight = navigationController?.navigationBar.frame.height
-        let newY = viewOrigin.y //+ navBarHeight!
-        let newHeight = viewFrame.height //- navBarHeight!
+        let newY = viewOrigin.y + navBarHeight!
+        let newHeight = viewFrame.height - navBarHeight!
         subviewsFrame = CGRect(x: viewOrigin.x, y: newY, width: viewFrame.width, height: newHeight)
     }
     
@@ -127,6 +127,7 @@ extension CarViewController: BrandSelectionDelegate {
 extension CarViewController: FinishedCarDelegate {
     func didFinishedCarRegister() {
         carToSave.saveInBackground()
-        navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
+        //navigationController?.popViewController(animated: true)
     }
 }

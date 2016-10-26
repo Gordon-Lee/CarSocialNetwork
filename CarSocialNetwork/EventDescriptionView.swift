@@ -26,7 +26,10 @@ class EventDescriptionView: UIView {
     
     var delegate: EventsDelegate!
     
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        endEditing(true)
+    }
     
     override func awakeFromNib() {
         endEditing(true)

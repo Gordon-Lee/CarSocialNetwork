@@ -26,7 +26,7 @@ class SearchViewController: UIViewController {
             tableView.reloadData()
         }
     }
-    fileprivate var peoples = [User]()  {
+    fileprivate var peoples = [Usr]()  {
         didSet {
             print("\(peoples.count)    ******* PEOPLE ######")
             tableView.reloadData()
@@ -61,7 +61,6 @@ class SearchViewController: UIViewController {
         searchController.searchBar.backgroundColor = AppCongifuration.lightGrey()
         searchController.searchBar.tintColor = AppCongifuration.blue()
         buttonStand.addSubview(searchController.searchBar)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -143,12 +142,16 @@ extension SearchViewController {
     }
     
     fileprivate func loadPeople() {
-        let queryPeople = User.query()
+        let queryPeople = PFUser.query()
         
         queryPeople?.findObjectsInBackground(block: { (people, error) in
-            guard error != nil else {
-                self.peoples = people as! [User]
-                return
+            for us in people! {
+                let u = us as! PFUser
+                self.peoples.append(Usr(obejctId: u.objectId!,
+                                    username: u.username,
+                                    email: u.email,
+                                    thumbImage: us["thumbImage"] as! PFFile?,
+                                    photo: us["profileImage"] as! PFFile? ))
             }
         })
     }
@@ -220,14 +223,14 @@ extension SearchViewController: UITableViewDataSource {
             loadImage(image: cars[indexPath.row].thumbImage, cell: cell)
         case .events:
             cell.content.text = events[indexPath.row].eventDescription
-            //loadImage(image: events[indexPath.row].image, cell:  cell)
-            events[indexPath.row].image.getDataInBackground { (img, error) in
-                if let image = UIImage(data: img!) {
-                    cell.searchIMG.image = image
-                }
-            }
+            loadImage(image: events[indexPath.row].image, cell:  cell)
         case .people:
-            cell.content.text = peoples[indexPath.row].username
+            cell.content.text = peoples[indexPath.row].userName
+            print(peoples[indexPath.row].thumbImage)
+            
+            if peoples[indexPath.row].thumbImage != nil {
+                loadImage(image: peoples[indexPath.row].thumbImage!, cell: cell)
+            }
         }
         return cell
     }
