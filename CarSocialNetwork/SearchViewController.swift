@@ -28,7 +28,6 @@ class SearchViewController: UIViewController {
     }
     fileprivate var peoples = [Usr]()  {
         didSet {
-            print("\(peoples.count)    ******* PEOPLE ######")
             tableView.reloadData()
         }
     }
@@ -160,6 +159,7 @@ extension SearchViewController {
         image.getDataInBackground { (img, error) in
             if let image = UIImage(data: img!) {
                 cell.searchIMG.image = image
+                self.tableView.reloadData()
             }
         }
     }
@@ -170,21 +170,18 @@ extension SearchViewController {
     @IBAction func showTableViewPeople(_ sender: AnyObject) {
         dataDisplay = .people
         setScopeBar(display: dataDisplay)
-        print(dataDisplay)
         tableView.reloadData()
     }
     
     @IBAction func showTableViewEvents(_ sender: AnyObject) {
         dataDisplay = .events
         setScopeBar(display: dataDisplay)
-        print(dataDisplay)
         tableView.reloadData()
     }
     
     @IBAction func showTableViewCars(_ sender: AnyObject) {
         dataDisplay = .car
         setScopeBar(display: dataDisplay)
-        print(dataDisplay)
         tableView.reloadData()
     }
     
@@ -226,8 +223,6 @@ extension SearchViewController: UITableViewDataSource {
             loadImage(image: events[indexPath.row].image, cell:  cell)
         case .people:
             cell.content.text = peoples[indexPath.row].userName
-            print(peoples[indexPath.row].thumbImage)
-            
             if peoples[indexPath.row].thumbImage != nil {
                 loadImage(image: peoples[indexPath.row].thumbImage!, cell: cell)
             }
@@ -248,13 +243,10 @@ extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch dataDisplay {
         case .car:
-            print(cars.count)
             return cars.count
         case .events:
-            print(events.count)
             return events.count
         case .people:
-            print(peoples.count)
             return peoples.count
         }
     }

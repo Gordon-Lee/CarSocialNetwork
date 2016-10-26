@@ -32,7 +32,8 @@
                         <action selector="trashPost:" destination="iN0-l3-epB" eventType="touchUpInside" id="mKH-BP-TtT"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6c1-2k-V3U">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6c1-2k-V3U">
+                    <frame key="frameInset" minY="147" width="375" height="199"/>
                     <color key="backgroundColor" red="0.81176470590000005" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="160" id="aUu-aN-ytj"/>
@@ -49,7 +50,7 @@
                         <action selector="postPhoto:" destination="iN0-l3-epB" eventType="touchUpInside" id="yhZ-gW-x5W"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zSE-V6-9NR">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zSE-V6-9NR" customClass="DefaultSettings" customModule="CarSocialNetwork" customModuleProvider="target">
                     <color key="backgroundColor" red="0.53467365075593065" green="1" blue="0.41281870012599953" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </imageView>
             </subviews>

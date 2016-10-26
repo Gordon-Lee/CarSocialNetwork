@@ -10,7 +10,7 @@ import UIKit
 import SVProgressHUD
 
 protocol DescriptionViewDelegate: class {
-    func didClickToFinish(_ comment: String)
+    func didClickToFinish(_ comment: String, image: UIImage)
     func didTapCancel()
 }
 
@@ -23,9 +23,16 @@ class DescritptionView: UIView {
     weak var delegate: DescriptionViewDelegate!
     
     static let nibName = "DescriptionPost"
+    var imageToShow: UIImage!
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        endEditing(true)
+    }
     
     override func awakeFromNib() {
         backgroundColor = AppCongifuration.darkGrey()
+        thumbImage?.image = photo
         SVProgressHUD.dismiss()
     }
     
@@ -36,7 +43,7 @@ class DescritptionView: UIView {
     
     @IBAction func postPhoto(_ sender: AnyObject) {
         print("POST PHOTO "+commenBox.text!)
-        delegate?.didClickToFinish(commenBox.text!)
+        delegate?.didClickToFinish(commenBox.text!, image: photo)
     }
     
 }

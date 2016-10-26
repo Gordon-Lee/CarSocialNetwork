@@ -111,7 +111,9 @@ extension HomeViewController {
         let queryActivy = Activity.query()
         
         queryPh?.includeKey("owner")
+        queryPh?.addDescendingOrder("createdAt")
         queryActivy?.whereKey(Activity.typeaString, equalTo: activityType.post.rawValue)
+        
         queryActivy?.includeKey("image")
     
         queryPh?.findObjectsInBackground(block: { (photos, error) in

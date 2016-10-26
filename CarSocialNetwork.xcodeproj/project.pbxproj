@@ -12,6 +12,8 @@
 		6611C3201DB3C59C00D99832 /* EventDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6611C31F1DB3C59C00D99832 /* EventDescriptionView.swift */; };
 		661A5B8C1DBF8E5400B20988 /* EditTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661A5B8B1DBF8E5400B20988 /* EditTableViewController.swift */; };
 		661A5B8E1DC0066300B20988 /* Usr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661A5B8D1DC0066300B20988 /* Usr.swift */; };
+		661A5B911DC0D82D00B20988 /* DefaultSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661A5B901DC0D82D00B20988 /* DefaultSettings.swift */; };
+		661A5B931DC0DF5900B20988 /* PhotoPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661A5B921DC0DF5900B20988 /* PhotoPost.swift */; };
 		666B93551DB29BA0008D6F44 /* FinishedCarRegister.xib in Resources */ = {isa = PBXBuildFile; fileRef = 666B93541DB29BA0008D6F44 /* FinishedCarRegister.xib */; };
 		666B93571DB29DC7008D6F44 /* FinishedCarRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666B93561DB29DC7008D6F44 /* FinishedCarRegisterView.swift */; };
 		666B935A1DB2B49A008D6F44 /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666B93591DB2B49A008D6F44 /* Events.storyboard */; };
@@ -70,6 +72,8 @@
 		6611C31F1DB3C59C00D99832 /* EventDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDescriptionView.swift; sourceTree = "<group>"; };
 		661A5B8B1DBF8E5400B20988 /* EditTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTableViewController.swift; sourceTree = "<group>"; };
 		661A5B8D1DC0066300B20988 /* Usr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Usr.swift; sourceTree = "<group>"; };
+		661A5B901DC0D82D00B20988 /* DefaultSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultSettings.swift; sourceTree = "<group>"; };
+		661A5B921DC0DF5900B20988 /* PhotoPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPost.swift; sourceTree = "<group>"; };
 		666B93541DB29BA0008D6F44 /* FinishedCarRegister.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinishedCarRegister.xib; sourceTree = "<group>"; };
 		666B93561DB29DC7008D6F44 /* FinishedCarRegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedCarRegisterView.swift; sourceTree = "<group>"; };
 		666B93591DB2B49A008D6F44 /* Events.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
@@ -362,6 +366,8 @@
 				66A689331DB2788E00C7AE90 /* UIViewControllerExtensions.swift */,
 				66A6893F1DB2825B00C7AE90 /* UIImageExtensions.swift */,
 				66A689431DB293FC00C7AE90 /* FusumaConfig.swift */,
+				661A5B901DC0D82D00B20988 /* DefaultSettings.swift */,
+				661A5B921DC0DF5900B20988 /* PhotoPost.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -531,6 +537,7 @@
 			files = (
 				A9E7AF0F1D9825E80049E4C4 /* DescritptionView.swift in Sources */,
 				661A5B8C1DBF8E5400B20988 /* EditTableViewController.swift in Sources */,
+				661A5B911DC0D82D00B20988 /* DefaultSettings.swift in Sources */,
 				A9D567441D983ADA00CA478F /* AppHelperExtensions.swift in Sources */,
 				A97784E71D77A456006A756E /* LoginViewController.swift in Sources */,
 				666B93571DB29DC7008D6F44 /* FinishedCarRegisterView.swift in Sources */,
@@ -541,6 +548,7 @@
 				A91B16CF1D77284700B0C6CB /* Car.swift in Sources */,
 				668D195E1DB516030077021E /* SearchTableViewCell.swift in Sources */,
 				A93EE8051D873C57008C9DF9 /* DefaultBt.swift in Sources */,
+				661A5B931DC0DF5900B20988 /* PhotoPost.swift in Sources */,
 				66A689391DB27F3900C7AE90 /* CarViewController.swift in Sources */,
 				66A689441DB293FC00C7AE90 /* FusumaConfig.swift in Sources */,
 				A97784ED1D77B6BB006A756E /* tabBar.swift in Sources */,

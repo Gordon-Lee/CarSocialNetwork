@@ -24,10 +24,10 @@ class PostViewController: UIViewController {
     fileprivate var subviewsFrame: CGRect!
     
     fileprivate var activity: Activity!
-    fileprivate weak var descriptionView: DescritptionView!
+    fileprivate weak var descriptionView = DescritptionView()
     fileprivate weak var homeVC: HomeViewController!
     
-    fileprivate var currentId: String!
+    var imageDesc = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +39,7 @@ class PostViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         calculateSubviewsFrame()
-        //tabBarController?.tabBarVisibility(false, animated: true)
-        print(howView.rawValue)
+        
         switch howView {
         case .FUSUMA:
             FusumaConfig.defaultCfg()
@@ -53,11 +52,6 @@ class PostViewController: UIViewController {
             showHomeViewController()
             print("PAU NO HOME")
         }
-        print(activity.activityType)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
     }
     
     fileprivate func configView() {
@@ -91,11 +85,11 @@ extension PostViewController: FusumaDelegate {
     func fusumaImageSelected(_ image: UIImage) {
         print("IMAGE SELECTED POST")
         howView = .DESCRIPTION
-        savePost(image)
     }
     
     func fusumaDismissedWithImage(_ image: UIImage) {
         print("Called just after FusumaViewController is dismissed.")
+        photo = image
         addDescriptionView()
     }
     
@@ -107,6 +101,7 @@ extension PostViewController: FusumaDelegate {
         print("Camera roll unauthorized")
     }
 }
+
 //MARK: DELEGATES
 extension PostViewController: DescriptionViewDelegate {
     
@@ -114,21 +109,22 @@ extension PostViewController: DescriptionViewDelegate {
         let viewFrame = view.frame
         let viewOrigin = viewFrame.origin
         let navBarHeight = navigationController?.navigationBar.frame.height
-        let newY = viewOrigin.y + navBarHeight!
-        let newHeight = viewFrame.height - navBarHeight!
+        let newY = viewOrigin.y //+ navBarHeight!
+        let newHeight = viewFrame.height //- navBarHeight!
         subviewsFrame = CGRect(x: viewOrigin.x, y: newY, width: viewFrame.width, height: newHeight)
     }
     
     fileprivate func addDescriptionView() {
         let nib = Bundle.main.loadNibNamed("DescriptionPost", owner: self, options: nil)
-        descriptionView = nib!.first as! DescritptionView
-        descriptionView.delegate = self
-        descriptionView.frame = subviewsFrame
-        view.addSubview(descriptionView)
+        descriptionView = nib!.first as? DescritptionView
+        descriptionView?.delegate = self
+        descriptionView?.frame = subviewsFrame
+        view.addSubview(descriptionView!)
     }
     
-    func didClickToFinish(_ comment: String) {
+    func didClickToFinish(_ comment: String, image: UIImage) {
         activity.content = comment as String
+        savePost(image)
         saveEverything()
         showHomeViewController()
     }
@@ -149,5 +145,6 @@ extension PostViewController {
         postPhoto.owner = PFUser.current()!
         postPhoto.thumbImage = PFFile(data: AdjustPhoto.uploadToPhoto(image, type: .thumb))!
         postPhoto.image = PFFile(data: AdjustPhoto.uploadToPhoto(image, type: .normal))!
+     //   postPhoto.saveInBackground()
     }
 }
