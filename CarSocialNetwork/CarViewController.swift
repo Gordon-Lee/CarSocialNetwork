@@ -101,7 +101,6 @@ extension CarViewController : FusumaDelegate {
         print("Called just after FusumaViewController is dismissed.")
         
         carToSave.owner = PFUser.current()!
-        //carToSave.imageUI = image
         carToSave.thumbImage = PFFile(data: AdjustPhoto.uploadToPhoto(image, type: .thumb))!
         carToSave.image = PFFile(data: AdjustPhoto.uploadToPhoto(image, type: .normal))!
         loadFinishedRegister()
@@ -128,6 +127,5 @@ extension CarViewController: FinishedCarDelegate {
     func didFinishedCarRegister() {
         carToSave.saveInBackground()
         self.dismiss(animated: true, completion: nil)
-        //navigationController?.popViewController(animated: true)
     }
 }

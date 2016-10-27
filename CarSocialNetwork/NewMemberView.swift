@@ -53,4 +53,12 @@ class NewMemberView: UIView {
     @IBAction func cancelar(_ sender: AnyObject) {
         delegate?.didTapCancelButton()
     }    
+    @IBAction func recoveryPassword(_ sender: AnyObject) {
+        PFUser.requestPasswordResetForEmail(inBackground: self.email.text!)
+        
+//        var alert = UIAlertController(title: nil, message: "Your password has been sent to your email address.", preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        //self.presentViewController(alert, animated: true, completion: nil)
+        
+    }
 }

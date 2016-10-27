@@ -46,6 +46,11 @@ class ProfileViewController: UIViewController {
         configView()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        navigationController?.navigationBar.topItem?.title = "Ajustes"
+    }
+    
     fileprivate func configView() {
         navigationController?.navigationBar.topItem?.title = "Perfil"
         navigationController?.setNavigationBarHidden(false, animated: true)

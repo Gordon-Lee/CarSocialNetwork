@@ -26,25 +26,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yo0-9Z-oSo">
-                                <color key="backgroundColor" red="0.53467365079999996" green="1" blue="0.41281870009999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CVj-SM-LQW">
+                                <frame key="frameInset" minX="67" minY="82" width="240" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VyI-qz-JLP">
+                                <frame key="frameInset" minX="263" minY="283" width="32" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="camera"/>
+                                <connections>
+                                    <action selector="fusumaCamera:" destination="zfO-bj-ZIh" eventType="touchUpInside" id="hHH-fM-svI"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOs-Fy-U1Z">
+                                <frame key="frameInset" minX="16" minY="355" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Yo0-9Z-oSo" firstAttribute="top" secondItem="ILo-bh-dZC" secondAttribute="top" id="93l-ua-Chx"/>
-                            <constraint firstAttribute="trailing" secondItem="Yo0-9Z-oSo" secondAttribute="trailing" id="Ngt-C3-OJd"/>
-                            <constraint firstItem="Yo0-9Z-oSo" firstAttribute="leading" secondItem="ILo-bh-dZC" secondAttribute="leading" id="PVk-CX-afa"/>
-                            <constraint firstItem="Yo0-9Z-oSo" firstAttribute="bottom" secondItem="QCC-Bk-zOw" secondAttribute="top" id="aE3-FL-BI6"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="moQ-Od-P3N">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="mew-62-CZQ">
+                            <color key="tintColor" red="0.2166439295" green="0.58256053919999995" blue="0.86920100450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="dismissView:" destination="zfO-bj-ZIh" id="5OM-PJ-APW"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="yLS-ZK-Qvq">
+                            <color key="tintColor" red="0.2166439295" green="0.58256053919999995" blue="0.86920100450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="saveButton" destination="yLS-ZK-Qvq" id="kzl-B0-cJX"/>
+                        <outlet property="userImage" destination="CVj-SM-LQW" id="Q7n-Mv-H2x"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dWM-qf-rZl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -69,4 +88,7 @@
             <point key="canvasLocation" x="2433" y="636"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera" width="32" height="28"/>
+    </resources>
 </document>

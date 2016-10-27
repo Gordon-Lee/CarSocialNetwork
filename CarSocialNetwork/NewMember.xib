@@ -56,6 +56,9 @@
                         <constraint firstAttribute="height" constant="40" id="Gdy-kP-phm"/>
                     </constraints>
                     <state key="normal" title="Recuperar Conta"/>
+                    <connections>
+                        <action selector="recoveryPassword:" destination="iN0-l3-epB" eventType="touchUpInside" id="zrA-9d-XQ6"/>
+                    </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoCarSocial" translatesAutoresizingMaskIntoConstraints="NO" id="FE6-DM-6Cq">
                     <constraints>

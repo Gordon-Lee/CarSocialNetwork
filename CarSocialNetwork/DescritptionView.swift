@@ -23,7 +23,6 @@ class DescritptionView: UIView {
     weak var delegate: DescriptionViewDelegate!
     
     static let nibName = "DescriptionPost"
-    var imageToShow: UIImage!
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)

@@ -31,10 +31,11 @@ class SearchViewController: UIViewController {
             tableView.reloadData()
         }
     }
-    
-    var dataDisplay : dataToDisplay = .events
-    @IBOutlet weak var searchBar: UIView!
+
     fileprivate let searchController = UISearchController(searchResultsController: nil)
+    fileprivate var filteredCar = [Car]()
+    fileprivate var filteredEvents = [Events]()
+    fileprivate var filteredPeople = [Usr]()
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var eventsBt: UIButton!
@@ -42,30 +43,36 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var carBt: UIButton!
     @IBOutlet weak var buttonStand: UIView!
     
+    var dataDisplay : dataToDisplay = .events
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         nibCell()
         loadEvents()
         loadCars()
         loadPeople()
-        
-        //searchController.searchResultsUpdater = self
-        searchController.searchBar.delegate = self
-        definesPresentationContext = true
-        searchController.dimsBackgroundDuringPresentation = false
-        
-        // Setup the Scope Bar
         setButtonsImage()
-        setScopeBar(display: dataDisplay)
-        searchController.searchBar.backgroundColor = AppCongifuration.lightGrey()
-        searchController.searchBar.tintColor = AppCongifuration.blue()
-        buttonStand.addSubview(searchController.searchBar)
+        configSearch()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.setNavigationBarHidden(true, animated: true)
         configView()
+    }
+    
+    fileprivate func configSearch() {
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        definesPresentationContext = true
+        searchController.dimsBackgroundDuringPresentation = false
+        
+        setScopeBar(display: dataDisplay)
+        searchController.searchBar.backgroundColor = AppCongifuration.lightGrey()
+        searchController.searchBar.tintColor = AppCongifuration.blue()
+        buttonStand.addSubview(searchController.searchBar)
     }
     
     fileprivate func setButtonsImage() {
@@ -95,14 +102,6 @@ class SearchViewController: UIViewController {
             peopleBt.isSelected = true
             searchController.searchBar.scopeButtonTitles = ["nome","sexo"]
         }
-    }
-
-    //TODOOO
-    fileprivate func configSearchController() {
-        //searchController.searchResultsUpdater = self
-        searchController.searchBar.delegate = self
-        definesPresentationContext = true
-        searchController.dimsBackgroundDuringPresentation = false
     }
     
     fileprivate func configView() {
@@ -163,8 +162,8 @@ extension SearchViewController {
             }
         }
     }
-    
 }
+
 //MARK: ACTIONS
 extension SearchViewController {
     @IBAction func showTableViewPeople(_ sender: AnyObject) {
@@ -184,28 +183,23 @@ extension SearchViewController {
         setScopeBar(display: dataDisplay)
         tableView.reloadData()
     }
-    
-    fileprivate func stateButtons( ) {
-        
-    }
-    
 }
+
 //MARK: Search Bar
-extension SearchViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        filterContentForSearchText(searchText: searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
-    }
+extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
+    
     func filterContentForSearchText(searchText: String, scope: String = "All") {
-        let filteredCars = cars.filter { carr in
-            let categoryMatch = (scope == "All") || (carr.brand == scope)
-            return  categoryMatch && carr.brand.localizedLowercase.contains(searchText.localizedLowercase)
+        filteredCar = cars.filter { car in
+            //let categoryMatch = (scope == "Marca") || (carr.brand == scope)
+            
+            print("TEXT "+searchText+" \(car.brand.localizedLowercase.contains(searchText.localizedLowercase))")
+            return car.brand.localizedLowercase.contains(searchText.localizedLowercase) //categoryMatch && carr.brand.localizedLowercase.contains(searchText.localizedLowercase)
         }
         tableView.reloadData()
     }
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
-    //    let searchBar = searchBar.searchBar
-    //    let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
-    //    filterContentForSearchText(searchController.searchBar.text!, scope: scope)
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchText: searchController.searchBar.text!)
     }
 }
 
@@ -216,19 +210,42 @@ extension SearchViewController: UITableViewDataSource {
         
         switch dataDisplay {
         case .car:
-            cell.content.text = cars[indexPath.row].brand
-            loadImage(image: cars[indexPath.row].thumbImage, cell: cell)
+            carData(cell: cell, row: indexPath.row)
         case .events:
-            cell.content.text = events[indexPath.row].eventDescription
-            loadImage(image: events[indexPath.row].image, cell:  cell)
+            eventsData(cell: cell, row: indexPath.row)
         case .people:
-            cell.content.text = peoples[indexPath.row].userName
-            if peoples[indexPath.row].thumbImage != nil {
-                loadImage(image: peoples[indexPath.row].thumbImage!, cell: cell)
-            }
+            peopleData(cell: cell, row: indexPath.row)
         }
         return cell
     }
+    //Search methods
+    fileprivate func carData(cell: SearchTableViewCell, row: Int) {
+        let searchBar = searchController.isActive && searchController.searchBar.text != ""
+        let image = searchBar ? filteredCar[row].thumbImage : cars[row].thumbImage
+        
+        cell.content.text = searchBar ? filteredCar[row].brand : cars[row].brand
+        
+        loadImage(image: image, cell: cell)
+    }
+    
+    fileprivate func eventsData(cell: SearchTableViewCell, row: Int) {
+        let searchBar = searchController.isActive && searchController.searchBar.text != ""
+        let image = searchBar ? filteredEvents[row].image : events[row].image
+        
+        cell.content.text = searchBar ? filteredEvents[row].name : events[row].name
+        
+        loadImage(image: image, cell: cell)
+    }
+    
+    fileprivate func peopleData(cell: SearchTableViewCell, row: Int) {
+        let searchBar = searchController.isActive && searchController.searchBar.text != ""
+        let image = searchBar ? filteredPeople[row].profilePhoto : peoples[row].profilePhoto
+        
+        cell.content.text = searchBar ? filteredPeople[row].userName : peoples[row].userName
+        
+        loadImage(image: image!, cell: cell)
+    }
+
 }
 
 extension SearchViewController: UITableViewDelegate {
@@ -243,11 +260,14 @@ extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch dataDisplay {
         case .car:
-            return cars.count
+            let countCar = searchController.isActive && searchController.searchBar.text != "" ? filteredCar.count : cars.count
+            return countCar
         case .events:
-            return events.count
+            let countEvents = searchController.isActive && searchController.searchBar.text != "" ? filteredEvents.count : events.count
+            return countEvents
         case .people:
-            return peoples.count
+            let countPeople = searchController.isActive && searchController.searchBar.text != "" ? filteredPeople.count : peoples.count
+            return countPeople
         }
     }
 }
