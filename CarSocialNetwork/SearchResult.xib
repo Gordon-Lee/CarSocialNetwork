@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -14,28 +15,51 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CLI-uH-ENX">
                     <constraints>
-                        <constraint firstAttribute="width" constant="100" id="nSn-bJ-PT3"/>
+                        <constraint firstAttribute="width" constant="100" id="szh-oE-4AW"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbw-Qq-8SS" customClass="Searc">
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbw-Qq-8SS" userLabel="Content">
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FhO-F6-ArB" userLabel="Subejct">
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZC-lj-ax0" userLabel="year">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="112" id="Rpe-kA-f65"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Gbw-Qq-8SS" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="FJn-Kq-DyS"/>
-                <constraint firstItem="CLI-uH-ENX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="3" id="WY9-ZC-0KM"/>
-                <constraint firstItem="Gbw-Qq-8SS" firstAttribute="leading" secondItem="CLI-uH-ENX" secondAttribute="trailing" constant="8" symbolic="YES" id="Wvf-5r-nrf"/>
-                <constraint firstItem="CLI-uH-ENX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="2" id="Zv5-69-qw7"/>
-                <constraint firstAttribute="trailing" secondItem="Gbw-Qq-8SS" secondAttribute="trailing" constant="16" id="qdH-gx-3Xc"/>
-                <constraint firstAttribute="bottom" secondItem="CLI-uH-ENX" secondAttribute="bottom" constant="7" id="yUs-TW-Tmr"/>
+                <constraint firstItem="CLI-uH-ENX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="3" id="21O-nJ-eMz"/>
+                <constraint firstItem="FhO-F6-ArB" firstAttribute="top" secondItem="Gbw-Qq-8SS" secondAttribute="bottom" id="79s-Tg-N53"/>
+                <constraint firstItem="Gbw-Qq-8SS" firstAttribute="leading" secondItem="FhO-F6-ArB" secondAttribute="leading" id="Hk8-rn-8YH"/>
+                <constraint firstAttribute="trailing" secondItem="Gbw-Qq-8SS" secondAttribute="trailing" constant="10" id="KcG-z0-zuC"/>
+                <constraint firstAttribute="bottom" secondItem="CLI-uH-ENX" secondAttribute="bottom" constant="7" id="M4z-fP-4Zk"/>
+                <constraint firstItem="FhO-F6-ArB" firstAttribute="baseline" secondItem="OZC-lj-ax0" secondAttribute="baseline" id="Mi0-gJ-z7x"/>
+                <constraint firstItem="CLI-uH-ENX" firstAttribute="centerY" secondItem="Gbw-Qq-8SS" secondAttribute="centerY" id="NVj-Av-4HO"/>
+                <constraint firstItem="Gbw-Qq-8SS" firstAttribute="trailing" secondItem="OZC-lj-ax0" secondAttribute="trailing" id="QOY-0V-JKr"/>
+                <constraint firstItem="CLI-uH-ENX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="2" id="SFQ-SY-YW1"/>
+                <constraint firstItem="OZC-lj-ax0" firstAttribute="leading" secondItem="FhO-F6-ArB" secondAttribute="trailing" constant="1" id="W23-fs-NOg"/>
+                <constraint firstItem="Gbw-Qq-8SS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="42" id="Wpc-BL-DMd"/>
+                <constraint firstAttribute="bottom" secondItem="FhO-F6-ArB" secondAttribute="bottom" constant="26" id="XsY-du-zO1"/>
+                <constraint firstItem="Gbw-Qq-8SS" firstAttribute="leading" secondItem="CLI-uH-ENX" secondAttribute="trailing" constant="8" symbolic="YES" id="bdM-hJ-KpU"/>
+                <constraint firstItem="FhO-F6-ArB" firstAttribute="firstBaseline" secondItem="OZC-lj-ax0" secondAttribute="firstBaseline" id="syC-xr-UlK"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="content" destination="Gbw-Qq-8SS" id="0aw-5a-wXg"/>
+                <outlet property="content" destination="Gbw-Qq-8SS" id="rzS-it-90i"/>
                 <outlet property="searchIMG" destination="CLI-uH-ENX" id="VG1-tb-r5Q"/>
+                <outlet property="subject" destination="FhO-F6-ArB" id="GmC-cE-Rxd"/>
+                <outlet property="year" destination="OZC-lj-ax0" id="KYa-BV-pKc"/>
             </connections>
             <point key="canvasLocation" x="35.5" y="54"/>
         </view>

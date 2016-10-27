@@ -54,14 +54,33 @@ class PostViewController: UIViewController {
         }
     }
     
+}
+//MARK: Parse
+extension PostViewController {
+    
     fileprivate func configView() {
         activity = Activity()
         postPhoto = Photo()
         view.backgroundColor = AppCongifuration.darkGrey()
     }
-}
-//MARK: Parse
-extension PostViewController {
+    
+    fileprivate func calculateSubviewsFrame() {
+        let viewFrame = view.frame
+        let viewOrigin = viewFrame.origin
+        let navBarHeight = navigationController?.navigationBar.frame.height
+        let newY = viewOrigin.y + navBarHeight!
+        let newHeight = viewFrame.height - navBarHeight!
+        subviewsFrame = CGRect(x: viewOrigin.x, y: newY, width: viewFrame.width, height: newHeight)
+    }
+    
+    fileprivate func addDescriptionView() {
+        let nib = Bundle.main.loadNibNamed("DescriptionPost", owner: self, options: nil)
+        descriptionView = nib!.first as? DescritptionView
+        descriptionView?.delegate = self
+        descriptionView?.frame = subviewsFrame
+        view.addSubview(descriptionView!)
+    }
+    
     fileprivate func saveEverything() {
         postPhoto.saveInBackground(){(succeeded, error) in
             if succeeded {
@@ -104,24 +123,7 @@ extension PostViewController: FusumaDelegate {
 
 //MARK: DELEGATES
 extension PostViewController: DescriptionViewDelegate {
-    
-    fileprivate func calculateSubviewsFrame() {
-        let viewFrame = view.frame
-        let viewOrigin = viewFrame.origin
-        let navBarHeight = navigationController?.navigationBar.frame.height
-        let newY = viewOrigin.y //+ navBarHeight!
-        let newHeight = viewFrame.height //- navBarHeight!
-        subviewsFrame = CGRect(x: viewOrigin.x, y: newY, width: viewFrame.width, height: newHeight)
-    }
-    
-    fileprivate func addDescriptionView() {
-        let nib = Bundle.main.loadNibNamed("DescriptionPost", owner: self, options: nil)
-        descriptionView = nib!.first as? DescritptionView
-        descriptionView?.delegate = self
-        descriptionView?.frame = subviewsFrame
-        view.addSubview(descriptionView!)
-    }
-    
+
     func didClickToFinish(_ comment: String, image: UIImage) {
         activity.content = comment as String
         savePost(image)

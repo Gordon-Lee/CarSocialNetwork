@@ -24,6 +24,9 @@ class SearchViewController: UIViewController {
     fileprivate var events = [Events]()  {
         didSet {
             tableView.reloadData()
+            for ev in events {
+                print("FOORR \(ev.eventDescription)")
+            }
         }
     }
     fileprivate var peoples = [Usr]()  {
@@ -57,9 +60,12 @@ class SearchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        navigationController?.setNavigationBarHidden(true, animated: true)
         configView()
+        showNavigation()
     }
+}
+//MARK: Load data and Generic Methods
+extension SearchViewController {
     
     fileprivate func configSearch() {
         searchController.searchResultsUpdater = self
@@ -88,7 +94,7 @@ class SearchViewController: UIViewController {
             eventsBt.isSelected = true
             carBt.isSelected = false
             peopleBt.isSelected = false
-            searchController.searchBar.scopeButtonTitles = ["local", "cidade"]
+            searchController.searchBar.scopeButtonTitles = ["nome", "cidade"]
         case .car:
             eventsBt.isSelected = false
             carBt.isSelected = true
@@ -98,7 +104,7 @@ class SearchViewController: UIViewController {
             eventsBt.isSelected = false
             carBt.isSelected = false
             peopleBt.isSelected = true
-            searchController.searchBar.scopeButtonTitles = ["nome","sexo"]
+            searchController.searchBar.scopeButtonTitles = ["Nome"]
         }
     }
     
@@ -106,13 +112,27 @@ class SearchViewController: UIViewController {
         view.backgroundColor = AppCongifuration.mediumGrey()
     }
     
+    fileprivate func showNavigation() {
+        let show = dataDisplay == .events ? true : false
+        
+        navigationController?.setNavigationBarHidden(!show, animated: true)
+        
+        guard show else {
+            navigationController?.navigationBar.topItem?.title = "Eventos"
+            //navigationItem.rightBarButtonItem = addButtonNavigation()
+            return
+        }
+    }
+    
+//    fileprivate func addButtonNavigation() -> UIBarButtonItem {
+//        
+//    }
+
     fileprivate func nibCell() {
         let nibCell = UINib(nibName: SearchTableViewCell.xibName, bundle: Bundle.main)
         tableView.register(nibCell, forCellReuseIdentifier: SearchTableViewCell.identifier)
     }
-}
-//MARK: Load data From Parse
-extension SearchViewController {
+    
     fileprivate func loadCars() {
         let queryCar = Car.query()
         
@@ -128,9 +148,9 @@ extension SearchViewController {
     fileprivate func loadEvents() {
         let queryEvents = Events.query()
         
-        queryEvents?.findObjectsInBackground(block: { (events, error) in
+        queryEvents?.findObjectsInBackground(block: { (ev, error) in
             guard error != nil else {
-                self.events = events as! [Events]
+                self.events = ev as! [Events]
                 print("\(self.events.count)    ******* EVVEEENTSSSS ######")
                 return
             }
@@ -161,28 +181,29 @@ extension SearchViewController {
         }
     }
 }
-
 //MARK: ACTIONS
 extension SearchViewController {
     @IBAction func showTableViewPeople(_ sender: AnyObject) {
         dataDisplay = .people
+        showNavigation()
         setScopeBar(display: dataDisplay)
         tableView.reloadData()
     }
     
     @IBAction func showTableViewEvents(_ sender: AnyObject) {
         dataDisplay = .events
+        showNavigation()
         setScopeBar(display: dataDisplay)
         tableView.reloadData()
     }
     
     @IBAction func showTableViewCars(_ sender: AnyObject) {
         dataDisplay = .car
+        showNavigation()
         setScopeBar(display: dataDisplay)
         tableView.reloadData()
     }
 }
-
 //MARK: Search Bar
 extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
     
@@ -190,24 +211,39 @@ extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
         switch dataDisplay {
         case .car:
             filteredCar = cars.filter { car in
-                    switch scope {
-                    case "0":
-                        print("MODEL TEXT "+searchText+"  SCOPE "+scope+" \(car.model.localizedLowercase.contains(searchText.localizedLowercase))")
-                        return car.model.localizedLowercase.contains(searchText.localizedLowercase)
-                    case "1":
-                        print("BRAND TEXT "+searchText+"  SCOPE "+scope+" \(car.brand.localizedLowercase.contains(searchText.localizedLowercase))")
-                        return car.brand.localizedLowercase.contains(searchText.localizedLowercase)
-                    case "2":
-                        print("YEAR TEXT "+searchText+"  SCOPE "+scope+" \(String(car.year).localizedLowercase.contains(searchText.localizedLowercase))")
-                        return String(car.year).localizedLowercase.contains(searchText.localizedLowercase)
-                    default:
-                        //return categoryMatch && car.brand.localizedLowercase.contains(searchText.localizedLowercase)
-                        break
+                switch scope {
+                case "0":
+                    print("MODEL TEXT "+searchText+"  SCOPE "+scope+" \(car.model.localizedLowercase.contains(searchText.localizedLowercase))")
+                    return car.model.localizedLowercase.contains(searchText.localizedLowercase)
+                case "1":
+                    print("BRAND TEXT "+searchText+"  SCOPE "+scope+" \(car.brand.localizedLowercase.contains(searchText.localizedLowercase))")
+                    return car.brand.localizedLowercase.contains(searchText.localizedLowercase)
+                case "2":
+                    print("YEAR TEXT "+searchText+"  SCOPE "+scope+" \(String(car.year).localizedLowercase.contains(searchText.localizedLowercase))")
+                    return String(car.year).localizedLowercase.contains(searchText.localizedLowercase)
+                default:
+                    //return categoryMatch && car.brand.localizedLowercase.contains(searchText.localizedLowercase)
+                    break
                     }
-                    return true
+                return true
                 }
-        default:
-            break
+        case .events:
+            filteredEvents = events.filter { event  in
+                switch  scope {
+                    case "0":
+                        print("EVENTE MODEL TEXT "+searchText+"  SCOPE "+scope+" \(event.name.localizedLowercase.contains(searchText.localizedLowercase))")
+                        return event.name.localizedLowercase.contains(searchText.localizedLowercase)
+                    case "1":
+                        return event.cidade.localizedLowercase.contains(searchText.localizedLowercase)
+                default:
+                    break
+                }
+                return true
+            }
+        case .people:
+            filteredPeople = peoples.filter { pe in
+                return (pe.userName?.localizedLowercase.contains(searchText.localizedLowercase))!
+            }
         }
         tableView.reloadData()
     }
@@ -216,7 +252,6 @@ extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
         filterContentForSearchText(searchText: searchController.searchBar.text!, scope: searchController.searchBar.selectedScopeButtonIndex.description)
     }
 }
-
 //MARK: TABLEVIEW PROTOCOLS
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -232,12 +267,14 @@ extension SearchViewController: UITableViewDataSource {
         }
         return cell
     }
-    //Search methods
+    //Search methods cell data
     fileprivate func carData(cell: SearchTableViewCell, row: Int) {
         let searchBar = searchController.isActive && searchController.searchBar.text != ""
         let image = searchBar ? filteredCar[row].thumbImage : cars[row].thumbImage
         
-        cell.content.text = searchBar ? filteredCar[row].brand : cars[row].brand
+        cell.content.text = searchBar ? filteredCar[row].model : cars[row].model
+        cell.subject.text = searchBar ? filteredCar[row].brand : cars[row].brand
+        cell.year.text = searchBar ? String(filteredCar[row].year) : String(cars[row].year)
         
         loadImage(image: image, cell: cell)
     }
@@ -247,6 +284,8 @@ extension SearchViewController: UITableViewDataSource {
         let image = searchBar ? filteredEvents[row].image : events[row].image
         
         cell.content.text = searchBar ? filteredEvents[row].name : events[row].name
+        cell.subject.text = searchBar ? filteredEvents[row].eventDescription : events[row].eventDescription
+        cell.year.text = searchBar ? filteredEvents[row].cidade : events[row].cidade
         
         loadImage(image: image, cell: cell)
     }
@@ -256,6 +295,9 @@ extension SearchViewController: UITableViewDataSource {
         let image = searchBar ? filteredPeople[row].profilePhoto : peoples[row].profilePhoto
         
         cell.content.text = searchBar ? filteredPeople[row].userName : peoples[row].userName
+        cell.subject.text = ""//searchBar ? filteredPeople[row]. : peoples[row].userName
+        cell.year.text = ""//searchBar ? filteredPeople[row].userName : peoples[row].userName
+        
         if image != nil {
             loadImage(image: image!, cell: cell)
         }

@@ -21,25 +21,17 @@ class HomeViewController: UIViewController {
     fileprivate var resultName: String!
     fileprivate var thumbImage: PFFile!
     
+    fileprivate var users: [User]!
+    
     fileprivate var usr = [Usr]() {
         didSet {
             tableView.reloadData()
         }
     }
-    
-    fileprivate var users: [User]! {
-        didSet {
-            print("USERSSS \(users.count)")
-        }
-    }
-    
+
     fileprivate var photoToShow = [Photo]() {
         didSet {
             tableView.reloadData()
-            print("#### \(photoToShow.count)")
-            for ph in photoToShow {
-                print(ph.owner.objectId)
-            }
         }
     }
     
@@ -112,10 +104,10 @@ extension HomeViewController {
         
         queryPh?.includeKey("owner")
         queryPh?.addDescendingOrder("createdAt")
-        queryActivy?.whereKey(Activity.typeaString, equalTo: activityType.post.rawValue)
         
         queryActivy?.includeKey("image")
-    
+        queryActivy?.whereKey(Activity.typeaString, equalTo: activityType.post.rawValue)
+        
         queryPh?.findObjectsInBackground(block: { (photos, error) in
             guard error != nil else {
                 self.photoToShow = photos as! [Photo]
@@ -148,7 +140,7 @@ extension HomeViewController {
         })
     }
     
-    fileprivate func showDescription(_ photoId: String) -> String{
+    fileprivate func showDescription(_ photoId: String) -> String {
         for act in activity {
             if act.image.objectId == photoId {
                 return act.content
@@ -163,8 +155,6 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: PostTabbleCellView.identifier) as! PostTabbleCellView
-        
-        //queryUser(photoToShow[(indexPath as NSIndexPath).row].owner)
         
         photoToShow[indexPath.row].image.getDataInBackground { (img, error) in
             if let image = UIImage(data: img!) {
@@ -187,6 +177,16 @@ extension HomeViewController: UITableViewDataSource {
         
         return cell
     }
+    
+    fileprivate func userName(id: PFUser) -> String {
+        for u in usr {
+            if u.objId == id.objectId {
+                self.thumbImage = u.thumbImage
+                return u.userName!
+            }
+        }
+        return ""
+    }
 }
 
 extension HomeViewController: UITableViewDelegate, UIScrollViewDelegate {
@@ -200,16 +200,4 @@ extension HomeViewController: UITableViewDelegate, UIScrollViewDelegate {
     @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return PostTabbleCellView.rowHeight
     }
-}
-
-extension HomeViewController {
-    fileprivate func userName(id: PFUser) -> String {
-        for u in usr {
-            if u.objId == id.objectId {
-                self.thumbImage = u.thumbImage
-                return u.userName!
-            }
-        }
-        return ""
-     }
 }

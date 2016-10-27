@@ -13,6 +13,9 @@ class Events: PFObject, PFSubclassing {
     @NSManaged var onwer: PFUser
     @NSManaged var name: String
     @NSManaged var eventDescription: String
+    @NSManaged var local: String
+    @NSManaged var cidade: String
+    @NSManaged var Estado: String
     @NSManaged var startDate: Date
     @NSManaged var endDate: Date
     @NSManaged var image: PFFile

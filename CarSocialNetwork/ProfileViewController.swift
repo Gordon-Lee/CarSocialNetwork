@@ -27,9 +27,9 @@ class ProfileViewController: UIViewController {
             usr.thumbImage?.getDataInBackground(block: { (data, error) in
                 if let image = UIImage(data: data!) {
                     self.profilePhoto.image = image
+                    self.usernameLbl.text = self.usr.userName
                 }
             })
-            usernameLbl.text = usr.userName
         }
     }
     
@@ -38,7 +38,6 @@ class ProfileViewController: UIViewController {
         nibCell()
         loadData()
         loadUsrData()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +49,9 @@ class ProfileViewController: UIViewController {
         super.viewDidDisappear(true)
         navigationController?.navigationBar.topItem?.title = "Ajustes"
     }
+}
+//MARK: Generic Methods / Actions
+extension ProfileViewController {
     
     fileprivate func configView() {
         navigationController?.navigationBar.topItem?.title = "Perfil"
@@ -72,13 +74,10 @@ class ProfileViewController: UIViewController {
         cell.layoutMargins = UIEdgeInsets.zero
         cell.backgroundColor = AppCongifuration.lightGrey()
     }
-}
-
-//MARK: Generic Methods / Actions
-extension ProfileViewController {
     
     fileprivate func loadData() {
         let query = Activity.query()
+        
         query?.whereKey("fromUser", equalTo: PFUser.current()!)
         query?.whereKey("toUser", equalTo: PFUser.current()!)
         query?.whereKey("activityType", equalTo: 0)
@@ -103,14 +102,11 @@ extension ProfileViewController {
                                email: u.email,
                                thumbImage: user?["thumbImage"] as! PFFile?,
                                photo: user?["profileImage"] as! PFFile?)
-
                 return
             }
-            
         })
     }
 }
-
 //MARK: TableView DELEGATE
 extension ProfileViewController: UITableViewDelegate {
     
