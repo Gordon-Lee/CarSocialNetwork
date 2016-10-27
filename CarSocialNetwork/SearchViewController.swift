@@ -158,7 +158,7 @@ extension SearchViewController {
         image.getDataInBackground { (img, error) in
             if let image = UIImage(data: img!) {
                 cell.searchIMG.image = image
-                self.tableView.reloadData()
+                return
             }
         }
     }
@@ -189,17 +189,32 @@ extension SearchViewController {
 extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
-        filteredCar = cars.filter { car in
-            //let categoryMatch = (scope == "Marca") || (carr.brand == scope)
-            
-            print("TEXT "+searchText+" \(car.brand.localizedLowercase.contains(searchText.localizedLowercase))")
-            return car.brand.localizedLowercase.contains(searchText.localizedLowercase) //categoryMatch && carr.brand.localizedLowercase.contains(searchText.localizedLowercase)
+        switch dataDisplay {
+        case .car:
+            filteredCar = cars.filter { car in
+                    switch scope {
+                    case "0":
+                        print("MODEL TEXT "+searchText+"  SCOPE "+scope+" \(car.model.localizedLowercase.contains(searchText.localizedLowercase))")
+                        return car.model.localizedLowercase.contains(searchText.localizedLowercase)
+                    case "1":
+                        print("BRAND TEXT "+searchText+"  SCOPE "+scope+" \(car.brand.localizedLowercase.contains(searchText.localizedLowercase))")
+                        return car.brand.localizedLowercase.contains(searchText.localizedLowercase)
+                    case "2":
+                        return car.brand.localizedLowercase.contains(searchText.localizedLowercase)
+                    default:
+                        //return categoryMatch && car.brand.localizedLowercase.contains(searchText.localizedLowercase)
+                        break
+                    }
+                    return true
+                }
+        default:
+            break
         }
         tableView.reloadData()
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        filterContentForSearchText(searchText: searchController.searchBar.text!)
+        filterContentForSearchText(searchText: searchController.searchBar.text!, scope: searchController.searchBar.selectedScopeButtonIndex.description)
     }
 }
 
@@ -242,10 +257,10 @@ extension SearchViewController: UITableViewDataSource {
         let image = searchBar ? filteredPeople[row].profilePhoto : peoples[row].profilePhoto
         
         cell.content.text = searchBar ? filteredPeople[row].userName : peoples[row].userName
-        
-        loadImage(image: image!, cell: cell)
+        if image != nil {
+            loadImage(image: image!, cell: cell)
+        }
     }
-
 }
 
 extension SearchViewController: UITableViewDelegate {
