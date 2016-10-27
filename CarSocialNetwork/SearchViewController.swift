@@ -44,9 +44,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var buttonStand: UIView!
     
     var dataDisplay : dataToDisplay = .events
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         nibCell()
@@ -200,7 +198,8 @@ extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
                         print("BRAND TEXT "+searchText+"  SCOPE "+scope+" \(car.brand.localizedLowercase.contains(searchText.localizedLowercase))")
                         return car.brand.localizedLowercase.contains(searchText.localizedLowercase)
                     case "2":
-                        return car.brand.localizedLowercase.contains(searchText.localizedLowercase)
+                        print("YEAR TEXT "+searchText+"  SCOPE "+scope+" \(String(car.year).localizedLowercase.contains(searchText.localizedLowercase))")
+                        return String(car.year).localizedLowercase.contains(searchText.localizedLowercase)
                     default:
                         //return categoryMatch && car.brand.localizedLowercase.contains(searchText.localizedLowercase)
                         break
