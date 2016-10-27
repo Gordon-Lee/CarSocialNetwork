@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,30 +21,36 @@
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Usuário" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aed-S5-iBq">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="DFz-F4-ou8"/>
+                                    <constraint firstAttribute="height" constant="30" id="2dG-Z4-Tog"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zmL-qr-KzA">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="hpi-wu-GP6"/>
+                                    <constraint firstAttribute="height" constant="30" id="O6u-Jx-CRi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UKQ-mD-EfB" customClass="DefaultBt" customModule="CarSocialNetwork" customModuleProvider="target">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="2pI-OZ-mCd"/>
+                                    <constraint firstAttribute="height" constant="30" id="LMw-P0-LuL"/>
                                 </constraints>
                                 <state key="normal" title="Cadastro"/>
                                 <connections>
                                     <action selector="singUp:" destination="3za-eb-faK" eventType="touchUpInside" id="YOK-VW-A5n"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aia-ou-5sy" userLabel="facebug">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="nZJ-Ud-aJF"/>
+                                </constraints>
+                                <state key="normal" image="faceLogin"/>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FiV-MR-7rh" customClass="DefaultBt" customModule="CarSocialNetwork" customModuleProvider="target">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="9me-0O-Wgj"/>
+                                    <constraint firstAttribute="height" constant="30" id="wJ3-LS-KHD"/>
                                 </constraints>
                                 <state key="normal" title="Login"/>
                                 <connections>
@@ -56,22 +61,25 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="FiV-MR-7rh" firstAttribute="trailing" secondItem="UKQ-mD-EfB" secondAttribute="trailing" id="0Jl-Wc-4Rt"/>
-                            <constraint firstItem="zmL-qr-KzA" firstAttribute="trailing" secondItem="FiV-MR-7rh" secondAttribute="trailing" constant="1" id="1Ay-jP-d6l"/>
-                            <constraint firstItem="zmL-qr-KzA" firstAttribute="leading" secondItem="FiV-MR-7rh" secondAttribute="leading" id="48e-Fj-kAj"/>
-                            <constraint firstItem="FiV-MR-7rh" firstAttribute="leading" secondItem="UKQ-mD-EfB" secondAttribute="leading" id="AUI-aU-zrN"/>
-                            <constraint firstItem="UKQ-mD-EfB" firstAttribute="top" secondItem="FiV-MR-7rh" secondAttribute="bottom" constant="8" id="BNW-In-lvw"/>
-                            <constraint firstItem="Aed-S5-iBq" firstAttribute="leading" secondItem="zmL-qr-KzA" secondAttribute="leading" id="DZH-89-LQb"/>
-                            <constraint firstItem="Aed-S5-iBq" firstAttribute="top" secondItem="3be-gP-yWr" secondAttribute="bottom" constant="5" id="HZG-v1-0Ga"/>
-                            <constraint firstAttribute="trailing" secondItem="3be-gP-yWr" secondAttribute="trailing" constant="22" id="IU5-bH-6Zn"/>
-                            <constraint firstItem="h4V-g3-eOR" firstAttribute="top" secondItem="UKQ-mD-EfB" secondAttribute="bottom" constant="141" id="NQw-Ue-Ssm"/>
-                            <constraint firstItem="3be-gP-yWr" firstAttribute="centerX" secondItem="Aed-S5-iBq" secondAttribute="centerX" id="TTV-rU-ksY"/>
-                            <constraint firstItem="3be-gP-yWr" firstAttribute="top" secondItem="Qff-Iy-J2H" secondAttribute="topMargin" id="Y5k-dy-gu6"/>
-                            <constraint firstItem="3be-gP-yWr" firstAttribute="leading" secondItem="Qff-Iy-J2H" secondAttribute="leading" constant="23" id="egF-Oi-fFL"/>
-                            <constraint firstItem="FiV-MR-7rh" firstAttribute="top" secondItem="zmL-qr-KzA" secondAttribute="bottom" constant="8" id="n2W-eL-tUG"/>
-                            <constraint firstItem="Aed-S5-iBq" firstAttribute="leading" secondItem="Qff-Iy-J2H" secondAttribute="leadingMargin" constant="-11" id="oTD-ag-JU3"/>
-                            <constraint firstItem="zmL-qr-KzA" firstAttribute="top" secondItem="Aed-S5-iBq" secondAttribute="bottom" constant="8" symbolic="YES" id="vFP-lp-tua"/>
-                            <constraint firstItem="Aed-S5-iBq" firstAttribute="trailing" secondItem="zmL-qr-KzA" secondAttribute="trailing" id="xKD-Se-08a"/>
+                            <constraint firstItem="aia-ou-5sy" firstAttribute="top" secondItem="UKQ-mD-EfB" secondAttribute="bottom" constant="18" id="0Pg-dV-OaJ"/>
+                            <constraint firstItem="UKQ-mD-EfB" firstAttribute="top" secondItem="FiV-MR-7rh" secondAttribute="bottom" constant="8" symbolic="YES" id="0V5-NA-Aio"/>
+                            <constraint firstItem="aia-ou-5sy" firstAttribute="leading" secondItem="Qff-Iy-J2H" secondAttribute="leadingMargin" constant="71" id="2dz-Ft-eun"/>
+                            <constraint firstItem="UKQ-mD-EfB" firstAttribute="centerX" secondItem="aia-ou-5sy" secondAttribute="centerX" id="3iD-ZH-rRd"/>
+                            <constraint firstItem="zmL-qr-KzA" firstAttribute="centerX" secondItem="FiV-MR-7rh" secondAttribute="centerX" id="C0P-fF-E4e"/>
+                            <constraint firstItem="3be-gP-yWr" firstAttribute="centerX" secondItem="Aed-S5-iBq" secondAttribute="centerX" id="Diy-dA-sGW"/>
+                            <constraint firstItem="3be-gP-yWr" firstAttribute="top" secondItem="Qff-Iy-J2H" secondAttribute="top" id="FMG-Ra-Bkf"/>
+                            <constraint firstItem="aia-ou-5sy" firstAttribute="centerX" secondItem="Qff-Iy-J2H" secondAttribute="centerX" id="Gs5-lX-0rk"/>
+                            <constraint firstItem="zmL-qr-KzA" firstAttribute="leading" secondItem="FiV-MR-7rh" secondAttribute="leading" id="I3f-s6-83n"/>
+                            <constraint firstItem="3be-gP-yWr" firstAttribute="leading" secondItem="Qff-Iy-J2H" secondAttribute="leadingMargin" constant="7" id="IXS-NH-0kf"/>
+                            <constraint firstItem="Aed-S5-iBq" firstAttribute="top" secondItem="3be-gP-yWr" secondAttribute="bottom" constant="5" id="IrG-pn-jBr"/>
+                            <constraint firstItem="FiV-MR-7rh" firstAttribute="trailing" secondItem="UKQ-mD-EfB" secondAttribute="trailing" id="Rr2-eR-82B"/>
+                            <constraint firstItem="FiV-MR-7rh" firstAttribute="leading" secondItem="UKQ-mD-EfB" secondAttribute="leading" id="W5n-XJ-EVu"/>
+                            <constraint firstItem="zmL-qr-KzA" firstAttribute="top" secondItem="Aed-S5-iBq" secondAttribute="bottom" constant="8" symbolic="YES" id="XDi-rh-Rib"/>
+                            <constraint firstItem="Aed-S5-iBq" firstAttribute="leading" secondItem="Qff-Iy-J2H" secondAttribute="leadingMargin" constant="-11" id="dfd-sL-VSZ"/>
+                            <constraint firstItem="FiV-MR-7rh" firstAttribute="top" secondItem="zmL-qr-KzA" secondAttribute="bottom" constant="8" symbolic="YES" id="gOp-He-dCS"/>
+                            <constraint firstItem="Aed-S5-iBq" firstAttribute="leading" secondItem="zmL-qr-KzA" secondAttribute="leading" id="h3L-Zo-B3U"/>
+                            <constraint firstItem="h4V-g3-eOR" firstAttribute="top" secondItem="aia-ou-5sy" secondAttribute="bottom" constant="83" id="kel-qb-tpc"/>
+                            <constraint firstItem="Aed-S5-iBq" firstAttribute="trailing" secondItem="zmL-qr-KzA" secondAttribute="trailing" id="yD8-0r-Ct6"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -124,6 +132,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="faceLogin" width="713" height="150"/>
         <image name="logoCarSocial" width="182" height="124"/>
     </resources>
 </document>
