@@ -61,7 +61,7 @@ class PostTabbleCellView: UITableViewCell {
         likeImage.isHidden = false
         likeImage.alpha = 1.0
         likeImage.alpha = 0.8
-        UIImageView.animate(withDuration: 1.0, delay: 0.5, options: .curveEaseIn, animations: {
+        UIImageView.animate(withDuration: 1.5, delay: 0, options: .curveEaseIn, animations: {
             self.likeImage.alpha = 0
             self.likeImage.alpha = 1.0
             }, completion: { (value:Bool) in

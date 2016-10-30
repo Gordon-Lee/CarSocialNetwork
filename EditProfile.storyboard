@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ok4-6k-vnK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ok4-6k-vnK">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -26,28 +30,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CVj-SM-LQW">
-                                <frame key="frameInset" minX="67" minY="82" width="240" height="240"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CVj-SM-LQW">
+                                <rect key="frame" x="67" y="82" width="240" height="240"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="2pH-Ra-nL9"/>
+                                    <constraint firstAttribute="height" constant="240" id="RAo-U2-aQ7"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VyI-qz-JLP">
-                                <frame key="frameInset" minX="263" minY="283" width="32" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VyI-qz-JLP">
+                                <rect key="frame" x="263" y="283" width="32" height="28"/>
                                 <state key="normal" image="camera"/>
                                 <connections>
                                     <action selector="fusumaCamera:" destination="zfO-bj-ZIh" eventType="touchUpInside" id="hHH-fM-svI"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOs-Fy-U1Z">
-                                <frame key="frameInset" minX="16" minY="355" width="343" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOs-Fy-U1Z">
+                                <rect key="frame" x="16" y="355" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v78-MI-fa7">
+                                <rect key="frame" x="16" y="384" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HOs-Fy-U1Z" firstAttribute="top" secondItem="CVj-SM-LQW" secondAttribute="bottom" constant="33" id="3ei-AB-Aod"/>
+                            <constraint firstItem="v78-MI-fa7" firstAttribute="top" secondItem="HOs-Fy-U1Z" secondAttribute="bottom" constant="8" symbolic="YES" id="BVr-Rx-dQJ"/>
+                            <constraint firstItem="CVj-SM-LQW" firstAttribute="centerX" secondItem="HOs-Fy-U1Z" secondAttribute="centerX" id="D4Q-BH-tPP"/>
+                            <constraint firstItem="HOs-Fy-U1Z" firstAttribute="top" secondItem="VyI-qz-JLP" secondAttribute="bottom" constant="44" id="DIt-h5-fCA"/>
+                            <constraint firstItem="HOs-Fy-U1Z" firstAttribute="leading" secondItem="v78-MI-fa7" secondAttribute="leading" id="Icy-lD-QCI"/>
+                            <constraint firstItem="VyI-qz-JLP" firstAttribute="top" secondItem="ZEu-MH-hoJ" secondAttribute="bottom" constant="219" id="SJ3-Ct-xsr"/>
+                            <constraint firstItem="CVj-SM-LQW" firstAttribute="top" secondItem="ZEu-MH-hoJ" secondAttribute="bottom" constant="18" id="ekg-WA-2m3"/>
+                            <constraint firstItem="HOs-Fy-U1Z" firstAttribute="trailing" secondItem="ILo-bh-dZC" secondAttribute="trailingMargin" id="jnY-9z-e7q"/>
+                            <constraint firstItem="HOs-Fy-U1Z" firstAttribute="leading" secondItem="ILo-bh-dZC" secondAttribute="leadingMargin" id="r3U-at-NhP"/>
+                            <constraint firstItem="CVj-SM-LQW" firstAttribute="leading" secondItem="ILo-bh-dZC" secondAttribute="leadingMargin" constant="51" id="smw-T1-y39"/>
+                            <constraint firstItem="HOs-Fy-U1Z" firstAttribute="trailing" secondItem="v78-MI-fa7" secondAttribute="trailing" id="tR7-fa-IW3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VyI-qz-JLP" secondAttribute="trailing" constant="64" id="zvZ-Ov-IaU"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="moQ-Od-P3N">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="mew-62-CZQ">
@@ -58,9 +83,14 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="yLS-ZK-Qvq">
                             <color key="tintColor" red="0.2166439295" green="0.58256053919999995" blue="0.86920100450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="saveEdit:" destination="zfO-bj-ZIh" id="SNg-hg-8be"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="TopLabel" destination="HOs-Fy-U1Z" id="aJ4-Vh-47Q"/>
+                        <outlet property="middleLabel" destination="v78-MI-fa7" id="xa0-NZ-wYX"/>
                         <outlet property="saveButton" destination="yLS-ZK-Qvq" id="kzl-B0-cJX"/>
                         <outlet property="userImage" destination="CVj-SM-LQW" id="Q7n-Mv-H2x"/>
                     </connections>

@@ -37,11 +37,11 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         nibCell()
         loadData()
-        loadUsrData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        loadUsrData()
         configView()
     }
     

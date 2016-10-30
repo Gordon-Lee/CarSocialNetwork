@@ -40,6 +40,8 @@ class Usr {
 //        })
 //    }
     
+    init() { }
+    
     init(obejctId: String?, username: String?, email: String?, thumbImage: PFFile?, photo: PFFile?) {
         self.objId = obejctId
         self.userName = username
