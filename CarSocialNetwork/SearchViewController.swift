@@ -117,7 +117,7 @@ extension SearchViewController {
         
         navigationController?.setNavigationBarHidden(!show, animated: true)
         
-        guard show else {
+        if show {
             navigationController?.navigationBar.topItem?.title = "Eventos"
             //navigationItem.rightBarButtonItem = addButtonNavigation()
             return

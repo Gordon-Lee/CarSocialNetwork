@@ -9,6 +9,11 @@
 import UIKit
 import Parse
 
+protocol PostTableViewDelegate: class {
+    func didTapProfile()
+    func likePhoto()
+}
+
 class PostTabbleCellView: UITableViewCell {
     
     static let nibName = "PostCellView"
@@ -22,11 +27,12 @@ class PostTabbleCellView: UITableViewCell {
     @IBOutlet weak var likeImage: UIImageView!
     @IBOutlet weak var like: UIButton!
     
-    var user: PFUser!
+    var delegate: PostTableViewDelegate!
     
     override func awakeFromNib() {
         setupTap()
         circleProfilePhoto()
+        setButtonsImage()
     }
     
     fileprivate func setupTap() {
@@ -34,7 +40,9 @@ class PostTabbleCellView: UITableViewCell {
         likeImage.alpha = 0.6
         let gesture = UITapGestureRecognizer(target: self, action: #selector(PostTabbleCellView.doubleTap(_:)))
         gesture.numberOfTapsRequired = 2
-        self.addGestureRecognizer(gesture)
+        gesture.delegate = self
+        postImage.isUserInteractionEnabled = true
+        postImage.addGestureRecognizer(gesture)
     }
     
     fileprivate func circleProfilePhoto(){
@@ -44,14 +52,24 @@ class PostTabbleCellView: UITableViewCell {
         thumbPhoto.layer.masksToBounds = true
     }
     
-    func doubleTap(_ sender: AnyObject) {
+    fileprivate func setButtonsImage() {
+        like.setImage(UIImage(named: "steeringNofiled"), for: .normal)
+        like.setImage(UIImage(named: "steering"), for: .selected)
+    }
+    
+    func doubleTap(_ sender: UITapGestureRecognizer? = nil) {
         likeImage.isHidden = false
         likeImage.alpha = 1.0
-        print(user.objectId!)
+        likeImage.alpha = 0.8
         UIImageView.animate(withDuration: 1.0, delay: 0.5, options: .curveEaseIn, animations: {
             self.likeImage.alpha = 0
+            self.likeImage.alpha = 1.0
             }, completion: { (value:Bool) in
             self.likeImage.isHidden = true
+            if !self.like.isSelected {
+                self.like.isSelected = true
+                self.delegate?.likePhoto()
+            }
         })
     }
 }

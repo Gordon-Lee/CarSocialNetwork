@@ -42,6 +42,9 @@ class HomeViewController: UIViewController {
         }
     }
     
+    var userId: PFUser!
+    var image: Photo!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
@@ -60,6 +63,9 @@ class HomeViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         shyNavBarManager.disable = true
     }
+}
+//MARK: Parse FUNCTIONS
+extension HomeViewController {
     
     fileprivate func configView() {
         UIApplication.shared.statusBarStyle = .default
@@ -92,10 +98,7 @@ class HomeViewController: UIViewController {
         cell.layoutMargins = UIEdgeInsets.zero
         cell.backgroundColor = AppCongifuration.lightGrey()
     }
-}
-//MARK: Parse FUNCTIONS
-extension HomeViewController {
-    
+    //PARSE
     fileprivate func loadData() {
         SVProgressHUD.show()
         
@@ -107,7 +110,7 @@ extension HomeViewController {
         
         queryActivy?.includeKey("image")
         queryActivy?.whereKey(Activity.typeaString, equalTo: activityType.post.rawValue)
-        
+        queryActivy?.whereKey(Activity.typeaString, equalTo: activityType.like.rawValue)
         queryPh?.findObjectsInBackground(block: { (photos, error) in
             guard error != nil else {
                 self.photoToShow = photos as! [Photo]
@@ -156,9 +159,12 @@ extension HomeViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: PostTabbleCellView.identifier) as! PostTabbleCellView
         
+        cell.delegate = self
+        
         photoToShow[indexPath.row].image.getDataInBackground { (img, error) in
             if let image = UIImage(data: img!) {
                 cell.postImage.image = image
+                cell.like.isSelected = self.isLiked(imageId: self.photoToShow[indexPath.row].objectId!)
             }
         }
         
@@ -170,12 +176,21 @@ extension HomeViewController: UITableViewDataSource {
             }
         }
         
-        cell.user = photoToShow[indexPath.row].owner
+        //xcell.user = photoToShow[indexPath.row].owner
         cell.ownerName.text = userName(id: photoToShow[indexPath.row].owner)
         cell.photoDescription.text = showDescription(photoToShow[indexPath.row].objectId!)
         setupCell(cell: cell)
         
         return cell
+    }
+    
+    fileprivate func isLiked(imageId: String) -> Bool {
+        for a in activity {
+            if a.activityType == activityType.like.rawValue && a.image.objectId == imageId {
+                return true
+            }
+        }
+        return false
     }
     
     fileprivate func userName(id: PFUser) -> String {
@@ -200,4 +215,27 @@ extension HomeViewController: UITableViewDelegate, UIScrollViewDelegate {
     @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return PostTabbleCellView.rowHeight
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("SELECTED ROW")
+        print(indexPath.row)
+        print(photoToShow[indexPath.row].owner.objectId!)
+        userId = photoToShow[indexPath.row].owner
+        image = photoToShow[indexPath.row]
+    }
+}
+
+extension HomeViewController: PostTableViewDelegate {
+    func didTapProfile() {
+        
+    }
+    func likePhoto() {
+        let actv = Activity()
+        actv.fromUser = PFUser.current()!
+        actv.toUser = userId
+        actv.activityType = activityType.like.rawValue
+        actv.image = image
+        actv.saveInBackground()
+    }
+    
 }
