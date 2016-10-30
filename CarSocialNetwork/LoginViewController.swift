@@ -7,6 +7,8 @@
 
 import UIKit
 import Parse
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 protocol LoginViewControllerDelegate: class {
     func didTapCancelButton()
@@ -19,6 +21,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var userNameTxt: UITextField!
     @IBOutlet weak var passWordTxt: UITextField!
+    @IBOutlet weak var loginFSBK: FBSDKLoginButton!
     
     override func viewDidLoad() {
         calculateSubviewsFrame()

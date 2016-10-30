@@ -28,6 +28,12 @@
 		66A689401DB2825B00C7AE90 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A6893F1DB2825B00C7AE90 /* UIImageExtensions.swift */; };
 		66A689421DB286F700C7AE90 /* BrandSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A689411DB286F700C7AE90 /* BrandSelectionView.swift */; };
 		66A689441DB293FC00C7AE90 /* FusumaConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A689431DB293FC00C7AE90 /* FusumaConfig.swift */; };
+		66B046441DC61F440090E7D8 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B046401DC61F440090E7D8 /* Bolts.framework */; };
+		66B046451DC61F440090E7D8 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B046411DC61F440090E7D8 /* FBSDKCoreKit.framework */; };
+		66B046461DC61F440090E7D8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B046421DC61F440090E7D8 /* FBSDKLoginKit.framework */; };
+		66B046471DC61F440090E7D8 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B046431DC61F440090E7D8 /* FBSDKShareKit.framework */; };
+		66B046491DC626F10090E7D8 /* FBAudienceNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B046481DC626F10090E7D8 /* FBAudienceNetwork.framework */; };
+		66B0464B1DC627910090E7D8 /* FacebookSDKStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 66B0464A1DC627910090E7D8 /* FacebookSDKStrings.bundle */; };
 		66E0D0201DB7F762001F5A0F /* UserActivity.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66E0D01F1DB7F762001F5A0F /* UserActivity.xib */; };
 		66E0D0241DB7F851001F5A0F /* UserActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E0D0231DB7F851001F5A0F /* UserActivityTableViewCell.swift */; };
 		A91717211D6666760011A524 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91717201D6666760011A524 /* Queue.swift */; };
@@ -89,6 +95,12 @@
 		66A6893F1DB2825B00C7AE90 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		66A689411DB286F700C7AE90 /* BrandSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandSelectionView.swift; sourceTree = "<group>"; };
 		66A689431DB293FC00C7AE90 /* FusumaConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FusumaConfig.swift; sourceTree = "<group>"; };
+		66B046401DC61F440090E7D8 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		66B046411DC61F440090E7D8 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		66B046421DC61F440090E7D8 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		66B046431DC61F440090E7D8 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		66B046481DC626F10090E7D8 /* FBAudienceNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBAudienceNetwork.framework; sourceTree = "<group>"; };
+		66B0464A1DC627910090E7D8 /* FacebookSDKStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKStrings.bundle; sourceTree = "<group>"; };
 		66E0D01F1DB7F762001F5A0F /* UserActivity.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserActivity.xib; sourceTree = "<group>"; };
 		66E0D0231DB7F851001F5A0F /* UserActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserActivityTableViewCell.swift; sourceTree = "<group>"; };
 		6B02B8E240BA6D7EB0A5738F /* Pods-CarSocialNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarSocialNetwork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarSocialNetwork/Pods-CarSocialNetwork.debug.xcconfig"; sourceTree = "<group>"; };
@@ -138,7 +150,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66B046441DC61F440090E7D8 /* Bolts.framework in Frameworks */,
+				66B046451DC61F440090E7D8 /* FBSDKCoreKit.framework in Frameworks */,
+				66B046471DC61F440090E7D8 /* FBSDKShareKit.framework in Frameworks */,
+				66B046461DC61F440090E7D8 /* FBSDKLoginKit.framework in Frameworks */,
 				A9E4D6D41D5D3B8D00FD6873 /* Parse.framework in Frameworks */,
+				66B046491DC626F10090E7D8 /* FBAudienceNetwork.framework in Frameworks */,
 				3B1BAA72DEA1F7598916DE58 /* Pods_CarSocialNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,6 +231,12 @@
 		71E61D4A56B614CA355A389B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				66B0464A1DC627910090E7D8 /* FacebookSDKStrings.bundle */,
+				66B046481DC626F10090E7D8 /* FBAudienceNetwork.framework */,
+				66B046401DC61F440090E7D8 /* Bolts.framework */,
+				66B046411DC61F440090E7D8 /* FBSDKCoreKit.framework */,
+				66B046421DC61F440090E7D8 /* FBSDKLoginKit.framework */,
+				66B046431DC61F440090E7D8 /* FBSDKShareKit.framework */,
 				A9E4D6D31D5D3B8D00FD6873 /* Parse.framework */,
 				99FD3D2E6D198E7438282593 /* Pods_CarSocialNetwork.framework */,
 			);
@@ -475,6 +498,7 @@
 				A97EA6961D884AB90037E25A /* InicialTutorial.storyboard in Resources */,
 				A99F9E6B1D78DA7000059F1A /* NewMember.xib in Resources */,
 				A9E4D6C71D5D32CF00FD6873 /* LaunchScreen.storyboard in Resources */,
+				66B0464B1DC627910090E7D8 /* FacebookSDKStrings.bundle in Resources */,
 				666B93551DB29BA0008D6F44 /* FinishedCarRegister.xib in Resources */,
 				A98A72C91D85891C0044238A /* PostCellView.xib in Resources */,
 			);
@@ -684,7 +708,10 @@
 				CODE_SIGN_ENTITLEMENTS = CarSocialNetwork/CarSocialNetwork.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = CarSocialNetwork/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -704,7 +731,10 @@
 				CODE_SIGN_ENTITLEMENTS = CarSocialNetwork/CarSocialNetwork.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = CarSocialNetwork/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -20,6 +20,28 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>2</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>fb995722197151562</string>
+            </array>
+        </dict>
+    </array>
+    <key>FacebookAppID</key>
+    <string>995722197151562</string>
+    <key>FacebookDisplayName</key>
+    <string>Car Social App</string>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>fbapi</string>
+        <string>fb-messenger-api</string>
+        <string>fbauth2</string>
+        <string>fbshareextension</string>
+    </array>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>This app requires access to the photo library.</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
@@ -41,5 +63,6 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
+    
 </dict>
 </plist>
