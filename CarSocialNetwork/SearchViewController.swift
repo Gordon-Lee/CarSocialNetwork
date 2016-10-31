@@ -10,8 +10,19 @@ import UIKit
 import Parse
 import SVProgressHUD
 
-enum dataToDisplay {
+enum dataToDisplay: Int {
     case car, events, people
+    
+    var asString: String {
+        switch self {
+        case .car:
+            return "Carro"
+        case .events:
+            return "Eventos"
+        case .people:
+            return "Pessoas"
+        }
+    }
 }
 
 class SearchViewController: UIViewController {
@@ -47,7 +58,8 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var buttonStand: UIView!
     
     var dataDisplay : dataToDisplay = .events
-
+    fileprivate var userSelected: Usr!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         nibCell()
@@ -185,6 +197,7 @@ extension SearchViewController {
 extension SearchViewController {
     @IBAction func showTableViewPeople(_ sender: AnyObject) {
         dataDisplay = .people
+        title = "Pessoas"
         showNavigation()
         setScopeBar(display: dataDisplay)
         tableView.reloadData()
@@ -259,10 +272,12 @@ extension SearchViewController: UITableViewDataSource {
         
         switch dataDisplay {
         case .car:
+            
             carData(cell: cell, row: indexPath.row)
         case .events:
             eventsData(cell: cell, row: indexPath.row)
         case .people:
+            cell.delegate = self
             peopleData(cell: cell, row: indexPath.row)
         }
         return cell
@@ -313,6 +328,19 @@ extension SearchViewController: UITableViewDelegate {
         return 1
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch dataDisplay {
+        case .people:
+            userSelected = peoples[indexPath.row]
+            print("USER SELECTED \(userSelected)")
+            didTapToShowSeletedProfile()
+        case .car:
+            break
+        case .events:
+            break
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch dataDisplay {
         case .car:
@@ -325,5 +353,15 @@ extension SearchViewController: UITableViewDelegate {
             let countPeople = searchController.isActive && searchController.searchBar.text != "" ? filteredPeople.count : peoples.count
             return countPeople
         }
+    }
+}
+
+extension SearchViewController: SearchTableViewDelegate {
+    func didTapToShowSeletedProfile() {
+        let sb = UIStoryboard(name: "Show", bundle: Bundle.main)
+      let vc = sb.instantiateViewController(withIdentifier: ShowProfileViewController.identifier)
+        //let vc = sb.instantiateInitialViewController() as! ShowProfileViewController
+        userShow = userSelected
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

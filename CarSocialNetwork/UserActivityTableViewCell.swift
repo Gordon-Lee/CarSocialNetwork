@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class UserActivityTableViewCell: UITableViewCell {
     
     static let nibName = "UserActivity"
@@ -16,8 +18,12 @@ class UserActivityTableViewCell: UITableViewCell {
     @IBOutlet weak var actvDescription: UILabel!
     @IBOutlet weak var imageUser: UIImageView!
     
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+     
     }
+    
+  
 }

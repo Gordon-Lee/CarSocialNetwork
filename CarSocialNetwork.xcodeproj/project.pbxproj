@@ -207,10 +207,18 @@
 		66A392451DC7744D006C0399 /* Show */ = {
 			isa = PBXGroup;
 			children = (
+				66A3924C1DC7816A006C0399 /* Profile */,
 				66A392461DC77589006C0399 /* Show.storyboard */,
 				66A3924A1DC7778A006C0399 /* ShowProfileViewController.swift */,
 			);
 			name = Show;
+			sourceTree = "<group>";
+		};
+		66A3924C1DC7816A006C0399 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Profile;
 			sourceTree = "<group>";
 		};
 		66A689351DB27D0200C7AE90 /* Car */ = {

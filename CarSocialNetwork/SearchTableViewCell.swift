@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SearchTableViewDelegate: class {
+    func didTapToShowSeletedProfile()
+}
+
 class SearchTableViewCell: UITableViewCell {
     
     static let xibName = "SearchResult"
@@ -19,9 +23,11 @@ class SearchTableViewCell: UITableViewCell {
     @IBOutlet weak var subject: UILabel!
     @IBOutlet weak var year: UILabel!
     
+    var delegate: SearchTableViewDelegate!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        //setupTap()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -30,4 +36,18 @@ class SearchTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    fileprivate func setupTap() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(SearchTableViewCell.showProfileTap(_:)))
+        gesture.numberOfTapsRequired = 1
+        gesture.delegate = self
+        searchIMG.isUserInteractionEnabled = true
+        searchIMG.addGestureRecognizer(gesture)
+    }
+    
+    
+    func showProfileTap(_ sender: UITapGestureRecognizer? = nil) {
+        print("SHOWWWW")
+        delegate?.didTapToShowSeletedProfile()
+    }
+    
 }
