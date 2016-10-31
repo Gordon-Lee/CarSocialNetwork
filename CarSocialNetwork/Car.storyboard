@@ -113,14 +113,6 @@
             </objects>
             <point key="canvasLocation" x="415" y="159"/>
         </scene>
-        <!--ProfileViewController-->
-        <scene sceneID="QJv-2e-Pg3">
-            <objects>
-                <viewControllerPlaceholder storyboardName="HomePage" bundleIdentifier="a" referencedIdentifier="ProfileViewController" id="mxV-Hf-5lZ" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qfx-uR-HUI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="747" y="604"/>
-        </scene>
     </scenes>
     <resources>
         <image name="camera" width="32" height="28"/>

@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
     fileprivate var resultName: String!
     fileprivate var thumbImage: PFFile!
     
-    fileprivate var users: [User]!
+    //fileprivate var users: [User]!
     
     fileprivate var usr = [Usr]() {
         didSet {
@@ -109,8 +109,8 @@ extension HomeViewController {
         queryPh?.addDescendingOrder("createdAt")
         
         queryActivy?.includeKey("image")
-        queryActivy?.whereKey(Activity.typeaString, equalTo: activityType.post.rawValue)
-        queryActivy?.whereKey(Activity.typeaString, equalTo: activityType.like.rawValue)
+        //queryActivy?.whereKey(Activity.typeaString, equalTo: activityType.post.rawValue)
+        //queryActivy?.whereKey(Activity.typeaString, equalTo: activityType.like.rawValue)
         queryPh?.findObjectsInBackground(block: { (photos, error) in
             guard error != nil else {
                 self.photoToShow = photos as! [Photo]
@@ -146,6 +146,7 @@ extension HomeViewController {
     fileprivate func showDescription(_ photoId: String) -> String {
         for act in activity {
             if act.image.objectId == photoId {
+                print(act.content)
                 return act.content
             }
         }
@@ -178,7 +179,7 @@ extension HomeViewController: UITableViewDataSource {
         
         //cell.user = photoToShow[indexPath.row].owner
         cell.ownerName.text = userName(id: photoToShow[indexPath.row].owner)
-        cell.photoDescription.text = showDescription(photoToShow[indexPath.row].objectId!)
+        cell.postDescription.text = showDescription(photoToShow[indexPath.row].objectId!)
         setupCell(cell: cell)
         
         return cell

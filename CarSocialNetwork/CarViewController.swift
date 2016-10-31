@@ -12,7 +12,7 @@ import Parse
 import SVProgressHUD
 
 enum howView {
-    case save, inicial
+    case edit, show
 }
 
 class CarViewController: UIViewController {
@@ -86,10 +86,6 @@ extension CarViewController {
         subviewsFrame = CGRect(x: viewOrigin.x, y: newY, width: viewFrame.width, height: newHeight)
     }
     
-    fileprivate func showFusuma() {
-        present(fus, animated: true, completion: nil)
-    }
-    
     fileprivate func dissmisView() {
         self.dismiss(animated: true, completion: nil)
     }
@@ -110,7 +106,7 @@ extension CarViewController {
     }
     
     @IBAction func fusuma(_ sender: Any) {
-        showFusuma()
+            present(fus, animated: true, completion: nil)
     }
 }
 
@@ -121,13 +117,10 @@ extension CarViewController : FusumaDelegate {
     }
     
     func fusumaDismissedWithImage(_ image: UIImage) {
-        print("Called just after FusumaViewController is dismissed.")
-        
         self.image.image = image
         carToSave.owner = PFUser.current()!
         carToSave.thumbImage = PFFile(data: AdjustPhoto.uploadToPhoto(image, type: .thumb))!
         carToSave.image = PFFile(data: AdjustPhoto.uploadToPhoto(image, type: .normal))!
-        //loadFinishedRegister()
     }
     
     func fusumaVideoCompleted(withFileURL fileURL: URL) {
@@ -138,18 +131,3 @@ extension CarViewController : FusumaDelegate {
         print("Camera roll unauthorized")
     }
 }
-
-//extension CarViewController: BrandSelectionDelegate {
-//    func didTapSelectionPhoto(car: Car) {
-//        viewTo = .save
-//        carToSave = car
-//        showFusuma()
-//    }
-//}
-//
-//extension CarViewController: FinishedCarDelegate {
-//    func didFinishedCarRegister() {
-//        carToSave.saveInBackground()
-//        self.dismiss(animated: true, completion: nil)
-//    }
-//}

@@ -20,7 +20,8 @@ class PostTabbleCellView: UITableViewCell {
     static let identifier = "postCell"
     static let rowHeight = 600 as CGFloat
     
-    @IBOutlet weak var photoDescription: UITextField!
+    
+    @IBOutlet weak var postDescription: UILabel!
     @IBOutlet weak var thumbPhoto: UIImageView!
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var ownerName: UILabel!
