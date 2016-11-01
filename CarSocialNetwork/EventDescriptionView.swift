@@ -39,20 +39,20 @@ class EventDescriptionView: UIView {
     }
  
     @IBAction func eventRegister(_ sender: AnyObject) {
-        delegate?.saveEvent(event: Events(onwer: PFUser.current()!,
-                                          name: name.text!,
-                                          eventDescription: eventDescription.text!,
-                                          image: PFFile(data: AdjustPhoto.uploadToPhoto(eventImage.image!, type: .normal))!))
+//        delegate?.saveEvent(event: Events(onwer: PFUser.current()!,
+//                                          name: name.text!,
+//                                          eventDescription: eventDescription.text!,
+//                                          image: PFFile(data: AdjustPhoto.uploadToPhoto(eventImage.image!, type: .normal))!))
     }
     
     @IBAction func cancelEventRegister(_ sender: AnyObject) {
     }
     
     fileprivate func saveEnvet() {
-        let sv = Events(onwer: PFUser.current()!,
-                          name: name.text!,
-                          eventDescription: eventDescription.text!,
-                          image: PFFile(data: AdjustPhoto.uploadToPhoto(eventImage.image!, type: .normal))!)
-        sv.saveInBackground()
+//        let sv = Events(onwer: PFUser.current()!,
+//                          name: name.text!,
+//                          eventDescription: eventDescription.text!,
+//                          image: PFFile(data: AdjustPhoto.uploadToPhoto(eventImage.image!, type: .normal))!)
+    //    sv.saveInBackground()
     }
 }

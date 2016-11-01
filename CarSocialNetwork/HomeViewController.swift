@@ -42,8 +42,8 @@ class HomeViewController: UIViewController {
         }
     }
     
-    var userId: PFUser!
-    var image: Photo!
+    var userId = PFUser()
+    var image = Photo()
     
     override func viewDidLoad() {
         super.viewDidLoad()

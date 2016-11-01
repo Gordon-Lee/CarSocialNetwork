@@ -35,9 +35,6 @@ class SearchViewController: UIViewController {
     fileprivate var events = [Events]()  {
         didSet {
             tableView.reloadData()
-            for ev in events {
-                print("FOORR \(ev.eventDescription)")
-            }
         }
     }
     fileprivate var peoples = [Usr]()  {
@@ -131,14 +128,17 @@ extension SearchViewController {
         
         if show {
             navigationController?.navigationBar.topItem?.title = "Eventos"
-            //navigationItem.rightBarButtonItem = addButtonNavigation()
+            navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(SearchViewController.newEvent))
             return
         }
     }
     
-//    fileprivate func addButtonNavigation() -> UIBarButtonItem {
-//        
-//    }
+    func newEvent() {
+        let sb = UIStoryboard(name: EventsViewController.identifier, bundle: Bundle.main)
+        let vc = sb.instantiateInitialViewController() as! EventsViewController
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
 
     fileprivate func nibCell() {
         let nibCell = UINib(nibName: SearchTableViewCell.xibName, bundle: Bundle.main)
@@ -360,7 +360,6 @@ extension SearchViewController: SearchTableViewDelegate {
     func didTapToShowSeletedProfile() {
         let sb = UIStoryboard(name: "Show", bundle: Bundle.main)
       let vc = sb.instantiateViewController(withIdentifier: ShowProfileViewController.identifier)
-        //let vc = sb.instantiateInitialViewController() as! ShowProfileViewController
         userShow = userSelected
         navigationController?.pushViewController(vc, animated: true)
     }

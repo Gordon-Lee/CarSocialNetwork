@@ -15,19 +15,24 @@ class Events: PFObject, PFSubclassing {
     @NSManaged var eventDescription: String
     @NSManaged var local: String
     @NSManaged var cidade: String
-    @NSManaged var Estado: String
+    @NSManaged var estado: String
     @NSManaged var startDate: Date
     @NSManaged var endDate: Date
     @NSManaged var image: PFFile
     
     override init() { super.init() }
     
-    init(onwer: PFUser, name: String, eventDescription: String, image: PFFile) {
+    init(onwer: PFUser,
+         name: String, eventDescription: String,
+         image: PFFile, local: String, cidade: String, estado: String) {
         super.init()
         self.onwer = onwer
         self.name = name
         self.eventDescription = eventDescription
         self.image = image
+        self.local = local
+        self.cidade = cidade
+        self.estado = estado
     }
     
     static func parseClassName() -> String {

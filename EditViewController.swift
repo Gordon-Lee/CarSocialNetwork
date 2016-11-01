@@ -69,6 +69,9 @@ extension EditViewController {
     }
     
     fileprivate func configView() {
+        fusuma = FusumaViewController()
+        FusumaConfig.defaultCfg()
+        fusuma.delegate = self
         UIApplication.shared.statusBarStyle = .default
         view.backgroundColor = AppCongifuration.lightGrey()
         
@@ -85,8 +88,8 @@ extension EditViewController {
         dissmissView()
     }
     @IBAction func fusumaCamera(_ sender: AnyObject) {
-        fusuma = FusumaViewController()
-        fusuma.delegate = self
+        //fusuma = FusumaViewController()
+        
         present(fusuma, animated: true, completion: nil)
     }
     @IBAction func saveEdit(_ sender: Any) {
@@ -101,9 +104,7 @@ extension EditViewController {
                 }
             })
         }
-        
     }
-    
 }
 
 extension EditViewController: FusumaDelegate {
