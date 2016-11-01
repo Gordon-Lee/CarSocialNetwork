@@ -9,6 +9,7 @@
 import UIKit
 import Fusuma
 import Parse
+import SVProgressHUD
 
 class EditViewController: UIViewController {
     
@@ -94,13 +95,15 @@ extension EditViewController {
     }
     @IBAction func saveEdit(_ sender: Any) {
         
+        SVProgressHUD.show()
         if let cuser = PFUser.current() {
             cuser["profileImage"] =  PFFile(data: AdjustPhoto.uploadToPhoto(userImage.image!, type: .normal))!
             cuser["thumbImage"] = PFFile(data: AdjustPhoto.uploadToPhoto(userImage.image!, type: .thumb))!
             
             cuser.saveInBackground(block: { (bool, error) in
                 if bool {
-                    self.dissmissView()
+                    SVProgressHUD.dismiss()
+                    self.dismiss(animated: true, completion: nil)
                 }
             })
         }

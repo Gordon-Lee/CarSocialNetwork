@@ -197,7 +197,6 @@ extension SearchViewController {
 extension SearchViewController {
     @IBAction func showTableViewPeople(_ sender: AnyObject) {
         dataDisplay = .people
-        title = "Pessoas"
         showNavigation()
         setScopeBar(display: dataDisplay)
         tableView.reloadData()
