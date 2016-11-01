@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -12,28 +16,60 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wC-gK-DIY">
-                    <frame key="frameInset" minX="98" minY="38" width="211" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wC-gK-DIY">
+                    <rect key="frame" x="98" y="38" width="211" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0bQ-Cg-E4R" customClass="DefaultSettings" customModule="CarSocialNetwork" customModuleProvider="target">
+                    <rect key="frame" x="10" y="8" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="ZN8-nd-KIh"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3AA-y8-JhC">
+                    <rect key="frame" x="323" y="27" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="eXC-dB-EgW"/>
+                    </constraints>
+                    <state key="normal" image="steeringNofiled"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4g-8J-MvW">
+                    <rect key="frame" x="323" y="79" width="44" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0bQ-Cg-E4R" customClass="DefaultSettings" customModule="CarSocialNetwork" customModuleProvider="target">
-                    <frame key="frameInset" minX="10" minY="8" width="80" height="80"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="5wC-gK-DIY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="144" id="8Vx-tu-94V"/>
-                <constraint firstItem="5wC-gK-DIY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="52" id="iaW-7u-TFs"/>
+                <constraint firstItem="5wC-gK-DIY" firstAttribute="leading" secondItem="0bQ-Cg-E4R" secondAttribute="trailing" constant="8" symbolic="YES" id="1s3-lY-tVw"/>
+                <constraint firstItem="3AA-y8-JhC" firstAttribute="leading" secondItem="k4g-8J-MvW" secondAttribute="leading" id="CBd-J8-fUb"/>
+                <constraint firstItem="5wC-gK-DIY" firstAttribute="centerY" secondItem="3AA-y8-JhC" secondAttribute="centerY" id="EQ1-Oy-mRD"/>
+                <constraint firstItem="3AA-y8-JhC" firstAttribute="trailing" secondItem="k4g-8J-MvW" secondAttribute="trailing" id="EZG-o6-vZ8"/>
+                <constraint firstItem="3AA-y8-JhC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="27" id="I03-Ua-a6a"/>
+                <constraint firstItem="3AA-y8-JhC" firstAttribute="leading" secondItem="5wC-gK-DIY" secondAttribute="trailing" constant="14" id="Jhv-sT-bO3"/>
+                <constraint firstAttribute="bottom" secondItem="0bQ-Cg-E4R" secondAttribute="bottom" constant="12" id="R4P-HX-Ihj"/>
+                <constraint firstItem="0bQ-Cg-E4R" firstAttribute="centerY" secondItem="5wC-gK-DIY" secondAttribute="centerY" id="UJ9-OW-8rH"/>
+                <constraint firstItem="0bQ-Cg-E4R" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="Yl0-ga-L4j"/>
+                <constraint firstItem="5wC-gK-DIY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="38" id="dp7-Fu-EgU"/>
+                <constraint firstItem="0bQ-Cg-E4R" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="lpa-fH-ztr"/>
+                <constraint firstAttribute="bottom" secondItem="k4g-8J-MvW" secondAttribute="bottom" id="mQ4-Kc-6gV"/>
+                <constraint firstItem="3AA-y8-JhC" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="xkh-2S-l3F"/>
+                <constraint firstItem="k4g-8J-MvW" firstAttribute="top" secondItem="3AA-y8-JhC" secondAttribute="bottom" constant="8" symbolic="YES" id="ymV-8R-p23"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="actvDescription" destination="5wC-gK-DIY" id="1do-rB-uSh"/>
                 <outlet property="imageUser" destination="0bQ-Cg-E4R" id="zYU-9d-3UM"/>
+                <outlet property="like" destination="3AA-y8-JhC" id="jKd-So-plj"/>
+                <outlet property="numberOfLikes" destination="k4g-8J-MvW" id="KP6-xg-qIv"/>
             </connections>
             <point key="canvasLocation" x="33.5" y="54"/>
         </view>
     </objects>
+    <resources>
+        <image name="steeringNofiled" width="50" height="50"/>
+    </resources>
 </document>

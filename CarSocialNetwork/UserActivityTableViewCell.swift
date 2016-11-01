@@ -17,13 +17,16 @@ class UserActivityTableViewCell: UITableViewCell {
     
     @IBOutlet weak var actvDescription: UILabel!
     @IBOutlet weak var imageUser: UIImageView!
-    
-    
+    @IBOutlet weak var like: UIButton!
+    @IBOutlet weak var numberOfLikes: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-     
+        setButtonsImage()
     }
     
-  
+    fileprivate func setButtonsImage() {
+        like.setImage(UIImage(named: "steeringNofiled"), for: .normal)
+        like.setImage(UIImage(named: "steering"), for: .selected)
+    }
 }

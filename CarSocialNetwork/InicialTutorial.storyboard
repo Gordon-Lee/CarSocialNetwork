@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DAy-zS-hBY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DAy-zS-hBY">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Title-->
+        <!--Car Social-->
         <scene sceneID="awT-Yc-Zxx">
             <objects>
                 <viewController id="dnX-b5-Zl9" sceneMemberID="viewController">
@@ -19,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TestInicial" translatesAutoresizingMaskIntoConstraints="NO" id="bFr-JV-pSG">
-                                <frame key="frameInset" minY="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -35,7 +38,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="epQ-Ah-1VJ">
+                    <navigationItem key="navigationItem" title="Car Social" id="epQ-Ah-1VJ">
                         <barButtonItem key="rightBarButtonItem" title="&gt;&gt;" id="lKx-96-fOE">
                             <connections>
                                 <segue destination="xNk-gv-9FL" kind="show" id="ya8-fH-576"/>
@@ -47,7 +50,7 @@
             </objects>
             <point key="canvasLocation" x="1412" y="420.53973013493254"/>
         </scene>
-        <!--View Controller-->
+        <!--Car Social-->
         <scene sceneID="C3t-i5-NBq">
             <objects>
                 <viewController id="xNk-gv-9FL" sceneMemberID="viewController">
@@ -60,16 +63,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TestInicial" translatesAutoresizingMaskIntoConstraints="NO" id="MSX-6E-zbu">
-                                <frame key="frameInset" minY="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Car Social" id="jNV-2r-L6H">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="RbX-lQ-PJr">
+                            <connections>
+                                <segue destination="nQh-Ud-vxl" kind="showDetail" id="ssL-n7-Nmc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5fZ-30-Nm7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2080.5" y="421"/>
+        </scene>
+        <!--LoginStory-->
+        <scene sceneID="xiU-zr-VHn">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LoginStory" id="nQh-Ud-vxl" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mTD-Xx-R67" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2654" y="351"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vO2-Ag-5JD">

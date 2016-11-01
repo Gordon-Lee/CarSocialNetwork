@@ -74,6 +74,7 @@ extension HomeViewController {
         
         navigationController?.navigationBar.barTintColor = AppCongifuration.lightGrey()
         navigationController?.navigationBar.topItem?.title = "Car Social"
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     

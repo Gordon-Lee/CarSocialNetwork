@@ -22,6 +22,8 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    fileprivate var userActivityLike = [Activity]()
+
     fileprivate var usr: Usr! {
         didSet {
             usr.thumbImage?.getDataInBackground(block: { (data, error) in
@@ -47,19 +49,20 @@ class ProfileViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
-        navigationController?.navigationBar.topItem?.title = "Ajustes"
     }
 }
 //MARK: Generic Methods / Actions
 extension ProfileViewController {
     
     fileprivate func configView() {
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         navigationController?.navigationBar.topItem?.title = "Perfil"
         navigationController?.setNavigationBarHidden(false, animated: true)
         view.backgroundColor = AppCongifuration.lightGrey()
     }
     
     @IBAction func settings(_ sender: AnyObject) {
+        
         let sb = UIStoryboard(name: EditViewController.identifier, bundle: Bundle.main)
         let vc = sb.instantiateInitialViewController() as! EditViewController
         navigationController?.pushViewController(vc, animated: true)
@@ -80,12 +83,25 @@ extension ProfileViewController {
         
         query?.whereKey("fromUser", equalTo: PFUser.current()!)
         query?.whereKey("toUser", equalTo: PFUser.current()!)
-        query?.whereKey("activityType", equalTo: 0)
         query?.addDescendingOrder("createdAt")
         query?.includeKey("image")
+        query?.whereKey(Activity.typeaString, equalTo: activityType.post.rawValue)
         query?.findObjectsInBackground(block: { (activits, error) in
             guard error != nil else {
                 self.userActivityPost = activits as! [Activity]
+                return
+            }
+        })
+        
+        let queryLike = Activity.query()
+        
+        queryLike?.whereKey("fromUser", equalTo: PFUser.current()!)
+        queryLike?.whereKey("toUser", equalTo: PFUser.current()!)
+        queryLike?.whereKey(Activity.typeaString, equalTo: activityType.like.rawValue)
+        
+        queryLike?.findObjectsInBackground(block: { (likes, error) in
+            guard error != nil else {
+                self.userActivityLike = likes as! [Activity]
                 return
             }
         })
@@ -127,15 +143,33 @@ extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: UserActivityTableViewCell.identifier) as! UserActivityTableViewCell
         
-        userActivityPost[indexPath.row].image.thumbImage.getDataInBackground(block: { (data, error) in
-            if let image = UIImage(data: data!) {
-                cell.imageUser.image = image
-                return
-            }
-        })
-        
-        cell.actvDescription.text = userActivityPost[indexPath.row].content
+        //if userActivityPost[indexPath.row].activityType == activityType.post.rawValue {
+            
+            userActivityPost[indexPath.row].image.thumbImage.getDataInBackground(block: { (data, error) in
+                if let image = UIImage(data: data!) {
+                    cell.imageUser.image = image
+                    //TODO
+                    let imageLikeUser = self.userActivityPost[indexPath.row].image
+                    cell.numberOfLikes.text = self.countLikes(imgId: imageLikeUser.objectId!, cell: cell)
+                    return
+                }
+            })
+            
+            cell.actvDescription.text = userActivityPost[indexPath.row].content
+            
+        //}
         
         return cell
+    }
+    
+    fileprivate func countLikes(imgId: String, cell: UserActivityTableViewCell) -> String {
+        var count = 0
+        for us in userActivityLike {
+            if us.activityType == 3 && us.image.objectId == imgId {
+                count = count + 1
+                cell.like.isSelected = true
+            }
+        }
+        return "\(count)"
     }
 }
