@@ -128,7 +128,7 @@ extension SearchViewController {
         
         if show {
             navigationController?.navigationBar.topItem?.title = "Eventos"
-            navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(SearchViewController.newEvent))
+            navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(title: "Novo", style: .plain, target: self, action: #selector(SearchViewController.newEvent))
             return
         }
     }

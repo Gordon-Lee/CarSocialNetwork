@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFFacebookUtils.initializeFacebook()
         
         AppCongifuration.systemBars()
-        setIncialStoryBoard()
+       // setIncialStoryBoard()
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
@@ -35,16 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
     }
 
-//    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-//        let option = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: String(describing: options), annotation: options)
-//        
-//        return option
-//    }
-    
-//    private func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-//        r
-//    }
-    
     func applicationWillResignActive(_ application: UIApplication) {
     }
 
@@ -56,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
 //        //FBAppCall.handleDidBecomeActiveWithSession(PFFacebookUtils.session())
-//        FBSDKAppEvents.activateApp()
+        FBSDKAppEvents.activateApp()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

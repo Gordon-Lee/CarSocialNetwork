@@ -57,9 +57,6 @@
                                     <constraint firstAttribute="height" constant="40" id="nZJ-Ud-aJF"/>
                                 </constraints>
                                 <state key="normal" image="faceLogin"/>
-                                <connections>
-                                    <action selector="loginWithFace:" destination="3za-eb-faK" eventType="touchUpInside" id="Gkl-z3-dTM"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FiV-MR-7rh" customClass="DefaultBt" customModule="CarSocialNetwork" customModuleProvider="target">
                                 <rect key="frame" x="5" y="458" width="365" height="30"/>

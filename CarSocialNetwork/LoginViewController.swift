@@ -28,6 +28,17 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         calculateSubviewsFrame()
+        
+        if(FBSDKAccessToken.current() == nil)
+        {
+            print("not logged in")
+        }
+        else{
+            print("logged in already")
+        }
+        
+        loginFSBK.readPermissions = ["public_profile","email"]
+        loginFSBK.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,51 +51,28 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func login(_ sender: AnyObject) {
-        loginWithParse("Marco", password: "mm") //(userNameTxt.text!, password: passWordTxt.text!)
+        loginWithParse(userNameTxt.text!, password: passWordTxt.text!) //(userNameTxt.text!, password: passWordTxt.text!)
     }
     @IBAction func singUp(_ sender: AnyObject) {
          self.signUpNew()
     }
     
     @IBAction func loginWithFace(_ sender: Any) {
-        PFFacebookUtils.facebookLoginManager().loginBehavior = FBSDKLoginBehavior.systemAccount
-        
-        
-        let login = FBSDKLoginManager()
-        login.loginBehavior = FBSDKLoginBehavior.systemAccount
-        login.logIn(withReadPermissions: ["public_profile", "email"], from: self, handler: {(result, error) in
-            print("AAAAAAAAAAAAAA \(result?.token)")
-            if error != nil {
-                print("Error :  \(error)")
-            }
-            else if (result?.isCancelled)! {
-                self.loginWithParse("Marco", password: "mm")
-            }
-        })
-    }
-//
-//        PFFacebookUtils.logInInBackground(withReadPermissions: self.permissions) { (user, error) in
-//            if user == nil {
-//                NSLog("Uh oh. The user cancelled the Facebook login.")
-//            } else if user!.isNew { //inserted !
-//                NSLog("User signed up and logged in through Facebook!")
-//            } else {
-//                NSLog("User logged in through Facebook! \(user!.username)")
+//        PFFacebookUtils.facebookLoginManager().loginBehavior = FBSDKLoginBehavior.systemAccount
+//        print("FACEEEEEEEE")
+//        let login = FBSDKLoginManager()
+//        
+//        login.loginBehavior = FBSDKLoginBehavior.systemAccount
+//        login.logIn(withReadPermissions: ["public_profile", "email"], from: self, handler: {(result, error) in
+//            print("AAAAAAAAAAAAAA \(result?.token)")
+//            if error != nil {
+//                print("Error :  \(error)")
 //            }
-//        }
-//    }
-//        PFFacebookUtils.logInWithPermissions(self.permissions, block: {
-//            (user: PFUser?, error: NSError?) in
-//            if user == nil {
-//                NSLog("Uh oh. The user cancelled the Facebook login.")
-//            } else if user!.isNew { //inserted !
-//                NSLog("User signed up and logged in through Facebook!")
-//            } else {
-//                NSLog("User logged in through Facebook! \(user!.username)")
+//            if !(result?.isCancelled)! {
+//                self.loginWithParse("Marco", password: "mm")
 //            }
 //        })
-//    }
-    
+    }
 }
 
 extension LoginViewController {
@@ -104,6 +92,7 @@ extension LoginViewController {
     //MARK: generic FUNCS
     fileprivate func configView() {
         view.backgroundColor = AppCongifuration.darkGrey()
+        self.loginFSBK.readPermissions = ["public_profile", "email"]
     }
     
     fileprivate func navigationBar() {
@@ -128,6 +117,28 @@ extension LoginViewController {
         view.addSubview(newMemberSignUp)
     }
 }
+
+extension LoginViewController: FBSDKLoginButtonDelegate {
+    //MARK -FB login
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        //logged in
+        if(error == nil)
+        {
+            print("login complete")
+            print(result.grantedPermissions)
+        }
+        else{
+            print(error.localizedDescription)
+        }
+        
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        //logout
+        print("logout")
+    }
+}
+
 
 extension LoginViewController: LoginViewControllerDelegate {
     func didTapCancelButton() {
