@@ -45,6 +45,8 @@ class HomeViewController: UIViewController {
     var userId = PFUser()
     var image = Photo()
     
+    var reloadData = Bool()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("current \(PFUser.current()?.objectId)")
@@ -58,6 +60,10 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        if reloadData {
+            loadData()
+            reloadData = false
+        }
         configView()
     }
     

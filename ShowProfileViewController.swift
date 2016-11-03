@@ -39,6 +39,7 @@ class ShowProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        nibCell()
         loadData()
         userShow.profilePhoto?.getDataInBackground(block: { (data, error) in
             if let img = UIImage(data: data!) {
@@ -53,6 +54,11 @@ class ShowProfileViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
         title = userShow.userName
     }
+    fileprivate func nibCell() {
+        let nibCell = UINib(nibName: UserActivityTableViewCell.nibName, bundle: Bundle.main)
+        tableView.register(nibCell, forCellReuseIdentifier: UserActivityTableViewCell.identifier)
+    }
+    
 }
 
 extension ShowProfileViewController {
@@ -68,7 +74,6 @@ extension ShowProfileViewController {
         query?.findObjectsInBackground(block: { (actvis, error) in
             if error == nil {
                 self.atvUser = actvis as! [Activity]
-                print("ACtV USEEERRRRR")
             }
         })
     }
@@ -77,11 +82,18 @@ extension ShowProfileViewController {
 extension ShowProfileViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
+        let cell = tableView.dequeueReusableCell(withIdentifier: UserActivityTableViewCell.identifier) as! UserActivityTableViewCell
         
-        cell?.textLabel?.text = atvUser[indexPath.row].content
-        
-        return cell!
+        atvUser[indexPath.row].image.thumbImage.getDataInBackground(block: { (data, error) in
+            if let image = UIImage(data: data!) {
+                cell.imageUser.image = image
+                //TODO
+                cell.actvDescription.text = self.atvUser[indexPath.row].content
+                cell.like.isHidden = true
+                return
+            }
+        })
+        return cell
     }
 }
 
@@ -92,5 +104,9 @@ extension ShowProfileViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return atvUser.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 110 as CGFloat
     }
 }

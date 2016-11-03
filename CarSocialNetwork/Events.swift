@@ -16,8 +16,8 @@ class Events: PFObject, PFSubclassing {
     @NSManaged var local: String
     @NSManaged var cidade: String
     @NSManaged var estado: String
-    @NSManaged var startDate: Date
-    @NSManaged var endDate: Date
+    @NSManaged var startDate: String
+    @NSManaged var endDate: String
     @NSManaged var image: PFFile
     
     override init() { super.init() }

@@ -57,7 +57,10 @@ class NewMemberView: UIView {
         delegate?.didTapCancelButton()
     }    
     @IBAction func recoveryPassword(_ sender: AnyObject) {
-        PFUser.requestPasswordResetForEmail(inBackground: self.email.text!)
+        
+        
+        
+        delegate?.didTapRecoverAccount()
         
 //        var alert = UIAlertController(title: nil, message: "Your password has been sent to your email address.", preferredStyle: .alert)
 //        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))

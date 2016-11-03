@@ -56,6 +56,8 @@ class SearchViewController: UIViewController {
     
     var dataDisplay : dataToDisplay = .events
     fileprivate var userSelected: Usr!
+    fileprivate var eventSelected: Events!
+    fileprivate var carSelected: Car!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -147,7 +149,7 @@ extension SearchViewController {
     
     fileprivate func loadCars() {
         let queryCar = Car.query()
-        
+        queryCar?.includeKey("owner")
         queryCar?.findObjectsInBackground(block: { (carLoad, error) in
             guard error != nil else {
                 self.cars = carLoad as! [Car]
@@ -330,12 +332,14 @@ extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch dataDisplay {
         case .people:
-            userSelected = peoples[indexPath.row]
-            print("USER SELECTED \(userSelected)")
+            userSelected = searchController.isActive && searchController.searchBar.text != "" ? filteredPeople[indexPath.row] : peoples[indexPath.row]
             didTapToShowSeletedProfile()
         case .car:
-            break
+            carSelected = searchController.isActive && searchController.searchBar.text != "" ? filteredCar[indexPath.row] : cars[indexPath.row]
+            didTapToShowSeletedProfile()
         case .events:
+            eventSelected = searchController.isActive && searchController.searchBar.text != "" ? filteredEvents[indexPath.row] : events[indexPath.row]
+            didTapToShowSeletedProfile()
             break
         }
     }
@@ -357,9 +361,28 @@ extension SearchViewController: UITableViewDelegate {
 
 extension SearchViewController: SearchTableViewDelegate {
     func didTapToShowSeletedProfile() {
-        let sb = UIStoryboard(name: "Show", bundle: Bundle.main)
-      let vc = sb.instantiateViewController(withIdentifier: ShowProfileViewController.identifier)
-        userShow = userSelected
-        navigationController?.pushViewController(vc, animated: true)
+        switch dataDisplay {
+        case .people:
+            let sb = UIStoryboard(name: "Show", bundle: Bundle.main)
+            let vc = sb.instantiateViewController(withIdentifier: ShowProfileViewController.identifier)
+            userShow = userSelected
+            navigationController?.pushViewController(vc, animated: true)
+        case .events:
+            let sb = UIStoryboard(name: "Show", bundle: Bundle.main)
+            let vc = sb.instantiateViewController(withIdentifier: ShowEventViewController.identifier)
+            showEvent = eventSelected
+            navigationController?.pushViewController(vc, animated: true)
+        case .car:
+            let sb = UIStoryboard(name: "Show", bundle: Bundle.main)
+            let vc = sb.instantiateViewController(withIdentifier: ShowCarViewController.identifier)
+            showCar = carSelected
+            navigationController?.pushViewController(vc, animated: true)
+            
+        default:
+            print("PAUUUUUU DID PROFILE")
+        }
+        
+        
+        
     }
 }

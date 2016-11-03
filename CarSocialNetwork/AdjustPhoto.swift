@@ -33,7 +33,7 @@ enum NormalORThumb {
 }
 
 struct Size {
-    fileprivate let normalSize = CGSize(width: 375, height: 400)
+    fileprivate let normalSize = CGSize(width: 375, height: 375)
     fileprivate let thumbSize = CGSize(width: 100, height: 100)
     var Size: CGSize!
     var widthRatio: CGFloat!

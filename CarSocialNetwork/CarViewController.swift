@@ -75,7 +75,7 @@ extension CarViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
         title = "Registro Carro"
         UIApplication.shared.statusBarStyle = .default
-        view.backgroundColor = AppCongifuration.darkGrey()
+        view.backgroundColor = AppCongifuration.lightGrey()
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.topItem?.leftBarButtonItem?.tintColor = AppCongifuration.blue()
     }

@@ -14,6 +14,7 @@ import ParseFacebookUtilsV4
 protocol LoginViewControllerDelegate: class {
     func didTapCancelButton()
     func didTapSignup()
+    func didTapRecoverAccount()
 }
 
 class LoginViewController: UIViewController {
@@ -157,16 +158,11 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
         
         NSURLConnection.sendAsynchronousRequest(urlRequest as URLRequest, queue: OperationQueue.main, completionHandler: {
             response, data, error in
-            
-            //let fbImageData = data
             let image = UIImage(data: data!)
             print("MMMAAAGE +\(image)")
         })
     }
 }
-    
-
-
 
 extension LoginViewController: LoginViewControllerDelegate {
     func didTapCancelButton() {
@@ -176,4 +172,44 @@ extension LoginViewController: LoginViewControllerDelegate {
     func didTapSignup() {
         homeView()
     }
+    func didTapRecoverAccount() {
+    
+        let alert = UIAlertController(title: "Recuperar", message: "Digite o seu email cadastrado para solicitar o reset da senha", preferredStyle: .alert)
+    
+        alert.addTextField { (textField) in }
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+            let textField = alert.textFields![0]
+            //PFUser.requestPasswordResetForEmail(inBackground: textField.text!)
+            PFUser.requestPasswordResetForEmail(inBackground: textField.text!, block: { (success, error) in
+                if success {
+                    self.showEmailOK()
+                }else {
+                    self.showErroEmail()
+                }
+            })
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    fileprivate func showErroEmail() {
+        
+        let alert = UIAlertController(title: "Erro", message: "Email digitado errado", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    fileprivate func showEmailOK() {
+        
+        let alert = UIAlertController(title: "Verificação - OK", message: "Vá a sua caixa de email.", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }

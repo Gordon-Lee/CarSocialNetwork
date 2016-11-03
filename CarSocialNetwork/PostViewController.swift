@@ -139,8 +139,8 @@ extension PostViewController: DescriptionViewDelegate {
 extension PostViewController {
     fileprivate func showHomeViewController() {
         let sb = UIStoryboard(name: "HomePage", bundle: Bundle.main)
-        let vc = sb.instantiateInitialViewController()
-        navigationController?.present(vc!, animated: true, completion: nil)
+        let vc = sb.instantiateInitialViewController()!
+        navigationController?.present(vc, animated: true, completion: nil)
     }
     
     fileprivate func savePost(_ image: UIImage) {

@@ -25,6 +25,8 @@
 		66A689391DB27F3900C7AE90 /* CarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A689381DB27F3900C7AE90 /* CarViewController.swift */; };
 		66A689401DB2825B00C7AE90 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A6893F1DB2825B00C7AE90 /* UIImageExtensions.swift */; };
 		66A689441DB293FC00C7AE90 /* FusumaConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A689431DB293FC00C7AE90 /* FusumaConfig.swift */; };
+		66AC22121DCBABC900725A6B /* ShowEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AC22111DCBABC900725A6B /* ShowEventViewController.swift */; };
+		66AC22141DCBB41100725A6B /* ShowCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AC22131DCBB41100725A6B /* ShowCarViewController.swift */; };
 		66B046441DC61F440090E7D8 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B046401DC61F440090E7D8 /* Bolts.framework */; };
 		66B046451DC61F440090E7D8 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B046411DC61F440090E7D8 /* FBSDKCoreKit.framework */; };
 		66B046461DC61F440090E7D8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B046421DC61F440090E7D8 /* FBSDKLoginKit.framework */; };
@@ -96,6 +98,8 @@
 		66A689381DB27F3900C7AE90 /* CarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarViewController.swift; sourceTree = "<group>"; };
 		66A6893F1DB2825B00C7AE90 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		66A689431DB293FC00C7AE90 /* FusumaConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FusumaConfig.swift; sourceTree = "<group>"; };
+		66AC22111DCBABC900725A6B /* ShowEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowEventViewController.swift; sourceTree = "<group>"; };
+		66AC22131DCBB41100725A6B /* ShowCarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowCarViewController.swift; sourceTree = "<group>"; };
 		66B046401DC61F440090E7D8 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		66B046411DC61F440090E7D8 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		66B046421DC61F440090E7D8 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -208,8 +212,6 @@
 			isa = PBXGroup;
 			children = (
 				66A3924C1DC7816A006C0399 /* Profile */,
-				66A392461DC77589006C0399 /* Show.storyboard */,
-				66A3924A1DC7778A006C0399 /* ShowProfileViewController.swift */,
 			);
 			name = Show;
 			path = ..;
@@ -218,6 +220,10 @@
 		66A3924C1DC7816A006C0399 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				66A392461DC77589006C0399 /* Show.storyboard */,
+				66A3924A1DC7778A006C0399 /* ShowProfileViewController.swift */,
+				66AC22111DCBABC900725A6B /* ShowEventViewController.swift */,
+				66AC22131DCBB41100725A6B /* ShowCarViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -586,6 +592,7 @@
 				A99F9E6D1D78DAAD00059F1A /* NewMemberView.swift in Sources */,
 				A9D03BDF1D9801FC00D94791 /* AdjustPhoto.swift in Sources */,
 				A91B16CF1D77284700B0C6CB /* Car.swift in Sources */,
+				66AC22121DCBABC900725A6B /* ShowEventViewController.swift in Sources */,
 				668D195E1DB516030077021E /* SearchTableViewCell.swift in Sources */,
 				A93EE8051D873C57008C9DF9 /* DefaultBt.swift in Sources */,
 				661A5B931DC0DF5900B20988 /* PhotoPost.swift in Sources */,
@@ -612,6 +619,7 @@
 				A91B16D11D772A0400B0C6CB /* Events.swift in Sources */,
 				A91C94C31D87B7830049390A /* ApplicationManager.swift in Sources */,
 				A98A72CB1D8589890044238A /* PostTabbleCellView.swift in Sources */,
+				66AC22141DCBB41100725A6B /* ShowCarViewController.swift in Sources */,
 				66A3924B1DC7778A006C0399 /* ShowProfileViewController.swift in Sources */,
 				6611C3201DB3C59C00D99832 /* EventDescriptionView.swift in Sources */,
 				A91B16CD1D7632E400B0C6CB /* Actitivy.swift in Sources */,
