@@ -22,18 +22,7 @@ class EditViewController: UIViewController {
     @IBOutlet weak var TopLabel: UILabel!
     @IBOutlet weak var middleLabel: UILabel!
     
-    fileprivate var usr: Usr! {
-        didSet {
-            
-            usr.thumbImage?.getDataInBackground(block: { (data, error) in
-                if let image = UIImage(data: data!) {
-                    self.userImage.image = image
-                    print("ASDASDASDASDASSDADADSASDADA \(self.usr.userName!)")
-                    self.TopLabel.text = self.usr.userName
-                }
-            })
-        }
-    }
+    fileprivate var usr: Usr!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +33,9 @@ class EditViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        self.TopLabel.text = PFUser.current()?.username
+        self.middleLabel.text = PFUser.current()?.email
+        print("BLENDDDDDD \(PFUser.current()?["profileImage"])")
         navigationController?.navigationBar.topItem?.title = "Editar"
     }
     
@@ -56,16 +48,19 @@ extension EditViewController {
     
     fileprivate func loadUsrData() {
         let queryUser = PFUser.query()
-        queryUser?.getFirstObjectInBackground(block: { (user, error) in
-            if error == nil {
-                let u = user as! PFUser
-                self.usr = Usr(obejctId: u.objectId!,
-                               username: u.username,
-                               email: u.email,
-                               thumbImage: user?["thumbImage"] as! PFFile?,
-                               photo: user?["profileImage"] as! PFFile?)
-                return
-            }
+        
+        queryUser?.findObjectsInBackground(block: { (users, error) in
+        
+//            if error == nil {
+//                for
+//                let u = user as! PFUser
+//                self.usr = Usr(obejctId: u.objectId!,
+//                               username: u.username,
+//                               email: u.email,
+//                               thumbImage: user?["thumbImage"] as! PFFile?,
+//                               photo: user?["profileImage"] as! PFFile?)
+//                return
+//            }
         })
     }
     
