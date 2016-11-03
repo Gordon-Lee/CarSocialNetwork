@@ -65,18 +65,19 @@ extension AppDelegate {
     }
     
     fileprivate func setIncialStoryBoard() {
-        print(UserDefaults.sharedInstance.getUserName())
-        if !UserDefaults.sharedInstance.isFirtTime() {
-            goToStoryBoard(self.inicialTutorialIdentifier)
-            return
-        }
-        if UserDefaults.sharedInstance.autoLogin() {
-            let userName = UserDefaults.sharedInstance.getUserName()
-            let password = UserDefaults.sharedInstance.getPassword()
-            loginWithParse(userName, password: password)
-        } else if !UserDefaults.sharedInstance.autoLogin() {
-            goToStoryBoard(loginSBIdentifier)
-        }
+        goToStoryBoard(loginSBIdentifier)
+        //print(UserDefaults.sharedInstance.getUserName())
+//        if !UserDefaults.sharedInstance.isFirtTime() {
+//            goToStoryBoard(self.inicialTutorialIdentifier)
+//            return
+//        }
+//        if UserDefaults.sharedInstance.autoLogin() {
+//            let userName = UserDefaults.sharedInstance.getUserName()
+//            let password = UserDefaults.sharedInstance.getPassword()
+//            loginWithParse(userName, password: password)
+//        } else if !UserDefaults.sharedInstance.autoLogin() {
+//            goToStoryBoard(loginSBIdentifier)
+//        }
     }
     
     fileprivate func loginWithParse(_ username: String!, password: String!) {
