@@ -18,7 +18,10 @@ class ProfileViewController: UIViewController {
     
     fileprivate var userActivityPost = [Activity]() {
         didSet{
-          tableView.reloadData()
+            self.usernameLbl.text = PFUser.current()?.username!
+            //_ = PFUser.current()?["profileImage"] as! PFFile
+            
+            tableView.reloadData()
         }
     }
     
@@ -26,7 +29,7 @@ class ProfileViewController: UIViewController {
 
     fileprivate var usr: Usr! {
         didSet {
-            self.usernameLbl.text = self.usr.userName
+            
             usr.thumbImage?.getDataInBackground(block: { (data, error) in
                 if let image = UIImage(data: data!) {
                     self.profilePhoto.image = image
@@ -95,7 +98,6 @@ extension ProfileViewController {
         
         let queryLike = Activity.query()
         
-        queryLike?.whereKey("fromUser", equalTo: PFUser.current()!)
         queryLike?.whereKey("toUser", equalTo: PFUser.current()!)
         queryLike?.whereKey(Activity.typeaString, equalTo: activityType.like.rawValue)
         

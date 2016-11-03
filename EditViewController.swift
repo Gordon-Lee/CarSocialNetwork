@@ -26,16 +26,13 @@ class EditViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadUsrData()
         configView()
         saveButton.isEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.TopLabel.text = PFUser.current()?.username
-        self.middleLabel.text = PFUser.current()?.email
-        print("BLENDDDDDD \(PFUser.current()?["profileImage"])")
+        loadUsrData()
         navigationController?.navigationBar.topItem?.title = "Editar"
     }
     
@@ -47,21 +44,16 @@ class EditViewController: UIViewController {
 extension EditViewController {
     
     fileprivate func loadUsrData() {
-        let queryUser = PFUser.query()
-        
-        queryUser?.findObjectsInBackground(block: { (users, error) in
-        
-//            if error == nil {
-//                for
-//                let u = user as! PFUser
-//                self.usr = Usr(obejctId: u.objectId!,
-//                               username: u.username,
-//                               email: u.email,
-//                               thumbImage: user?["thumbImage"] as! PFFile?,
-//                               photo: user?["profileImage"] as! PFFile?)
-//                return
+        self.TopLabel.text = PFUser.current()?.username
+        self.middleLabel.text = PFUser.current()?.email
+        print("BLENDDDDDD \(PFUser.current()?["profileImage"])")
+//    //    let img = PFUser.current()?["profileImage"] as! PFFile
+//        time.getDataInBackground { (data, error) in
+//            if let userImg = UIImage(data: data!) {
+//                self.userImage.image = userImg
 //            }
-        })
+//        }
+//        
     }
     
     fileprivate func configView() {

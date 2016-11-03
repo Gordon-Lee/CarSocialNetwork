@@ -108,6 +108,7 @@ extension HomeViewController {
         let queryActivy = Activity.query()
         
         queryPh?.includeKey("owner")
+        
         queryPh?.addDescendingOrder("createdAt")
         
         queryActivy?.includeKey("image")
@@ -119,6 +120,9 @@ extension HomeViewController {
                 return
             }
         })
+        
+        queryActivy?.includeKey("fromUser")
+        queryActivy?.includeKey("toUser")
         
         queryActivy?.findObjectsInBackground(block: { (activits, error) in
             guard error != nil else {
@@ -189,7 +193,7 @@ extension HomeViewController: UITableViewDataSource {
     
     fileprivate func isLiked(imageId: String) -> Bool {
         for a in activity {
-            if a.activityType == activityType.like.rawValue && a.image.objectId == imageId {
+            if a.activityType == activityType.like.rawValue && a.fromUser == PFUser.current() {
                 return true
             }
         }
@@ -223,7 +227,7 @@ extension HomeViewController: UITableViewDelegate, UIScrollViewDelegate {
         print("SELECTED ROW")
         print(indexPath.row)
         print(photoToShow[indexPath.row].owner.objectId!)
-        userId = photoToShow[indexPath.row].owner
+        userId = photoToShow[indexPath.row].owner 
         image = photoToShow[indexPath.row]
     }
 }
@@ -235,10 +239,16 @@ extension HomeViewController: PostTableViewDelegate {
     func likePhoto() {
         let actv = Activity()
         actv.fromUser = PFUser.current()!
+        print()
         actv.toUser = userId
         actv.activityType = activityType.like.rawValue
         actv.image = image
-        actv.saveInBackground()
+        print(actv)
+        actv.saveInBackground(block: { (sucess, error) in
+            if sucess {
+                print("SAVVVEEEEEEE")
+            }
+        })
     }
     
 }
