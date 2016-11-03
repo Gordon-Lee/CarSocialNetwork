@@ -27,20 +27,25 @@ class ProfileViewController: UIViewController {
                     }
                 })
             }
+            SVProgressHUD.dismiss()
             tableView.reloadData()
         }
     }
     
-    fileprivate var userActivityLike = [Activity]()
+    fileprivate var userActivityLike = [Activity]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         nibCell()
-        loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        loadData()
         loadUsrData()
         configView()
     }
@@ -78,7 +83,7 @@ extension ProfileViewController {
     
     fileprivate func loadData() {
         let query = Activity.query()
-        
+        SVProgressHUD.show()
         query?.whereKey("fromUser", equalTo: PFUser.current()!)
         query?.whereKey("toUser", equalTo: PFUser.current()!)
         query?.addDescendingOrder("createdAt")
@@ -99,6 +104,7 @@ extension ProfileViewController {
         queryLike?.findObjectsInBackground(block: { (likes, error) in
             guard error != nil else {
                 self.userActivityLike = likes as! [Activity]
+                
                 return
             }
         })

@@ -152,7 +152,6 @@ extension HomeViewController {
     fileprivate func showDescription(_ photoId: String) -> String {
         for act in activity {
             if act.image.objectId == photoId {
-                print(act.content)
                 return act.content
             }
         }
@@ -193,7 +192,7 @@ extension HomeViewController: UITableViewDataSource {
     
     fileprivate func isLiked(imageId: String) -> Bool {
         for a in activity {
-            if a.activityType == activityType.like.rawValue && a.fromUser == PFUser.current() {
+            if a.activityType == activityType.like.rawValue && a.image.objectId == imageId {
                 return true
             }
         }

@@ -84,17 +84,15 @@ extension EditViewController {
     @IBAction func saveEdit(_ sender: Any) {
         
         SVProgressHUD.show()
-        if let cuser = PFUser.current() {
-            cuser["profileImage"] =  PFFile(data: AdjustPhoto.uploadToPhoto(userImage.image!, type: .normal))!
-            cuser["thumbImage"] = PFFile(data: AdjustPhoto.uploadToPhoto(userImage.image!, type: .thumb))!
-            
-            cuser.saveInBackground(block: { (bool, error) in
-                if bool {
-                    SVProgressHUD.dismiss()
-                    self.dismiss(animated: true, completion: nil)
-                }
-            })
-        }
+        PFUser.current()?["profileImage"] = PFFile(data: AdjustPhoto.uploadToPhoto(userImage.image!, type: .normal))!
+        PFUser.current()?["thumbImage"] = PFFile(data: AdjustPhoto.uploadToPhoto(userImage.image!, type: .thumb))!
+        
+        PFUser.current()?.saveInBackground(block: { (bool, error) in
+            if bool {
+                SVProgressHUD.dismiss()
+                self.dismiss(animated: true, completion: nil)
+            }
+        })
     }
 }
 
