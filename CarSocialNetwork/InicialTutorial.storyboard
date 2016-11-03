@@ -53,7 +53,7 @@
         <!--Car Social-->
         <scene sceneID="C3t-i5-NBq">
             <objects>
-                <viewController id="xNk-gv-9FL" sceneMemberID="viewController">
+                <viewController id="xNk-gv-9FL" customClass="SecondViewController" customModule="CarSocialNetwork" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4hI-Sw-oYx"/>
                         <viewControllerLayoutGuide type="bottom" id="vOQ-ld-0ET"/>
@@ -72,7 +72,7 @@
                     <navigationItem key="navigationItem" title="Car Social" id="jNV-2r-L6H">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="RbX-lQ-PJr">
                             <connections>
-                                <segue destination="nQh-Ud-vxl" kind="showDetail" id="ssL-n7-Nmc"/>
+                                <segue destination="nQh-Ud-vxl" kind="presentation" id="q66-Kx-2ld"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

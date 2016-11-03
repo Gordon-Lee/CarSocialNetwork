@@ -33,6 +33,7 @@
 		66B0464B1DC627910090E7D8 /* FacebookSDKStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 66B0464A1DC627910090E7D8 /* FacebookSDKStrings.bundle */; };
 		66B0464D1DC62ACF0090E7D8 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B0464C1DC62ACF0090E7D8 /* Accounts.framework */; };
 		66B0464F1DC62B670090E7D8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B0464E1DC62B670090E7D8 /* MobileCoreServices.framework */; };
+		66BC9B071DCAB21400B2B2C6 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BC9B061DCAB21400B2B2C6 /* SecondViewController.swift */; };
 		66C9DE461DC6BB3100BD9876 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C9DE451DC6BB3100BD9876 /* ParseTwitterUtils.framework */; };
 		66C9DE481DC6BB4D00BD9876 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C9DE471DC6BB4D00BD9876 /* ParseFacebookUtilsV4.framework */; };
 		66C9DE4A1DC6BB5E00BD9876 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C9DE491DC6BB5E00BD9876 /* Bolts.framework */; };
@@ -103,6 +104,7 @@
 		66B0464A1DC627910090E7D8 /* FacebookSDKStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKStrings.bundle; sourceTree = "<group>"; };
 		66B0464C1DC62ACF0090E7D8 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		66B0464E1DC62B670090E7D8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		66BC9B061DCAB21400B2B2C6 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		66C9DE451DC6BB3100BD9876 /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
 		66C9DE471DC6BB4D00BD9876 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		66C9DE491DC6BB5E00BD9876 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 			children = (
 				A97EA6931D884A9E0037E25A /* InicialTutorialView.xib */,
 				A97EA6951D884AB90037E25A /* InicialTutorial.storyboard */,
+				66BC9B061DCAB21400B2B2C6 /* SecondViewController.swift */,
 			);
 			name = InicialTutorial;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				666B935C1DB2B8A8008D6F44 /* EventsViewController.swift in Sources */,
 				A9E35E8B1D7763A9007BC735 /* PostViewController.swift in Sources */,
 				A9E35E871D77637A007BC735 /* HomeViewController.swift in Sources */,
+				66BC9B071DCAB21400B2B2C6 /* SecondViewController.swift in Sources */,
 				661A5B8E1DC0066300B20988 /* Usr.swift in Sources */,
 				A97784E91D77AED3006A756E /* GoToStoryBoard.swift in Sources */,
 				A97784EB1D77B277006A756E /* AppConfiguration.swift in Sources */,

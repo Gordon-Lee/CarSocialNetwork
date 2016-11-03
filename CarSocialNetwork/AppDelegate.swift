@@ -11,12 +11,14 @@ import Parse
 import FBSDKCoreKit
 import FBSDKLoginKit
 import ParseFacebookUtilsV4
+import SVProgressHUD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     fileprivate let loginSBIdentifier = "LoginStory"
     fileprivate let homePageIdentifier = "HomePage"
+    fileprivate let inicialTutorialIdentifier = "InicialTutorial"
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -26,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFFacebookUtils.initializeFacebook()
         
         AppCongifuration.systemBars()
-       // setIncialStoryBoard()
+        setIncialStoryBoard()
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
@@ -35,22 +37,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
     }
 
-    func applicationWillResignActive(_ application: UIApplication) {
-    }
+    func applicationWillResignActive(_ application: UIApplication) { }
 
-    func applicationDidEnterBackground(_ application: UIApplication) {
-    }
+    func applicationDidEnterBackground(_ application: UIApplication) { }
 
-    func applicationWillEnterForeground(_ application: UIApplication) {
-    }
+    func applicationWillEnterForeground(_ application: UIApplication) { }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-//        //FBAppCall.handleDidBecomeActiveWithSession(PFFacebookUtils.session())
+
         FBSDKAppEvents.activateApp()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
     }
+}
+
+extension AppDelegate {
     
     fileprivate func configureParse() {
         User.registerSubclass()
@@ -58,23 +60,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Events.registerSubclass()
         Activity.registerSubclass()
         Photo.registerSubclass()
-
+        
         Parse.setApplicationId("kByO4d8lpQ0ZtL6O5Aql0NctUpz8UOCA5W246HQv", clientKey: "3Gk9I2vhUReAcTrGZwDaJWCVaDW0OXwVKXWYHoGv")
     }
     
-//    func application(application: UIApplication,
-//                     openURL url: URL,
-//                     sourceApplication: String?,
-//                     annotation: Any?) -> Bool {
-//        return FBAppCall.handleOpenURL(url, sourceApplication:sourceApplication,
-//                                       withSession:PFFacebookUtils.session())
-//    }
-    
     fileprivate func setIncialStoryBoard() {
-        if UserDefaults.sharedInstance.login() && UserDefaults.sharedInstance.autoLogin() {
-            UserDefaults.sharedInstance.setAutoLogin(true)
-        } else {
+        print(UserDefaults.sharedInstance.getUserName())
+        if !UserDefaults.sharedInstance.isFirtTime() {
+            goToStoryBoard(self.inicialTutorialIdentifier)
+            return
+        }
+        if UserDefaults.sharedInstance.autoLogin() {
+            let userName = UserDefaults.sharedInstance.getUserName()
+            let password = UserDefaults.sharedInstance.getPassword()
+            loginWithParse(userName, password: password)
+        } else if !UserDefaults.sharedInstance.autoLogin() {
             goToStoryBoard(loginSBIdentifier)
+        }
+    }
+    
+    fileprivate func loginWithParse(_ username: String!, password: String!) {
+        //SVProgressHUD.show()
+        PFUser.logInWithUsername(inBackground: username, password: password) { (user, error) -> Void in
+            if user != nil {
+                self.goToStoryBoard(self.homePageIdentifier)
+                //SVProgressHUD.dismiss()
+                return
+            }
         }
     }
     
@@ -83,4 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc = sb.instantiateInitialViewController()
         window?.rootViewController = vc
     }
+    
+    
 }
+

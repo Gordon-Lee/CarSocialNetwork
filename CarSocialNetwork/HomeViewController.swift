@@ -47,6 +47,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("current \(PFUser.current()?.objectId)")
         loadData()
         queryUser()
         tableViewSetup()

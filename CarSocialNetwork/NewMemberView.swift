@@ -43,12 +43,15 @@ class NewMemberView: UIView {
         user.signUpInBackground { (sucess, error) in
             guard error == nil else {
                 //SVProgressHUD.show(withStatus: error?.description)
+                UserDefaults.sharedInstance.Save(self.username.text!, password: self.password.text!, loginType: .normal)
+                self.delegate.didTapSignup()
                 SVProgressHUD.dismiss()
                 return
             }
             SVProgressHUD.dismiss()
         }
     }
+    
     
     @IBAction func cancelar(_ sender: AnyObject) {
         delegate?.didTapCancelButton()

@@ -171,7 +171,7 @@ extension SearchViewController {
     
     fileprivate func loadPeople() {
         let queryPeople = PFUser.query()
-        
+        print("Current \(PFUser.current()?.objectId)")
         queryPeople?.findObjectsInBackground(block: { (people, error) in
             for us in people! {
                 let u = us as! PFUser

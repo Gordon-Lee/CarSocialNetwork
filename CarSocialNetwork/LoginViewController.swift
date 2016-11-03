@@ -13,6 +13,7 @@ import ParseFacebookUtilsV4
 
 protocol LoginViewControllerDelegate: class {
     func didTapCancelButton()
+    func didTapSignup()
 }
 
 class LoginViewController: UIViewController {
@@ -24,25 +25,35 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passWordTxt: UITextField!
     @IBOutlet weak var loginFSBK: FBSDKLoginButton!
     
-    fileprivate let permissions = ["public_profile"]
-    
     override func viewDidLoad() {
         calculateSubviewsFrame()
-        
-        if(FBSDKAccessToken.current() == nil)
-        {
-            print("not logged in")
-        }
-        else{
-            print("logged in already")
+    
+        if FBSDKAccessToken.current() != nil {
+            print(FBSDKAccessToken.current().userID!)
+            //getUserData()
+            //returnUserProfileImage(accessToken: FBSDKAccessToken.current().userID! as NSString)
+            //self.homeView()
         }
         
         loginFSBK.readPermissions = ["public_profile","email"]
         loginFSBK.delegate = self
     }
     
+    func returnUserProfileImage(accessToken: NSString)
+    {
+        let userID = accessToken
+        let facebookProfileUrl = NSURL(string: "http://graph.facebook.com/\(userID)/picture?type=large")
+        
+        if let data = NSData(contentsOf: facebookProfileUrl as! URL) {
+            let image = UIImage(data: data as Data)
+            print("USER FOtO \(image)")
+        }
+        
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
         navigationBar()
         configView()
         hideKeyboard()
@@ -80,14 +91,11 @@ extension LoginViewController {
     fileprivate func loginWithParse(_ username: String!, password: String!) {
         PFUser.logInWithUsername(inBackground: username, password: password) { (user, error) -> Void in
             guard user == nil else{
-                let sb = UIStoryboard(name: "HomePage", bundle: nil)
-                let vc = sb.instantiateViewController(withIdentifier: "homePage")
-                self.present(vc, animated: true, completion: nil)
+                self.homeView()
                 return
             }
         }
     }
-    
     
     //MARK: generic FUNCS
     fileprivate func configView() {
@@ -116,33 +124,56 @@ extension LoginViewController {
         newMemberSignUp.delegate = self
         view.addSubview(newMemberSignUp)
     }
+    
+    fileprivate func homeView() {
+        let sb = UIStoryboard(name: HomeViewController.storyIndentifier, bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "homePage")
+        self.present(vc, animated: true, completion: nil)
+    }
 }
 
 extension LoginViewController: FBSDKLoginButtonDelegate {
     //MARK -FB login
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        //logged in
-        if(error == nil)
-        {
+        if error == nil {
             print("login complete")
-            print(result.grantedPermissions)
+            
+            self.homeView()
         }
         else{
             print(error.localizedDescription)
         }
-        
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        //logout
         print("logout")
     }
+    
+    fileprivate func getUserData() {
+        let accessToken = FBSDKAccessToken.current().userID
+        let url = NSURL(string: "https://graph.facebook.com/me/picture?type=large&return_ssl_resources=1&access_token=\(accessToken)")
+        
+        let urlRequest = NSURLRequest(url: url! as URL)
+        
+        NSURLConnection.sendAsynchronousRequest(urlRequest as URLRequest, queue: OperationQueue.main, completionHandler: {
+            response, data, error in
+            
+            //let fbImageData = data
+            let image = UIImage(data: data!)
+            print("MMMAAAGE +\(image)")
+        })
+    }
 }
+    
+
 
 
 extension LoginViewController: LoginViewControllerDelegate {
     func didTapCancelButton() {
         view.sendSubview(toBack: newMemberSignUp)
         newMemberSignUp.removeFromSuperview()
+    }
+    func didTapSignup() {
+        homeView()
     }
 }

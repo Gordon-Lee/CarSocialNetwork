@@ -26,10 +26,10 @@ class ProfileViewController: UIViewController {
 
     fileprivate var usr: Usr! {
         didSet {
+            self.usernameLbl.text = self.usr.userName
             usr.thumbImage?.getDataInBackground(block: { (data, error) in
                 if let image = UIImage(data: data!) {
                     self.profilePhoto.image = image
-                    self.usernameLbl.text = self.usr.userName
                 }
             })
         }
@@ -110,14 +110,19 @@ extension ProfileViewController {
     fileprivate func loadUsrData() {
         let queryUser = PFUser.query()
       //  queryUser?.whereKey("objectId", equalTo: PFUser.current()?.objectId)
-        queryUser?.getFirstObjectInBackground(block: { (user, error) in
+        queryUser?.findObjectsInBackground(block: { (users, error) in
             guard error != nil else {
-                let u = user as! PFUser
-                self.usr = Usr(obejctId: u.objectId!,
-                               username: u.username,
-                               email: u.email,
-                               thumbImage: user?["thumbImage"] as! PFFile?,
-                               photo: user?["profileImage"] as! PFFile?)
+                for user in users! {
+                    let u = user as! PFUser
+                    if PFUser.current()?.objectId == u.objectId{
+                        self.usr = Usr(obejctId: u.objectId!,
+                                       username: u.username,
+                                       email: u.email,
+                                       thumbImage: user["thumbImage"] as! PFFile?,
+                                       photo: user["profileImage"] as! PFFile?)
+                        print("PFUSER \(self.usr.userName)")
+                    }
+                }
                 return
             }
         })
