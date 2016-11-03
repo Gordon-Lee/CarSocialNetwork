@@ -46,14 +46,15 @@ extension EditViewController {
     fileprivate func loadUsrData() {
         self.TopLabel.text = PFUser.current()?.username
         self.middleLabel.text = PFUser.current()?.email
-        print("BLENDDDDDD \(PFUser.current()?["profileImage"])")
-//    //    let img = PFUser.current()?["profileImage"] as! PFFile
-//        time.getDataInBackground { (data, error) in
-//            if let userImg = UIImage(data: data!) {
-//                self.userImage.image = userImg
-//            }
-//        }
-//        
+        if PFUser.current()?["profileImage"] != nil {
+            let img = PFUser.current()?["profileImage"] as! PFFile
+            img.getDataInBackground(block: { (data, error) in
+                if let imgData = UIImage(data: data!) {
+                    self.userImage.image = imgData
+                }
+            })
+        }
+
     }
     
     fileprivate func configView() {

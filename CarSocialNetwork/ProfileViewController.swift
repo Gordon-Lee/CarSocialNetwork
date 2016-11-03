@@ -19,24 +19,19 @@ class ProfileViewController: UIViewController {
     fileprivate var userActivityPost = [Activity]() {
         didSet{
             self.usernameLbl.text = PFUser.current()?.username!
-            //_ = PFUser.current()?["profileImage"] as! PFFile
-            
+            if PFUser.current()?["profileImage"] != nil {
+                let img = PFUser.current()?["profileImage"] as! PFFile
+                img.getDataInBackground(block: { (data, error) in
+                    if let imgData = UIImage(data: data!) {
+                        self.profilePhoto.image = imgData
+                    }
+                })
+            }
             tableView.reloadData()
         }
     }
     
     fileprivate var userActivityLike = [Activity]()
-
-    fileprivate var usr: Usr! {
-        didSet {
-            
-            usr.thumbImage?.getDataInBackground(block: { (data, error) in
-                if let image = UIImage(data: data!) {
-                    self.profilePhoto.image = image
-                }
-            })
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,24 +105,15 @@ extension ProfileViewController {
     }
     
     fileprivate func loadUsrData() {
-        let queryUser = PFUser.query()
-      //  queryUser?.whereKey("objectId", equalTo: PFUser.current()?.objectId)
-        queryUser?.findObjectsInBackground(block: { (users, error) in
-            guard error != nil else {
-                for user in users! {
-                    let u = user as! PFUser
-                    if PFUser.current()?.objectId == u.objectId{
-                        self.usr = Usr(obejctId: u.objectId!,
-                                       username: u.username,
-                                       email: u.email,
-                                       thumbImage: user["thumbImage"] as! PFFile?,
-                                       photo: user["profileImage"] as! PFFile?)
-                        print("PFUSER \(self.usr.userName)")
-                    }
+        usernameLbl.text = PFUser.current()?.username
+        if  PFUser.current()?["profileImage"] != nil {
+            let img = PFUser.current()?["profileImage"] as! PFFile
+            img.getDataInBackground(block: { (data, error) in
+                if let imgData = UIImage(data: data!) {
+                    self.profilePhoto.image = imgData
                 }
-                return
-            }
-        })
+            })
+        }
     }
 }
 //MARK: TableView DELEGATE

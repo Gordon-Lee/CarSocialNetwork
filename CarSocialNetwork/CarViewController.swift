@@ -25,6 +25,7 @@ class CarViewController: UIViewController {
     fileprivate var subviewsFrame: CGRect!
     fileprivate var carToSave = Car() {
         didSet {
+            carToSave.owner = PFUser.current()!
             brand.text = carToSave.brand
             model.text = carToSave.model
             year.text = String(carToSave.year)
@@ -60,11 +61,12 @@ extension CarViewController {
     
     fileprivate func loadCarData() {
         let query = PFUser.query()
-        
         query?.includeKey("car")
-        query?.getFirstObjectInBackground(block: { (user, error) in
-            if error == nil && user?["car"] != nil {
-                self.carToSave = user?["car"] as! Car
+        query?.findObjectsInBackground(block: { (user, error) in
+            for u in user! {
+                if error == nil && PFUser.current()?["car"] != nil && u["car"] != nil && u["owner"] as? PFUser == PFUser.current() {
+                    self.carToSave = u["car"] as! Car
+                }
             }
         })
     }
@@ -93,6 +95,13 @@ extension CarViewController {
     @IBAction func save(_ sender: Any) {
         
         SVProgressHUD.show()
+        PFUser.current()?["car"] = carToSave
+        PFUser.current()?.saveInBackground()
+        
+        carToSave.brand = brand.text!
+        carToSave.model = model.text!
+        carToSave.year = Int(year.text!)!
+        
         carToSave.saveInBackground { (bool, error) in
             if bool {
                 SVProgressHUD.dismiss()
