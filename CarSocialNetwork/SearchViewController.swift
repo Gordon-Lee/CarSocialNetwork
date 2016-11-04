@@ -61,7 +61,6 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nibCell()
         loadEvents()
         loadCars()
         loadPeople()
@@ -71,6 +70,7 @@ class SearchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        nibCell()
         configView()
         showNavigation()
     }
@@ -107,11 +107,13 @@ extension SearchViewController {
             peopleBt.isSelected = false
             searchController.searchBar.scopeButtonTitles = ["nome", "cidade"]
         case .car:
+            navigationController?.navigationBar.topItem?.title = "Carros"
             eventsBt.isSelected = false
             carBt.isSelected = true
             peopleBt.isSelected = false
             searchController.searchBar.scopeButtonTitles = ["modelo", "marca", "ano"]
         case .people:
+            navigationController?.navigationBar.topItem?.title = "Motoras"
             eventsBt.isSelected = false
             carBt.isSelected = false
             peopleBt.isSelected = true
@@ -126,12 +128,14 @@ extension SearchViewController {
     fileprivate func showNavigation() {
         let show = dataDisplay == .events ? true : false
         
-        navigationController?.setNavigationBarHidden(!show, animated: true)
+        navigationController?.setNavigationBarHidden(false, animated: true)
         
         if show {
             navigationController?.navigationBar.topItem?.title = "Eventos"
             navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(title: "Novo", style: .plain, target: self, action: #selector(SearchViewController.newEvent))
             return
+        } else {
+            navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         }
     }
     
