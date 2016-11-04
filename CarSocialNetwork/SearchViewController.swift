@@ -102,17 +102,20 @@ extension SearchViewController {
     fileprivate func setScopeBar(display: dataToDisplay) {
         switch display {
         case .events:
+            searchController.isActive = false
             eventsBt.isSelected = true
             carBt.isSelected = false
             peopleBt.isSelected = false
             searchController.searchBar.scopeButtonTitles = ["nome", "cidade"]
         case .car:
+            searchController.isActive = false
             navigationController?.navigationBar.topItem?.title = "Carros"
             eventsBt.isSelected = false
             carBt.isSelected = true
             peopleBt.isSelected = false
             searchController.searchBar.scopeButtonTitles = ["modelo", "marca", "ano"]
         case .people:
+            searchController.isActive = false
             navigationController?.navigationBar.topItem?.title = "Motoras"
             eventsBt.isSelected = false
             carBt.isSelected = false
