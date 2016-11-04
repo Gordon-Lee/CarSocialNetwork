@@ -20,18 +20,7 @@ class CarViewController: UIViewController {
     static let identifier = "Car"
 
     fileprivate var subviewsFrame: CGRect!
-    fileprivate var carToSave = Car() {
-        didSet {
-            brand.text = carToSave.brand
-            model.text = carToSave.model
-            year.text = String(carToSave.year)
-            carToSave.image.getDataInBackground { (data, error) in
-                if let img = UIImage(data: data!) {
-                    self.image.image = img
-                }
-            }
-        }
-    }
+    fileprivate var carToSave = Car()
     @IBOutlet weak var brand: UITextField!
     @IBOutlet weak var model: UITextField!
     @IBOutlet weak var year: UITextField!
@@ -57,26 +46,27 @@ extension CarViewController {
     
     fileprivate func loadCarData() {
         SVProgressHUD.show()
-        let carUser = PFUser.current()?["car"] as! Car
-        let query = Car.query()
-        
-        query?.includeKey("owner")
-        query?.whereKey("owner", equalTo: PFUser.current()!)
-        query?.getFirstObjectInBackground(block: { (car, error) in
-            let carParse = car as! Car
-            self.model.text = carParse.model
-            self.brand.text = carParse.brand
-            self.year.text = "\(carParse.year)"
-            self.carToSave.objectId = carParse.objectId
+        if PFUser.current()?["car"] != nil {
+            let query = Car.query()
             
-                if carParse.objectId == carUser.objectId {
+            query?.includeKey("owner")
+            query?.whereKey("owner", equalTo: PFUser.current()!)
+            query?.getFirstObjectInBackground(block: { (car, error) in
+                let carParse = car as! Car
+                self.model.text = carParse.model
+                self.brand.text = carParse.brand
+                self.year.text = "\(carParse.year)"
+                self.carToSave.objectId = carParse.objectId
+                
+                if carParse.owner.objectId == PFUser.current()!.objectId! {
                     carParse.image.getDataInBackground(block: { (data, error) in
                         if let imgData = UIImage(data: data!) {
                             self.image.image = imgData
                             SVProgressHUD.dismiss()
-                    }
-                })}
+                        }
+                    })}
             })
+        }
     }
     
     fileprivate func configView() {
