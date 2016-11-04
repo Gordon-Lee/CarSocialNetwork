@@ -127,7 +127,6 @@ extension PostViewController: DescriptionViewDelegate {
     func didClickToFinish(_ comment: String, image: UIImage) {
         activity.content = comment as String
         savePost(image)
-        saveEverything()
         showHomeViewController()
     }
     
@@ -147,6 +146,6 @@ extension PostViewController {
         postPhoto.owner = PFUser.current()!
         postPhoto.thumbImage = PFFile(data: AdjustPhoto.uploadToPhoto(image, type: .thumb))!
         postPhoto.image = PFFile(data: AdjustPhoto.uploadToPhoto(image, type: .normal))!
-     //   postPhoto.saveInBackground()
+        saveEverything()
     }
 }

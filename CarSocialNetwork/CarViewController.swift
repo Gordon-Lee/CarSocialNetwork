@@ -19,13 +19,9 @@ class CarViewController: UIViewController {
     
     static let identifier = "Car"
 
-    //fileprivate weak var brandSelection: BrandSelectionView!
-    //fileprivate weak var finishedRegister: FinishedCarRegisterView!
-    //fileprivate var viewTo: howView = .inicial
     fileprivate var subviewsFrame: CGRect!
     fileprivate var carToSave = Car() {
         didSet {
-            carToSave.owner = PFUser.current()!
             brand.text = carToSave.brand
             model.text = carToSave.model
             year.text = String(carToSave.year)
@@ -60,15 +56,27 @@ class CarViewController: UIViewController {
 extension CarViewController {
     
     fileprivate func loadCarData() {
-        let query = PFUser.query()
-        query?.includeKey("car")
-        query?.findObjectsInBackground(block: { (user, error) in
-            for u in user! {
-                if error == nil && PFUser.current()?["car"] != nil && u["car"] != nil && u["owner"] as? PFUser == PFUser.current() {
-                    self.carToSave = u["car"] as! Car
-                }
-            }
-        })
+        SVProgressHUD.show()
+        let carUser = PFUser.current()?["car"] as! Car
+        let query = Car.query()
+        
+        query?.includeKey("owner")
+        query?.whereKey("owner", equalTo: PFUser.current()!)
+        query?.getFirstObjectInBackground(block: { (car, error) in
+            let carParse = car as! Car
+            self.model.text = carParse.model
+            self.brand.text = carParse.brand
+            self.year.text = "\(carParse.year)"
+            self.carToSave.objectId = carParse.objectId
+            
+                if carParse.objectId == carUser.objectId {
+                    carParse.image.getDataInBackground(block: { (data, error) in
+                        if let imgData = UIImage(data: data!) {
+                            self.image.image = imgData
+                            SVProgressHUD.dismiss()
+                    }
+                })}
+            })
     }
     
     fileprivate func configView() {

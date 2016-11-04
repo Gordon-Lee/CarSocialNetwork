@@ -118,6 +118,7 @@ extension HomeViewController {
         queryPh?.addDescendingOrder("createdAt")
         
         queryActivy?.includeKey("image")
+        queryActivy?.includeKey("owner")
         //queryActivy?.whereKey(Activity.typeaString, equalTo: activityType.post.rawValue)
         //queryActivy?.whereKey(Activity.typeaString, equalTo: activityType.like.rawValue)
         queryPh?.findObjectsInBackground(block: { (photos, error) in
@@ -180,16 +181,15 @@ extension HomeViewController: UITableViewDataSource {
             }
         }
         
-        if thumbImage != nil {
-            thumbImage!.getDataInBackground { (data, error) in
-                if let img = UIImage(data: data!) {
-                    cell.thumbPhoto.image = img
-                }
+        let thumb = photoToShow[indexPath.row].owner["thumbImage"] as! PFFile
+        
+        thumb.getDataInBackground { (data, error) in
+            if let imgData = UIImage(data: data!) {
+                cell.thumbPhoto.image = imgData
             }
         }
         
-        //cell.user = photoToShow[indexPath.row].owner
-        cell.ownerName.text = userName(id: photoToShow[indexPath.row].owner)
+        cell.ownerName.text = photoToShow[indexPath.row].owner.username
         cell.postDescription.text = showDescription(photoToShow[indexPath.row].objectId!)
         setupCell(cell: cell)
         

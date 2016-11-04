@@ -24,7 +24,7 @@ class EventsViewController: UIViewController {
     @IBOutlet weak var adress: UITextField!
     @IBOutlet weak var city: UITextField!
     @IBOutlet weak var state: UITextField!
-    
+    @IBOutlet weak var saveEventButton: DefaultBt!
     
     fileprivate var fusuma: FusumaViewController!
 
@@ -41,6 +41,13 @@ class EventsViewController: UIViewController {
     }
     
     fileprivate func setupView() {
+        NotificationCenter.default.addObserver(self, selector: #selector(EventsViewController.keyboardWillShow),
+                                               name: NSNotification.Name.UIKeyboardWillShow,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(EventsViewController.keyboardWillHide),
+                                                     name: NSNotification.Name.UIKeyboardWillHide,
+                                                     object: nil)
+        
         FusumaConfig.defaultCfg()
     
         view.backgroundColor = AppCongifuration.darkGrey()
@@ -70,6 +77,23 @@ class EventsViewController: UIViewController {
             if show {
                 SVProgressHUD.dismiss()
                 self.navigationController?.popViewController(animated: true)
+            }
+        }
+    }
+    func keyboardWillShow(notification: NSNotification) {
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= (keyboardSize.height - 60.0)
+            }
+        }
+        
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += (keyboardSize.height - 60.0)
             }
         }
     }

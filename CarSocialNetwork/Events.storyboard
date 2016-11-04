@@ -136,6 +136,7 @@
                         <outlet property="eventDescription" destination="ogR-zY-e8H" id="vfk-Wh-xsv"/>
                         <outlet property="imageSelected" destination="1UK-Dh-ZZL" id="tte-ep-u61"/>
                         <outlet property="name" destination="oVR-oi-zlk" id="m8U-gR-Njb"/>
+                        <outlet property="saveEventButton" destination="ryR-Jt-30X" id="cQN-7u-wiG"/>
                         <outlet property="startDate" destination="6xz-OK-1aW" id="A63-Vy-8Y3"/>
                         <outlet property="state" destination="ZnH-ve-TGj" id="v2C-kX-gK2"/>
                     </connections>
