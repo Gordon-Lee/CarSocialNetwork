@@ -198,7 +198,7 @@ extension HomeViewController: UITableViewDataSource {
     
     fileprivate func isLiked(imageId: String) -> Bool {
         for a in activity {
-            if a.activityType == activityType.like.rawValue && a.image.objectId == imageId {
+            if a.activityType == ActivityType.like.rawValue && a.image.objectId == imageId {
                 return true
             }
         }
@@ -246,7 +246,7 @@ extension HomeViewController: PostTableViewDelegate {
         actv.fromUser = PFUser.current()!
         print()
         actv.toUser = userId
-        actv.activityType = activityType.like.rawValue
+        actv.activityType = ActivityType.like.rawValue
         actv.image = image
         print(actv)
         actv.saveInBackground(block: { (sucess, error) in

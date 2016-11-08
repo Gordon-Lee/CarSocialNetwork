@@ -10,14 +10,22 @@ import UIKit
 import Parse
 import SVProgressHUD
 
+enum ProfileView {
+    case posts, events
+}
+
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var profilePhoto: UIImageView!
     @IBOutlet weak var usernameLbl: UILabel!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    fileprivate var dataTableView: ProfileView = .posts
     
     fileprivate var userActivityPost = [Activity]() {
         didSet{
+            loadEvents()
             self.usernameLbl.text = PFUser.current()?.username!
             if PFUser.current()?["profileImage"] != nil {
                 let img = PFUser.current()?["profileImage"] as! PFFile
@@ -29,6 +37,12 @@ class ProfileViewController: UIViewController {
             }
             SVProgressHUD.dismiss()
             tableView.reloadData()
+        }
+    }
+    
+    fileprivate var userEvents = [Activity]() {
+        didSet {
+            print("EVENTES \(userEvents.count)")
         }
     }
     
@@ -53,11 +67,23 @@ class ProfileViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
     }
+    @IBAction func dataUser(_ sender: UISegmentedControl) {
+        if(segmentedControl.selectedSegmentIndex == 0) {
+            dataTableView = .posts
+            print("POSRRSSSS")
+            // tableView.reloadData()
+        } else {
+            dataTableView = .events
+            print("EVENTES")
+            // loadEvents()
+        }
+    }
 }
 //MARK: Generic Methods / Actions
 extension ProfileViewController {
     
     fileprivate func configView() {
+        profilePhoto.setCircle()
         navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         navigationController?.navigationBar.topItem?.title = "Perfil"
         navigationController?.setNavigationBarHidden(false, animated: true)
@@ -81,6 +107,20 @@ extension ProfileViewController {
         cell.backgroundColor = AppCongifuration.lightGrey()
     }
     
+    fileprivate func loadEvents() {
+        let q = Activity.query()
+        
+        q?.includeKey("event")
+        q?.whereKey(Activity.typeaString, equalTo: ActivityType.goEvent.rawValue)
+        
+        q?.findObjectsInBackground(block: { (events, error) in
+            guard error != nil else {
+                self.userEvents = events as! [Activity]
+                return
+            }
+        })
+    }
+    
     fileprivate func loadData() {
         let query = Activity.query()
         SVProgressHUD.show()
@@ -88,7 +128,7 @@ extension ProfileViewController {
         query?.whereKey("toUser", equalTo: PFUser.current()!)
         query?.addDescendingOrder("createdAt")
         query?.includeKey("image")
-        query?.whereKey(Activity.typeaString, equalTo: activityType.post.rawValue)
+        query?.whereKey(Activity.typeaString, equalTo: ActivityType.post.rawValue)
         query?.findObjectsInBackground(block: { (activits, error) in
             guard error != nil else {
                 self.userActivityPost = activits as! [Activity]
@@ -99,7 +139,7 @@ extension ProfileViewController {
         let queryLike = Activity.query()
         
         queryLike?.whereKey("toUser", equalTo: PFUser.current()!)
-        queryLike?.whereKey(Activity.typeaString, equalTo: activityType.like.rawValue)
+        queryLike?.whereKey(Activity.typeaString, equalTo: ActivityType.like.rawValue)
         
         queryLike?.findObjectsInBackground(block: { (likes, error) in
             guard error != nil else {
@@ -130,7 +170,12 @@ extension ProfileViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userActivityPost.count
+        switch dataTableView {
+        case .posts:
+            return userActivityPost.count
+        case .events:
+            return userEvents.count
+        }
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -142,22 +187,29 @@ extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: UserActivityTableViewCell.identifier) as! UserActivityTableViewCell
         
-        //if userActivityPost[indexPath.row].activityType == activityType.post.rawValue {
-            
-            userActivityPost[indexPath.row].image.thumbImage.getDataInBackground(block: { (data, error) in
-                if let image = UIImage(data: data!) {
-                    cell.imageUser.image = image
-                    //TODO
-                    let imageLikeUser = self.userActivityPost[indexPath.row].image
-                    cell.numberOfLikes.text = self.countLikes(imgId: imageLikeUser.objectId!, cell: cell)
-                    return
-                }
-            })
-            
-            cell.actvDescription.text = userActivityPost[indexPath.row].content
-            
-        //}
+        switch dataTableView {
+        case .posts:
+            if userActivityPost[indexPath.row].activityType == ActivityType.post.rawValue {
+                
+                userActivityPost[indexPath.row].image.thumbImage.getDataInBackground(block: { (data, error) in
+                    if let image = UIImage(data: data!) {
+                        cell.imageUser.image = image
+                        //TODO
+                        let imageLikeUser = self.userActivityPost[indexPath.row].image
+                        cell.numberOfLikes.text = self.countLikes(imgId: imageLikeUser.objectId!, cell: cell)
+                        return
+                    }
+                })
+                
+                cell.actvDescription.text = userActivityPost[indexPath.row].content
+                
+            }
         
+        case .events:
+            cell.actvDescription.text = "\(indexPath.row)"
+            print("GOOOO EVENTS \(userEvents.count)")
+            
+        }
         return cell
     }
     

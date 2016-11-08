@@ -8,10 +8,23 @@
 
 import Parse
 
-enum activityType: Int {
-    case post, description, comment, like, follow, profilePhoto, event
-}
-
+//enum activityType: String {
+//    case post, like, liked, goEvent
+//
+//    var name: String {
+//        switch self {
+//        case .post:
+//            return "Postou"
+//        case .like:
+//            return "Gostou"
+//        case .liked:
+//            return "Gostei"
+//        case .goEvent:
+//            return "Evento"
+//        }
+//    }
+//}
+//post, like, liked, goEvent
 class Activity: PFObject, PFSubclassing {
     
     @NSManaged var fromUser: PFUser
