@@ -32,7 +32,6 @@ class PostTabbleCellView: UITableViewCell {
     
     override func awakeFromNib() {
         setupTap()
-        circleProfilePhoto()
         setButtonsImage()
     }
     
@@ -46,14 +45,8 @@ class PostTabbleCellView: UITableViewCell {
         postImage.addGestureRecognizer(gesture)
     }
     
-    fileprivate func circleProfilePhoto(){
-        thumbPhoto.layer.masksToBounds = false
-        thumbPhoto.frame = CGRect(x: 10, y: 10, width: 100, height: 100)
-        thumbPhoto.layer.cornerRadius = 10.0
-        thumbPhoto.layer.masksToBounds = true
-    }
-    
     fileprivate func setButtonsImage() {
+        thumbPhoto.setCircle()
         like.setImage(UIImage(named: "steeringNofiled"), for: .normal)
         like.setImage(UIImage(named: "steering"), for: .selected)
     }

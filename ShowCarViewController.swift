@@ -27,9 +27,28 @@ class ShowCarViewController: UIViewController {
         super.viewDidLoad()
         SVProgressHUD.show()
         loadData()
+        carImage.serRounded()
+        onwerImage.serRounded()
         view.backgroundColor = AppCongifuration.lightGrey()
         title = "Carro"
         navigationController?.setNavigationBarHidden(false, animated: true)
+        setupTap()
+    }
+    
+    fileprivate func setupTap() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(ShowCarViewController.showProfileDetails))
+        gesture.numberOfTapsRequired = 1
+      //  gesture.delegate = self
+        onwerImage.isUserInteractionEnabled = true
+        onwerImage.addGestureRecognizer(gesture)
+    }
+    
+    @objc fileprivate func showProfileDetails() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: ShowProfileViewController.identifier)
+        userShow.objId = showCar.owner.objectId
+        userShow.userName = showCar.owner.username
+        userShow.profilePhoto = showCar.owner["profileImage"] as? PFFile
+        navigationController?.pushViewController(vc!, animated: true)
     }
     
     fileprivate func loadData() {

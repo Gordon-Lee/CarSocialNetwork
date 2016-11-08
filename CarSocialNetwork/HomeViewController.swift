@@ -255,5 +255,4 @@ extension HomeViewController: PostTableViewDelegate {
             }
         })
     }
-    
 }

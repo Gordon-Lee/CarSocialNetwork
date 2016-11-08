@@ -26,6 +26,7 @@ class ShowEventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Descrição"
+        eventImage.serRounded()
         view.backgroundColor = AppCongifuration.lightGrey()
         navigationController?.setNavigationBarHidden(false, animated: true)
         loadData()

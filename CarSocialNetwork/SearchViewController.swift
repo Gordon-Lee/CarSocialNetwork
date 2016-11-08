@@ -160,7 +160,6 @@ extension SearchViewController {
         queryCar?.findObjectsInBackground(block: { (carLoad, error) in
             guard error != nil else {
                 self.cars = carLoad as! [Car]
-                 print("\(self.cars.count)    ******* CCARRSSSSS #######")
                 return
             }
         })
@@ -172,7 +171,6 @@ extension SearchViewController {
         queryEvents?.findObjectsInBackground(block: { (ev, error) in
             guard error != nil else {
                 self.events = ev as! [Events]
-                print("\(self.events.count)    ******* EVVEEENTSSSS ######")
                 return
             }
         })
@@ -234,25 +232,21 @@ extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
             filteredCar = cars.filter { car in
                 switch scope {
                 case "0":
-                    print("MODEL TEXT "+searchText+"  SCOPE "+scope+" \(car.model.localizedLowercase.contains(searchText.localizedLowercase))")
                     return car.model.localizedLowercase.contains(searchText.localizedLowercase)
                 case "1":
-                    print("BRAND TEXT "+searchText+"  SCOPE "+scope+" \(car.brand.localizedLowercase.contains(searchText.localizedLowercase))")
                     return car.brand.localizedLowercase.contains(searchText.localizedLowercase)
                 case "2":
-                    print("YEAR TEXT "+searchText+"  SCOPE "+scope+" \(String(car.year).localizedLowercase.contains(searchText.localizedLowercase))")
                     return String(car.year).localizedLowercase.contains(searchText.localizedLowercase)
                 default:
-                    //return categoryMatch && car.brand.localizedLowercase.contains(searchText.localizedLowercase)
+                    print("filer")
                     break
-                    }
-                return true
                 }
+            return true
+            }
         case .events:
             filteredEvents = events.filter { event  in
                 switch  scope {
                     case "0":
-                        print("EVENTE MODEL TEXT "+searchText+"  SCOPE "+scope+" \(event.name.localizedLowercase.contains(searchText.localizedLowercase))")
                         return event.name.localizedLowercase.contains(searchText.localizedLowercase)
                     case "1":
                         return event.cidade.localizedLowercase.contains(searchText.localizedLowercase)
@@ -384,12 +378,8 @@ extension SearchViewController: SearchTableViewDelegate {
             let vc = sb.instantiateViewController(withIdentifier: ShowCarViewController.identifier)
             showCar = carSelected
             navigationController?.pushViewController(vc, animated: true)
-            
         default:
             print("PAUUUUUU DID PROFILE")
         }
-        
-        
-        
     }
 }
