@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 var showEvent = Events()
 
@@ -28,7 +29,9 @@ class ShowEventViewController: UIViewController {
         title = "Descrição"
         eventImage.serRounded()
         view.backgroundColor = AppCongifuration.lightGrey()
+        title = showEvent.name
         navigationController?.setNavigationBarHidden(false, animated: true)
+        
         loadData()
     }
     
@@ -46,5 +49,12 @@ class ShowEventViewController: UIViewController {
                 self.eventImage.image = imgData
             }
         }
+    }
+    @IBAction func saveEvent(_ sender: Any) {
+        let activityEventUser = Activity()
+        activityEventUser.activityType = activityType.event.rawValue
+        activityEventUser.fromUser = PFUser.current()!
+        activityEventUser.toUser = showEvent.onwer
+        activityEventUser.saveInBackground()
     }
 }

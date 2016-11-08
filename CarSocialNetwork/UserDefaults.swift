@@ -39,7 +39,7 @@ class UserDefaults {
         nsDefaults = Foundation.UserDefaults.standard
     }
     
-    internal func Save(_ username: String, password: String, loginType: LoginType) {
+    internal func Save(username: String, password: String, loginType: LoginType) {
         nsDefaults.set(username, forKey: DataUserDefaults.userName)
         nsDefaults.set(password, forKey: DataUserDefaults.password)
         nsDefaults.set(true, forKey: DataUserDefaults.autoLogin)

@@ -26,6 +26,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var userNameTxt: UITextField!
     @IBOutlet weak var passWordTxt: UITextField!
     @IBOutlet weak var loginFSBK: FBSDKLoginButton!
+    
     var dict : [String : AnyObject]!
     
     override func viewDidLoad() {
@@ -37,28 +38,11 @@ class LoginViewController: UIViewController {
 //                                               name: NSNotification.Name.UIKeyboardWillHide,
 //                                               object: nil)
 //    
-        if FBSDKAccessToken.current() != nil {
-            print(FBSDKAccessToken.current().userID!)
-            //getUserData()
-            //returnUserProfileImage(accessToken: FBSDKAccessToken.current().userID! as NSString)
-            //self.homeView()
-        }
-        
+    
         loginFSBK.readPermissions = ["public_profile","email"]
         loginFSBK.delegate = self
     }
     
-    func returnUserProfileImage(accessToken: NSString)
-    {
-        let userID = accessToken
-        let facebookProfileUrl = NSURL(string: "http://graph.facebook.com/\(userID)/picture?type=large")
-        
-        if let data = NSData(contentsOf: facebookProfileUrl as! URL) {
-            let image = UIImage(data: data as Data)
-            print("USER FOtO \(image)")
-        }
-        
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -73,25 +57,25 @@ class LoginViewController: UIViewController {
     func keyboardWillShow(notification: NSNotification) {
         self.view.frame.origin.y -= 50.0
         
-//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-//            if self.view.frame.origin.y == 0{
-//                self.view.frame.origin.y -= (keyboardSize.height - 60.0)
-//            }
-//        }
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= (keyboardSize.height - 60.0)
+            }
+        }
         
     }
     
     func keyboardWillHide(notification: NSNotification) {
         self.view.frame.origin.y += 50.0
-//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-//            if self.view.frame.origin.y != 0{
-//                self.view.frame.origin.y += (keyboardSize.height - 60.0)
-//            }
-//        }
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += (keyboardSize.height - 60.0)
+            }
+        }
     }
     
     @IBAction func login(_ sender: AnyObject) {
-        loginWithParse("Marco", password: "12345")
+        loginWithParse(userNameTxt.text!, password: passWordTxt.text!)
     }
     @IBAction func singUp(_ sender: AnyObject) {
          self.signUpNew()
@@ -121,7 +105,12 @@ extension LoginViewController {
         PFUser.logInWithUsername(inBackground: username, password: password) { (user, error) -> Void in
             guard user == nil else{
                 self.homeView()
+                UserDefaults.sharedInstance.Save(username: self.userNameTxt.text!, password: self.passWordTxt.text!, loginType: .normal)
                 return
+            }
+            
+            if error != nil {
+                self.showErroEmail(message: "Usuáriou e/ou senha errados!")
             }
         }
     }
@@ -160,35 +149,64 @@ extension LoginViewController {
         self.present(vc, animated: true, completion: nil)
     }
 }
-
+//FABEBUG
 extension LoginViewController: FBSDKLoginButtonDelegate {
-    //MARK -FB login
+    
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if error == nil {
             print("FACE login complete")
             print("\(FBSDKAccessToken.current().userID)")
-            //print("\(FBSDKAccessToken.current().)")
-            getFBUserData()
+//            getFBUserData()
+            returnUserProfileImage()
+            downloadImage(url: URL(string: "http://graph.facebook.com/\(FBSDKAccessToken.current()!.userID!)/picture?type=large")!)
             //self.homeView()
         } else {
             print(error.localizedDescription)
         }
     }
     
-        func getFBUserData(){
-            if((FBSDKAccessToken.current()) != nil){
-                FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
-                    if (error == nil){
-                        self.dict = result as! [String : AnyObject]
-                        print(result!)
-                        print(self.dict)
-                    }
-                })
-            }
+    func getFBUserData() {
+            let imgURLString = "http://graph.facebook.com/\(FBSDKAccessToken.current()!.userID!)/picture?type=large" //type=normal
+            print(imgURLString)
+            let imgURL = NSURL(string: imgURLString)
+            let imageData = NSData(contentsOf: imgURL! as URL)
+            let image = UIImage(data: imageData! as Data)
+            print("IMAGE \(image)")
+        
     }
-    
+
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("logout")
+    }
+    
+    func returnUserProfileImage() {
+        
+        let facebookProfileUrl = NSURL(string: "http://graph.facebook.com/\(FBSDKAccessToken.current()!.userID!)/picture?type=large")
+        
+        if let data = NSData(contentsOf: facebookProfileUrl as! URL) {
+            let image = UIImage(data: data as Data)
+            print("USER FOtO \(image)")
+        }
+    }
+    
+    func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
+        URLSession.shared.dataTask(with: url) {
+            (data, response, error) in
+            completion(data, response, error)
+            }.resume()
+    }
+    
+    func downloadImage(url: URL) {
+        print("Download Started")
+        getDataFromUrl(url: url) { (data, response, error)  in
+            guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished")
+            DispatchQueue.main.async() { () -> Void in
+                //self.imageView.image = UIImage(data: data)
+                print("ASHODHASHDIAHDIUAH \(data)")
+            }
+        }
     }
 }
 
@@ -213,16 +231,16 @@ extension LoginViewController: LoginViewControllerDelegate {
                 if success {
                     self.showEmailOK()
                 }else {
-                    self.showErroEmail()
+                    self.showErroEmail(message: "Email digitado errado")
                 }
             })
         }))
         self.present(alert, animated: true, completion: nil)
     }
     
-    fileprivate func showErroEmail() {
+    fileprivate func showErroEmail(message: String) {
         
-        let alert = UIAlertController(title: "Erro", message: "Email digitado errado", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Erro", message: message , preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
             alert.dismiss(animated: true, completion: nil)

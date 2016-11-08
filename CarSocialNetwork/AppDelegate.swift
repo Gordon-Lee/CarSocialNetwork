@@ -28,7 +28,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFFacebookUtils.initializeFacebook()
         
         AppCongifuration.systemBars()
-        setIncialStoryBoard()
+       // setIncialStoryBoard()
+        
+        print("\(UserDefaults.sharedInstance.getUserName())")
+        if UserDefaults.sharedInstance.isFirtTime() {
+            goToStoryBoard(self.inicialTutorialIdentifier)
+            
+        }
+        if UserDefaults.sharedInstance.autoLogin() {
+            let userName = UserDefaults.sharedInstance.getUserName()
+            let password = UserDefaults.sharedInstance.getPassword()
+            loginWithParse(userName, password: password)
+        } else {
+            goToStoryBoard(loginSBIdentifier)
+        }
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
@@ -65,19 +78,19 @@ extension AppDelegate {
     }
     
     fileprivate func setIncialStoryBoard() {
-        goToStoryBoard(loginSBIdentifier)
-        //print(UserDefaults.sharedInstance.getUserName())
-//        if !UserDefaults.sharedInstance.isFirtTime() {
-//            goToStoryBoard(self.inicialTutorialIdentifier)
-//            return
-//        }
-//        if UserDefaults.sharedInstance.autoLogin() {
-//            let userName = UserDefaults.sharedInstance.getUserName()
-//            let password = UserDefaults.sharedInstance.getPassword()
-//            loginWithParse(userName, password: password)
-//        } else if !UserDefaults.sharedInstance.autoLogin() {
-//            goToStoryBoard(loginSBIdentifier)
-//        }
+        //goToStoryBoard(loginSBIdentifier)
+        print("\(UserDefaults.sharedInstance.getUserName())")
+        if UserDefaults.sharedInstance.isFirtTime() {
+            goToStoryBoard(self.inicialTutorialIdentifier)
+            return
+        }
+        if UserDefaults.sharedInstance.autoLogin() {
+            let userName = UserDefaults.sharedInstance.getUserName()
+            let password = UserDefaults.sharedInstance.getPassword()
+            loginWithParse(userName, password: password)
+        } else if !UserDefaults.sharedInstance.autoLogin() {
+            goToStoryBoard(loginSBIdentifier)
+        }
     }
     
     fileprivate func loginWithParse(_ username: String!, password: String!) {
@@ -96,7 +109,4 @@ extension AppDelegate {
         let vc = sb.instantiateInitialViewController()
         window?.rootViewController = vc
     }
-    
-    
 }
-

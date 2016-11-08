@@ -99,18 +99,18 @@
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8W-Rf-LUc" userLabel="name">
-                                <rect key="frame" x="16" y="86" width="335" height="29"/>
+                                <rect key="frame" x="16" y="72" width="335" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="n3M-dF-ibU"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kafldkshjflksahflkjhsdalkfhsalkfjhsdalkjhfsdlkhflksajhflsadkjhflksjhflkjsdafhlkjsahfiowenroiur rowenipxqoi" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BmG-MF-fjt" userLabel="description">
-                                <rect key="frame" x="16" y="115" width="343" height="61"/>
+                                <rect key="frame" x="16" y="109" width="343" height="73"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="61" id="EVU-sf-Eu9"/>
+                                    <constraint firstAttribute="height" constant="73" id="EVU-sf-Eu9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -208,7 +208,7 @@
                             <constraint firstItem="Fxk-ae-bQv" firstAttribute="baseline" secondItem="dI7-ob-o4h" secondAttribute="baseline" id="Lfb-xO-1f1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qsZ-CK-Rh9" secondAttribute="trailing" constant="66" id="QS9-WO-36r"/>
                             <constraint firstItem="Ndy-Xw-KWk" firstAttribute="trailing" secondItem="fVM-nf-RUP" secondAttribute="trailing" id="RDf-HO-Ldz"/>
-                            <constraint firstItem="L6H-KO-mfk" firstAttribute="top" secondItem="BmG-MF-fjt" secondAttribute="bottom" constant="8" id="RYO-2p-BV0"/>
+                            <constraint firstItem="L6H-KO-mfk" firstAttribute="top" secondItem="BmG-MF-fjt" secondAttribute="bottom" constant="2" id="RYO-2p-BV0"/>
                             <constraint firstItem="AQ2-SH-amL" firstAttribute="leading" secondItem="Fxk-ae-bQv" secondAttribute="leading" id="TfW-dD-dMP"/>
                             <constraint firstItem="L6H-KO-mfk" firstAttribute="centerY" secondItem="8CQ-Zx-bij" secondAttribute="centerY" id="Uuc-EA-nDq"/>
                             <constraint firstItem="fnh-oJ-qP4" firstAttribute="baseline" secondItem="Ndy-Xw-KWk" secondAttribute="baseline" id="WsT-uh-0Nr"/>
@@ -229,18 +229,24 @@
                             <constraint firstItem="fnh-oJ-qP4" firstAttribute="leading" secondItem="nVc-d3-jjM" secondAttribute="leading" id="m53-y9-2Ad"/>
                             <constraint firstItem="Fxk-ae-bQv" firstAttribute="baseline" secondItem="dI7-ob-o4h" secondAttribute="firstBaseline" id="pve-P3-9yc"/>
                             <constraint firstItem="s8W-Rf-LUc" firstAttribute="leading" secondItem="8CQ-Zx-bij" secondAttribute="leadingMargin" id="qZM-rU-ZT2"/>
-                            <constraint firstItem="BmG-MF-fjt" firstAttribute="top" secondItem="s8W-Rf-LUc" secondAttribute="bottom" id="uI5-Jw-hMN"/>
+                            <constraint firstItem="BmG-MF-fjt" firstAttribute="top" secondItem="s8W-Rf-LUc" secondAttribute="bottom" constant="8" id="uI5-Jw-hMN"/>
                             <constraint firstItem="txl-Ny-AfZ" firstAttribute="trailing" secondItem="Ndy-Xw-KWk" secondAttribute="trailing" id="w9T-Xh-Bf8"/>
                             <constraint firstItem="TVi-gF-ocS" firstAttribute="top" secondItem="ciX-3W-q06" secondAttribute="bottom" constant="53" id="wOB-qG-XcP"/>
                             <constraint firstItem="TVi-gF-ocS" firstAttribute="top" secondItem="nVc-d3-jjM" secondAttribute="bottom" constant="33" id="wn5-Ii-dsR"/>
                             <constraint firstItem="s8W-Rf-LUc" firstAttribute="trailing" secondItem="dI7-ob-o4h" secondAttribute="trailing" id="zr0-BD-4Lr"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="owB-6l-V52" userLabel="Salvar">
+                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="aYE-3S-AaY">
+                            <connections>
+                                <action selector="saveEvent:" destination="Adl-bd-a4N" id="xYB-f7-TjY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="adress" destination="nVc-d3-jjM" id="k7A-O8-4gV"/>
                         <outlet property="city" destination="fVM-nf-RUP" id="Nam-1y-k74"/>
                         <outlet property="endDate" destination="dI7-ob-o4h" id="7TV-1b-LuZ"/>
-                        <outlet property="event" destination="s8W-Rf-LUc" id="5Ug-BX-j3I"/>
                         <outlet property="eventDesc" destination="BmG-MF-fjt" id="AQq-CS-C0s"/>
                         <outlet property="eventImage" destination="L6H-KO-mfk" id="HI3-J0-Zfu"/>
                         <outlet property="startDate" destination="Fxk-ae-bQv" id="fGa-jB-zDs"/>
@@ -249,7 +255,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r9G-6I-eSR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2101.5999999999999" y="838.83058470764627"/>
+            <point key="canvasLocation" x="2773.5999999999999" y="838.83058470764627"/>
         </scene>
         <!--Show Car View Controller-->
         <scene sceneID="qSr-HZ-beH">
@@ -330,6 +336,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O6k-qs-lZO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2087.1999999999998" y="1538.6806596701651"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HTw-ck-gX8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GdD-71-cE6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6GU-52-tWe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Adl-bd-a4N" kind="relationship" relationship="rootViewController" id="4pO-qQ-coR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i8e-Ec-idm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2101.5999999999999" y="838.83058470764627"/>
         </scene>
     </scenes>
     <resources>

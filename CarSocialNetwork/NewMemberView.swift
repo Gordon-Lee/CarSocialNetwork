@@ -43,7 +43,7 @@ class NewMemberView: UIView {
         user.signUpInBackground { (sucess, error) in
             guard error == nil else {
                 //SVProgressHUD.show(withStatus: error?.description)
-                UserDefaults.sharedInstance.Save(self.username.text!, password: self.password.text!, loginType: .normal)
+                UserDefaults.sharedInstance.Save(username: self.username.text!, password: self.password.text!, loginType: .normal)
                 self.delegate.didTapSignup()
                 SVProgressHUD.dismiss()
                 return
