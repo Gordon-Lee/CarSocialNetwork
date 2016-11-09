@@ -37,7 +37,7 @@ class ShowEventViewController: UIViewController {
     }
     
     fileprivate func loadData() {
-        print(showEvent)
+//        print(showEvent)
         //event.text = showEvent.name
         eventDesc.text = showEvent.eventDescription
         startDate.text = showEvent.startDate
@@ -45,7 +45,8 @@ class ShowEventViewController: UIViewController {
         adress.text = showEvent.local
         city.text = showEvent.cidade
         state.text = showEvent.estado
-        print(showEvent.image)
+        
+//        print(showEvent.image)
         showEvent.image.getDataInBackground { (data, error) in
             if let imgData = UIImage(data: data!) {
                 self.eventImage.image = imgData
@@ -71,6 +72,7 @@ class ShowEventViewController: UIViewController {
         activityEventUser.activityType = ActivityType.goEvent.rawValue
         activityEventUser.fromUser = showEvent.onwer
         activityEventUser.toUser = PFUser.current()!
+        activityEventUser.event = showEvent
         SVProgressHUD.show()
         activityEventUser.saveInBackground { (success, error) in
             if success {

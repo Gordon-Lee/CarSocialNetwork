@@ -43,6 +43,7 @@ class ProfileViewController: UIViewController {
     fileprivate var userEvents = [Activity]() {
         didSet {
             print("EVENTES \(userEvents.count)")
+            tableView.reloadData()
         }
     }
     
@@ -70,12 +71,10 @@ class ProfileViewController: UIViewController {
     @IBAction func dataUser(_ sender: UISegmentedControl) {
         if(segmentedControl.selectedSegmentIndex == 0) {
             dataTableView = .posts
-            print("POSRRSSSS")
-            // tableView.reloadData()
+            tableView.reloadData()
         } else {
             dataTableView = .events
-            print("EVENTES")
-            // loadEvents()
+            loadEvents()
         }
     }
 }
@@ -181,16 +180,26 @@ extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100 as CGFloat
     }
+//    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        switch dataTableView {
+//        case .events:
+//            print(self.userActivityPost[indexPath.row].event)
+//            //showEvent =
+//            self.showEventO()
+//        default:
+//            break
+//        }
+//    }
 }
 //MARK: TableView DATA SOURCE
 extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: UserActivityTableViewCell.identifier) as! UserActivityTableViewCell
-        
+        setButtonsCellState(dataView: dataTableView, cell: cell)
         switch dataTableView {
         case .posts:
             if userActivityPost[indexPath.row].activityType == ActivityType.post.rawValue {
-                
                 userActivityPost[indexPath.row].image.thumbImage.getDataInBackground(block: { (data, error) in
                     if let image = UIImage(data: data!) {
                         cell.imageUser.image = image
@@ -200,17 +209,21 @@ extension ProfileViewController: UITableViewDataSource {
                         return
                     }
                 })
-                
                 cell.actvDescription.text = userActivityPost[indexPath.row].content
-                
             }
-        
         case .events:
             cell.actvDescription.text = "\(indexPath.row)"
             print("GOOOO EVENTS \(userEvents.count)")
-            
         }
+        setButtonsCellState(dataView: dataTableView, cell: cell)
+        
         return cell
+    }
+    
+    fileprivate func setButtonsCellState(dataView: ProfileView, cell: UserActivityTableViewCell) {
+        cell.like.isHidden = dataView == .posts ? false : true
+        cell.numberOfLikes.isHidden = dataView == .posts ? false : true
+        print(cell.isUserInteractionEnabled)
     }
     
     fileprivate func countLikes(imgId: String, cell: UserActivityTableViewCell) -> String {
@@ -223,4 +236,10 @@ extension ProfileViewController: UITableViewDataSource {
         }
         return "\(count)"
     }
+    func showEventO() {
+        let sb = UIStoryboard(name: "Show", bundle: Bundle.main)
+        let vc = sb.instantiateViewController(withIdentifier: ShowEventViewController.identifier)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }

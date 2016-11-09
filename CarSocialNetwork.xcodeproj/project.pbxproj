@@ -58,7 +58,6 @@
 		A97784EB1D77B277006A756E /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97784EA1D77B277006A756E /* AppConfiguration.swift */; };
 		A97784ED1D77B6BB006A756E /* tabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97784EC1D77B6BB006A756E /* tabBar.swift */; };
 		A97784EF1D77B9FA006A756E /* LoginStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97784EE1D77B9FA006A756E /* LoginStory.storyboard */; };
-		A97EA6941D884A9E0037E25A /* InicialTutorialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97EA6931D884A9E0037E25A /* InicialTutorialView.xib */; };
 		A97EA6961D884AB90037E25A /* InicialTutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97EA6951D884AB90037E25A /* InicialTutorial.storyboard */; };
 		A98A72C91D85891C0044238A /* PostCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98A72C81D85891C0044238A /* PostCellView.xib */; };
 		A98A72CB1D8589890044238A /* PostTabbleCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98A72CA1D8589890044238A /* PostTabbleCellView.swift */; };
@@ -136,7 +135,6 @@
 		A97784EA1D77B277006A756E /* AppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		A97784EC1D77B6BB006A756E /* tabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tabBar.swift; sourceTree = "<group>"; };
 		A97784EE1D77B9FA006A756E /* LoginStory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginStory.storyboard; sourceTree = "<group>"; };
-		A97EA6931D884A9E0037E25A /* InicialTutorialView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InicialTutorialView.xib; sourceTree = "<group>"; };
 		A97EA6951D884AB90037E25A /* InicialTutorial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InicialTutorial.storyboard; sourceTree = "<group>"; };
 		A98A72C81D85891C0044238A /* PostCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCellView.xib; sourceTree = "<group>"; };
 		A98A72CA1D8589890044238A /* PostTabbleCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTabbleCellView.swift; sourceTree = "<group>"; };
@@ -310,7 +308,6 @@
 		A97EA6921D884A7B0037E25A /* InicialTutorial */ = {
 			isa = PBXGroup;
 			children = (
-				A97EA6931D884A9E0037E25A /* InicialTutorialView.xib */,
 				A97EA6951D884AB90037E25A /* InicialTutorial.storyboard */,
 				66BC9B061DCAB21400B2B2C6 /* SecondViewController.swift */,
 			);
@@ -488,7 +485,7 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -522,7 +519,6 @@
 				A91B16D41D77559700B0C6CB /* HomePage.storyboard in Resources */,
 				6692301D1DBD844F00DECAC0 /* Assets.xcassets in Resources */,
 				66A392471DC77589006C0399 /* Show.storyboard in Resources */,
-				A97EA6941D884A9E0037E25A /* InicialTutorialView.xib in Resources */,
 				668D195A1DB505350077021E /* SearchResult.xib in Resources */,
 				A9D03BE11D981BE900D94791 /* DescriptionPost.xib in Resources */,
 				6611C31E1DB3C57400D99832 /* EventDescription.xib in Resources */,

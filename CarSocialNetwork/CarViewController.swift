@@ -25,11 +25,13 @@ class CarViewController: UIViewController {
     @IBOutlet weak var model: UITextField!
     @IBOutlet weak var year: UITextField!
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var save: UIBarButtonItem!
 
     fileprivate var fus = FusumaViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        save.isEnabled = false
         loadCarData()
         configView()
         fus.delegate = self
@@ -125,6 +127,7 @@ extension CarViewController : FusumaDelegate {
     
     func fusumaDismissedWithImage(_ image: UIImage) {
         self.image.image = image
+        self.save.isEnabled = true
         carToSave.owner = PFUser.current()!
         carToSave.thumbImage = PFFile(data: AdjustPhoto.uploadToPhoto(image, type: .thumb))!
         carToSave.image = PFFile(data: AdjustPhoto.uploadToPhoto(image, type: .normal))!

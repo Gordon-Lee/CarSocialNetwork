@@ -30,6 +30,7 @@ class Activity: PFObject, PFSubclassing {
     @NSManaged var fromUser: PFUser
     @NSManaged var toUser: PFUser
     @NSManaged var image: Photo
+    @NSManaged var event: Events
     @NSManaged var type: String
     @NSManaged var content: String
     @NSManaged var activityType: Int

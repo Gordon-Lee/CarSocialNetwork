@@ -78,7 +78,7 @@
                                 <action selector="dismissView:" destination="Taz-9j-TQj" id="0TQ-GT-La9"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="y5g-Ih-37L">
+                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="y5g-Ih-37L">
                             <connections>
                                 <action selector="save:" destination="Taz-9j-TQj" id="JXf-rz-M6g"/>
                             </connections>
@@ -88,6 +88,7 @@
                         <outlet property="brand" destination="1gj-fa-sHa" id="77o-7V-04H"/>
                         <outlet property="image" destination="RZG-lU-KAa" id="Lkh-WP-KbN"/>
                         <outlet property="model" destination="0XR-T3-ldv" id="TEl-ia-DsH"/>
+                        <outlet property="save" destination="y5g-Ih-37L" id="UZX-Xw-cwD"/>
                         <outlet property="year" destination="n0M-xu-sAZ" id="YXX-uI-pXg"/>
                     </connections>
                 </viewController>

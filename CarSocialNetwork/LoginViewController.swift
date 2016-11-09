@@ -46,7 +46,7 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+        loginFSBK.isHidden = true
         navigationBar()
         configView()
         hideKeyboard()

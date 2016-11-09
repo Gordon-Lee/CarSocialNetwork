@@ -15,7 +15,8 @@ class AutoLogin: UISwitch {
         isUserInteractionEnabled = true
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func updateUserActivityState(_ activity: NSUserActivity) {
         print(isOn)
     }
+    
 }
