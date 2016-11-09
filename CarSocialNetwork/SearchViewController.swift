@@ -340,6 +340,7 @@ extension SearchViewController: UITableViewDelegate {
             didTapToShowSeletedProfile()
         case .events:
             eventSelected = searchController.isActive && searchController.searchBar.text != "" ? filteredEvents[indexPath.row] : events[indexPath.row]
+            ShowEventViewController.look = true
             didTapToShowSeletedProfile()
             break
         }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -12,7 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" restorationIdentifier="postCell" id="iN0-l3-epB" customClass="PostTabbleCellView" customModule="CarSocialNetwork" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kcg-Nn-B0N">
@@ -33,7 +33,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ls6-PO-Bv7">
-                    <rect key="frame" x="9" y="515" width="50" height="50"/>
+                    <rect key="frame" x="9" y="562" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="7Th-je-G6H"/>
                         <constraint firstAttribute="width" constant="50" id="Zvr-cG-auF"/>
@@ -50,18 +50,18 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hs7-4u-rMP">
-                    <rect key="frame" x="0.0" y="131" width="376" height="376"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="376" id="uW1-Og-M0G"/>
-                        <constraint firstAttribute="height" constant="376" id="znY-Vv-U4x"/>
-                    </constraints>
-                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="steering" translatesAutoresizingMaskIntoConstraints="NO" id="3vL-ez-raG">
-                    <rect key="frame" x="142" y="273" width="90" height="90"/>
+                    <rect key="frame" x="162" y="273" width="90" height="90"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="90" id="KCA-rv-5vk"/>
                         <constraint firstAttribute="height" constant="90" id="Yq3-c1-gEg"/>
+                    </constraints>
+                </imageView>
+                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hs7-4u-rMP">
+                    <rect key="frame" x="-1" y="139" width="415" height="415"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="415" id="uW1-Og-M0G"/>
+                        <constraint firstAttribute="height" constant="415" id="znY-Vv-U4x"/>
                     </constraints>
                 </imageView>
             </subviews>
@@ -72,12 +72,12 @@
                 <constraint firstItem="3vL-ez-raG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="273" id="AmO-RE-rxe"/>
                 <constraint firstItem="BzK-Ay-qCy" firstAttribute="leading" secondItem="kcg-Nn-B0N" secondAttribute="trailing" constant="8" symbolic="YES" id="OJD-1R-Ous"/>
                 <constraint firstItem="kcg-Nn-B0N" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="9" id="ZR8-eB-h08"/>
-                <constraint firstItem="hs7-4u-rMP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="a6K-gI-mne"/>
+                <constraint firstItem="hs7-4u-rMP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="-1" id="a6K-gI-mne"/>
                 <constraint firstItem="ls6-PO-Bv7" firstAttribute="top" secondItem="hs7-4u-rMP" secondAttribute="bottom" constant="8" symbolic="YES" id="edl-vg-4vD"/>
-                <constraint firstItem="hs7-4u-rMP" firstAttribute="top" secondItem="kcg-Nn-B0N" secondAttribute="bottom" constant="11" id="gV3-P1-dSb"/>
+                <constraint firstItem="hs7-4u-rMP" firstAttribute="top" secondItem="kcg-Nn-B0N" secondAttribute="bottom" constant="19" id="gV3-P1-dSb"/>
                 <constraint firstItem="kcg-Nn-B0N" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="j1l-vD-anE"/>
                 <constraint firstItem="3vL-ez-raG" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ni0-uU-6o5"/>
-                <constraint firstItem="hs7-4u-rMP" firstAttribute="top" secondItem="rOW-s7-bHd" secondAttribute="bottom" constant="17" id="spC-8w-xfQ"/>
+                <constraint firstItem="hs7-4u-rMP" firstAttribute="top" secondItem="rOW-s7-bHd" secondAttribute="bottom" constant="25" id="spC-8w-xfQ"/>
             </constraints>
             <variation key="default">
                 <mask key="subviews">
@@ -103,7 +103,7 @@
                 <outlet property="postImage" destination="hs7-4u-rMP" id="uh1-ar-G3R"/>
                 <outlet property="thumbPhoto" destination="kcg-Nn-B0N" id="blX-g9-Bg2"/>
             </connections>
-            <point key="canvasLocation" x="487.5" y="106.5"/>
+            <point key="canvasLocation" x="487" y="106"/>
         </view>
     </objects>
     <resources>

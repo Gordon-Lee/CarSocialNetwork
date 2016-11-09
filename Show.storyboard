@@ -249,6 +249,7 @@
                         <outlet property="endDate" destination="dI7-ob-o4h" id="7TV-1b-LuZ"/>
                         <outlet property="eventDesc" destination="BmG-MF-fjt" id="AQq-CS-C0s"/>
                         <outlet property="eventImage" destination="L6H-KO-mfk" id="HI3-J0-Zfu"/>
+                        <outlet property="save" destination="aYE-3S-AaY" id="bU5-E3-R0y"/>
                         <outlet property="startDate" destination="Fxk-ae-bQv" id="fGa-jB-zDs"/>
                         <outlet property="state" destination="qsZ-CK-Rh9" id="JjA-BU-K8b"/>
                     </connections>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DAy-zS-hBY">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,15 +18,20 @@
                         <viewControllerLayoutGuide type="bottom" id="cZv-bZ-87T"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ndD-ro-XrN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TestInicial" translatesAutoresizingMaskIntoConstraints="NO" id="bFr-JV-pSG">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TestInicial" translatesAutoresizingMaskIntoConstraints="NO" id="bFr-JV-pSG">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="bFr-JV-pSG" secondAttribute="trailing" id="Bco-m1-xaf"/>
+                            <constraint firstItem="bFr-JV-pSG" firstAttribute="leading" secondItem="ndD-ro-XrN" secondAttribute="leading" id="K8a-hd-neg"/>
+                            <constraint firstItem="bFr-JV-pSG" firstAttribute="top" secondItem="Wyt-lR-cI6" secondAttribute="bottom" id="SG3-bL-qyz"/>
+                            <constraint firstItem="bFr-JV-pSG" firstAttribute="bottom" secondItem="cZv-bZ-87T" secondAttribute="top" id="zoZ-sv-WRv"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="bFr-JV-pSG"/>
@@ -48,7 +53,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6N3-Y6-oh5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1412" y="419.64017991004499"/>
+            <point key="canvasLocation" x="1411.5942028985507" y="419.02173913043481"/>
         </scene>
         <!--Car Social-->
         <scene sceneID="C3t-i5-NBq">
@@ -59,15 +64,20 @@
                         <viewControllerLayoutGuide type="bottom" id="vOQ-ld-0ET"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ewj-Is-4qE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TestInicial" translatesAutoresizingMaskIntoConstraints="NO" id="MSX-6E-zbu">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TestInicial" translatesAutoresizingMaskIntoConstraints="NO" id="MSX-6E-zbu">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="MSX-6E-zbu" firstAttribute="top" secondItem="4hI-Sw-oYx" secondAttribute="bottom" id="9Ti-ez-HbF"/>
+                            <constraint firstItem="MSX-6E-zbu" firstAttribute="bottom" secondItem="vOQ-ld-0ET" secondAttribute="top" id="JPJ-xY-ulK"/>
+                            <constraint firstAttribute="trailing" secondItem="MSX-6E-zbu" secondAttribute="trailing" id="JWV-kB-F9s"/>
+                            <constraint firstItem="MSX-6E-zbu" firstAttribute="leading" secondItem="Ewj-Is-4qE" secondAttribute="leading" id="Pe2-T8-ylU"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Car Social" id="jNV-2r-L6H">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="RbX-lQ-PJr">
@@ -79,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5fZ-30-Nm7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2080.5" y="421"/>
+            <point key="canvasLocation" x="2079.7101449275365" y="420.6521739130435"/>
         </scene>
         <!--LoginStory-->
         <scene sceneID="xiU-zr-VHn">

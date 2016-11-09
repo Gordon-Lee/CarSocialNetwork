@@ -115,6 +115,7 @@ extension ProfileViewController {
         q?.findObjectsInBackground(block: { (events, error) in
             guard error != nil else {
                 self.userEvents = events as! [Activity]
+                print(self.userEvents[0].event.image)
                 return
             }
         })
@@ -180,17 +181,15 @@ extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100 as CGFloat
     }
-//    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        switch dataTableView {
-//        case .events:
-//            print(self.userActivityPost[indexPath.row].event)
-//            //showEvent =
-//            self.showEventO()
-//        default:
-//            break
-//        }
-//    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch dataTableView {
+        case .events:
+            self.showEventO(row: indexPath.row)
+        default:
+            break
+        }
+    }
 }
 //MARK: TableView DATA SOURCE
 extension ProfileViewController: UITableViewDataSource {
@@ -236,9 +235,11 @@ extension ProfileViewController: UITableViewDataSource {
         }
         return "\(count)"
     }
-    func showEventO() {
+    func showEventO(row: Int) {
         let sb = UIStoryboard(name: "Show", bundle: Bundle.main)
         let vc = sb.instantiateViewController(withIdentifier: ShowEventViewController.identifier)
+        ShowEventViewController.look = false
+        showEvent = userEvents[row].event
         navigationController?.pushViewController(vc, animated: true)
     }
     

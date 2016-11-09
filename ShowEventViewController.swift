@@ -12,9 +12,11 @@ import SVProgressHUD
 
 var showEvent = Events()
 
+
 class ShowEventViewController: UIViewController {
 
     static let identifier = "ShowEventViewController"
+    static var look = Bool()
     
    // @IBOutlet weak var event: UILabel!
     @IBOutlet weak var eventDesc: UILabel!
@@ -24,6 +26,7 @@ class ShowEventViewController: UIViewController {
     @IBOutlet weak var city: UILabel!
     @IBOutlet weak var state: UILabel!
     @IBOutlet weak var eventImage: UIImageView!
+    @IBOutlet weak var save: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +37,11 @@ class ShowEventViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
         
         loadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        save.isEnabled = ShowEventViewController.look
     }
     
     fileprivate func loadData() {
