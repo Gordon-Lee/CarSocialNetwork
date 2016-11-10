@@ -25,7 +25,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Usuário" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aed-S5-iBq">
-                                <rect key="frame" x="9" y="451" width="385" height="30"/>
+                                <rect key="frame" x="7" y="451" width="400" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="2dG-Z4-Tog"/>
                                 </constraints>
@@ -33,7 +33,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zmL-qr-KzA">
-                                <rect key="frame" x="9" y="489" width="385" height="30"/>
+                                <rect key="frame" x="8" y="489" width="400" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="O6u-Jx-CRi"/>
                                 </constraints>
@@ -41,7 +41,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UKQ-mD-EfB" customClass="DefaultBt" customModule="CarSocialNetwork" customModuleProvider="target">
-                                <rect key="frame" x="24" y="565" width="365" height="30"/>
+                                <rect key="frame" x="7" y="565" width="400" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="LMw-P0-LuL"/>
                                 </constraints>
@@ -59,7 +59,7 @@
                                 <state key="normal" image="faceLogin"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FiV-MR-7rh" customClass="DefaultBt" customModule="CarSocialNetwork" customModuleProvider="target">
-                                <rect key="frame" x="24" y="527" width="365" height="30"/>
+                                <rect key="frame" x="7" y="527" width="400" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="wJ3-LS-KHD"/>
                                 </constraints>
@@ -69,7 +69,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoCarSocial" translatesAutoresizingMaskIntoConstraints="NO" id="3be-gP-yWr">
-                                <rect key="frame" x="27" y="0.0" width="362" height="414"/>
+                                <rect key="frame" x="27" y="0.0" width="363" height="414"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -78,21 +78,21 @@
                             <constraint firstItem="UKQ-mD-EfB" firstAttribute="top" secondItem="FiV-MR-7rh" secondAttribute="bottom" constant="8" symbolic="YES" id="0V5-NA-Aio"/>
                             <constraint firstItem="aia-ou-5sy" firstAttribute="leading" secondItem="Qff-Iy-J2H" secondAttribute="leadingMargin" constant="86" id="2dz-Ft-eun"/>
                             <constraint firstItem="UKQ-mD-EfB" firstAttribute="centerX" secondItem="aia-ou-5sy" secondAttribute="centerX" id="3iD-ZH-rRd"/>
-                            <constraint firstItem="zmL-qr-KzA" firstAttribute="centerX" secondItem="FiV-MR-7rh" secondAttribute="centerX" constant="-5" id="C0P-fF-E4e"/>
-                            <constraint firstItem="3be-gP-yWr" firstAttribute="centerX" secondItem="Aed-S5-iBq" secondAttribute="centerX" constant="6.5" id="Diy-dA-sGW"/>
+                            <constraint firstItem="zmL-qr-KzA" firstAttribute="centerX" secondItem="FiV-MR-7rh" secondAttribute="centerX" constant="1" id="C0P-fF-E4e"/>
+                            <constraint firstItem="3be-gP-yWr" firstAttribute="centerX" secondItem="Aed-S5-iBq" secondAttribute="centerX" constant="1.5" id="Diy-dA-sGW"/>
                             <constraint firstItem="3be-gP-yWr" firstAttribute="top" secondItem="Qff-Iy-J2H" secondAttribute="top" id="FMG-Ra-Bkf"/>
                             <constraint firstItem="aia-ou-5sy" firstAttribute="centerX" secondItem="Qff-Iy-J2H" secondAttribute="centerX" id="Gs5-lX-0rk"/>
-                            <constraint firstItem="zmL-qr-KzA" firstAttribute="leading" secondItem="FiV-MR-7rh" secondAttribute="leading" constant="-15" id="I3f-s6-83n"/>
+                            <constraint firstItem="zmL-qr-KzA" firstAttribute="leading" secondItem="FiV-MR-7rh" secondAttribute="leading" constant="1" id="I3f-s6-83n"/>
                             <constraint firstItem="3be-gP-yWr" firstAttribute="leading" secondItem="Qff-Iy-J2H" secondAttribute="leadingMargin" constant="7" id="IXS-NH-0kf"/>
                             <constraint firstItem="Aed-S5-iBq" firstAttribute="top" secondItem="3be-gP-yWr" secondAttribute="bottom" constant="37" id="IrG-pn-jBr"/>
                             <constraint firstItem="FiV-MR-7rh" firstAttribute="trailing" secondItem="UKQ-mD-EfB" secondAttribute="trailing" id="Rr2-eR-82B"/>
                             <constraint firstItem="FiV-MR-7rh" firstAttribute="leading" secondItem="UKQ-mD-EfB" secondAttribute="leading" id="W5n-XJ-EVu"/>
                             <constraint firstItem="zmL-qr-KzA" firstAttribute="top" secondItem="Aed-S5-iBq" secondAttribute="bottom" constant="8" symbolic="YES" id="XDi-rh-Rib"/>
-                            <constraint firstItem="Aed-S5-iBq" firstAttribute="leading" secondItem="Qff-Iy-J2H" secondAttribute="leadingMargin" constant="-11" id="dfd-sL-VSZ"/>
+                            <constraint firstItem="Aed-S5-iBq" firstAttribute="leading" secondItem="Qff-Iy-J2H" secondAttribute="leadingMargin" constant="-13" id="dfd-sL-VSZ"/>
                             <constraint firstItem="FiV-MR-7rh" firstAttribute="top" secondItem="zmL-qr-KzA" secondAttribute="bottom" constant="8" symbolic="YES" id="gOp-He-dCS"/>
-                            <constraint firstItem="Aed-S5-iBq" firstAttribute="leading" secondItem="zmL-qr-KzA" secondAttribute="leading" id="h3L-Zo-B3U"/>
+                            <constraint firstItem="Aed-S5-iBq" firstAttribute="leading" secondItem="zmL-qr-KzA" secondAttribute="leading" constant="-1" id="h3L-Zo-B3U"/>
                             <constraint firstItem="h4V-g3-eOR" firstAttribute="top" secondItem="aia-ou-5sy" secondAttribute="bottom" constant="83" id="kel-qb-tpc"/>
-                            <constraint firstItem="Aed-S5-iBq" firstAttribute="trailing" secondItem="zmL-qr-KzA" secondAttribute="trailing" id="yD8-0r-Ct6"/>
+                            <constraint firstItem="Aed-S5-iBq" firstAttribute="trailing" secondItem="zmL-qr-KzA" secondAttribute="trailing" constant="-1" id="yD8-0r-Ct6"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">

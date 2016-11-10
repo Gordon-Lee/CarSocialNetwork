@@ -18,7 +18,7 @@ class PostTabbleCellView: UITableViewCell {
     
     static let nibName = "PostCellView"
     static let identifier = "postCell"
-    static let rowHeight = 600 as CGFloat
+    static let rowHeight = 625 as CGFloat
     
     
     @IBOutlet weak var postDescription: UILabel!

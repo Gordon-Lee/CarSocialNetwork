@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppCongifuration.systemBars()
        // setIncialStoryBoard()
         
-//        print("\(UserDefaults.sharedInstance.getUserName())")
+////        print("\(UserDefaults.sharedInstance.getUserName())")
         if UserDefaults.sharedInstance.isFirtTime() {
             goToStoryBoard(self.inicialTutorialIdentifier)
         }
@@ -40,9 +40,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let password = UserDefaults.sharedInstance.getPassword()
             loginWithParse(userName, password: password)
         } else {
-              goToStoryBoard(loginSBIdentifier)
+            goToStoryBoard(loginSBIdentifier)
         }
-        
+
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }

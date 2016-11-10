@@ -39,8 +39,15 @@ class HomeViewController: UIViewController {
         didSet {
             tableView.reloadData()
             print("&&&& \(activity.count)")
+            var i = 1
+            for ac in activity {
+                print("\(i) IMAGEID \(ac.image.objectId)")
+                i += i
+            }
         }
     }
+    
+    fileprivate var userActivityCurrentLike = [Activity]()
     
     var userId = PFUser()
     var image = Photo()
@@ -50,7 +57,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("current \(PFUser.current()?.objectId)")
-        loadData()
+        loadPostData()
+        loadActivityData()
         queryUser()
         tableViewSetup()
         nibCell()
@@ -61,7 +69,8 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         if reloadData {
-            loadData()
+            loadPostData()
+            loadActivityData()
             reloadData = false
         }
         configView()
@@ -107,31 +116,30 @@ extension HomeViewController {
         cell.backgroundColor = AppCongifuration.lightGrey()
     }
     //PARSE
-    fileprivate func loadData() {
+    fileprivate func loadPostData() {
         SVProgressHUD.show()
         
         let queryPh = Photo.query()
-        let queryActivy = Activity.query()
         
         queryPh?.includeKey("owner")
-        
         queryPh?.addDescendingOrder("createdAt")
         
-        queryActivy?.includeKey("image")
-        queryActivy?.includeKey("owner")
-        //queryActivy?.whereKey(Activity.typeaString, equalTo: activityType.post.rawValue)
-        //queryActivy?.whereKey(Activity.typeaString, equalTo: activityType.like.rawValue)
         queryPh?.findObjectsInBackground(block: { (photos, error) in
             guard error != nil else {
                 self.photoToShow = photos as! [Photo]
                 return
             }
         })
+    }
+    
+    fileprivate func loadActivityData() {
+        let query = Activity.query()
+        SVProgressHUD.show()
+        query?.whereKey("fromUser", equalTo: PFUser.current()!)
         
-        queryActivy?.includeKey("fromUser")
-        queryActivy?.includeKey("toUser")
-        
-        queryActivy?.findObjectsInBackground(block: { (activits, error) in
+        query?.includeKey("image")
+        query?.whereKey(Activity.typeaString, equalTo: ActivityType.like.rawValue)
+        query?.findObjectsInBackground(block: { (activits, error) in
             guard error != nil else {
                 self.activity = activits as! [Activity]
                 return
@@ -198,7 +206,7 @@ extension HomeViewController: UITableViewDataSource {
     
     fileprivate func isLiked(imageId: String) -> Bool {
         for a in activity {
-            if a.activityType == ActivityType.like.rawValue && a.image.objectId == imageId {
+            if a.image.objectId == imageId {
                 return true
             }
         }
@@ -244,11 +252,9 @@ extension HomeViewController: PostTableViewDelegate {
     func likePhoto() {
         let actv = Activity()
         actv.fromUser = PFUser.current()!
-        print()
         actv.toUser = userId
         actv.activityType = ActivityType.like.rawValue
         actv.image = image
-        print(actv)
         actv.saveInBackground(block: { (sucess, error) in
             if sucess {
                 print("SAVVVEEEEEEE")
