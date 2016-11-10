@@ -19,7 +19,7 @@ class ShowCarViewController: UIViewController {
     @IBOutlet weak var model: UILabel!
     @IBOutlet weak var brand: UILabel!
     @IBOutlet weak var year: UILabel!
-    @IBOutlet weak var carImage: UIImageView!
+    @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var onwerImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     
@@ -27,7 +27,7 @@ class ShowCarViewController: UIViewController {
         super.viewDidLoad()
         SVProgressHUD.show()
         loadData()
-        carImage.serRounded()
+        image.serRounded()
         onwerImage.serRounded()
         view.backgroundColor = AppCongifuration.lightGrey()
         title = "Carro"
@@ -59,7 +59,7 @@ class ShowCarViewController: UIViewController {
         
         showCar.image.getDataInBackground { (data, error) in
             if let imgData = UIImage(data: data!) {
-                self.carImage.image = imgData
+                self.image.image = imgData
             }
         }
         let imageToShow = showCar.owner["profileImage"] as! PFFile

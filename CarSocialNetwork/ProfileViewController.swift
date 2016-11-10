@@ -55,6 +55,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.allowsSelection = false
         nibCell()
     }
     
@@ -70,9 +71,11 @@ class ProfileViewController: UIViewController {
     }
     @IBAction func dataUser(_ sender: UISegmentedControl) {
         if(segmentedControl.selectedSegmentIndex == 0) {
+            tableView.allowsSelection = false
             dataTableView = .posts
             tableView.reloadData()
         } else {
+            tableView.allowsSelection = true
             dataTableView = .events
             loadEvents()
         }
