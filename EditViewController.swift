@@ -32,7 +32,10 @@ class EditViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        
         loadUsrData()
+        
         navigationController?.navigationBar.topItem?.title = "Editar"
     }
     
