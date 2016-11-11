@@ -157,6 +157,7 @@ extension SearchViewController {
     fileprivate func loadCars() {
         let queryCar = Car.query()
         queryCar?.includeKey("owner")
+    
         queryCar?.findObjectsInBackground(block: { (carLoad, error) in
             guard error != nil else {
                 self.cars = carLoad as! [Car]
@@ -274,7 +275,6 @@ extension SearchViewController: UITableViewDataSource {
         
         switch dataDisplay {
         case .car:
-            
             carData(cell: cell, row: indexPath.row)
         case .events:
             eventsData(cell: cell, row: indexPath.row)

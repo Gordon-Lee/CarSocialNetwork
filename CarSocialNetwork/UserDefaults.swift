@@ -54,6 +54,10 @@ class UserDefaults {
         return user == nil && password == nil
     }
     
+    internal func hasUsersved() -> Bool {
+        return nsDefaults.string(forKey: DataUserDefaults.userName) != nil
+    }
+    
     internal func getUserName() -> String? {
         return nsDefaults.string(forKey: DataUserDefaults.userName)
     }

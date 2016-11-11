@@ -14,6 +14,7 @@ import Parse
 class HomeViewController: UIViewController {
     
     static let storyIndentifier = "HomePage"
+    static var reloadData: Bool = false
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -39,11 +40,6 @@ class HomeViewController: UIViewController {
         didSet {
             tableView.reloadData()
             print("&&&& \(activity.count)")
-            var i = 1
-            for ac in activity {
-                print("\(i) IMAGEID \(ac.image.objectId)")
-                i += i
-            }
         }
     }
     
@@ -68,7 +64,7 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        if reloadData {
+        if HomeViewController.reloadData {
             loadPostData()
             loadActivityData()
             reloadData = false
@@ -141,10 +137,22 @@ extension HomeViewController {
         query?.whereKey(Activity.typeaString, equalTo: ActivityType.like.rawValue)
         query?.findObjectsInBackground(block: { (activits, error) in
             guard error != nil else {
-                self.activity = activits as! [Activity]
+                self.userActivityCurrentLike = activits as! [Activity]
                 return
             }
         })
+        
+        let queryComent = Activity.query()
+        
+        queryComent?.includeKey("image")
+        queryComent?.whereKey(Activity.typeaString, equalTo: ActivityType.post.rawValue)
+        queryComent?.findObjectsInBackground(block: { (acti, error) in
+            guard error != nil else {
+                self.activity = acti as! [Activity]
+                return
+            }
+        })
+        
     }
     
     fileprivate func queryUser() {
@@ -163,15 +171,6 @@ extension HomeViewController {
             self.tableView.reloadData()
         })
     }
-    
-    fileprivate func showDescription(_ photoId: String) -> String {
-        for act in activity {
-            if act.image.objectId == photoId {
-                return act.content
-            }
-        }
-        return ""
-    }
 }
 
 extension HomeViewController: UITableViewDataSource {
@@ -188,12 +187,12 @@ extension HomeViewController: UITableViewDataSource {
                 cell.like.isSelected = self.isLiked(imageId: self.photoToShow[indexPath.row].objectId!)
             }
         }
-        
-        let thumb = photoToShow[indexPath.row].owner["thumbImage"] as! PFFile
-        
-        thumb.getDataInBackground { (data, error) in
-            if let imgData = UIImage(data: data!) {
-                cell.thumbPhoto.image = imgData
+        if photoToShow[indexPath.row].owner["thumbImage"] != nil {
+            let thumb = photoToShow[indexPath.row].owner["thumbImage"] as! PFFile
+            thumb.getDataInBackground { (data, error) in
+                if let imgData = UIImage(data: data!) {
+                    cell.thumbPhoto.image = imgData
+                }
             }
         }
         
@@ -205,7 +204,7 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     fileprivate func isLiked(imageId: String) -> Bool {
-        for a in activity {
+        for a in userActivityCurrentLike {
             if a.image.objectId == imageId {
                 return true
             }
@@ -218,6 +217,14 @@ extension HomeViewController: UITableViewDataSource {
             if u.objId == id.objectId {
                 self.thumbImage = u.thumbImage
                 return u.userName!
+            }
+        }
+        return ""
+    }
+    fileprivate func showDescription(_ photoId: String) -> String {
+        for act in activity {
+            if act.image.objectId == photoId {
+                return act.content
             }
         }
         return ""

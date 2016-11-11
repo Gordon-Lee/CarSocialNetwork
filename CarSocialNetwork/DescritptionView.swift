@@ -36,12 +36,11 @@ class DescritptionView: UIView {
     }
     
     @IBAction func trashPost(_ sender: AnyObject) {
-        print("POST PHOTO")
         delegate?.didTapCancel()
     }
     
     @IBAction func postPhoto(_ sender: AnyObject) {
-        print("POST PHOTO "+commenBox.text!)
+        HomeViewController.reloadData = true
         delegate?.didClickToFinish(commenBox.text!, image: photo)
     }
     

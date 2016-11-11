@@ -113,12 +113,12 @@ extension ProfileViewController {
         let q = Activity.query()
         
         q?.includeKey("event")
+        q?.whereKey("toUser", equalTo: PFUser.current()!)
         q?.whereKey(Activity.typeaString, equalTo: ActivityType.goEvent.rawValue)
         
         q?.findObjectsInBackground(block: { (events, error) in
             guard error != nil else {
                 self.userEvents = events as! [Activity]
-                print(self.userEvents[0].event.image)
                 return
             }
         })
@@ -214,7 +214,8 @@ extension ProfileViewController: UITableViewDataSource {
                 cell.actvDescription.text = userActivityPost[indexPath.row].content
             }
         case .events:
-            cell.actvDescription.text = "\(indexPath.row)"
+            let text = userEvents[indexPath.row].event as? Events
+            cell.actvDescription.text = text!.name
             print("GOOOO EVENTS \(userEvents.count)")
         }
         setButtonsCellState(dataView: dataTableView, cell: cell)

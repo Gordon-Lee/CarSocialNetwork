@@ -75,6 +75,10 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func login(_ sender: AnyObject) {
+    
+        if UserDefaults.sharedInstance.getUserName() != nil {
+            UserDefaults.sharedInstance.Save(username: self.userNameTxt.text!, password: self.passWordTxt.text!, loginType: .normal)
+        }
         loginWithParse(userNameTxt.text!, password: passWordTxt.text!)
     }
     @IBAction func singUp(_ sender: AnyObject) {

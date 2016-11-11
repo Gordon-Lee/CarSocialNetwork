@@ -35,11 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             goToStoryBoard(self.inicialTutorialIdentifier)
         }
         
-        if UserDefaults.sharedInstance.autoLogin() {
+        if UserDefaults.sharedInstance.autoLogin() && UserDefaults.sharedInstance.hasUsersved() {
             let userName = UserDefaults.sharedInstance.getUserName()
             let password = UserDefaults.sharedInstance.getPassword()
             loginWithParse(userName, password: password)
-        } else {
+        } else if UserDefaults.sharedInstance.hasUsersved() {
             goToStoryBoard(loginSBIdentifier)
         }
 
@@ -80,7 +80,7 @@ extension AppDelegate {
     
     fileprivate func setIncialStoryBoard() {
         //goToStoryBoard(loginSBIdentifier)
-        print("\(UserDefaults.sharedInstance.getUserName())")
+        
         if UserDefaults.sharedInstance.isFirtTime() {
             goToStoryBoard(self.inicialTutorialIdentifier)
             return

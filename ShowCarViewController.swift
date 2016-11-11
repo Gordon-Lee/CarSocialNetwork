@@ -27,12 +27,11 @@ class ShowCarViewController: UIViewController {
         super.viewDidLoad()
         SVProgressHUD.show()
         loadData()
-        image.serRounded()
-        onwerImage.serRounded()
+        onwerImage.setCircle()
         view.backgroundColor = AppCongifuration.lightGrey()
         title = "Carro"
         navigationController?.setNavigationBarHidden(false, animated: true)
-        setupTap()
+        //setupTap()
     }
     
     fileprivate func setupTap() {
