@@ -50,18 +50,18 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="steering" translatesAutoresizingMaskIntoConstraints="NO" id="3vL-ez-raG">
-                    <rect key="frame" x="162" y="273" width="90" height="90"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="90" id="KCA-rv-5vk"/>
-                        <constraint firstAttribute="height" constant="90" id="Yq3-c1-gEg"/>
-                    </constraints>
-                </imageView>
                 <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hs7-4u-rMP">
                     <rect key="frame" x="-1" y="139" width="415" height="415"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="415" id="uW1-Og-M0G"/>
                         <constraint firstAttribute="height" constant="415" id="znY-Vv-U4x"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="steering" translatesAutoresizingMaskIntoConstraints="NO" id="3vL-ez-raG">
+                    <rect key="frame" x="162" y="273" width="90" height="90"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="90" id="KCA-rv-5vk"/>
+                        <constraint firstAttribute="height" constant="90" id="Yq3-c1-gEg"/>
                     </constraints>
                 </imageView>
             </subviews>
