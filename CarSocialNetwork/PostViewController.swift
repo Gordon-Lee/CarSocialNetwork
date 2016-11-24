@@ -44,6 +44,7 @@ class PostViewController: UIViewController {
         case .FUSUMA:
             FusumaConfig.defaultCfg()
             howView = .HOME
+            fus.view.setNeedsLayout()
             present(fus, animated: true, completion: nil)
             return
         case .DESCRIPTION:

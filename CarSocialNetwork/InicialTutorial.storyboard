@@ -24,13 +24,37 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TestInicial" translatesAutoresizingMaskIntoConstraints="NO" id="bFr-JV-pSG">
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                             </imageView>
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nVA-5j-TV6">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bem vindo a rede social de Automóveis" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnk-06-YOQ">
+                                        <rect key="frame" x="32" y="161" width="350" height="350"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="350" id="44h-4i-CEt"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="53"/>
+                                        <color key="textColor" red="0.98958333333333337" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="highlightedColor" red="0.7951236388843913" green="0.80349336139896377" blue="0.80349336139896377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1333139837" green="0.13334444170000001" blue="0.1333120763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="bnk-06-YOQ" firstAttribute="centerY" secondItem="nVA-5j-TV6" secondAttribute="centerY" id="WGh-kr-lyB"/>
+                                    <constraint firstItem="bnk-06-YOQ" firstAttribute="centerX" secondItem="nVA-5j-TV6" secondAttribute="centerX" id="utF-qQ-Jjd"/>
+                                    <constraint firstItem="bnk-06-YOQ" firstAttribute="leading" secondItem="nVA-5j-TV6" secondAttribute="leading" constant="32" id="yV6-cd-Hes"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="bFr-JV-pSG" secondAttribute="trailing" id="Bco-m1-xaf"/>
-                            <constraint firstItem="bFr-JV-pSG" firstAttribute="leading" secondItem="ndD-ro-XrN" secondAttribute="leading" id="K8a-hd-neg"/>
-                            <constraint firstItem="bFr-JV-pSG" firstAttribute="top" secondItem="Wyt-lR-cI6" secondAttribute="bottom" id="SG3-bL-qyz"/>
-                            <constraint firstItem="bFr-JV-pSG" firstAttribute="bottom" secondItem="cZv-bZ-87T" secondAttribute="top" id="zoZ-sv-WRv"/>
+                            <constraint firstItem="bFr-JV-pSG" firstAttribute="bottom" secondItem="cZv-bZ-87T" secondAttribute="top" id="ELl-Gh-2Go"/>
+                            <constraint firstItem="nVA-5j-TV6" firstAttribute="top" secondItem="Wyt-lR-cI6" secondAttribute="bottom" id="V5p-Vb-XtK"/>
+                            <constraint firstItem="nVA-5j-TV6" firstAttribute="bottom" secondItem="cZv-bZ-87T" secondAttribute="top" id="aek-j7-gwQ"/>
+                            <constraint firstItem="bFr-JV-pSG" firstAttribute="leading" secondItem="ndD-ro-XrN" secondAttribute="leading" id="igL-cn-sqM"/>
+                            <constraint firstItem="nVA-5j-TV6" firstAttribute="leading" secondItem="bFr-JV-pSG" secondAttribute="leading" id="nnC-2d-tCE"/>
+                            <constraint firstItem="bFr-JV-pSG" firstAttribute="trailing" secondItem="nVA-5j-TV6" secondAttribute="trailing" id="s3S-U7-tDo"/>
+                            <constraint firstAttribute="trailing" secondItem="bFr-JV-pSG" secondAttribute="trailing" id="vvp-qS-qx1"/>
+                            <constraint firstItem="nVA-5j-TV6" firstAttribute="top" secondItem="bFr-JV-pSG" secondAttribute="top" id="xEj-ek-7Fj"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -53,7 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6N3-Y6-oh5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1411.5942028985507" y="419.02173913043481"/>
+            <point key="canvasLocation" x="1410.144927536232" y="419.02173913043481"/>
         </scene>
         <!--Car Social-->
         <scene sceneID="C3t-i5-NBq">
@@ -70,17 +94,41 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TestInicial" translatesAutoresizingMaskIntoConstraints="NO" id="MSX-6E-zbu">
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                             </imageView>
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qXT-h1-B59">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compartilhe a sua paixão com outros proprietários" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWD-LL-D2P">
+                                        <rect key="frame" x="32" y="161" width="350" height="350"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="350" id="GFt-Rf-qxa"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="58"/>
+                                        <color key="textColor" red="0.98958333330000003" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1333139837" green="0.13334444170000001" blue="0.1333120763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="yWD-LL-D2P" firstAttribute="centerX" secondItem="qXT-h1-B59" secondAttribute="centerX" id="18r-7m-5Bn"/>
+                                    <constraint firstItem="yWD-LL-D2P" firstAttribute="centerY" secondItem="qXT-h1-B59" secondAttribute="centerY" id="MfB-iy-oLt"/>
+                                    <constraint firstItem="yWD-LL-D2P" firstAttribute="leading" secondItem="qXT-h1-B59" secondAttribute="leading" constant="32" id="v2u-cr-Deo"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="MSX-6E-zbu" firstAttribute="top" secondItem="4hI-Sw-oYx" secondAttribute="bottom" id="9Ti-ez-HbF"/>
-                            <constraint firstItem="MSX-6E-zbu" firstAttribute="bottom" secondItem="vOQ-ld-0ET" secondAttribute="top" id="JPJ-xY-ulK"/>
-                            <constraint firstAttribute="trailing" secondItem="MSX-6E-zbu" secondAttribute="trailing" id="JWV-kB-F9s"/>
-                            <constraint firstItem="MSX-6E-zbu" firstAttribute="leading" secondItem="Ewj-Is-4qE" secondAttribute="leading" id="Pe2-T8-ylU"/>
+                            <constraint firstItem="qXT-h1-B59" firstAttribute="trailing" secondItem="MSX-6E-zbu" secondAttribute="trailing" id="14g-e5-5vb"/>
+                            <constraint firstAttribute="trailing" secondItem="qXT-h1-B59" secondAttribute="trailing" id="5b8-b6-Lnq"/>
+                            <constraint firstItem="qXT-h1-B59" firstAttribute="bottom" secondItem="vOQ-ld-0ET" secondAttribute="top" id="6TQ-B7-Kek"/>
+                            <constraint firstItem="qXT-h1-B59" firstAttribute="top" secondItem="4hI-Sw-oYx" secondAttribute="bottom" id="RGC-QU-i1e"/>
+                            <constraint firstItem="MSX-6E-zbu" firstAttribute="leading" secondItem="Ewj-Is-4qE" secondAttribute="leading" id="dku-nO-ET1"/>
+                            <constraint firstItem="MSX-6E-zbu" firstAttribute="leading" secondItem="qXT-h1-B59" secondAttribute="leading" id="ikl-Sk-Z9F"/>
+                            <constraint firstItem="qXT-h1-B59" firstAttribute="top" secondItem="MSX-6E-zbu" secondAttribute="top" id="on4-iL-D4t"/>
+                            <constraint firstItem="MSX-6E-zbu" firstAttribute="bottom" secondItem="vOQ-ld-0ET" secondAttribute="top" id="u3o-ZR-bAr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Car Social" id="jNV-2r-L6H">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="RbX-lQ-PJr">
+                        <barButtonItem key="rightBarButtonItem" title="Login" id="RbX-lQ-PJr">
                             <connections>
                                 <segue destination="nQh-Ud-vxl" kind="presentation" id="q66-Kx-2ld"/>
                             </connections>
