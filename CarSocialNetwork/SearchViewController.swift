@@ -61,15 +61,15 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadEvents()
-        loadCars()
-        loadPeople()
         setButtonsImage()
         configSearch()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        loadEvents()
+        loadCars()
+        loadPeople()
         nibCell()
         configView()
         showNavigation()

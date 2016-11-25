@@ -64,11 +64,18 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        if HomeViewController.reloadData {
-            loadPostData()
-            loadActivityData()
-            reloadData = false
-        }
+        loadPostData()
+        loadActivityData()
+        queryUser()
+        tableViewSetup()
+        nibCell()
+        navigationBarSHY()
+
+//        if HomeViewController.reloadData {
+//            loadPostData()
+//            loadActivityData()
+//            reloadData = false
+//        }
         configView()
     }
     

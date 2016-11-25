@@ -220,7 +220,9 @@ extension LoginViewController: LoginViewControllerDelegate {
         newMemberSignUp.removeFromSuperview()
     }
     func didTapSignup() {
-        homeView()
+        let sb = UIStoryboard(name: HomeViewController.storyIndentifier, bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "homePage")
+        self.present(vc, animated: true, completion: nil)
     }
     func didTapRecoverAccount() {
     

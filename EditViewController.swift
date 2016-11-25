@@ -90,8 +90,8 @@ extension EditViewController {
         PFUser.current()?["profileImage"] = PFFile(data: AdjustPhoto.uploadToPhoto(userImage.image!, type: .normal))!
         PFUser.current()?["thumbImage"] = PFFile(data: AdjustPhoto.uploadToPhoto(userImage.image!, type: .thumb))!
         
-        PFUser.current()?.saveInBackground(block: { (bool, error) in
-            if bool {
+        PFUser.current()?.saveInBackground(block: { (success, error) in
+            if success {
                 SVProgressHUD.dismiss()
                 self.dismiss(animated: true, completion: nil)
             }
