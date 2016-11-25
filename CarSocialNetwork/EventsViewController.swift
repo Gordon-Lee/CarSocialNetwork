@@ -65,7 +65,6 @@ class EventsViewController: UIViewController {
     
     func save() {
         
-        SVProgressHUD.show()
         let eventToSave = Events(onwer: PFUser.current()!,
                                  name: name.text!,
                                  eventDescription: eventDescription.text!,
@@ -73,9 +72,8 @@ class EventsViewController: UIViewController {
                                  local: adress.text!,
                                  cidade: city.text!,
                                  estado: state.text!)
-        eventToSave.saveInBackground { (show, error) in
-            if show {
-                SVProgressHUD.dismiss()
+        eventToSave.saveInBackground { (success, error) in
+            if success {
                 self.navigationController?.popViewController(animated: true)
             }
         }

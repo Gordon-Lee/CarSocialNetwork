@@ -12,7 +12,6 @@ import SVProgressHUD
 
 var showEvent = Events()
 
-
 class ShowEventViewController: UIViewController {
 
     static let identifier = "ShowEventViewController"
@@ -48,9 +47,9 @@ class ShowEventViewController: UIViewController {
 //        print(showEvent)
         //event.text = showEvent.name
         eventDesc.text = showEvent.eventDescription
-        startDate.text = showEvent.startDate
-        endDate.text = showEvent.endDate
-        adress.text = showEvent.local
+        startDate.text = showEvent.inicialDate
+        endDate.text = showEvent.endedDate
+        adress.text = showEvent.address
         city.text = showEvent.cidade
         state.text = showEvent.estado
         

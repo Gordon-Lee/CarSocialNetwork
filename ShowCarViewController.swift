@@ -31,13 +31,13 @@ class ShowCarViewController: UIViewController {
         view.backgroundColor = AppCongifuration.lightGrey()
         title = "Carro"
         navigationController?.setNavigationBarHidden(false, animated: true)
-        //setupTap()
+        setupTap()
     }
     
     fileprivate func setupTap() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(ShowCarViewController.showProfileDetails))
         gesture.numberOfTapsRequired = 1
-      //  gesture.delegate = self
+        //gesture.delegate = self
         onwerImage.isUserInteractionEnabled = true
         onwerImage.addGestureRecognizer(gesture)
     }
